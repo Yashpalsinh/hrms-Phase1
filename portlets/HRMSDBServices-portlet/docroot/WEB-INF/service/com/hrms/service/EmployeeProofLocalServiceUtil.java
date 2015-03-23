@@ -55,27 +55,27 @@ public class EmployeeProofLocalServiceUtil {
 	/**
 	* Creates a new employee proof with the primary key. Does not add the employee proof to the database.
 	*
-	* @param employeeproofNo the primary key for the new employee proof
+	* @param employeeProofId the primary key for the new employee proof
 	* @return the new employee proof
 	*/
 	public static com.hrms.model.EmployeeProof createEmployeeProof(
-		long employeeproofNo) {
-		return getService().createEmployeeProof(employeeproofNo);
+		long employeeProofId) {
+		return getService().createEmployeeProof(employeeProofId);
 	}
 
 	/**
 	* Deletes the employee proof with the primary key from the database. Also notifies the appropriate model listeners.
 	*
-	* @param employeeproofNo the primary key of the employee proof
+	* @param employeeProofId the primary key of the employee proof
 	* @return the employee proof that was removed
 	* @throws PortalException if a employee proof with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.hrms.model.EmployeeProof deleteEmployeeProof(
-		long employeeproofNo)
+		long employeeProofId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return getService().deleteEmployeeProof(employeeproofNo);
+		return getService().deleteEmployeeProof(employeeProofId);
 	}
 
 	/**
@@ -182,24 +182,24 @@ public class EmployeeProofLocalServiceUtil {
 	}
 
 	public static com.hrms.model.EmployeeProof fetchEmployeeProof(
-		long employeeproofNo)
+		long employeeProofId)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().fetchEmployeeProof(employeeproofNo);
+		return getService().fetchEmployeeProof(employeeProofId);
 	}
 
 	/**
 	* Returns the employee proof with the primary key.
 	*
-	* @param employeeproofNo the primary key of the employee proof
+	* @param employeeProofId the primary key of the employee proof
 	* @return the employee proof
 	* @throws PortalException if a employee proof with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.hrms.model.EmployeeProof getEmployeeProof(
-		long employeeproofNo)
+		long employeeProofId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return getService().getEmployeeProof(employeeproofNo);
+		return getService().getEmployeeProof(employeeProofId);
 	}
 
 	public static com.liferay.portal.model.PersistedModel getPersistedModel(

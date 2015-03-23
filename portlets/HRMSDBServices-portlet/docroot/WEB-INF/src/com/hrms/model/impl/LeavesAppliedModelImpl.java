@@ -70,9 +70,14 @@ public class LeavesAppliedModelImpl extends BaseModelImpl<LeavesApplied>
 			{ "userId", Types.BIGINT },
 			{ "groupId", Types.BIGINT },
 			{ "companyId", Types.BIGINT },
+			{ "employeeName", Types.VARCHAR },
+			{ "leaveName", Types.VARCHAR },
 			{ "entitlement", Types.VARCHAR },
+			{ "leaveDuration", Types.VARCHAR },
 			{ "leaveFrom", Types.TIMESTAMP },
 			{ "leaveTo", Types.TIMESTAMP },
+			{ "leaveDate", Types.TIMESTAMP },
+			{ "leavePeriod", Types.VARCHAR },
 			{ "approvalStatus", Types.VARCHAR },
 			{ "leaveId", Types.BIGINT },
 			{ "createDate", Types.TIMESTAMP },
@@ -80,7 +85,7 @@ public class LeavesAppliedModelImpl extends BaseModelImpl<LeavesApplied>
 			{ "createBy", Types.BIGINT },
 			{ "modifiedBy", Types.BIGINT }
 		};
-	public static final String TABLE_SQL_CREATE = "create table HRMS_LeavesApplied (appliedLeaveId LONG not null primary key,userId LONG,groupId LONG,companyId LONG,entitlement VARCHAR(75) null,leaveFrom DATE null,leaveTo DATE null,approvalStatus VARCHAR(75) null,leaveId LONG,createDate DATE null,modifiedDate DATE null,createBy LONG,modifiedBy LONG)";
+	public static final String TABLE_SQL_CREATE = "create table HRMS_LeavesApplied (appliedLeaveId LONG not null primary key,userId LONG,groupId LONG,companyId LONG,employeeName VARCHAR(75) null,leaveName VARCHAR(75) null,entitlement VARCHAR(75) null,leaveDuration VARCHAR(75) null,leaveFrom DATE null,leaveTo DATE null,leaveDate DATE null,leavePeriod VARCHAR(75) null,approvalStatus VARCHAR(75) null,leaveId LONG,createDate DATE null,modifiedDate DATE null,createBy LONG,modifiedBy LONG)";
 	public static final String TABLE_SQL_DROP = "drop table HRMS_LeavesApplied";
 	public static final String ORDER_BY_JPQL = " ORDER BY leavesApplied.appliedLeaveId ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY HRMS_LeavesApplied.appliedLeaveId ASC";
@@ -112,9 +117,14 @@ public class LeavesAppliedModelImpl extends BaseModelImpl<LeavesApplied>
 		model.setUserId(soapModel.getUserId());
 		model.setGroupId(soapModel.getGroupId());
 		model.setCompanyId(soapModel.getCompanyId());
+		model.setEmployeeName(soapModel.getEmployeeName());
+		model.setLeaveName(soapModel.getLeaveName());
 		model.setEntitlement(soapModel.getEntitlement());
+		model.setLeaveDuration(soapModel.getLeaveDuration());
 		model.setLeaveFrom(soapModel.getLeaveFrom());
 		model.setLeaveTo(soapModel.getLeaveTo());
+		model.setLeaveDate(soapModel.getLeaveDate());
+		model.setLeavePeriod(soapModel.getLeavePeriod());
 		model.setApprovalStatus(soapModel.getApprovalStatus());
 		model.setLeaveId(soapModel.getLeaveId());
 		model.setCreateDate(soapModel.getCreateDate());
@@ -189,9 +199,14 @@ public class LeavesAppliedModelImpl extends BaseModelImpl<LeavesApplied>
 		attributes.put("userId", getUserId());
 		attributes.put("groupId", getGroupId());
 		attributes.put("companyId", getCompanyId());
+		attributes.put("employeeName", getEmployeeName());
+		attributes.put("leaveName", getLeaveName());
 		attributes.put("entitlement", getEntitlement());
+		attributes.put("leaveDuration", getLeaveDuration());
 		attributes.put("leaveFrom", getLeaveFrom());
 		attributes.put("leaveTo", getLeaveTo());
+		attributes.put("leaveDate", getLeaveDate());
+		attributes.put("leavePeriod", getLeavePeriod());
 		attributes.put("approvalStatus", getApprovalStatus());
 		attributes.put("leaveId", getLeaveId());
 		attributes.put("createDate", getCreateDate());
@@ -228,10 +243,28 @@ public class LeavesAppliedModelImpl extends BaseModelImpl<LeavesApplied>
 			setCompanyId(companyId);
 		}
 
+		String employeeName = (String)attributes.get("employeeName");
+
+		if (employeeName != null) {
+			setEmployeeName(employeeName);
+		}
+
+		String leaveName = (String)attributes.get("leaveName");
+
+		if (leaveName != null) {
+			setLeaveName(leaveName);
+		}
+
 		String entitlement = (String)attributes.get("entitlement");
 
 		if (entitlement != null) {
 			setEntitlement(entitlement);
+		}
+
+		String leaveDuration = (String)attributes.get("leaveDuration");
+
+		if (leaveDuration != null) {
+			setLeaveDuration(leaveDuration);
 		}
 
 		Date leaveFrom = (Date)attributes.get("leaveFrom");
@@ -244,6 +277,18 @@ public class LeavesAppliedModelImpl extends BaseModelImpl<LeavesApplied>
 
 		if (leaveTo != null) {
 			setLeaveTo(leaveTo);
+		}
+
+		Date leaveDate = (Date)attributes.get("leaveDate");
+
+		if (leaveDate != null) {
+			setLeaveDate(leaveDate);
+		}
+
+		String leavePeriod = (String)attributes.get("leavePeriod");
+
+		if (leavePeriod != null) {
+			setLeavePeriod(leavePeriod);
 		}
 
 		String approvalStatus = (String)attributes.get("approvalStatus");
@@ -339,6 +384,38 @@ public class LeavesAppliedModelImpl extends BaseModelImpl<LeavesApplied>
 
 	@JSON
 	@Override
+	public String getEmployeeName() {
+		if (_employeeName == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _employeeName;
+		}
+	}
+
+	@Override
+	public void setEmployeeName(String employeeName) {
+		_employeeName = employeeName;
+	}
+
+	@JSON
+	@Override
+	public String getLeaveName() {
+		if (_leaveName == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _leaveName;
+		}
+	}
+
+	@Override
+	public void setLeaveName(String leaveName) {
+		_leaveName = leaveName;
+	}
+
+	@JSON
+	@Override
 	public String getEntitlement() {
 		if (_entitlement == null) {
 			return StringPool.BLANK;
@@ -351,6 +428,22 @@ public class LeavesAppliedModelImpl extends BaseModelImpl<LeavesApplied>
 	@Override
 	public void setEntitlement(String entitlement) {
 		_entitlement = entitlement;
+	}
+
+	@JSON
+	@Override
+	public String getLeaveDuration() {
+		if (_leaveDuration == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _leaveDuration;
+		}
+	}
+
+	@Override
+	public void setLeaveDuration(String leaveDuration) {
+		_leaveDuration = leaveDuration;
 	}
 
 	@JSON
@@ -373,6 +466,33 @@ public class LeavesAppliedModelImpl extends BaseModelImpl<LeavesApplied>
 	@Override
 	public void setLeaveTo(Date leaveTo) {
 		_leaveTo = leaveTo;
+	}
+
+	@JSON
+	@Override
+	public Date getLeaveDate() {
+		return _leaveDate;
+	}
+
+	@Override
+	public void setLeaveDate(Date leaveDate) {
+		_leaveDate = leaveDate;
+	}
+
+	@JSON
+	@Override
+	public String getLeavePeriod() {
+		if (_leavePeriod == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _leavePeriod;
+		}
+	}
+
+	@Override
+	public void setLeavePeriod(String leavePeriod) {
+		_leavePeriod = leavePeriod;
 	}
 
 	@JSON
@@ -477,9 +597,14 @@ public class LeavesAppliedModelImpl extends BaseModelImpl<LeavesApplied>
 		leavesAppliedImpl.setUserId(getUserId());
 		leavesAppliedImpl.setGroupId(getGroupId());
 		leavesAppliedImpl.setCompanyId(getCompanyId());
+		leavesAppliedImpl.setEmployeeName(getEmployeeName());
+		leavesAppliedImpl.setLeaveName(getLeaveName());
 		leavesAppliedImpl.setEntitlement(getEntitlement());
+		leavesAppliedImpl.setLeaveDuration(getLeaveDuration());
 		leavesAppliedImpl.setLeaveFrom(getLeaveFrom());
 		leavesAppliedImpl.setLeaveTo(getLeaveTo());
+		leavesAppliedImpl.setLeaveDate(getLeaveDate());
+		leavesAppliedImpl.setLeavePeriod(getLeavePeriod());
 		leavesAppliedImpl.setApprovalStatus(getApprovalStatus());
 		leavesAppliedImpl.setLeaveId(getLeaveId());
 		leavesAppliedImpl.setCreateDate(getCreateDate());
@@ -550,12 +675,36 @@ public class LeavesAppliedModelImpl extends BaseModelImpl<LeavesApplied>
 
 		leavesAppliedCacheModel.companyId = getCompanyId();
 
+		leavesAppliedCacheModel.employeeName = getEmployeeName();
+
+		String employeeName = leavesAppliedCacheModel.employeeName;
+
+		if ((employeeName != null) && (employeeName.length() == 0)) {
+			leavesAppliedCacheModel.employeeName = null;
+		}
+
+		leavesAppliedCacheModel.leaveName = getLeaveName();
+
+		String leaveName = leavesAppliedCacheModel.leaveName;
+
+		if ((leaveName != null) && (leaveName.length() == 0)) {
+			leavesAppliedCacheModel.leaveName = null;
+		}
+
 		leavesAppliedCacheModel.entitlement = getEntitlement();
 
 		String entitlement = leavesAppliedCacheModel.entitlement;
 
 		if ((entitlement != null) && (entitlement.length() == 0)) {
 			leavesAppliedCacheModel.entitlement = null;
+		}
+
+		leavesAppliedCacheModel.leaveDuration = getLeaveDuration();
+
+		String leaveDuration = leavesAppliedCacheModel.leaveDuration;
+
+		if ((leaveDuration != null) && (leaveDuration.length() == 0)) {
+			leavesAppliedCacheModel.leaveDuration = null;
 		}
 
 		Date leaveFrom = getLeaveFrom();
@@ -574,6 +723,23 @@ public class LeavesAppliedModelImpl extends BaseModelImpl<LeavesApplied>
 		}
 		else {
 			leavesAppliedCacheModel.leaveTo = Long.MIN_VALUE;
+		}
+
+		Date leaveDate = getLeaveDate();
+
+		if (leaveDate != null) {
+			leavesAppliedCacheModel.leaveDate = leaveDate.getTime();
+		}
+		else {
+			leavesAppliedCacheModel.leaveDate = Long.MIN_VALUE;
+		}
+
+		leavesAppliedCacheModel.leavePeriod = getLeavePeriod();
+
+		String leavePeriod = leavesAppliedCacheModel.leavePeriod;
+
+		if ((leavePeriod != null) && (leavePeriod.length() == 0)) {
+			leavesAppliedCacheModel.leavePeriod = null;
 		}
 
 		leavesAppliedCacheModel.approvalStatus = getApprovalStatus();
@@ -613,7 +779,7 @@ public class LeavesAppliedModelImpl extends BaseModelImpl<LeavesApplied>
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(27);
+		StringBundler sb = new StringBundler(37);
 
 		sb.append("{appliedLeaveId=");
 		sb.append(getAppliedLeaveId());
@@ -623,12 +789,22 @@ public class LeavesAppliedModelImpl extends BaseModelImpl<LeavesApplied>
 		sb.append(getGroupId());
 		sb.append(", companyId=");
 		sb.append(getCompanyId());
+		sb.append(", employeeName=");
+		sb.append(getEmployeeName());
+		sb.append(", leaveName=");
+		sb.append(getLeaveName());
 		sb.append(", entitlement=");
 		sb.append(getEntitlement());
+		sb.append(", leaveDuration=");
+		sb.append(getLeaveDuration());
 		sb.append(", leaveFrom=");
 		sb.append(getLeaveFrom());
 		sb.append(", leaveTo=");
 		sb.append(getLeaveTo());
+		sb.append(", leaveDate=");
+		sb.append(getLeaveDate());
+		sb.append(", leavePeriod=");
+		sb.append(getLeavePeriod());
 		sb.append(", approvalStatus=");
 		sb.append(getApprovalStatus());
 		sb.append(", leaveId=");
@@ -648,7 +824,7 @@ public class LeavesAppliedModelImpl extends BaseModelImpl<LeavesApplied>
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(43);
+		StringBundler sb = new StringBundler(58);
 
 		sb.append("<model><model-name>");
 		sb.append("com.hrms.model.LeavesApplied");
@@ -671,8 +847,20 @@ public class LeavesAppliedModelImpl extends BaseModelImpl<LeavesApplied>
 		sb.append(getCompanyId());
 		sb.append("]]></column-value></column>");
 		sb.append(
+			"<column><column-name>employeeName</column-name><column-value><![CDATA[");
+		sb.append(getEmployeeName());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>leaveName</column-name><column-value><![CDATA[");
+		sb.append(getLeaveName());
+		sb.append("]]></column-value></column>");
+		sb.append(
 			"<column><column-name>entitlement</column-name><column-value><![CDATA[");
 		sb.append(getEntitlement());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>leaveDuration</column-name><column-value><![CDATA[");
+		sb.append(getLeaveDuration());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>leaveFrom</column-name><column-value><![CDATA[");
@@ -681,6 +869,14 @@ public class LeavesAppliedModelImpl extends BaseModelImpl<LeavesApplied>
 		sb.append(
 			"<column><column-name>leaveTo</column-name><column-value><![CDATA[");
 		sb.append(getLeaveTo());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>leaveDate</column-name><column-value><![CDATA[");
+		sb.append(getLeaveDate());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>leavePeriod</column-name><column-value><![CDATA[");
+		sb.append(getLeavePeriod());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>approvalStatus</column-name><column-value><![CDATA[");
@@ -721,9 +917,14 @@ public class LeavesAppliedModelImpl extends BaseModelImpl<LeavesApplied>
 	private String _userUuid;
 	private long _groupId;
 	private long _companyId;
+	private String _employeeName;
+	private String _leaveName;
 	private String _entitlement;
+	private String _leaveDuration;
 	private Date _leaveFrom;
 	private Date _leaveTo;
+	private Date _leaveDate;
+	private String _leavePeriod;
 	private String _approvalStatus;
 	private long _leaveId;
 	private Date _createDate;

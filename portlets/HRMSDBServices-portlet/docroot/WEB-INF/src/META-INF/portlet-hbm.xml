@@ -11,11 +11,10 @@
 	<import class="com.hrms.model.EmployeeDesignation" />
 	<import class="com.hrms.model.EmployeeLanguageDetail" />
 	<import class="com.hrms.model.EmployeeLeave" />
-	<import class="com.hrms.model.EmployeeMaster" />
+	<import class="com.hrms.model.EmployeeMst" />
 	<import class="com.hrms.model.EmployeePreviousCompany" />
 	<import class="com.hrms.model.EmployeeProof" />
 	<import class="com.hrms.model.EmployeeQualification" />
-	<import class="com.hrms.model.EmployeeSubDepartment" />
 	<import class="com.hrms.model.EmployeeTimesheet" />
 	<import class="com.hrms.model.EmployeeType" />
 	<import class="com.hrms.model.EmployeeWarning" />
@@ -24,7 +23,6 @@
 	<import class="com.hrms.model.Leave" />
 	<import class="com.hrms.model.LeavesApplied" />
 	<import class="com.hrms.model.Offer" />
-	<import class="com.hrms.model.Proof" />
 	<class name="com.hrms.model.impl.CandidateImpl" table="HRMS_Candidate">
 		<cache usage="read-write" />
 		<id name="candidateId" type="long">
@@ -108,7 +106,6 @@
 		<property name="signoutTime" type="org.hibernate.type.TimestampType" />
 		<property name="totalTime" type="org.hibernate.type.TimestampType" />
 		<property name="approved" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
-		<property name="approvedBy" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="createDate" type="org.hibernate.type.TimestampType" />
 		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
 		<property name="createBy" type="com.liferay.portal.dao.orm.hibernate.LongType" />
@@ -182,9 +179,9 @@
 		<property name="createBy" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="modifiedBy" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 	</class>
-	<class name="com.hrms.model.impl.EmployeeMasterImpl" table="HRMS_EmployeeMaster">
+	<class name="com.hrms.model.impl.EmployeeMstImpl" table="HRMS_EmployeeMst">
 		<cache usage="read-write" />
-		<id name="employeeMasterId" type="long">
+		<id name="employeeMstId" type="long">
 			<generator class="assigned" />
 		</id>
 		<property name="employeeId" type="com.liferay.portal.dao.orm.hibernate.StringType" />
@@ -193,14 +190,13 @@
 		<property name="dateOfBirth" type="org.hibernate.type.TimestampType" />
 		<property name="joiningDate" type="org.hibernate.type.TimestampType" />
 		<property name="leavingDate" type="org.hibernate.type.TimestampType" />
-		<property name="maritalStatus" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="maritualStatus" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
 		<property name="nationality" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="employeeDesignationId" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
 		<property name="employeeDepartmentId" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
-		<property name="employeeSubDepartmentId" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
 		<property name="employeeTypeId" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
-		<property name="recruitedOnBasisOf" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-		<property name="recruitedBy" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="employeeProofId" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="proofNumber" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="createBy" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
 		<property name="modifiedBy" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
 	</class>
@@ -224,12 +220,11 @@
 	</class>
 	<class name="com.hrms.model.impl.EmployeeProofImpl" table="HRMS_EmployeeProof">
 		<cache usage="read-write" />
-		<id name="employeeproofNo" type="long">
+		<id name="employeeProofId" type="long">
 			<generator class="assigned" />
 		</id>
-		<property name="proofId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
-		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
-		<property name="expirationDate" type="org.hibernate.type.TimestampType" />
+		<property name="proofType" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
 	</class>
 	<class name="com.hrms.model.impl.EmployeeQualificationImpl" table="HRMS_EmployeeQualification">
 		<cache usage="read-write" />
@@ -240,7 +235,7 @@
 		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="degreeName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-		<property name="specialization" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="mainSubject" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="university" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="score" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="startDate" type="org.hibernate.type.TimestampType" />
@@ -249,15 +244,6 @@
 		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
 		<property name="createBy" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="modifiedBy" type="com.liferay.portal.dao.orm.hibernate.LongType" />
-	</class>
-	<class name="com.hrms.model.impl.EmployeeSubDepartmentImpl" table="HRMS_EmployeeSubDepartment">
-		<cache usage="read-write" />
-		<id name="employeeSubDepartmentId" type="long">
-			<generator class="assigned" />
-		</id>
-		<property name="subDepartmentName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-		<property name="employeeDepartmentId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
-		<property name="status" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
 	</class>
 	<class name="com.hrms.model.impl.EmployeeTimesheetImpl" table="HRMS_EmployeeTimesheet">
 		<cache usage="read-write" />
@@ -357,6 +343,7 @@
 		<property name="leaveType" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="leavesAllowedPerYear" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
 		<property name="carryOver" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+		<property name="carryOverLimit" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
 		<property name="encachement" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
 		<property name="Status" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
 		<property name="createDate" type="org.hibernate.type.TimestampType" />
@@ -372,9 +359,14 @@
 		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="employeeName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="leaveName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="entitlement" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="leaveDuration" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="leaveFrom" type="org.hibernate.type.TimestampType" />
 		<property name="leaveTo" type="org.hibernate.type.TimestampType" />
+		<property name="leaveDate" type="org.hibernate.type.TimestampType" />
+		<property name="leavePeriod" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="approvalStatus" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="leaveId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="createDate" type="org.hibernate.type.TimestampType" />
@@ -397,13 +389,5 @@
 		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
 		<property name="createBy" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="modifiedBy" type="com.liferay.portal.dao.orm.hibernate.LongType" />
-	</class>
-	<class name="com.hrms.model.impl.ProofImpl" table="HRMS_Proof">
-		<cache usage="read-write" />
-		<id name="proofId" type="long">
-			<generator class="assigned" />
-		</id>
-		<property name="proofType" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-		<property name="status" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
 	</class>
 </hibernate-mapping>
