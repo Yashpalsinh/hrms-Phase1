@@ -1,0 +1,1 @@
+create index IX_5779D11 on HRMS_EmployeeMst (userId);
