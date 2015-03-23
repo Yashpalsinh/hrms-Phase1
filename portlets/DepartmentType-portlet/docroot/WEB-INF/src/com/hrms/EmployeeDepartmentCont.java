@@ -117,7 +117,7 @@ public class EmployeeDepartmentCont {
 	}
 	
 	
-	@ActionMapping(params = "action=editDepartment")
+/*	@ActionMapping(params = "action=editDepartment")
 	public void editDepartment(ActionRequest actionRequest,
 			ActionResponse actionResponse, Model model) throws IOException,
 			PortletException {
@@ -134,7 +134,7 @@ public class EmployeeDepartmentCont {
 		}
 	}	
 
-	
+	*/
 	
 	
 }
