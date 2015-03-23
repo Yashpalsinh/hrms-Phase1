@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_2_0.dtd">
+<service-builder package-path="com.hrms">
+	<author>yashpalsinh</author>
+	<namespace>HRMS</namespace>
+
+	<entity name="EmployeeMaster" local-service="true" remote-service="true">
+
+		<!-- PK fields -->
+
+		<column name="employeeMasterId" type="long" primary="true" />
+
+		<!-- Fields -->
+
+		<column name="employeeId" type="String" />
+		<column name="userId" type="long" />
+		<column name="gender" type="long" />
+		<column name="dateOfBirth" type="Date" />
+		<column name="joiningDate" type="Date" />
+		<column name="leavingDate" type="Date" />
+		<column name="maritalStatus" type="int" />
+		<column name="nationality" type="String" />
+		<column name="employeeDesignationId" type="int" />
+		<column name="employeeDepartmentId" type="int" />
+		<column name="employeeSubDepartmentId" type="int" />
+		<column name="employeeTypeId" type="int" />
+		<column name="recruitedOnBasisOf" type="String"/>
+		<column name="recruitedBy" type="long" />
+<!--		<column name="employeeProofId" type="int" />
+		<column name="proofNumber" type="String" /> -->
+		<column name="createBy" type="int" />
+		<column name="modifiedBy" type="int" />
+		
+		
+		<!-- Finder methods -->
+
+		<finder name="userId" return-type="EmployeeMaster">
+			<finder-column name="userId" />
+		</finder>
+		<finder name="createBy" return-type="Collection">
+			<finder-column name="createBy"/>
+ 		</finder>
+		<finder name="modifiedBy" return-type="Collection">
+			<finder-column name="modifiedBy"/>
+		</finder>
+		<!-- <finder name="recrutedBy" return-type="Collection">
+			<fider-column name="recruitedBy"/>
+		</finder> -->
+	</entity>
+	
+	
+	<entity name="EmployeeQualification" local-service="true" remote-service="true">
+		<!-- PK fields -->
+
+		<column name="employeeQualificationId" type="long" primary="true" />
+
+		<!-- Fields -->
+		
+		<column name="userId" type="long"/>
+		<column name="groupId" type="long"/>
+		<column name="companyId" type="long"/>
+		<column name="degreeName" type="String"/>
+		<column name="specialization" type="String" />
+		<column name="university" type="String" />
+		<column name="score" type="String" />
+		<column name="startDate" type="Date" />
+		<column name="endDate" type="Date" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />		
+		<column name="createBy" type="long" />
+		<column name="modifiedBy" type="long" />		
+		<!-- Finder methods -->
+		<finder name="createBy" return-type="Collection">
+			<finder-column name="createBy"/>
+ 		</finder>
+		<finder name="modifiedBy" return-type="Collection">
+			<finder-column name="modifiedBy"/>
+		</finder>
+		<!-- <finder name="userId" return-type="EmployeeQualification">
+			<finder-column name="userId" />
+		</finder> --> 
+		
+	</entity>
+		
+	<entity name="EmployeePreviousCompany" local-service="true" remote-service="true">
+		<!-- PK fields -->
+
+		<column name="employeePreviousCompanyId" type="long" primary="true" />
+
+		<!-- Fields -->
+		
+		<column name="userId" type="long" />
+		<column name="groupId" type="long" />
+		<column name="companyId" type="long" />
+		<column name="companyName" type="String" />
+		<column name="jobTitle" type="String" />
+		<column name="jobDiscription" type="String" />
+		<column name="startDate" type="Date" />
+		<column name="endDate" type="Date" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />		
+		<column name="createBy" type="long" />
+		<column name="modifiedBy" type="long" />		
+	
+		<!-- Finder methods -->
+		<finder name="createBy" return-type="Collection">
+			<finder-column name="createBy"/>
+ 		</finder>
+		<finder name="modifiedBy" return-type="Collection">
+			<finder-column name="modifiedBy"/>
+		</finder>		
+	<!--<finder name="userId" return-type="EmployeePreviousCompany">
+			<finder-column name="userId" />
+		</finder> -->
+		
+	</entity>
+	
+	<entity name="EmployeeLanguageDetail" local-service="true" remote-service="true">
+		<!-- PK fields -->
+
+		<column name="employeeLanguageDetailId" type="long" primary="true" />
+
+		<!-- Fields -->
+		
+		<column name="userId" type="long" />
+		<column name="groupId" type="long" />
+		<column name="companyId" type="long" />
+		<column name="languageName" type="String" />
+		<column name="read" type="boolean" />
+		<column name="write" type="boolean" />
+		<column name="speak" type="boolean" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />		
+		<column name="createBy" type="long" />
+		<column name="modifiedBy" type="long" />		
+
+	
+		<!-- Finder methods -->
+		<finder name="createBy" return-type="Collection">
+			<finder-column name="createBy"/>
+ 		</finder>
+		<finder name="modifiedBy" return-type="Collection">
+			<finder-column name="modifiedBy"/>
+		</finder>
+		<!-- <finder name="userId" return-type="EmployeePreviousCompany">
+			<finder-column name="userId" />
+		</finder> -->
+		
+	</entity>
+	
+	<entity name="EmployeeComplaint" local-service="true" remote-service="true">
+		<!-- PK fields -->
+
+		<column name="employeeComplaintId" type="long" primary="true" />
+
+		<!-- Fields -->
+		
+		<column name="userId" type="long"/>
+		<column name="groupId" type="long"/>
+		<column name="companyId" type="long"/>
+		<column name="complaintTitle" type="String"/>
+		<column name="complaintDiscription" type="String"/>
+		<column name="complaintFrom" type="long"/>
+		<column name="complaintDate" type="Date"/>
+		<column name="status" type="boolean"/>
+		<column name="modifiedDate" type="Date"/>		
+		<column name="createBy" type="long"/>
+		<column name="modifiedBy" type="long"/>		
+
+	
+		<!-- Finder methods -->
+		
+		<finder name="createBy" return-type="Collection">
+			<finder-column name="createBy"/>
+ 		</finder>
+		<finder name="modifiedBy" return-type="Collection">
+			<finder-column name="modifiedBy"/>
+		</finder>
+		<!-- <finder name="userId" return-type="EmployeeComplaint">
+			<finder-column name="userId" />
+		</finder> -->
+		
+	</entity>
+	
+	<entity name="EmployeeWarning" local-service="true" remote-service="true">
+		<!-- PK fields -->
+
+		<column name="employeeWarningId" type="long" primary="true" />
+
+		<!-- Fields -->
+		
+		<column name="warningTo" type="long" />
+		<column name="groupId" type="long" />
+		<column name="companyId" type="long" />
+		<column name="warningDate" type="Date" />
+		<column name="warningSubject" type="String" />
+		<column name="status" type="boolean" />
+		<column name="warningBy" type="long" />
+		<column name="modifiedDate" type="Date" />		
+		<column name="createBy" type="long" />
+		<column name="modifiedBy" type="long" />		
+	
+		
+		<!-- Finder methods -->
+		<finder name="createBy" return-type="Collection">
+			<finder-column name="createBy"/>
+ 		</finder>
+		<finder name="modifiedBy" return-type="Collection">
+			<finder-column name="modifiedBy"/>
+		</finder>
+	<!--<finder name="warningTo" return-type="EmployeeWarning">
+			<finder-column name="warningTo" />
+		</finder> -->
+		
+	</entity>
+	
+	<entity name="EmployeeAchivement" local-service="true" remote-service="true">
+		<!-- PK fields -->
+
+		<column name="employeeAchivementId" type="long" primary="true" />
+
+		<!-- Fields -->
+		
+		<column name="achivedBy" type="long" />
+		<column name="groupId" type="long" />
+		<column name="companyId" type="long" />
+		<column name="achivementDate" type="Date" />
+		<column name="achivementTitle" type="String" />
+		<column name="achivementDiscription" type="String" />
+		<column name="status" type="boolean" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />		
+		<column name="createBy" type="long" />
+		<column name="modifiedBy" type="long" />		
+	
+		
+		<!-- Finder methods -->
+		<finder name="createBy" return-type="Collection">
+			<finder-column name="createBy"/>
+ 		</finder>
+		<finder name="modifiedBy" return-type="Collection">
+			<finder-column name="modifiedBy"/>
+		</finder>
+	<!-- <finder name="achivedBy" return-type="EmployeeAchivement">
+			<finder-column name="achivedBy" />
+		</finder>
+		 -->
+	</entity>
+	
+	<entity name="EmployeeDepartment" local-service="true" remote-service="true">
+		<!-- PK fields -->
+
+		<column name="employeeDepartmentId" type="long" primary="true" />
+
+		<!-- Fields -->
+		
+		<column name="departmentName" type="String" />
+		<column name="status" type="boolean" />
+		
+		<finder name="employeeDepartmentId" return-type="EmployeeDepartment">
+			<finder-column name="employeeDepartmentId"/>
+		</finder>
+		<finder name="status" return-type="Collection">
+			<finder-column name="status"/>
+		</finder>
+	</entity>
+		<entity name="EmployeeSubDepartment" local-service="true" remote-service="true">
+		<!-- PK fields -->
+
+		<column name="employeeSubDepartmentId" type="long" primary="true" />
+
+		<!-- Fields -->
+		
+		<column name="subDepartmentName" type="String" />
+		<column name="employeeDepartmentId" type="long"/>
+		<column name="status" type="boolean" />
+		<finder name="employeeDepartmentId" return-type="EmployeeSubDepartment">
+			<finder-column name="employeeDepartmentId"/>
+		</finder>
+		<finder name="status" return-type="EmployeeSubDepartment">
+			<finder-column name="status"/>
+		</finder>
+		<finder name="DeptAndStatus" return-type="Collection">
+			<finder-column name="employeeDepartmentId"/>
+			<finder-column name="status"/>
+		</finder>
+	</entity>
+	
+	<entity name="EmployeeDesignation" local-service="true" remote-service="true">
+		<!-- PK fields -->
+
+		<column name="employeeDesignationId" type="long" primary="true" />
+
+		<!-- Fields -->
+		
+		<column name="designationName" type="String" />
+		<column name="status" type="boolean" />
+		
+		<finder name="status" return-type="Collection">
+			<finder-column name="status"/>
+		</finder>
+	</entity>
+	
+	<entity name="Proof" local-service="true" remote-service="true">
+		<!-- PK fields -->
+
+		<column name="proofId" type="long" primary="true" />
+		<!-- Fields -->
+		<column name="proofType" type="String" />
+		<column name="status" type="boolean" />
+			
+	</entity>
+	
+	<entity name="EmployeeProof" local-service="true" remote-service="true">
+		<column name="employeeproofNo" type="long" primary="true" />
+		<column name="proofId" type="long"/>
+		<column name="userId" type="long" />
+		<column name="expirationDate" type="Date"/>
+		<!-- Finder Methods-->
+		<!-- <finder name="findByProofType" type="Collection">
+		<finder-column name="proofId">			
+		</finder>
+		<finder name="findByUserId" type="collection">
+		<finder-column name="userId"/>
+		</finder> -->
+  	</entity>
+	
+	<entity name="EmployeeType" local-service="true" remote-service="true">
+		<!-- PK fields -->
+
+		<column name="employeeTypeId" type="long" primary="true" />
+
+		<!-- Fields -->
+		
+		<column name="employeeTypeName" type="String" />
+		<column name="status" type="boolean" />
+	
+	</entity>
+	
+	<entity name="EmployeeTimesheet" local-service="true" remote-service="true">
+		<!-- PK fields -->
+
+		<column name="timesheetId" type="long" primary="true" />
+
+		<!-- Fields -->
+		
+		<column name="userId" type="long" />
+		<column name="groupId" type="long" />
+		<column name="companyId" type="long" />
+		<column name="taskTitle" type="String" />
+		<column name="taskDescription" type="String" />
+		<column name="taskFileId" type="long" />
+		<column name="taskFilePath" type="String" />
+		<column name="taskStarttime" type="Date" />
+		<column name="taskEndtime" type="Date" />
+		<column name="taskDate" type="Date" />
+		<column name="duration" type="Date" />		
+		<column name="taskCompleted" type="boolean" />
+		<column name="billable" type="boolean" />	
+		<column name="billed" type="boolean" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />	
+		<column name="createBy" type="long" />
+		<column name="modifiedBy" type="long" />			
+
+	
+		<!-- Finder methods -->
+	
+		<finder name="createBy" return-type="Collection">
+			<finder-column name="createBy"/>
+ 		</finder>
+		<finder name="modifiedBy" return-type="Collection">
+			<finder-column name="modifiedBy"/>
+		</finder>
+
+	 <!-- <finder name="userId" return-type="EmployeeTimesheet">
+			<finder-column name="userId" />
+		</finder> -->
+		
+	</entity>
+	
+	<entity name="EmployeeAttendance" local-service="true" remote-service="true">
+		<!-- PK fields -->
+
+		<column name="attendanceId" type="long" primary="true" />
+
+		<!-- Fields -->
+		
+		<column name="userId" type="long" />
+		<column name="groupId" type="long" />
+		<column name="companyId" type="long" />
+		<column name="attendanceDate" type="Date" />
+		<column name="signinTime" type="Date" />
+		<column name="signoutTime" type="Date" />
+		<column name="totalTime" type="Date" />		
+		<column name="approved" type="boolean" />
+		<column name="approvedBy" type="long"/>
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />	
+		<column name="createBy" type="long" />
+		<column name="modifiedBy" type="long" />			
+
+	
+		<!-- Finder methods -->
+		<finder name="createBy" return-type="Collection">
+			<finder-column name="createBy"/>
+ 		</finder>
+		<finder name="modifiedBy" return-type="Collection">
+			<finder-column name="modifiedBy"/>
+		</finder>
+		<!-- <finder name="userId" return-type="EmployeeAttendance">
+			<finder-column name="userId" />
+		</finder>
+		 -->
+	</entity>
+	
+	<entity name="Leave" local-service="true" remote-service="true">
+		<!-- PK fields -->
+
+		<column name="leaveId" type="long" primary="true" />
+
+		<!-- Fields -->
+		<column name="groupId" type="long" />
+		<column name="companyId" type="long" />
+		<column name="leaveName" type="String" />
+ 		<column name="leaveType" type="String" />
+		<column name="leavesAllowedPerYear" type="int" />
+		<column name="carryOver" type="boolean" />		
+		<column name="encachement" type="boolean" />
+		<column name="Status" type="boolean" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />	
+		<column name="createBy" type="long" />
+		<column name="modifiedBy" type="long" />			
+
+	
+	</entity>
+	
+	<entity name="EmployeeLeave" local-service="true" remote-service="true">
+		<!-- PK fields -->
+
+		<column name="employeeLeaveId" type="long" primary="true" />
+
+		<!-- Fields -->
+		
+		<column name="userId" type="long" />
+		<column name="groupId" type="long" />
+		<column name="companyId" type="long" />
+		<column name="year" type="int" />
+		<column name="leavesCarriedOver" type="int" />
+		<column name="leavesTakenThisYear" type="int" />
+		<column name="remainingLeaves" type="int" />		
+		<column name="leaveId" type="long" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />	
+		<column name="createBy" type="long" />
+		<column name="modifiedBy" type="long" />			
+
+	
+		<!-- Finder methods -->
+
+		<!-- <finder name="userId" return-type="EmployeeLeave">
+			<finder-column name="userId" />
+		</finder> -->
+		
+	</entity>
+	
+	<entity name="LeavesApplied" local-service="true" remote-service="true">
+		<!-- PK fields -->
+
+		<column name="appliedLeaveId" type="long" primary="true" />
+
+		<!-- Fields -->
+		
+		<column name="userId" type="long" />
+		<column name="groupId" type="long" />
+		<column name="companyId" type="long" />
+		<column name="entitlement" type="String" />
+		<column name="leaveFrom" type="Date" />
+		<column name="leaveTo" type="Date" />
+		<column name="approvalStatus" type="String" />		
+		<column name="leaveId" type="long" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />	
+		<column name="createBy" type="long" />
+		<column name="modifiedBy" type="long" />			
+
+	
+		<!-- Finder methods -->
+
+		<!-- <finder name="userId" return-type="LeavesApplied">
+			<finder-column name="userId" />
+		</finder> -->
+		
+	</entity>
+	
+	<entity name="JobLibrary" local-service="true" remote-service="true">
+		<!-- PK fields -->
+
+		<column name="jobLibraryId" type="long" primary="true" />
+
+		<!-- Fields -->
+		
+		<column name="employeeDepartmentId" type="long" />
+		<column name="jobTitle" type="String" />
+		<column name="jobDescription" type="String" />
+		<column name="responsibility" type="String" />
+		<column name="qualifications" type="String" />		
+		<column name="numberOfPosition" type="int" />
+		<column name="experience" type="String" />
+		<column name="salaryStartRange" type="long" />		
+		<column name="salaryEndRange" type="long" />
+		<column name="benefits" type="String" />		
+		<column name="reportsToId" type="long" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />	
+		<column name="createBy" type="long" />
+		<column name="modifiedBy" type="long" />			
+	
+		
+	</entity>
+	
+	<entity name="Candidate" local-service="true" remote-service="true">
+		<!-- PK fields -->
+
+		<column name="candidateId" type="long" primary="true" />
+
+		<!-- Fields -->
+		
+		<column name="employeeDepartmentId" type="long" />
+		<column name="employeeDesignationId" type="long" />
+		<column name="title" type="String" />
+		<column name="firstName" type="String" />
+		<column name="middleName" type="String" />
+		<column name="lastName" type="String" />
+		<column name="dateOfBirth" type="Date" />
+		<column name="nationality" type="String" />
+		<column name="maritalStatus" type="int" />
+		<column name="street1" type="String" />
+		<column name="street2" type="String" />
+		<column name="street3" type="String" />
+		<column name="city" type="String" />
+		<column name="zip" type="long" />
+		<column name="countryId" type="long" />
+		<column name="personalEmail" type="String" />
+		<column name="currentCtc" type="long" />
+		<column name="expectedCtc" type="long" />
+		<column name="noticePeriod" type="String" />
+		<column name="resumeId" type="long" />
+		<column name="resumePath" type="String" />
+		<column name="employeeProofId" type="long" />
+		<column name="proofNumber" type="String" />
+		<column name="gender" type="int" />
+		<column name="status" type="boolean" />
+		<column name="shortListed" type="boolean" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />	
+		<column name="createBy" type="long" />
+		<column name="modifiedBy" type="long" />			
+
+	
+		<!-- Finder methods -->
+
+		<!-- <finder name="userId" return-type="LeavesApplied">
+			<finder-column name="userId" />
+		</finder> -->
+		
+	</entity>
+	
+	<entity name="Interview" local-service="true" remote-service="true">
+		<!-- PK fields -->
+
+		<column name="InterviewId" type="long" primary="true" />
+
+		<!-- Fields -->
+		
+		<column name="candidateId" type="long" />
+		<column name="jobLibraryId" type="long" />
+		<column name="roundNumber" type="long" />
+		<column name="roundType" type="String" />
+		<column name="InterviewerId" type="long" />		
+		<column name="interviewDate" type="Date" />
+		<column name="result" type="boolean" />
+		<column name="remarks" type="String" />	
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />	
+		<column name="createBy" type="long" />
+		<column name="modifiedBy" type="long" />			
+
+		<!-- Finder methods -->
+
+		<!-- <finder name="candidateId" return-type="Interview">
+			<finder-column name="candidateId" />
+		</finder> -->
+	</entity>
+	
+	<entity name="Offer" local-service="true" remote-service="true">
+		<!-- PK fields -->
+
+		<column name="OferrId" type="long" primary="true" />
+
+		<!-- Fields -->
+		
+		<column name="candidateId" type="long" />
+		<column name="employeeDepartmentId" type="long" />
+		<column name="employeeDesignationId" type="long" />
+		<column name="employeeTypeId" type="long" />
+		<column name="salary" type="long" />		
+		<column name="joiningDate" type="Date" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />	
+		<column name="createBy" type="long" />
+		<column name="modifiedBy" type="long" />			
+
+
+		<!-- Finder methods -->
+
+		<!-- <finder name="candidateId" return-type="Offer">
+			<finder-column name="candidateId" />
+		</finder> -->
+	</entity>
+	
+	<entity name="CandidateQualification" local-service="true" remote-service="true">
+		<!-- PK fields -->
+
+		<column name="candidateQualificationId" type="long" primary="true" />
+
+		<!-- Fields -->
+		
+		<column name="candidateId" type="long" />
+		<column name="degreeName" type="String" />
+		<column name="mainSubject" type="String" />
+		<column name="university" type="String" />
+		<column name="score" type="String" />		
+		<column name="startDate" type="Date" />
+		<column name="endDate" type="Date" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />	
+		<column name="createBy" type="long" />
+		<column name="modifiedBy" type="long" />			
+
+		<!-- Finder methods -->
+
+		<!-- <finder name="candidateId" return-type="CandidateQualification">
+			<finder-column name="candidateId" />
+		</finder> -->
+	</entity>
+</service-builder>

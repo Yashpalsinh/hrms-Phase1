@@ -1,0 +1,36 @@
+@CHARSET "UTF-8";
+
+/*STYLES (EmployeeDepartment - view.jsp) */
+
+img.state-image {
+	width: 20px;
+	height: auto;
+}
+
+.designation-status {
+	text-align: center !important;
+}
+
+.edit-icon, .delete-icon {
+	opacity: 0.09 
+	
+}
+
+.designation-edit-link:hover  img{
+	opacity: 1.0 ;
+}
+
+.div-add-designation>a.add-designation-link {
+	float: right;
+	font-weight: 600;
+	text-decoration: none;
+	COLOR: #C2A27A;
+	text-transform: uppercase;
+	padding: 7px 16px;
+}
+
+.div-add-designation:HOVER>a.add-designation-link {
+	color: #EEFEEF;
+	background: #535353;
+	text-transform: uppercase;
+}
