@@ -55,20 +55,20 @@ public interface EmployeeProofPersistence extends BasePersistence<EmployeeProof>
 	/**
 	* Creates a new employee proof with the primary key. Does not add the employee proof to the database.
 	*
-	* @param employeeProofId the primary key for the new employee proof
+	* @param employeeproofNo the primary key for the new employee proof
 	* @return the new employee proof
 	*/
-	public com.hrms.model.EmployeeProof create(long employeeProofId);
+	public com.hrms.model.EmployeeProof create(long employeeproofNo);
 
 	/**
 	* Removes the employee proof with the primary key from the database. Also notifies the appropriate model listeners.
 	*
-	* @param employeeProofId the primary key of the employee proof
+	* @param employeeproofNo the primary key of the employee proof
 	* @return the employee proof that was removed
 	* @throws com.hrms.NoSuchEmployeeProofException if a employee proof with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public com.hrms.model.EmployeeProof remove(long employeeProofId)
+	public com.hrms.model.EmployeeProof remove(long employeeproofNo)
 		throws com.hrms.NoSuchEmployeeProofException,
 			com.liferay.portal.kernel.exception.SystemException;
 
@@ -79,23 +79,23 @@ public interface EmployeeProofPersistence extends BasePersistence<EmployeeProof>
 	/**
 	* Returns the employee proof with the primary key or throws a {@link com.hrms.NoSuchEmployeeProofException} if it could not be found.
 	*
-	* @param employeeProofId the primary key of the employee proof
+	* @param employeeproofNo the primary key of the employee proof
 	* @return the employee proof
 	* @throws com.hrms.NoSuchEmployeeProofException if a employee proof with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public com.hrms.model.EmployeeProof findByPrimaryKey(long employeeProofId)
+	public com.hrms.model.EmployeeProof findByPrimaryKey(long employeeproofNo)
 		throws com.hrms.NoSuchEmployeeProofException,
 			com.liferay.portal.kernel.exception.SystemException;
 
 	/**
 	* Returns the employee proof with the primary key or returns <code>null</code> if it could not be found.
 	*
-	* @param employeeProofId the primary key of the employee proof
+	* @param employeeproofNo the primary key of the employee proof
 	* @return the employee proof, or <code>null</code> if a employee proof with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public com.hrms.model.EmployeeProof fetchByPrimaryKey(long employeeProofId)
+	public com.hrms.model.EmployeeProof fetchByPrimaryKey(long employeeproofNo)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**

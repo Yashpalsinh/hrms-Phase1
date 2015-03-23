@@ -28,9 +28,9 @@
 	<bean id="com.hrms.service.EmployeeLeaveLocalService" class="com.hrms.service.impl.EmployeeLeaveLocalServiceImpl" />
 	<bean id="com.hrms.service.EmployeeLeaveService" class="com.hrms.service.impl.EmployeeLeaveServiceImpl" />
 	<bean id="com.hrms.service.persistence.EmployeeLeavePersistence" class="com.hrms.service.persistence.EmployeeLeavePersistenceImpl" parent="basePersistence" />
-	<bean id="com.hrms.service.EmployeeMstLocalService" class="com.hrms.service.impl.EmployeeMstLocalServiceImpl" />
-	<bean id="com.hrms.service.EmployeeMstService" class="com.hrms.service.impl.EmployeeMstServiceImpl" />
-	<bean id="com.hrms.service.persistence.EmployeeMstPersistence" class="com.hrms.service.persistence.EmployeeMstPersistenceImpl" parent="basePersistence" />
+	<bean id="com.hrms.service.EmployeeMasterLocalService" class="com.hrms.service.impl.EmployeeMasterLocalServiceImpl" />
+	<bean id="com.hrms.service.EmployeeMasterService" class="com.hrms.service.impl.EmployeeMasterServiceImpl" />
+	<bean id="com.hrms.service.persistence.EmployeeMasterPersistence" class="com.hrms.service.persistence.EmployeeMasterPersistenceImpl" parent="basePersistence" />
 	<bean id="com.hrms.service.EmployeePreviousCompanyLocalService" class="com.hrms.service.impl.EmployeePreviousCompanyLocalServiceImpl" />
 	<bean id="com.hrms.service.EmployeePreviousCompanyService" class="com.hrms.service.impl.EmployeePreviousCompanyServiceImpl" />
 	<bean id="com.hrms.service.persistence.EmployeePreviousCompanyPersistence" class="com.hrms.service.persistence.EmployeePreviousCompanyPersistenceImpl" parent="basePersistence" />
@@ -40,6 +40,9 @@
 	<bean id="com.hrms.service.EmployeeQualificationLocalService" class="com.hrms.service.impl.EmployeeQualificationLocalServiceImpl" />
 	<bean id="com.hrms.service.EmployeeQualificationService" class="com.hrms.service.impl.EmployeeQualificationServiceImpl" />
 	<bean id="com.hrms.service.persistence.EmployeeQualificationPersistence" class="com.hrms.service.persistence.EmployeeQualificationPersistenceImpl" parent="basePersistence" />
+	<bean id="com.hrms.service.EmployeeSubDepartmentLocalService" class="com.hrms.service.impl.EmployeeSubDepartmentLocalServiceImpl" />
+	<bean id="com.hrms.service.EmployeeSubDepartmentService" class="com.hrms.service.impl.EmployeeSubDepartmentServiceImpl" />
+	<bean id="com.hrms.service.persistence.EmployeeSubDepartmentPersistence" class="com.hrms.service.persistence.EmployeeSubDepartmentPersistenceImpl" parent="basePersistence" />
 	<bean id="com.hrms.service.EmployeeTimesheetLocalService" class="com.hrms.service.impl.EmployeeTimesheetLocalServiceImpl" />
 	<bean id="com.hrms.service.EmployeeTimesheetService" class="com.hrms.service.impl.EmployeeTimesheetServiceImpl" />
 	<bean id="com.hrms.service.persistence.EmployeeTimesheetPersistence" class="com.hrms.service.persistence.EmployeeTimesheetPersistenceImpl" parent="basePersistence" />
@@ -64,4 +67,7 @@
 	<bean id="com.hrms.service.OfferLocalService" class="com.hrms.service.impl.OfferLocalServiceImpl" />
 	<bean id="com.hrms.service.OfferService" class="com.hrms.service.impl.OfferServiceImpl" />
 	<bean id="com.hrms.service.persistence.OfferPersistence" class="com.hrms.service.persistence.OfferPersistenceImpl" parent="basePersistence" />
+	<bean id="com.hrms.service.ProofLocalService" class="com.hrms.service.impl.ProofLocalServiceImpl" />
+	<bean id="com.hrms.service.ProofService" class="com.hrms.service.impl.ProofServiceImpl" />
+	<bean id="com.hrms.service.persistence.ProofPersistence" class="com.hrms.service.persistence.ProofPersistenceImpl" parent="basePersistence" />
 </beans>

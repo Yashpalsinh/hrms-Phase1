@@ -276,28 +276,6 @@ public class LeaveLocalServiceWrapper implements LeaveLocalService,
 		return _leaveLocalService.invokeMethod(name, parameterTypes, arguments);
 	}
 
-	@Override
-	public java.util.List<com.hrms.model.Leave> getSearchLeaves(
-		java.lang.String leaveName, java.lang.String leaveType,
-		int leavesAllowedPerYear, boolean carryOver, boolean encachement,
-		boolean Status, boolean andSearch, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return _leaveLocalService.getSearchLeaves(leaveName, leaveType,
-			leavesAllowedPerYear, carryOver, encachement, Status, andSearch,
-			start, end);
-	}
-
-	@Override
-	public int getSearchLeavesCount(java.lang.String leaveName,
-		java.lang.String leaveType, int leavesAllowedPerYear,
-		boolean carryOver, boolean encachement, boolean Status,
-		boolean andSearch, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return _leaveLocalService.getSearchLeavesCount(leaveName, leaveType,
-			leavesAllowedPerYear, carryOver, encachement, Status, andSearch,
-			start, end);
-	}
-
 	/**
 	 * @deprecated As of 6.1.0, replaced by {@link #getWrappedService}
 	 */

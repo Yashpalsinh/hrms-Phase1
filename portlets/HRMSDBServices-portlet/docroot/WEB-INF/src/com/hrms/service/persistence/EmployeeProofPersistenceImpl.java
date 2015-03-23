@@ -171,15 +171,15 @@ public class EmployeeProofPersistenceImpl extends BasePersistenceImpl<EmployeePr
 	/**
 	 * Creates a new employee proof with the primary key. Does not add the employee proof to the database.
 	 *
-	 * @param employeeProofId the primary key for the new employee proof
+	 * @param employeeproofNo the primary key for the new employee proof
 	 * @return the new employee proof
 	 */
 	@Override
-	public EmployeeProof create(long employeeProofId) {
+	public EmployeeProof create(long employeeproofNo) {
 		EmployeeProof employeeProof = new EmployeeProofImpl();
 
 		employeeProof.setNew(true);
-		employeeProof.setPrimaryKey(employeeProofId);
+		employeeProof.setPrimaryKey(employeeproofNo);
 
 		return employeeProof;
 	}
@@ -187,15 +187,15 @@ public class EmployeeProofPersistenceImpl extends BasePersistenceImpl<EmployeePr
 	/**
 	 * Removes the employee proof with the primary key from the database. Also notifies the appropriate model listeners.
 	 *
-	 * @param employeeProofId the primary key of the employee proof
+	 * @param employeeproofNo the primary key of the employee proof
 	 * @return the employee proof that was removed
 	 * @throws com.hrms.NoSuchEmployeeProofException if a employee proof with the primary key could not be found
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public EmployeeProof remove(long employeeProofId)
+	public EmployeeProof remove(long employeeproofNo)
 		throws NoSuchEmployeeProofException, SystemException {
-		return remove((Serializable)employeeProofId);
+		return remove((Serializable)employeeproofNo);
 	}
 
 	/**
@@ -323,9 +323,10 @@ public class EmployeeProofPersistenceImpl extends BasePersistenceImpl<EmployeePr
 		employeeProofImpl.setNew(employeeProof.isNew());
 		employeeProofImpl.setPrimaryKey(employeeProof.getPrimaryKey());
 
-		employeeProofImpl.setEmployeeProofId(employeeProof.getEmployeeProofId());
-		employeeProofImpl.setProofType(employeeProof.getProofType());
-		employeeProofImpl.setStatus(employeeProof.isStatus());
+		employeeProofImpl.setEmployeeproofNo(employeeProof.getEmployeeproofNo());
+		employeeProofImpl.setProofId(employeeProof.getProofId());
+		employeeProofImpl.setUserId(employeeProof.getUserId());
+		employeeProofImpl.setExpirationDate(employeeProof.getExpirationDate());
 
 		return employeeProofImpl;
 	}
@@ -358,15 +359,15 @@ public class EmployeeProofPersistenceImpl extends BasePersistenceImpl<EmployeePr
 	/**
 	 * Returns the employee proof with the primary key or throws a {@link com.hrms.NoSuchEmployeeProofException} if it could not be found.
 	 *
-	 * @param employeeProofId the primary key of the employee proof
+	 * @param employeeproofNo the primary key of the employee proof
 	 * @return the employee proof
 	 * @throws com.hrms.NoSuchEmployeeProofException if a employee proof with the primary key could not be found
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public EmployeeProof findByPrimaryKey(long employeeProofId)
+	public EmployeeProof findByPrimaryKey(long employeeproofNo)
 		throws NoSuchEmployeeProofException, SystemException {
-		return findByPrimaryKey((Serializable)employeeProofId);
+		return findByPrimaryKey((Serializable)employeeproofNo);
 	}
 
 	/**
@@ -420,14 +421,14 @@ public class EmployeeProofPersistenceImpl extends BasePersistenceImpl<EmployeePr
 	/**
 	 * Returns the employee proof with the primary key or returns <code>null</code> if it could not be found.
 	 *
-	 * @param employeeProofId the primary key of the employee proof
+	 * @param employeeproofNo the primary key of the employee proof
 	 * @return the employee proof, or <code>null</code> if a employee proof with the primary key could not be found
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public EmployeeProof fetchByPrimaryKey(long employeeProofId)
+	public EmployeeProof fetchByPrimaryKey(long employeeproofNo)
 		throws SystemException {
-		return fetchByPrimaryKey((Serializable)employeeProofId);
+		return fetchByPrimaryKey((Serializable)employeeproofNo);
 	}
 
 	/**

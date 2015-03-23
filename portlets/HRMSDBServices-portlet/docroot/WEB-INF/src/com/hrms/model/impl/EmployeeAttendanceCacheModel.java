@@ -37,7 +37,7 @@ public class EmployeeAttendanceCacheModel implements CacheModel<EmployeeAttendan
 	Externalizable {
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(27);
+		StringBundler sb = new StringBundler(29);
 
 		sb.append("{attendanceId=");
 		sb.append(attendanceId);
@@ -57,6 +57,8 @@ public class EmployeeAttendanceCacheModel implements CacheModel<EmployeeAttendan
 		sb.append(totalTime);
 		sb.append(", approved=");
 		sb.append(approved);
+		sb.append(", approvedBy=");
+		sb.append(approvedBy);
 		sb.append(", createDate=");
 		sb.append(createDate);
 		sb.append(", modifiedDate=");
@@ -108,6 +110,7 @@ public class EmployeeAttendanceCacheModel implements CacheModel<EmployeeAttendan
 		}
 
 		employeeAttendanceImpl.setApproved(approved);
+		employeeAttendanceImpl.setApprovedBy(approvedBy);
 
 		if (createDate == Long.MIN_VALUE) {
 			employeeAttendanceImpl.setCreateDate(null);
@@ -142,6 +145,7 @@ public class EmployeeAttendanceCacheModel implements CacheModel<EmployeeAttendan
 		signoutTime = objectInput.readLong();
 		totalTime = objectInput.readLong();
 		approved = objectInput.readBoolean();
+		approvedBy = objectInput.readLong();
 		createDate = objectInput.readLong();
 		modifiedDate = objectInput.readLong();
 		createBy = objectInput.readLong();
@@ -160,6 +164,7 @@ public class EmployeeAttendanceCacheModel implements CacheModel<EmployeeAttendan
 		objectOutput.writeLong(signoutTime);
 		objectOutput.writeLong(totalTime);
 		objectOutput.writeBoolean(approved);
+		objectOutput.writeLong(approvedBy);
 		objectOutput.writeLong(createDate);
 		objectOutput.writeLong(modifiedDate);
 		objectOutput.writeLong(createBy);
@@ -175,6 +180,7 @@ public class EmployeeAttendanceCacheModel implements CacheModel<EmployeeAttendan
 	public long signoutTime;
 	public long totalTime;
 	public boolean approved;
+	public long approvedBy;
 	public long createDate;
 	public long modifiedDate;
 	public long createBy;

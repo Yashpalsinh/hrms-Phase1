@@ -248,4 +248,25 @@ public interface EmployeeDepartmentLocalService extends BaseLocalService,
 	public java.lang.Object invokeMethod(java.lang.String name,
 		java.lang.String[] parameterTypes, java.lang.Object[] arguments)
 		throws java.lang.Throwable;
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public java.util.List getSerachEmployeeDepartments(
+		java.lang.String departmentName, java.lang.String status,
+		boolean andSearch, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public int getSearchEmployeeDepartmentsCount(
+		java.lang.String departmentName, java.lang.String status,
+		boolean andSearch)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	public com.hrms.model.EmployeeDepartment findByemployeeDepartmentId(
+		long employeeDepartmentId)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	public java.util.List<com.hrms.model.EmployeeDepartment> findByStatus(
+		boolean stat)
+		throws com.liferay.portal.kernel.exception.SystemException;
 }

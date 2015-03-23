@@ -6,10 +6,6 @@
 		<display-name>HRMSLeave</display-name>
 		<portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
 		<init-param>
-			<name>contextConfigLocation</name>
-			<value>/WEB-INF/HRMSLeave-portlet.xml</value>
-		</init-param>
-		<init-param>
 			<name>view-template</name>
 			<value>/jsp/display.jsp</value>
 		</init-param>

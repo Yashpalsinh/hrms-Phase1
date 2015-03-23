@@ -33,14 +33,16 @@ import com.hrms.service.EmployeeLanguageDetailLocalServiceUtil;
 import com.hrms.service.EmployeeLanguageDetailServiceUtil;
 import com.hrms.service.EmployeeLeaveLocalServiceUtil;
 import com.hrms.service.EmployeeLeaveServiceUtil;
-import com.hrms.service.EmployeeMstLocalServiceUtil;
-import com.hrms.service.EmployeeMstServiceUtil;
+import com.hrms.service.EmployeeMasterLocalServiceUtil;
+import com.hrms.service.EmployeeMasterServiceUtil;
 import com.hrms.service.EmployeePreviousCompanyLocalServiceUtil;
 import com.hrms.service.EmployeePreviousCompanyServiceUtil;
 import com.hrms.service.EmployeeProofLocalServiceUtil;
 import com.hrms.service.EmployeeProofServiceUtil;
 import com.hrms.service.EmployeeQualificationLocalServiceUtil;
 import com.hrms.service.EmployeeQualificationServiceUtil;
+import com.hrms.service.EmployeeSubDepartmentLocalServiceUtil;
+import com.hrms.service.EmployeeSubDepartmentServiceUtil;
 import com.hrms.service.EmployeeTimesheetLocalServiceUtil;
 import com.hrms.service.EmployeeTimesheetServiceUtil;
 import com.hrms.service.EmployeeTypeLocalServiceUtil;
@@ -57,6 +59,8 @@ import com.hrms.service.LeavesAppliedLocalServiceUtil;
 import com.hrms.service.LeavesAppliedServiceUtil;
 import com.hrms.service.OfferLocalServiceUtil;
 import com.hrms.service.OfferServiceUtil;
+import com.hrms.service.ProofLocalServiceUtil;
+import com.hrms.service.ProofServiceUtil;
 
 import com.liferay.portal.kernel.messaging.BaseMessageListener;
 import com.liferay.portal.kernel.messaging.Message;
@@ -103,9 +107,9 @@ public class ClpMessageListener extends BaseMessageListener {
 			EmployeeLeaveLocalServiceUtil.clearService();
 
 			EmployeeLeaveServiceUtil.clearService();
-			EmployeeMstLocalServiceUtil.clearService();
+			EmployeeMasterLocalServiceUtil.clearService();
 
-			EmployeeMstServiceUtil.clearService();
+			EmployeeMasterServiceUtil.clearService();
 			EmployeePreviousCompanyLocalServiceUtil.clearService();
 
 			EmployeePreviousCompanyServiceUtil.clearService();
@@ -115,6 +119,9 @@ public class ClpMessageListener extends BaseMessageListener {
 			EmployeeQualificationLocalServiceUtil.clearService();
 
 			EmployeeQualificationServiceUtil.clearService();
+			EmployeeSubDepartmentLocalServiceUtil.clearService();
+
+			EmployeeSubDepartmentServiceUtil.clearService();
 			EmployeeTimesheetLocalServiceUtil.clearService();
 
 			EmployeeTimesheetServiceUtil.clearService();
@@ -139,6 +146,9 @@ public class ClpMessageListener extends BaseMessageListener {
 			OfferLocalServiceUtil.clearService();
 
 			OfferServiceUtil.clearService();
+			ProofLocalServiceUtil.clearService();
+
+			ProofServiceUtil.clearService();
 		}
 	}
 }

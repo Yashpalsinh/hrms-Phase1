@@ -99,7 +99,12 @@ public class EmployeeTimesheetModelImpl extends BaseModelImpl<EmployeeTimesheet>
 	public static final boolean FINDER_CACHE_ENABLED = GetterUtil.getBoolean(com.liferay.util.service.ServiceProps.get(
 				"value.object.finder.cache.enabled.com.hrms.model.EmployeeTimesheet"),
 			true);
-	public static final boolean COLUMN_BITMASK_ENABLED = false;
+	public static final boolean COLUMN_BITMASK_ENABLED = GetterUtil.getBoolean(com.liferay.util.service.ServiceProps.get(
+				"value.object.column.bitmask.enabled.com.hrms.model.EmployeeTimesheet"),
+			true);
+	public static long CREATEBY_COLUMN_BITMASK = 1L;
+	public static long MODIFIEDBY_COLUMN_BITMASK = 2L;
+	public static long TIMESHEETID_COLUMN_BITMASK = 4L;
 
 	/**
 	 * Converts the soap model instance into a normal model instance.
@@ -573,7 +578,19 @@ public class EmployeeTimesheetModelImpl extends BaseModelImpl<EmployeeTimesheet>
 
 	@Override
 	public void setCreateBy(long createBy) {
+		_columnBitmask |= CREATEBY_COLUMN_BITMASK;
+
+		if (!_setOriginalCreateBy) {
+			_setOriginalCreateBy = true;
+
+			_originalCreateBy = _createBy;
+		}
+
 		_createBy = createBy;
+	}
+
+	public long getOriginalCreateBy() {
+		return _originalCreateBy;
 	}
 
 	@JSON
@@ -584,7 +601,23 @@ public class EmployeeTimesheetModelImpl extends BaseModelImpl<EmployeeTimesheet>
 
 	@Override
 	public void setModifiedBy(long modifiedBy) {
+		_columnBitmask |= MODIFIEDBY_COLUMN_BITMASK;
+
+		if (!_setOriginalModifiedBy) {
+			_setOriginalModifiedBy = true;
+
+			_originalModifiedBy = _modifiedBy;
+		}
+
 		_modifiedBy = modifiedBy;
+	}
+
+	public long getOriginalModifiedBy() {
+		return _originalModifiedBy;
+	}
+
+	public long getColumnBitmask() {
+		return _columnBitmask;
 	}
 
 	@Override
@@ -683,6 +716,17 @@ public class EmployeeTimesheetModelImpl extends BaseModelImpl<EmployeeTimesheet>
 
 	@Override
 	public void resetOriginalValues() {
+		EmployeeTimesheetModelImpl employeeTimesheetModelImpl = this;
+
+		employeeTimesheetModelImpl._originalCreateBy = employeeTimesheetModelImpl._createBy;
+
+		employeeTimesheetModelImpl._setOriginalCreateBy = false;
+
+		employeeTimesheetModelImpl._originalModifiedBy = employeeTimesheetModelImpl._modifiedBy;
+
+		employeeTimesheetModelImpl._setOriginalModifiedBy = false;
+
+		employeeTimesheetModelImpl._columnBitmask = 0;
 	}
 
 	@Override
@@ -950,6 +994,11 @@ public class EmployeeTimesheetModelImpl extends BaseModelImpl<EmployeeTimesheet>
 	private Date _createDate;
 	private Date _modifiedDate;
 	private long _createBy;
+	private long _originalCreateBy;
+	private boolean _setOriginalCreateBy;
 	private long _modifiedBy;
+	private long _originalModifiedBy;
+	private boolean _setOriginalModifiedBy;
+	private long _columnBitmask;
 	private EmployeeTimesheet _escapedModel;
 }

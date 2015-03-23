@@ -70,7 +70,6 @@ public class LeaveModelImpl extends BaseModelImpl<Leave> implements LeaveModel {
 			{ "leaveType", Types.VARCHAR },
 			{ "leavesAllowedPerYear", Types.INTEGER },
 			{ "carryOver", Types.BOOLEAN },
-			{ "carryOverLimit", Types.INTEGER },
 			{ "encachement", Types.BOOLEAN },
 			{ "Status", Types.BOOLEAN },
 			{ "createDate", Types.TIMESTAMP },
@@ -78,7 +77,7 @@ public class LeaveModelImpl extends BaseModelImpl<Leave> implements LeaveModel {
 			{ "createBy", Types.BIGINT },
 			{ "modifiedBy", Types.BIGINT }
 		};
-	public static final String TABLE_SQL_CREATE = "create table HRMS_Leave (leaveId LONG not null primary key,groupId LONG,companyId LONG,leaveName VARCHAR(75) null,leaveType VARCHAR(75) null,leavesAllowedPerYear INTEGER,carryOver BOOLEAN,carryOverLimit INTEGER,encachement BOOLEAN,Status BOOLEAN,createDate DATE null,modifiedDate DATE null,createBy LONG,modifiedBy LONG)";
+	public static final String TABLE_SQL_CREATE = "create table HRMS_Leave (leaveId LONG not null primary key,groupId LONG,companyId LONG,leaveName VARCHAR(75) null,leaveType VARCHAR(75) null,leavesAllowedPerYear INTEGER,carryOver BOOLEAN,encachement BOOLEAN,Status BOOLEAN,createDate DATE null,modifiedDate DATE null,createBy LONG,modifiedBy LONG)";
 	public static final String TABLE_SQL_DROP = "drop table HRMS_Leave";
 	public static final String ORDER_BY_JPQL = " ORDER BY leave.leaveId ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY HRMS_Leave.leaveId ASC";
@@ -111,7 +110,6 @@ public class LeaveModelImpl extends BaseModelImpl<Leave> implements LeaveModel {
 		model.setLeaveType(soapModel.getLeaveType());
 		model.setLeavesAllowedPerYear(soapModel.getLeavesAllowedPerYear());
 		model.setCarryOver(soapModel.getCarryOver());
-		model.setCarryOverLimit(soapModel.getCarryOverLimit());
 		model.setEncachement(soapModel.getEncachement());
 		model.setStatus(soapModel.getStatus());
 		model.setCreateDate(soapModel.getCreateDate());
@@ -189,7 +187,6 @@ public class LeaveModelImpl extends BaseModelImpl<Leave> implements LeaveModel {
 		attributes.put("leaveType", getLeaveType());
 		attributes.put("leavesAllowedPerYear", getLeavesAllowedPerYear());
 		attributes.put("carryOver", getCarryOver());
-		attributes.put("carryOverLimit", getCarryOverLimit());
 		attributes.put("encachement", getEncachement());
 		attributes.put("Status", getStatus());
 		attributes.put("createDate", getCreateDate());
@@ -243,12 +240,6 @@ public class LeaveModelImpl extends BaseModelImpl<Leave> implements LeaveModel {
 
 		if (carryOver != null) {
 			setCarryOver(carryOver);
-		}
-
-		Integer carryOverLimit = (Integer)attributes.get("carryOverLimit");
-
-		if (carryOverLimit != null) {
-			setCarryOverLimit(carryOverLimit);
 		}
 
 		Boolean encachement = (Boolean)attributes.get("encachement");
@@ -382,17 +373,6 @@ public class LeaveModelImpl extends BaseModelImpl<Leave> implements LeaveModel {
 
 	@JSON
 	@Override
-	public int getCarryOverLimit() {
-		return _carryOverLimit;
-	}
-
-	@Override
-	public void setCarryOverLimit(int carryOverLimit) {
-		_carryOverLimit = carryOverLimit;
-	}
-
-	@JSON
-	@Override
 	public boolean getEncachement() {
 		return _encachement;
 	}
@@ -501,7 +481,6 @@ public class LeaveModelImpl extends BaseModelImpl<Leave> implements LeaveModel {
 		leaveImpl.setLeaveType(getLeaveType());
 		leaveImpl.setLeavesAllowedPerYear(getLeavesAllowedPerYear());
 		leaveImpl.setCarryOver(getCarryOver());
-		leaveImpl.setCarryOverLimit(getCarryOverLimit());
 		leaveImpl.setEncachement(getEncachement());
 		leaveImpl.setStatus(getStatus());
 		leaveImpl.setCreateDate(getCreateDate());
@@ -590,8 +569,6 @@ public class LeaveModelImpl extends BaseModelImpl<Leave> implements LeaveModel {
 
 		leaveCacheModel.carryOver = getCarryOver();
 
-		leaveCacheModel.carryOverLimit = getCarryOverLimit();
-
 		leaveCacheModel.encachement = getEncachement();
 
 		leaveCacheModel.Status = getStatus();
@@ -623,7 +600,7 @@ public class LeaveModelImpl extends BaseModelImpl<Leave> implements LeaveModel {
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(29);
+		StringBundler sb = new StringBundler(27);
 
 		sb.append("{leaveId=");
 		sb.append(getLeaveId());
@@ -639,8 +616,6 @@ public class LeaveModelImpl extends BaseModelImpl<Leave> implements LeaveModel {
 		sb.append(getLeavesAllowedPerYear());
 		sb.append(", carryOver=");
 		sb.append(getCarryOver());
-		sb.append(", carryOverLimit=");
-		sb.append(getCarryOverLimit());
 		sb.append(", encachement=");
 		sb.append(getEncachement());
 		sb.append(", Status=");
@@ -660,7 +635,7 @@ public class LeaveModelImpl extends BaseModelImpl<Leave> implements LeaveModel {
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(46);
+		StringBundler sb = new StringBundler(43);
 
 		sb.append("<model><model-name>");
 		sb.append("com.hrms.model.Leave");
@@ -693,10 +668,6 @@ public class LeaveModelImpl extends BaseModelImpl<Leave> implements LeaveModel {
 		sb.append(
 			"<column><column-name>carryOver</column-name><column-value><![CDATA[");
 		sb.append(getCarryOver());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>carryOverLimit</column-name><column-value><![CDATA[");
-		sb.append(getCarryOverLimit());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>encachement</column-name><column-value><![CDATA[");
@@ -737,7 +708,6 @@ public class LeaveModelImpl extends BaseModelImpl<Leave> implements LeaveModel {
 	private String _leaveType;
 	private int _leavesAllowedPerYear;
 	private boolean _carryOver;
-	private int _carryOverLimit;
 	private boolean _encachement;
 	private boolean _Status;
 	private Date _createDate;

@@ -74,12 +74,13 @@ public class EmployeeAttendanceModelImpl extends BaseModelImpl<EmployeeAttendanc
 			{ "signoutTime", Types.TIMESTAMP },
 			{ "totalTime", Types.TIMESTAMP },
 			{ "approved", Types.BOOLEAN },
+			{ "approvedBy", Types.BIGINT },
 			{ "createDate", Types.TIMESTAMP },
 			{ "modifiedDate", Types.TIMESTAMP },
 			{ "createBy", Types.BIGINT },
 			{ "modifiedBy", Types.BIGINT }
 		};
-	public static final String TABLE_SQL_CREATE = "create table HRMS_EmployeeAttendance (attendanceId LONG not null primary key,userId LONG,groupId LONG,companyId LONG,attendanceDate DATE null,signinTime DATE null,signoutTime DATE null,totalTime DATE null,approved BOOLEAN,createDate DATE null,modifiedDate DATE null,createBy LONG,modifiedBy LONG)";
+	public static final String TABLE_SQL_CREATE = "create table HRMS_EmployeeAttendance (attendanceId LONG not null primary key,userId LONG,groupId LONG,companyId LONG,attendanceDate DATE null,signinTime DATE null,signoutTime DATE null,totalTime DATE null,approved BOOLEAN,approvedBy LONG,createDate DATE null,modifiedDate DATE null,createBy LONG,modifiedBy LONG)";
 	public static final String TABLE_SQL_DROP = "drop table HRMS_EmployeeAttendance";
 	public static final String ORDER_BY_JPQL = " ORDER BY employeeAttendance.attendanceId ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY HRMS_EmployeeAttendance.attendanceId ASC";
@@ -92,7 +93,12 @@ public class EmployeeAttendanceModelImpl extends BaseModelImpl<EmployeeAttendanc
 	public static final boolean FINDER_CACHE_ENABLED = GetterUtil.getBoolean(com.liferay.util.service.ServiceProps.get(
 				"value.object.finder.cache.enabled.com.hrms.model.EmployeeAttendance"),
 			true);
-	public static final boolean COLUMN_BITMASK_ENABLED = false;
+	public static final boolean COLUMN_BITMASK_ENABLED = GetterUtil.getBoolean(com.liferay.util.service.ServiceProps.get(
+				"value.object.column.bitmask.enabled.com.hrms.model.EmployeeAttendance"),
+			true);
+	public static long CREATEBY_COLUMN_BITMASK = 1L;
+	public static long MODIFIEDBY_COLUMN_BITMASK = 2L;
+	public static long ATTENDANCEID_COLUMN_BITMASK = 4L;
 
 	/**
 	 * Converts the soap model instance into a normal model instance.
@@ -116,6 +122,7 @@ public class EmployeeAttendanceModelImpl extends BaseModelImpl<EmployeeAttendanc
 		model.setSignoutTime(soapModel.getSignoutTime());
 		model.setTotalTime(soapModel.getTotalTime());
 		model.setApproved(soapModel.getApproved());
+		model.setApprovedBy(soapModel.getApprovedBy());
 		model.setCreateDate(soapModel.getCreateDate());
 		model.setModifiedDate(soapModel.getModifiedDate());
 		model.setCreateBy(soapModel.getCreateBy());
@@ -194,6 +201,7 @@ public class EmployeeAttendanceModelImpl extends BaseModelImpl<EmployeeAttendanc
 		attributes.put("signoutTime", getSignoutTime());
 		attributes.put("totalTime", getTotalTime());
 		attributes.put("approved", getApproved());
+		attributes.put("approvedBy", getApprovedBy());
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
 		attributes.put("createBy", getCreateBy());
@@ -256,6 +264,12 @@ public class EmployeeAttendanceModelImpl extends BaseModelImpl<EmployeeAttendanc
 
 		if (approved != null) {
 			setApproved(approved);
+		}
+
+		Long approvedBy = (Long)attributes.get("approvedBy");
+
+		if (approvedBy != null) {
+			setApprovedBy(approvedBy);
 		}
 
 		Date createDate = (Date)attributes.get("createDate");
@@ -399,6 +413,17 @@ public class EmployeeAttendanceModelImpl extends BaseModelImpl<EmployeeAttendanc
 
 	@JSON
 	@Override
+	public long getApprovedBy() {
+		return _approvedBy;
+	}
+
+	@Override
+	public void setApprovedBy(long approvedBy) {
+		_approvedBy = approvedBy;
+	}
+
+	@JSON
+	@Override
 	public Date getCreateDate() {
 		return _createDate;
 	}
@@ -427,7 +452,19 @@ public class EmployeeAttendanceModelImpl extends BaseModelImpl<EmployeeAttendanc
 
 	@Override
 	public void setCreateBy(long createBy) {
+		_columnBitmask |= CREATEBY_COLUMN_BITMASK;
+
+		if (!_setOriginalCreateBy) {
+			_setOriginalCreateBy = true;
+
+			_originalCreateBy = _createBy;
+		}
+
 		_createBy = createBy;
+	}
+
+	public long getOriginalCreateBy() {
+		return _originalCreateBy;
 	}
 
 	@JSON
@@ -438,7 +475,23 @@ public class EmployeeAttendanceModelImpl extends BaseModelImpl<EmployeeAttendanc
 
 	@Override
 	public void setModifiedBy(long modifiedBy) {
+		_columnBitmask |= MODIFIEDBY_COLUMN_BITMASK;
+
+		if (!_setOriginalModifiedBy) {
+			_setOriginalModifiedBy = true;
+
+			_originalModifiedBy = _modifiedBy;
+		}
+
 		_modifiedBy = modifiedBy;
+	}
+
+	public long getOriginalModifiedBy() {
+		return _originalModifiedBy;
+	}
+
+	public long getColumnBitmask() {
+		return _columnBitmask;
 	}
 
 	@Override
@@ -477,6 +530,7 @@ public class EmployeeAttendanceModelImpl extends BaseModelImpl<EmployeeAttendanc
 		employeeAttendanceImpl.setSignoutTime(getSignoutTime());
 		employeeAttendanceImpl.setTotalTime(getTotalTime());
 		employeeAttendanceImpl.setApproved(getApproved());
+		employeeAttendanceImpl.setApprovedBy(getApprovedBy());
 		employeeAttendanceImpl.setCreateDate(getCreateDate());
 		employeeAttendanceImpl.setModifiedDate(getModifiedDate());
 		employeeAttendanceImpl.setCreateBy(getCreateBy());
@@ -531,6 +585,17 @@ public class EmployeeAttendanceModelImpl extends BaseModelImpl<EmployeeAttendanc
 
 	@Override
 	public void resetOriginalValues() {
+		EmployeeAttendanceModelImpl employeeAttendanceModelImpl = this;
+
+		employeeAttendanceModelImpl._originalCreateBy = employeeAttendanceModelImpl._createBy;
+
+		employeeAttendanceModelImpl._setOriginalCreateBy = false;
+
+		employeeAttendanceModelImpl._originalModifiedBy = employeeAttendanceModelImpl._modifiedBy;
+
+		employeeAttendanceModelImpl._setOriginalModifiedBy = false;
+
+		employeeAttendanceModelImpl._columnBitmask = 0;
 	}
 
 	@Override
@@ -583,6 +648,8 @@ public class EmployeeAttendanceModelImpl extends BaseModelImpl<EmployeeAttendanc
 
 		employeeAttendanceCacheModel.approved = getApproved();
 
+		employeeAttendanceCacheModel.approvedBy = getApprovedBy();
+
 		Date createDate = getCreateDate();
 
 		if (createDate != null) {
@@ -610,7 +677,7 @@ public class EmployeeAttendanceModelImpl extends BaseModelImpl<EmployeeAttendanc
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(27);
+		StringBundler sb = new StringBundler(29);
 
 		sb.append("{attendanceId=");
 		sb.append(getAttendanceId());
@@ -630,6 +697,8 @@ public class EmployeeAttendanceModelImpl extends BaseModelImpl<EmployeeAttendanc
 		sb.append(getTotalTime());
 		sb.append(", approved=");
 		sb.append(getApproved());
+		sb.append(", approvedBy=");
+		sb.append(getApprovedBy());
 		sb.append(", createDate=");
 		sb.append(getCreateDate());
 		sb.append(", modifiedDate=");
@@ -645,7 +714,7 @@ public class EmployeeAttendanceModelImpl extends BaseModelImpl<EmployeeAttendanc
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(43);
+		StringBundler sb = new StringBundler(46);
 
 		sb.append("<model><model-name>");
 		sb.append("com.hrms.model.EmployeeAttendance");
@@ -688,6 +757,10 @@ public class EmployeeAttendanceModelImpl extends BaseModelImpl<EmployeeAttendanc
 		sb.append(getApproved());
 		sb.append("]]></column-value></column>");
 		sb.append(
+			"<column><column-name>approvedBy</column-name><column-value><![CDATA[");
+		sb.append(getApprovedBy());
+		sb.append("]]></column-value></column>");
+		sb.append(
 			"<column><column-name>createDate</column-name><column-value><![CDATA[");
 		sb.append(getCreateDate());
 		sb.append("]]></column-value></column>");
@@ -723,9 +796,15 @@ public class EmployeeAttendanceModelImpl extends BaseModelImpl<EmployeeAttendanc
 	private Date _signoutTime;
 	private Date _totalTime;
 	private boolean _approved;
+	private long _approvedBy;
 	private Date _createDate;
 	private Date _modifiedDate;
 	private long _createBy;
+	private long _originalCreateBy;
+	private boolean _setOriginalCreateBy;
 	private long _modifiedBy;
+	private long _originalModifiedBy;
+	private boolean _setOriginalModifiedBy;
+	private long _columnBitmask;
 	private EmployeeAttendance _escapedModel;
 }

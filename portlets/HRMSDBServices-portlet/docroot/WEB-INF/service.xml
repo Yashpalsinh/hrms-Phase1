@@ -4,37 +4,48 @@
 	<author>yashpalsinh</author>
 	<namespace>HRMS</namespace>
 
-	<entity name="EmployeeMst" local-service="true" remote-service="true">
+	<entity name="EmployeeMaster" local-service="true" remote-service="true">
 
 		<!-- PK fields -->
 
-		<column name="employeeMstId" type="long" primary="true" />
+		<column name="employeeMasterId" type="long" primary="true" />
 
 		<!-- Fields -->
 
 		<column name="employeeId" type="String" />
 		<column name="userId" type="long" />
-		<column name="gender" type="int" />
+		<column name="gender" type="long" />
 		<column name="dateOfBirth" type="Date" />
 		<column name="joiningDate" type="Date" />
 		<column name="leavingDate" type="Date" />
-		<column name="maritualStatus" type="int" />
+		<column name="maritalStatus" type="int" />
 		<column name="nationality" type="String" />
 		<column name="employeeDesignationId" type="int" />
 		<column name="employeeDepartmentId" type="int" />
+		<column name="employeeSubDepartmentId" type="int" />
 		<column name="employeeTypeId" type="int" />
-		<column name="employeeProofId" type="int" />
-		<column name="proofNumber" type="String" />
+		<column name="recruitedOnBasisOf" type="String"/>
+		<column name="recruitedBy" type="long" />
+<!--		<column name="employeeProofId" type="int" />
+		<column name="proofNumber" type="String" /> -->
 		<column name="createBy" type="int" />
 		<column name="modifiedBy" type="int" />
 		
 		
 		<!-- Finder methods -->
 
-		<finder name="userId" return-type="EmployeeMst">
+		<finder name="userId" return-type="EmployeeMaster">
 			<finder-column name="userId" />
 		</finder>
-		
+		<finder name="createBy" return-type="Collection">
+			<finder-column name="createBy"/>
+ 		</finder>
+		<finder name="modifiedBy" return-type="Collection">
+			<finder-column name="modifiedBy"/>
+		</finder>
+		<!-- <finder name="recrutedBy" return-type="Collection">
+			<fider-column name="recruitedBy"/>
+		</finder> -->
 	</entity>
 	
 	
@@ -45,11 +56,11 @@
 
 		<!-- Fields -->
 		
-		<column name="userId" type="long" />
-		<column name="groupId" type="long" />
-		<column name="companyId" type="long" />
-		<column name="degreeName" type="String" />
-		<column name="mainSubject" type="String" />
+		<column name="userId" type="long"/>
+		<column name="groupId" type="long"/>
+		<column name="companyId" type="long"/>
+		<column name="degreeName" type="String"/>
+		<column name="specialization" type="String" />
 		<column name="university" type="String" />
 		<column name="score" type="String" />
 		<column name="startDate" type="Date" />
@@ -59,7 +70,12 @@
 		<column name="createBy" type="long" />
 		<column name="modifiedBy" type="long" />		
 		<!-- Finder methods -->
-
+		<finder name="createBy" return-type="Collection">
+			<finder-column name="createBy"/>
+ 		</finder>
+		<finder name="modifiedBy" return-type="Collection">
+			<finder-column name="modifiedBy"/>
+		</finder>
 		<!-- <finder name="userId" return-type="EmployeeQualification">
 			<finder-column name="userId" />
 		</finder> --> 
@@ -87,8 +103,13 @@
 		<column name="modifiedBy" type="long" />		
 	
 		<!-- Finder methods -->
-<!-- 
-		<finder name="userId" return-type="EmployeePreviousCompany">
+		<finder name="createBy" return-type="Collection">
+			<finder-column name="createBy"/>
+ 		</finder>
+		<finder name="modifiedBy" return-type="Collection">
+			<finder-column name="modifiedBy"/>
+		</finder>		
+	<!--<finder name="userId" return-type="EmployeePreviousCompany">
 			<finder-column name="userId" />
 		</finder> -->
 		
@@ -115,7 +136,12 @@
 
 	
 		<!-- Finder methods -->
-
+		<finder name="createBy" return-type="Collection">
+			<finder-column name="createBy"/>
+ 		</finder>
+		<finder name="modifiedBy" return-type="Collection">
+			<finder-column name="modifiedBy"/>
+		</finder>
 		<!-- <finder name="userId" return-type="EmployeePreviousCompany">
 			<finder-column name="userId" />
 		</finder> -->
@@ -129,21 +155,27 @@
 
 		<!-- Fields -->
 		
-		<column name="userId" type="long" />
-		<column name="groupId" type="long" />
-		<column name="companyId" type="long" />
-		<column name="complaintTitle" type="String" />
-		<column name="complaintDiscription" type="String" />
-		<column name="complaintFrom" type="long" />
-		<column name="complaintDate" type="Date" />
-		<column name="status" type="boolean" />
-		<column name="modifiedDate" type="Date" />		
-		<column name="createBy" type="long" />
-		<column name="modifiedBy" type="long" />		
+		<column name="userId" type="long"/>
+		<column name="groupId" type="long"/>
+		<column name="companyId" type="long"/>
+		<column name="complaintTitle" type="String"/>
+		<column name="complaintDiscription" type="String"/>
+		<column name="complaintFrom" type="long"/>
+		<column name="complaintDate" type="Date"/>
+		<column name="status" type="boolean"/>
+		<column name="modifiedDate" type="Date"/>		
+		<column name="createBy" type="long"/>
+		<column name="modifiedBy" type="long"/>		
 
 	
 		<!-- Finder methods -->
-
+		
+		<finder name="createBy" return-type="Collection">
+			<finder-column name="createBy"/>
+ 		</finder>
+		<finder name="modifiedBy" return-type="Collection">
+			<finder-column name="modifiedBy"/>
+		</finder>
 		<!-- <finder name="userId" return-type="EmployeeComplaint">
 			<finder-column name="userId" />
 		</finder> -->
@@ -170,8 +202,13 @@
 	
 		
 		<!-- Finder methods -->
-<!-- 
-		<finder name="warningTo" return-type="EmployeeWarning">
+		<finder name="createBy" return-type="Collection">
+			<finder-column name="createBy"/>
+ 		</finder>
+		<finder name="modifiedBy" return-type="Collection">
+			<finder-column name="modifiedBy"/>
+		</finder>
+	<!--<finder name="warningTo" return-type="EmployeeWarning">
 			<finder-column name="warningTo" />
 		</finder> -->
 		
@@ -198,8 +235,13 @@
 	
 		
 		<!-- Finder methods -->
-<!-- 
-		<finder name="achivedBy" return-type="EmployeeAchivement">
+		<finder name="createBy" return-type="Collection">
+			<finder-column name="createBy"/>
+ 		</finder>
+		<finder name="modifiedBy" return-type="Collection">
+			<finder-column name="modifiedBy"/>
+		</finder>
+	<!-- <finder name="achivedBy" return-type="EmployeeAchivement">
 			<finder-column name="achivedBy" />
 		</finder>
 		 -->
@@ -215,7 +257,33 @@
 		<column name="departmentName" type="String" />
 		<column name="status" type="boolean" />
 		
-			
+		<finder name="employeeDepartmentId" return-type="EmployeeDepartment">
+			<finder-column name="employeeDepartmentId"/>
+		</finder>
+		<finder name="status" return-type="Collection">
+			<finder-column name="status"/>
+		</finder>
+	</entity>
+		<entity name="EmployeeSubDepartment" local-service="true" remote-service="true">
+		<!-- PK fields -->
+
+		<column name="employeeSubDepartmentId" type="long" primary="true" />
+
+		<!-- Fields -->
+		
+		<column name="subDepartmentName" type="String" />
+		<column name="employeeDepartmentId" type="long"/>
+		<column name="status" type="boolean" />
+		<finder name="employeeDepartmentId" return-type="EmployeeSubDepartment">
+			<finder-column name="employeeDepartmentId"/>
+		</finder>
+		<finder name="status" return-type="EmployeeSubDepartment">
+			<finder-column name="status"/>
+		</finder>
+		<finder name="DeptAndStatus" return-type="Collection">
+			<finder-column name="employeeDepartmentId"/>
+			<finder-column name="status"/>
+		</finder>
 	</entity>
 	
 	<entity name="EmployeeDesignation" local-service="true" remote-service="true">
@@ -227,20 +295,35 @@
 		
 		<column name="designationName" type="String" />
 		<column name="status" type="boolean" />
+		
+		<finder name="status" return-type="Collection">
+			<finder-column name="status"/>
+		</finder>
+	</entity>
 	
+	<entity name="Proof" local-service="true" remote-service="true">
+		<!-- PK fields -->
+
+		<column name="proofId" type="long" primary="true" />
+		<!-- Fields -->
+		<column name="proofType" type="String" />
+		<column name="status" type="boolean" />
+			
 	</entity>
 	
 	<entity name="EmployeeProof" local-service="true" remote-service="true">
-		<!-- PK fields -->
-
-		<column name="employeeProofId" type="long" primary="true" />
-
-		<!-- Fields -->
-		
-		<column name="proofType" type="String" />
-		<column name="status" type="boolean" />
-	
-	</entity>
+		<column name="employeeproofNo" type="long" primary="true" />
+		<column name="proofId" type="long"/>
+		<column name="userId" type="long" />
+		<column name="expirationDate" type="Date"/>
+		<!-- Finder Methods-->
+		<!-- <finder name="findByProofType" type="Collection">
+		<finder-column name="proofId">			
+		</finder>
+		<finder name="findByUserId" type="collection">
+		<finder-column name="userId"/>
+		</finder> -->
+  	</entity>
 	
 	<entity name="EmployeeType" local-service="true" remote-service="true">
 		<!-- PK fields -->
@@ -282,8 +365,15 @@
 
 	
 		<!-- Finder methods -->
-<!-- 
-		<finder name="userId" return-type="EmployeeTimesheet">
+	
+		<finder name="createBy" return-type="Collection">
+			<finder-column name="createBy"/>
+ 		</finder>
+		<finder name="modifiedBy" return-type="Collection">
+			<finder-column name="modifiedBy"/>
+		</finder>
+
+	 <!-- <finder name="userId" return-type="EmployeeTimesheet">
 			<finder-column name="userId" />
 		</finder> -->
 		
@@ -304,6 +394,7 @@
 		<column name="signoutTime" type="Date" />
 		<column name="totalTime" type="Date" />		
 		<column name="approved" type="boolean" />
+		<column name="approvedBy" type="long"/>
 		<column name="createDate" type="Date" />
 		<column name="modifiedDate" type="Date" />	
 		<column name="createBy" type="long" />
@@ -311,7 +402,12 @@
 
 	
 		<!-- Finder methods -->
-
+		<finder name="createBy" return-type="Collection">
+			<finder-column name="createBy"/>
+ 		</finder>
+		<finder name="modifiedBy" return-type="Collection">
+			<finder-column name="modifiedBy"/>
+		</finder>
 		<!-- <finder name="userId" return-type="EmployeeAttendance">
 			<finder-column name="userId" />
 		</finder>
@@ -327,10 +423,9 @@
 		<column name="groupId" type="long" />
 		<column name="companyId" type="long" />
 		<column name="leaveName" type="String" />
-		<column name="leaveType" type="String" />
+ 		<column name="leaveType" type="String" />
 		<column name="leavesAllowedPerYear" type="int" />
 		<column name="carryOver" type="boolean" />		
-		<column name="carryOverLimit" type="int"/>
 		<column name="encachement" type="boolean" />
 		<column name="Status" type="boolean" />
 		<column name="createDate" type="Date" />
@@ -380,14 +475,9 @@
 		<column name="userId" type="long" />
 		<column name="groupId" type="long" />
 		<column name="companyId" type="long" />
-		<column name="employeeName" type="String"/>
-		<column name="leaveName" type="String"/>
 		<column name="entitlement" type="String" />
-		<column name="leaveDuration" type="String"/>
 		<column name="leaveFrom" type="Date" />
 		<column name="leaveTo" type="Date" />
-		<column name="leaveDate" type="Date"/>
-		<column name="leavePeriod" type="String"/>
 		<column name="approvalStatus" type="String" />		
 		<column name="leaveId" type="long" />
 		<column name="createDate" type="Date" />

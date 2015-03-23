@@ -122,6 +122,7 @@
 				<temporal>TIMESTAMP</temporal>
 			</basic>
 			<basic name="approved" />
+			<basic name="approvedBy" />
 			<basic name="createDate">
 				<temporal>TIMESTAMP</temporal>
 			</basic>
@@ -233,9 +234,9 @@
 			<transient name="userUuid" />
 		</attributes>
 	</mapped-superclass>
-	<mapped-superclass class="com.hrms.model.impl.EmployeeMstModelImpl">
+	<mapped-superclass class="com.hrms.model.impl.EmployeeMasterModelImpl">
 		<attributes>
-			<id name="employeeMstId" />
+			<id name="employeeMasterId" />
 			<basic name="employeeId" />
 			<basic name="userId" />
 			<basic name="gender" />
@@ -248,13 +249,14 @@
 			<basic name="leavingDate">
 				<temporal>TIMESTAMP</temporal>
 			</basic>
-			<basic name="maritualStatus" />
+			<basic name="maritalStatus" />
 			<basic name="nationality" />
 			<basic name="employeeDesignationId" />
 			<basic name="employeeDepartmentId" />
+			<basic name="employeeSubDepartmentId" />
 			<basic name="employeeTypeId" />
-			<basic name="employeeProofId" />
-			<basic name="proofNumber" />
+			<basic name="recruitedOnBasisOf" />
+			<basic name="recruitedBy" />
 			<basic name="createBy" />
 			<basic name="modifiedBy" />
 			<transient name="modelAttributes" />
@@ -294,12 +296,16 @@
 	</mapped-superclass>
 	<mapped-superclass class="com.hrms.model.impl.EmployeeProofModelImpl">
 		<attributes>
-			<id name="employeeProofId" />
-			<basic name="proofType" />
-			<basic name="status" />
+			<id name="employeeproofNo" />
+			<basic name="proofId" />
+			<basic name="userId" />
+			<basic name="expirationDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
 			<transient name="modelAttributes" />
 			<transient name="primaryKey" />
 			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
 		</attributes>
 	</mapped-superclass>
 	<mapped-superclass class="com.hrms.model.impl.EmployeeQualificationModelImpl">
@@ -309,7 +315,7 @@
 			<basic name="groupId" />
 			<basic name="companyId" />
 			<basic name="degreeName" />
-			<basic name="mainSubject" />
+			<basic name="specialization" />
 			<basic name="university" />
 			<basic name="score" />
 			<basic name="startDate">
@@ -330,6 +336,17 @@
 			<transient name="primaryKey" />
 			<transient name="primaryKeyObj" />
 			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.hrms.model.impl.EmployeeSubDepartmentModelImpl">
+		<attributes>
+			<id name="employeeSubDepartmentId" />
+			<basic name="subDepartmentName" />
+			<basic name="employeeDepartmentId" />
+			<basic name="status" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
 		</attributes>
 	</mapped-superclass>
 	<mapped-superclass class="com.hrms.model.impl.EmployeeTimesheetModelImpl">
@@ -465,7 +482,6 @@
 			<basic name="leaveType" />
 			<basic name="leavesAllowedPerYear" />
 			<basic name="carryOver" />
-			<basic name="carryOverLimit" />
 			<basic name="encachement" />
 			<basic name="Status" />
 			<basic name="createDate">
@@ -487,20 +503,13 @@
 			<basic name="userId" />
 			<basic name="groupId" />
 			<basic name="companyId" />
-			<basic name="employeeName" />
-			<basic name="leaveName" />
 			<basic name="entitlement" />
-			<basic name="leaveDuration" />
 			<basic name="leaveFrom">
 				<temporal>TIMESTAMP</temporal>
 			</basic>
 			<basic name="leaveTo">
 				<temporal>TIMESTAMP</temporal>
 			</basic>
-			<basic name="leaveDate">
-				<temporal>TIMESTAMP</temporal>
-			</basic>
-			<basic name="leavePeriod" />
 			<basic name="approvalStatus" />
 			<basic name="leaveId" />
 			<basic name="createDate">
@@ -536,6 +545,16 @@
 			</basic>
 			<basic name="createBy" />
 			<basic name="modifiedBy" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.hrms.model.impl.ProofModelImpl">
+		<attributes>
+			<id name="proofId" />
+			<basic name="proofType" />
+			<basic name="status" />
 			<transient name="modelAttributes" />
 			<transient name="primaryKey" />
 			<transient name="primaryKeyObj" />
@@ -577,8 +596,8 @@
 		<table name="HRMS_EmployeeLeave" />
 		<attributes />
 	</entity>
-	<entity class="com.hrms.model.impl.EmployeeMstImpl" name="EmployeeMst">
-		<table name="HRMS_EmployeeMst" />
+	<entity class="com.hrms.model.impl.EmployeeMasterImpl" name="EmployeeMaster">
+		<table name="HRMS_EmployeeMaster" />
 		<attributes />
 	</entity>
 	<entity class="com.hrms.model.impl.EmployeePreviousCompanyImpl" name="EmployeePreviousCompany">
@@ -591,6 +610,10 @@
 	</entity>
 	<entity class="com.hrms.model.impl.EmployeeQualificationImpl" name="EmployeeQualification">
 		<table name="HRMS_EmployeeQualification" />
+		<attributes />
+	</entity>
+	<entity class="com.hrms.model.impl.EmployeeSubDepartmentImpl" name="EmployeeSubDepartment">
+		<table name="HRMS_EmployeeSubDepartment" />
 		<attributes />
 	</entity>
 	<entity class="com.hrms.model.impl.EmployeeTimesheetImpl" name="EmployeeTimesheet">
@@ -623,6 +646,10 @@
 	</entity>
 	<entity class="com.hrms.model.impl.OfferImpl" name="Offer">
 		<table name="HRMS_Offer" />
+		<attributes />
+	</entity>
+	<entity class="com.hrms.model.impl.ProofImpl" name="Proof">
+		<table name="HRMS_Proof" />
 		<attributes />
 	</entity>
 </entity-mappings>

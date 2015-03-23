@@ -327,14 +327,9 @@ public class LeavesAppliedPersistenceImpl extends BasePersistenceImpl<LeavesAppl
 		leavesAppliedImpl.setUserId(leavesApplied.getUserId());
 		leavesAppliedImpl.setGroupId(leavesApplied.getGroupId());
 		leavesAppliedImpl.setCompanyId(leavesApplied.getCompanyId());
-		leavesAppliedImpl.setEmployeeName(leavesApplied.getEmployeeName());
-		leavesAppliedImpl.setLeaveName(leavesApplied.getLeaveName());
 		leavesAppliedImpl.setEntitlement(leavesApplied.getEntitlement());
-		leavesAppliedImpl.setLeaveDuration(leavesApplied.getLeaveDuration());
 		leavesAppliedImpl.setLeaveFrom(leavesApplied.getLeaveFrom());
 		leavesAppliedImpl.setLeaveTo(leavesApplied.getLeaveTo());
-		leavesAppliedImpl.setLeaveDate(leavesApplied.getLeaveDate());
-		leavesAppliedImpl.setLeavePeriod(leavesApplied.getLeavePeriod());
 		leavesAppliedImpl.setApprovalStatus(leavesApplied.getApprovalStatus());
 		leavesAppliedImpl.setLeaveId(leavesApplied.getLeaveId());
 		leavesAppliedImpl.setCreateDate(leavesApplied.getCreateDate());

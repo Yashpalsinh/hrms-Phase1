@@ -93,7 +93,12 @@ public class EmployeePreviousCompanyModelImpl extends BaseModelImpl<EmployeePrev
 	public static final boolean FINDER_CACHE_ENABLED = GetterUtil.getBoolean(com.liferay.util.service.ServiceProps.get(
 				"value.object.finder.cache.enabled.com.hrms.model.EmployeePreviousCompany"),
 			true);
-	public static final boolean COLUMN_BITMASK_ENABLED = false;
+	public static final boolean COLUMN_BITMASK_ENABLED = GetterUtil.getBoolean(com.liferay.util.service.ServiceProps.get(
+				"value.object.column.bitmask.enabled.com.hrms.model.EmployeePreviousCompany"),
+			true);
+	public static long CREATEBY_COLUMN_BITMASK = 1L;
+	public static long MODIFIEDBY_COLUMN_BITMASK = 2L;
+	public static long EMPLOYEEPREVIOUSCOMPANYID_COLUMN_BITMASK = 4L;
 
 	/**
 	 * Converts the soap model instance into a normal model instance.
@@ -441,7 +446,19 @@ public class EmployeePreviousCompanyModelImpl extends BaseModelImpl<EmployeePrev
 
 	@Override
 	public void setCreateBy(long createBy) {
+		_columnBitmask |= CREATEBY_COLUMN_BITMASK;
+
+		if (!_setOriginalCreateBy) {
+			_setOriginalCreateBy = true;
+
+			_originalCreateBy = _createBy;
+		}
+
 		_createBy = createBy;
+	}
+
+	public long getOriginalCreateBy() {
+		return _originalCreateBy;
 	}
 
 	@JSON
@@ -452,7 +469,23 @@ public class EmployeePreviousCompanyModelImpl extends BaseModelImpl<EmployeePrev
 
 	@Override
 	public void setModifiedBy(long modifiedBy) {
+		_columnBitmask |= MODIFIEDBY_COLUMN_BITMASK;
+
+		if (!_setOriginalModifiedBy) {
+			_setOriginalModifiedBy = true;
+
+			_originalModifiedBy = _modifiedBy;
+		}
+
 		_modifiedBy = modifiedBy;
+	}
+
+	public long getOriginalModifiedBy() {
+		return _originalModifiedBy;
+	}
+
+	public long getColumnBitmask() {
+		return _columnBitmask;
 	}
 
 	@Override
@@ -545,6 +578,17 @@ public class EmployeePreviousCompanyModelImpl extends BaseModelImpl<EmployeePrev
 
 	@Override
 	public void resetOriginalValues() {
+		EmployeePreviousCompanyModelImpl employeePreviousCompanyModelImpl = this;
+
+		employeePreviousCompanyModelImpl._originalCreateBy = employeePreviousCompanyModelImpl._createBy;
+
+		employeePreviousCompanyModelImpl._setOriginalCreateBy = false;
+
+		employeePreviousCompanyModelImpl._originalModifiedBy = employeePreviousCompanyModelImpl._modifiedBy;
+
+		employeePreviousCompanyModelImpl._setOriginalModifiedBy = false;
+
+		employeePreviousCompanyModelImpl._columnBitmask = 0;
 	}
 
 	@Override
@@ -744,6 +788,11 @@ public class EmployeePreviousCompanyModelImpl extends BaseModelImpl<EmployeePrev
 	private Date _createDate;
 	private Date _modifiedDate;
 	private long _createBy;
+	private long _originalCreateBy;
+	private boolean _setOriginalCreateBy;
 	private long _modifiedBy;
+	private long _originalModifiedBy;
+	private boolean _setOriginalModifiedBy;
+	private long _columnBitmask;
 	private EmployeePreviousCompany _escapedModel;
 }

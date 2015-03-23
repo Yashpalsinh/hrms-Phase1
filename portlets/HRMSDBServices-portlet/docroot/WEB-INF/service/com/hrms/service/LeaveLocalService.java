@@ -240,18 +240,4 @@ public interface LeaveLocalService extends BaseLocalService,
 	public java.lang.Object invokeMethod(java.lang.String name,
 		java.lang.String[] parameterTypes, java.lang.Object[] arguments)
 		throws java.lang.Throwable;
-
-	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public java.util.List<com.hrms.model.Leave> getSearchLeaves(
-		java.lang.String leaveName, java.lang.String leaveType,
-		int leavesAllowedPerYear, boolean carryOver, boolean encachement,
-		boolean Status, boolean andSearch, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException;
-
-	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public int getSearchLeavesCount(java.lang.String leaveName,
-		java.lang.String leaveType, int leavesAllowedPerYear,
-		boolean carryOver, boolean encachement, boolean Status,
-		boolean andSearch, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException;
 }

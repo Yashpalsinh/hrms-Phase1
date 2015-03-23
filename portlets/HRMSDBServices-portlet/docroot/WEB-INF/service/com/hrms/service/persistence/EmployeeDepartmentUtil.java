@@ -112,6 +112,238 @@ public class EmployeeDepartmentUtil {
 	}
 
 	/**
+	* Returns the employee department where employeeDepartmentId = &#63; or throws a {@link com.hrms.NoSuchEmployeeDepartmentException} if it could not be found.
+	*
+	* @param employeeDepartmentId the employee department ID
+	* @return the matching employee department
+	* @throws com.hrms.NoSuchEmployeeDepartmentException if a matching employee department could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.hrms.model.EmployeeDepartment findByemployeeDepartmentId(
+		long employeeDepartmentId)
+		throws com.hrms.NoSuchEmployeeDepartmentException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().findByemployeeDepartmentId(employeeDepartmentId);
+	}
+
+	/**
+	* Returns the employee department where employeeDepartmentId = &#63; or returns <code>null</code> if it could not be found. Uses the finder cache.
+	*
+	* @param employeeDepartmentId the employee department ID
+	* @return the matching employee department, or <code>null</code> if a matching employee department could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.hrms.model.EmployeeDepartment fetchByemployeeDepartmentId(
+		long employeeDepartmentId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().fetchByemployeeDepartmentId(employeeDepartmentId);
+	}
+
+	/**
+	* Returns the employee department where employeeDepartmentId = &#63; or returns <code>null</code> if it could not be found, optionally using the finder cache.
+	*
+	* @param employeeDepartmentId the employee department ID
+	* @param retrieveFromCache whether to use the finder cache
+	* @return the matching employee department, or <code>null</code> if a matching employee department could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.hrms.model.EmployeeDepartment fetchByemployeeDepartmentId(
+		long employeeDepartmentId, boolean retrieveFromCache)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence()
+				   .fetchByemployeeDepartmentId(employeeDepartmentId,
+			retrieveFromCache);
+	}
+
+	/**
+	* Removes the employee department where employeeDepartmentId = &#63; from the database.
+	*
+	* @param employeeDepartmentId the employee department ID
+	* @return the employee department that was removed
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.hrms.model.EmployeeDepartment removeByemployeeDepartmentId(
+		long employeeDepartmentId)
+		throws com.hrms.NoSuchEmployeeDepartmentException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence()
+				   .removeByemployeeDepartmentId(employeeDepartmentId);
+	}
+
+	/**
+	* Returns the number of employee departments where employeeDepartmentId = &#63;.
+	*
+	* @param employeeDepartmentId the employee department ID
+	* @return the number of matching employee departments
+	* @throws SystemException if a system exception occurred
+	*/
+	public static int countByemployeeDepartmentId(long employeeDepartmentId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().countByemployeeDepartmentId(employeeDepartmentId);
+	}
+
+	/**
+	* Returns all the employee departments where status = &#63;.
+	*
+	* @param status the status
+	* @return the matching employee departments
+	* @throws SystemException if a system exception occurred
+	*/
+	public static java.util.List<com.hrms.model.EmployeeDepartment> findBystatus(
+		boolean status)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().findBystatus(status);
+	}
+
+	/**
+	* Returns a range of all the employee departments where status = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.hrms.model.impl.EmployeeDepartmentModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param status the status
+	* @param start the lower bound of the range of employee departments
+	* @param end the upper bound of the range of employee departments (not inclusive)
+	* @return the range of matching employee departments
+	* @throws SystemException if a system exception occurred
+	*/
+	public static java.util.List<com.hrms.model.EmployeeDepartment> findBystatus(
+		boolean status, int start, int end)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().findBystatus(status, start, end);
+	}
+
+	/**
+	* Returns an ordered range of all the employee departments where status = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.hrms.model.impl.EmployeeDepartmentModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param status the status
+	* @param start the lower bound of the range of employee departments
+	* @param end the upper bound of the range of employee departments (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @return the ordered range of matching employee departments
+	* @throws SystemException if a system exception occurred
+	*/
+	public static java.util.List<com.hrms.model.EmployeeDepartment> findBystatus(
+		boolean status, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence()
+				   .findBystatus(status, start, end, orderByComparator);
+	}
+
+	/**
+	* Returns the first employee department in the ordered set where status = &#63;.
+	*
+	* @param status the status
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching employee department
+	* @throws com.hrms.NoSuchEmployeeDepartmentException if a matching employee department could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.hrms.model.EmployeeDepartment findBystatus_First(
+		boolean status,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.hrms.NoSuchEmployeeDepartmentException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().findBystatus_First(status, orderByComparator);
+	}
+
+	/**
+	* Returns the first employee department in the ordered set where status = &#63;.
+	*
+	* @param status the status
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching employee department, or <code>null</code> if a matching employee department could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.hrms.model.EmployeeDepartment fetchBystatus_First(
+		boolean status,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().fetchBystatus_First(status, orderByComparator);
+	}
+
+	/**
+	* Returns the last employee department in the ordered set where status = &#63;.
+	*
+	* @param status the status
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching employee department
+	* @throws com.hrms.NoSuchEmployeeDepartmentException if a matching employee department could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.hrms.model.EmployeeDepartment findBystatus_Last(
+		boolean status,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.hrms.NoSuchEmployeeDepartmentException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().findBystatus_Last(status, orderByComparator);
+	}
+
+	/**
+	* Returns the last employee department in the ordered set where status = &#63;.
+	*
+	* @param status the status
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching employee department, or <code>null</code> if a matching employee department could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.hrms.model.EmployeeDepartment fetchBystatus_Last(
+		boolean status,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().fetchBystatus_Last(status, orderByComparator);
+	}
+
+	/**
+	* Returns the employee departments before and after the current employee department in the ordered set where status = &#63;.
+	*
+	* @param employeeDepartmentId the primary key of the current employee department
+	* @param status the status
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the previous, current, and next employee department
+	* @throws com.hrms.NoSuchEmployeeDepartmentException if a employee department with the primary key could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.hrms.model.EmployeeDepartment[] findBystatus_PrevAndNext(
+		long employeeDepartmentId, boolean status,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.hrms.NoSuchEmployeeDepartmentException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence()
+				   .findBystatus_PrevAndNext(employeeDepartmentId, status,
+			orderByComparator);
+	}
+
+	/**
+	* Removes all the employee departments where status = &#63; from the database.
+	*
+	* @param status the status
+	* @throws SystemException if a system exception occurred
+	*/
+	public static void removeBystatus(boolean status)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		getPersistence().removeBystatus(status);
+	}
+
+	/**
+	* Returns the number of employee departments where status = &#63;.
+	*
+	* @param status the status
+	* @return the number of matching employee departments
+	* @throws SystemException if a system exception occurred
+	*/
+	public static int countBystatus(boolean status)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().countBystatus(status);
+	}
+
+	/**
 	* Caches the employee department in the entity cache if it is enabled.
 	*
 	* @param employeeDepartment the employee department
