@@ -1,0 +1,655 @@
+<?xml version="1.0"?>
+
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd">
+	<persistence-unit-metadata>
+		<xml-mapping-metadata-complete/>
+		<persistence-unit-defaults>
+			<access>PROPERTY</access>
+		</persistence-unit-defaults>
+	</persistence-unit-metadata>
+	<mapped-superclass class="com.hrms.model.impl.CandidateModelImpl">
+		<attributes>
+			<id name="candidateId" />
+			<basic name="employeeDepartmentId" />
+			<basic name="employeeDesignationId" />
+			<basic name="title" />
+			<basic name="firstName" />
+			<basic name="middleName" />
+			<basic name="lastName" />
+			<basic name="dateOfBirth">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="nationality" />
+			<basic name="maritalStatus" />
+			<basic name="street1" />
+			<basic name="street2" />
+			<basic name="street3" />
+			<basic name="city" />
+			<basic name="zip" />
+			<basic name="countryId" />
+			<basic name="personalEmail" />
+			<basic name="currentCtc" />
+			<basic name="expectedCtc" />
+			<basic name="noticePeriod" />
+			<basic name="resumeId" />
+			<basic name="resumePath" />
+			<basic name="employeeProofId" />
+			<basic name="proofNumber" />
+			<basic name="gender" />
+			<basic name="status" />
+			<basic name="shortListed" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="createBy" />
+			<basic name="modifiedBy" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.hrms.model.impl.CandidateQualificationModelImpl">
+		<attributes>
+			<id name="candidateQualificationId" />
+			<basic name="candidateId" />
+			<basic name="degreeName" />
+			<basic name="mainSubject" />
+			<basic name="university" />
+			<basic name="score" />
+			<basic name="startDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="endDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="createBy" />
+			<basic name="modifiedBy" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.hrms.model.impl.EmployeeAchivementModelImpl">
+		<attributes>
+			<id name="employeeAchivementId" />
+			<basic name="achivedBy" />
+			<basic name="groupId" />
+			<basic name="companyId" />
+			<basic name="achivementDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="achivementTitle" />
+			<basic name="achivementDiscription" />
+			<basic name="status" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="createBy" />
+			<basic name="modifiedBy" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.hrms.model.impl.EmployeeAttendanceModelImpl">
+		<attributes>
+			<id name="attendanceId" />
+			<basic name="userId" />
+			<basic name="groupId" />
+			<basic name="companyId" />
+			<basic name="attendanceDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="signinTime">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="signoutTime">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="totalTime">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="approved" />
+			<basic name="approvedBy" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="createBy" />
+			<basic name="modifiedBy" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.hrms.model.impl.EmployeeComplaintModelImpl">
+		<attributes>
+			<id name="employeeComplaintId" />
+			<basic name="userId" />
+			<basic name="groupId" />
+			<basic name="companyId" />
+			<basic name="complaintTitle" />
+			<basic name="complaintDiscription" />
+			<basic name="complaintFrom" />
+			<basic name="complaintDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="status" />
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="createBy" />
+			<basic name="modifiedBy" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.hrms.model.impl.EmployeeDepartmentModelImpl">
+		<attributes>
+			<id name="employeeDepartmentId" />
+			<basic name="departmentName" />
+			<basic name="status" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.hrms.model.impl.EmployeeDesignationModelImpl">
+		<attributes>
+			<id name="employeeDesignationId" />
+			<basic name="designationName" />
+			<basic name="status" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.hrms.model.impl.EmployeeLanguageDetailModelImpl">
+		<attributes>
+			<id name="employeeLanguageDetailId" />
+			<basic name="userId" />
+			<basic name="groupId" />
+			<basic name="companyId" />
+			<basic name="languageName" />
+			<basic name="read">
+				<column name="READ_" />
+			</basic>
+			<basic name="write">
+				<column name="WRITE_" />
+			</basic>
+			<basic name="speak" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="createBy" />
+			<basic name="modifiedBy" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.hrms.model.impl.EmployeeLeaveModelImpl">
+		<attributes>
+			<id name="employeeLeaveId" />
+			<basic name="userId" />
+			<basic name="groupId" />
+			<basic name="companyId" />
+			<basic name="year" />
+			<basic name="leavesCarriedOver" />
+			<basic name="leavesTakenThisYear" />
+			<basic name="remainingLeaves" />
+			<basic name="leaveId" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="createBy" />
+			<basic name="modifiedBy" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.hrms.model.impl.EmployeeMasterModelImpl">
+		<attributes>
+			<id name="employeeMasterId" />
+			<basic name="employeeId" />
+			<basic name="userId" />
+			<basic name="gender" />
+			<basic name="dateOfBirth">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="joiningDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="leavingDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="maritalStatus" />
+			<basic name="nationality" />
+			<basic name="employeeDesignationId" />
+			<basic name="employeeDepartmentId" />
+			<basic name="employeeSubDepartmentId" />
+			<basic name="employeeTypeId" />
+			<basic name="recruitedOnBasisOf" />
+			<basic name="recruitedBy" />
+			<basic name="createBy" />
+			<basic name="modifiedBy" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.hrms.model.impl.EmployeePreviousCompanyModelImpl">
+		<attributes>
+			<id name="employeePreviousCompanyId" />
+			<basic name="userId" />
+			<basic name="groupId" />
+			<basic name="companyId" />
+			<basic name="companyName" />
+			<basic name="jobTitle" />
+			<basic name="jobDiscription" />
+			<basic name="startDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="endDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="createBy" />
+			<basic name="modifiedBy" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.hrms.model.impl.EmployeeProofModelImpl">
+		<attributes>
+			<id name="employeeproofNo" />
+			<basic name="proofId" />
+			<basic name="userId" />
+			<basic name="expirationDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.hrms.model.impl.EmployeeQualificationModelImpl">
+		<attributes>
+			<id name="employeeQualificationId" />
+			<basic name="userId" />
+			<basic name="groupId" />
+			<basic name="companyId" />
+			<basic name="degreeName" />
+			<basic name="specialization" />
+			<basic name="university" />
+			<basic name="score" />
+			<basic name="startDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="endDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="createBy" />
+			<basic name="modifiedBy" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.hrms.model.impl.EmployeeSubDepartmentModelImpl">
+		<attributes>
+			<id name="employeeSubDepartmentId" />
+			<basic name="subDepartmentName" />
+			<basic name="employeeDepartmentId" />
+			<basic name="status" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.hrms.model.impl.EmployeeTimesheetModelImpl">
+		<attributes>
+			<id name="timesheetId" />
+			<basic name="userId" />
+			<basic name="groupId" />
+			<basic name="companyId" />
+			<basic name="taskTitle" />
+			<basic name="taskDescription" />
+			<basic name="taskFileId" />
+			<basic name="taskFilePath" />
+			<basic name="taskStarttime">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="taskEndtime">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="taskDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="duration">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="taskCompleted" />
+			<basic name="billable" />
+			<basic name="billed" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="createBy" />
+			<basic name="modifiedBy" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.hrms.model.impl.EmployeeTypeModelImpl">
+		<attributes>
+			<id name="employeeTypeId" />
+			<basic name="employeeTypeName" />
+			<basic name="status" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.hrms.model.impl.EmployeeWarningModelImpl">
+		<attributes>
+			<id name="employeeWarningId" />
+			<basic name="warningTo" />
+			<basic name="groupId" />
+			<basic name="companyId" />
+			<basic name="warningDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="warningSubject" />
+			<basic name="status" />
+			<basic name="warningBy" />
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="createBy" />
+			<basic name="modifiedBy" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.hrms.model.impl.InterviewModelImpl">
+		<attributes>
+			<id name="InterviewId" />
+			<basic name="candidateId" />
+			<basic name="jobLibraryId" />
+			<basic name="roundNumber" />
+			<basic name="roundType" />
+			<basic name="InterviewerId" />
+			<basic name="interviewDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="result" />
+			<basic name="remarks" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="createBy" />
+			<basic name="modifiedBy" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.hrms.model.impl.JobLibraryModelImpl">
+		<attributes>
+			<id name="jobLibraryId" />
+			<basic name="employeeDepartmentId" />
+			<basic name="jobTitle" />
+			<basic name="jobDescription" />
+			<basic name="responsibility" />
+			<basic name="qualifications" />
+			<basic name="numberOfPosition" />
+			<basic name="experience" />
+			<basic name="salaryStartRange" />
+			<basic name="salaryEndRange" />
+			<basic name="benefits" />
+			<basic name="reportsToId" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="createBy" />
+			<basic name="modifiedBy" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.hrms.model.impl.LeaveModelImpl">
+		<attributes>
+			<id name="leaveId" />
+			<basic name="groupId" />
+			<basic name="companyId" />
+			<basic name="leaveName" />
+			<basic name="leaveType" />
+			<basic name="leavesAllowedPerYear" />
+			<basic name="carryOver" />
+			<basic name="encachement" />
+			<basic name="Status" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="createBy" />
+			<basic name="modifiedBy" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.hrms.model.impl.LeavesAppliedModelImpl">
+		<attributes>
+			<id name="appliedLeaveId" />
+			<basic name="userId" />
+			<basic name="groupId" />
+			<basic name="companyId" />
+			<basic name="entitlement" />
+			<basic name="leaveFrom">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="leaveTo">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="approvalStatus" />
+			<basic name="leaveId" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="createBy" />
+			<basic name="modifiedBy" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.hrms.model.impl.OfferModelImpl">
+		<attributes>
+			<id name="OferrId" />
+			<basic name="candidateId" />
+			<basic name="employeeDepartmentId" />
+			<basic name="employeeDesignationId" />
+			<basic name="employeeTypeId" />
+			<basic name="salary" />
+			<basic name="joiningDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="createBy" />
+			<basic name="modifiedBy" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.hrms.model.impl.ProofModelImpl">
+		<attributes>
+			<id name="proofId" />
+			<basic name="proofType" />
+			<basic name="status" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<entity class="com.hrms.model.impl.CandidateImpl" name="Candidate">
+		<table name="HRMS_Candidate" />
+		<attributes />
+	</entity>
+	<entity class="com.hrms.model.impl.CandidateQualificationImpl" name="CandidateQualification">
+		<table name="HRMS_CandidateQualification" />
+		<attributes />
+	</entity>
+	<entity class="com.hrms.model.impl.EmployeeAchivementImpl" name="EmployeeAchivement">
+		<table name="HRMS_EmployeeAchivement" />
+		<attributes />
+	</entity>
+	<entity class="com.hrms.model.impl.EmployeeAttendanceImpl" name="EmployeeAttendance">
+		<table name="HRMS_EmployeeAttendance" />
+		<attributes />
+	</entity>
+	<entity class="com.hrms.model.impl.EmployeeComplaintImpl" name="EmployeeComplaint">
+		<table name="HRMS_EmployeeComplaint" />
+		<attributes />
+	</entity>
+	<entity class="com.hrms.model.impl.EmployeeDepartmentImpl" name="EmployeeDepartment">
+		<table name="HRMS_EmployeeDepartment" />
+		<attributes />
+	</entity>
+	<entity class="com.hrms.model.impl.EmployeeDesignationImpl" name="EmployeeDesignation">
+		<table name="HRMS_EmployeeDesignation" />
+		<attributes />
+	</entity>
+	<entity class="com.hrms.model.impl.EmployeeLanguageDetailImpl" name="EmployeeLanguageDetail">
+		<table name="HRMS_EmployeeLanguageDetail" />
+		<attributes />
+	</entity>
+	<entity class="com.hrms.model.impl.EmployeeLeaveImpl" name="EmployeeLeave">
+		<table name="HRMS_EmployeeLeave" />
+		<attributes />
+	</entity>
+	<entity class="com.hrms.model.impl.EmployeeMasterImpl" name="EmployeeMaster">
+		<table name="HRMS_EmployeeMaster" />
+		<attributes />
+	</entity>
+	<entity class="com.hrms.model.impl.EmployeePreviousCompanyImpl" name="EmployeePreviousCompany">
+		<table name="HRMS_EmployeePreviousCompany" />
+		<attributes />
+	</entity>
+	<entity class="com.hrms.model.impl.EmployeeProofImpl" name="EmployeeProof">
+		<table name="HRMS_EmployeeProof" />
+		<attributes />
+	</entity>
+	<entity class="com.hrms.model.impl.EmployeeQualificationImpl" name="EmployeeQualification">
+		<table name="HRMS_EmployeeQualification" />
+		<attributes />
+	</entity>
+	<entity class="com.hrms.model.impl.EmployeeSubDepartmentImpl" name="EmployeeSubDepartment">
+		<table name="HRMS_EmployeeSubDepartment" />
+		<attributes />
+	</entity>
+	<entity class="com.hrms.model.impl.EmployeeTimesheetImpl" name="EmployeeTimesheet">
+		<table name="HRMS_EmployeeTimesheet" />
+		<attributes />
+	</entity>
+	<entity class="com.hrms.model.impl.EmployeeTypeImpl" name="EmployeeType">
+		<table name="HRMS_EmployeeType" />
+		<attributes />
+	</entity>
+	<entity class="com.hrms.model.impl.EmployeeWarningImpl" name="EmployeeWarning">
+		<table name="HRMS_EmployeeWarning" />
+		<attributes />
+	</entity>
+	<entity class="com.hrms.model.impl.InterviewImpl" name="Interview">
+		<table name="HRMS_Interview" />
+		<attributes />
+	</entity>
+	<entity class="com.hrms.model.impl.JobLibraryImpl" name="JobLibrary">
+		<table name="HRMS_JobLibrary" />
+		<attributes />
+	</entity>
+	<entity class="com.hrms.model.impl.LeaveImpl" name="Leave">
+		<table name="HRMS_Leave" />
+		<attributes />
+	</entity>
+	<entity class="com.hrms.model.impl.LeavesAppliedImpl" name="LeavesApplied">
+		<table name="HRMS_LeavesApplied" />
+		<attributes />
+	</entity>
+	<entity class="com.hrms.model.impl.OfferImpl" name="Offer">
+		<table name="HRMS_Offer" />
+		<attributes />
+	</entity>
+	<entity class="com.hrms.model.impl.ProofImpl" name="Proof">
+		<table name="HRMS_Proof" />
+		<attributes />
+	</entity>
+</entity-mappings>
