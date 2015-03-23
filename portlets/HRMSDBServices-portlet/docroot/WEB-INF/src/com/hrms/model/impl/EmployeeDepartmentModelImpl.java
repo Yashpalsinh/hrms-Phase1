@@ -80,7 +80,11 @@ public class EmployeeDepartmentModelImpl extends BaseModelImpl<EmployeeDepartmen
 	public static final boolean FINDER_CACHE_ENABLED = GetterUtil.getBoolean(com.liferay.util.service.ServiceProps.get(
 				"value.object.finder.cache.enabled.com.hrms.model.EmployeeDepartment"),
 			true);
-	public static final boolean COLUMN_BITMASK_ENABLED = false;
+	public static final boolean COLUMN_BITMASK_ENABLED = GetterUtil.getBoolean(com.liferay.util.service.ServiceProps.get(
+				"value.object.column.bitmask.enabled.com.hrms.model.EmployeeDepartment"),
+			true);
+	public static long EMPLOYEEDEPARTMENTID_COLUMN_BITMASK = 1L;
+	public static long STATUS_COLUMN_BITMASK = 2L;
 
 	/**
 	 * Converts the soap model instance into a normal model instance.
@@ -199,7 +203,19 @@ public class EmployeeDepartmentModelImpl extends BaseModelImpl<EmployeeDepartmen
 
 	@Override
 	public void setEmployeeDepartmentId(long employeeDepartmentId) {
+		_columnBitmask |= EMPLOYEEDEPARTMENTID_COLUMN_BITMASK;
+
+		if (!_setOriginalEmployeeDepartmentId) {
+			_setOriginalEmployeeDepartmentId = true;
+
+			_originalEmployeeDepartmentId = _employeeDepartmentId;
+		}
+
 		_employeeDepartmentId = employeeDepartmentId;
+	}
+
+	public long getOriginalEmployeeDepartmentId() {
+		return _originalEmployeeDepartmentId;
 	}
 
 	@JSON
@@ -231,7 +247,23 @@ public class EmployeeDepartmentModelImpl extends BaseModelImpl<EmployeeDepartmen
 
 	@Override
 	public void setStatus(boolean status) {
+		_columnBitmask |= STATUS_COLUMN_BITMASK;
+
+		if (!_setOriginalStatus) {
+			_setOriginalStatus = true;
+
+			_originalStatus = _status;
+		}
+
 		_status = status;
+	}
+
+	public boolean getOriginalStatus() {
+		return _originalStatus;
+	}
+
+	public long getColumnBitmask() {
+		return _columnBitmask;
 	}
 
 	@Override
@@ -314,6 +346,17 @@ public class EmployeeDepartmentModelImpl extends BaseModelImpl<EmployeeDepartmen
 
 	@Override
 	public void resetOriginalValues() {
+		EmployeeDepartmentModelImpl employeeDepartmentModelImpl = this;
+
+		employeeDepartmentModelImpl._originalEmployeeDepartmentId = employeeDepartmentModelImpl._employeeDepartmentId;
+
+		employeeDepartmentModelImpl._setOriginalEmployeeDepartmentId = false;
+
+		employeeDepartmentModelImpl._originalStatus = employeeDepartmentModelImpl._status;
+
+		employeeDepartmentModelImpl._setOriginalStatus = false;
+
+		employeeDepartmentModelImpl._columnBitmask = 0;
 	}
 
 	@Override
@@ -381,7 +424,12 @@ public class EmployeeDepartmentModelImpl extends BaseModelImpl<EmployeeDepartmen
 			EmployeeDepartment.class
 		};
 	private long _employeeDepartmentId;
+	private long _originalEmployeeDepartmentId;
+	private boolean _setOriginalEmployeeDepartmentId;
 	private String _departmentName;
 	private boolean _status;
+	private boolean _originalStatus;
+	private boolean _setOriginalStatus;
+	private long _columnBitmask;
 	private EmployeeDepartment _escapedModel;
 }

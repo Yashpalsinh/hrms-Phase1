@@ -275,6 +275,31 @@ public class EmployeeDesignationLocalServiceUtil {
 		return getService().invokeMethod(name, parameterTypes, arguments);
 	}
 
+	public static java.util.List getSerachEmployeeDesignations(
+		java.lang.String designationName, java.lang.String status,
+		boolean andSearch, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getService()
+				   .getSerachEmployeeDesignations(designationName, status,
+			andSearch, start, end, orderByComparator);
+	}
+
+	public static int getSearchEmployeeDesignationsCount(
+		java.lang.String designationName, java.lang.String status,
+		boolean andSearch)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getService()
+				   .getSearchEmployeeDesignationsCount(designationName, status,
+			andSearch);
+	}
+
+	public static java.util.List<com.hrms.model.EmployeeDesignation> findByStatus(
+		boolean stat)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getService().findByStatus(stat);
+	}
+
 	public static void clearService() {
 		_service = null;
 	}

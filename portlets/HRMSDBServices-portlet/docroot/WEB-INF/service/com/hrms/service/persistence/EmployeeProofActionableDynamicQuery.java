@@ -33,6 +33,6 @@ public abstract class EmployeeProofActionableDynamicQuery
 
 		setClassLoader(com.hrms.service.ClpSerializer.class.getClassLoader());
 
-		setPrimaryKeyPropertyName("employeeProofId");
+		setPrimaryKeyPropertyName("employeeproofNo");
 	}
 }

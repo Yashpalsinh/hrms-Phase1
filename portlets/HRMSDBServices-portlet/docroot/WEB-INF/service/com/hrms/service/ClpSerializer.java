@@ -23,10 +23,11 @@ import com.hrms.model.EmployeeDepartmentClp;
 import com.hrms.model.EmployeeDesignationClp;
 import com.hrms.model.EmployeeLanguageDetailClp;
 import com.hrms.model.EmployeeLeaveClp;
-import com.hrms.model.EmployeeMstClp;
+import com.hrms.model.EmployeeMasterClp;
 import com.hrms.model.EmployeePreviousCompanyClp;
 import com.hrms.model.EmployeeProofClp;
 import com.hrms.model.EmployeeQualificationClp;
+import com.hrms.model.EmployeeSubDepartmentClp;
 import com.hrms.model.EmployeeTimesheetClp;
 import com.hrms.model.EmployeeTypeClp;
 import com.hrms.model.EmployeeWarningClp;
@@ -35,6 +36,7 @@ import com.hrms.model.JobLibraryClp;
 import com.hrms.model.LeaveClp;
 import com.hrms.model.LeavesAppliedClp;
 import com.hrms.model.OfferClp;
+import com.hrms.model.ProofClp;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
@@ -158,8 +160,8 @@ public class ClpSerializer {
 			return translateInputEmployeeLeave(oldModel);
 		}
 
-		if (oldModelClassName.equals(EmployeeMstClp.class.getName())) {
-			return translateInputEmployeeMst(oldModel);
+		if (oldModelClassName.equals(EmployeeMasterClp.class.getName())) {
+			return translateInputEmployeeMaster(oldModel);
 		}
 
 		if (oldModelClassName.equals(EmployeePreviousCompanyClp.class.getName())) {
@@ -172,6 +174,10 @@ public class ClpSerializer {
 
 		if (oldModelClassName.equals(EmployeeQualificationClp.class.getName())) {
 			return translateInputEmployeeQualification(oldModel);
+		}
+
+		if (oldModelClassName.equals(EmployeeSubDepartmentClp.class.getName())) {
+			return translateInputEmployeeSubDepartment(oldModel);
 		}
 
 		if (oldModelClassName.equals(EmployeeTimesheetClp.class.getName())) {
@@ -204,6 +210,10 @@ public class ClpSerializer {
 
 		if (oldModelClassName.equals(OfferClp.class.getName())) {
 			return translateInputOffer(oldModel);
+		}
+
+		if (oldModelClassName.equals(ProofClp.class.getName())) {
+			return translateInputProof(oldModel);
 		}
 
 		return oldModel;
@@ -314,10 +324,10 @@ public class ClpSerializer {
 		return newModel;
 	}
 
-	public static Object translateInputEmployeeMst(BaseModel<?> oldModel) {
-		EmployeeMstClp oldClpModel = (EmployeeMstClp)oldModel;
+	public static Object translateInputEmployeeMaster(BaseModel<?> oldModel) {
+		EmployeeMasterClp oldClpModel = (EmployeeMasterClp)oldModel;
 
-		BaseModel<?> newModel = oldClpModel.getEmployeeMstRemoteModel();
+		BaseModel<?> newModel = oldClpModel.getEmployeeMasterRemoteModel();
 
 		newModel.setModelAttributes(oldClpModel.getModelAttributes());
 
@@ -350,6 +360,17 @@ public class ClpSerializer {
 		EmployeeQualificationClp oldClpModel = (EmployeeQualificationClp)oldModel;
 
 		BaseModel<?> newModel = oldClpModel.getEmployeeQualificationRemoteModel();
+
+		newModel.setModelAttributes(oldClpModel.getModelAttributes());
+
+		return newModel;
+	}
+
+	public static Object translateInputEmployeeSubDepartment(
+		BaseModel<?> oldModel) {
+		EmployeeSubDepartmentClp oldClpModel = (EmployeeSubDepartmentClp)oldModel;
+
+		BaseModel<?> newModel = oldClpModel.getEmployeeSubDepartmentRemoteModel();
 
 		newModel.setModelAttributes(oldClpModel.getModelAttributes());
 
@@ -436,6 +457,16 @@ public class ClpSerializer {
 		return newModel;
 	}
 
+	public static Object translateInputProof(BaseModel<?> oldModel) {
+		ProofClp oldClpModel = (ProofClp)oldModel;
+
+		BaseModel<?> newModel = oldClpModel.getProofRemoteModel();
+
+		newModel.setModelAttributes(oldClpModel.getModelAttributes());
+
+		return newModel;
+	}
+
 	public static Object translateInput(Object obj) {
 		if (obj instanceof BaseModel<?>) {
 			return translateInput((BaseModel<?>)obj);
@@ -496,8 +527,8 @@ public class ClpSerializer {
 			return translateOutputEmployeeLeave(oldModel);
 		}
 
-		if (oldModelClassName.equals("com.hrms.model.impl.EmployeeMstImpl")) {
-			return translateOutputEmployeeMst(oldModel);
+		if (oldModelClassName.equals("com.hrms.model.impl.EmployeeMasterImpl")) {
+			return translateOutputEmployeeMaster(oldModel);
 		}
 
 		if (oldModelClassName.equals(
@@ -512,6 +543,11 @@ public class ClpSerializer {
 		if (oldModelClassName.equals(
 					"com.hrms.model.impl.EmployeeQualificationImpl")) {
 			return translateOutputEmployeeQualification(oldModel);
+		}
+
+		if (oldModelClassName.equals(
+					"com.hrms.model.impl.EmployeeSubDepartmentImpl")) {
+			return translateOutputEmployeeSubDepartment(oldModel);
 		}
 
 		if (oldModelClassName.equals(
@@ -545,6 +581,10 @@ public class ClpSerializer {
 
 		if (oldModelClassName.equals("com.hrms.model.impl.OfferImpl")) {
 			return translateOutputOffer(oldModel);
+		}
+
+		if (oldModelClassName.equals("com.hrms.model.impl.ProofImpl")) {
+			return translateOutputProof(oldModel);
 		}
 
 		return oldModel;
@@ -663,8 +703,8 @@ public class ClpSerializer {
 			return new com.hrms.NoSuchEmployeeLeaveException();
 		}
 
-		if (className.equals("com.hrms.NoSuchEmployeeMstException")) {
-			return new com.hrms.NoSuchEmployeeMstException();
+		if (className.equals("com.hrms.NoSuchEmployeeMasterException")) {
+			return new com.hrms.NoSuchEmployeeMasterException();
 		}
 
 		if (className.equals("com.hrms.NoSuchEmployeePreviousCompanyException")) {
@@ -677,6 +717,10 @@ public class ClpSerializer {
 
 		if (className.equals("com.hrms.NoSuchEmployeeQualificationException")) {
 			return new com.hrms.NoSuchEmployeeQualificationException();
+		}
+
+		if (className.equals("com.hrms.NoSuchEmployeeSubDepartmentException")) {
+			return new com.hrms.NoSuchEmployeeSubDepartmentException();
 		}
 
 		if (className.equals("com.hrms.NoSuchEmployeeTimesheetException")) {
@@ -709,6 +753,10 @@ public class ClpSerializer {
 
 		if (className.equals("com.hrms.NoSuchOfferException")) {
 			return new com.hrms.NoSuchOfferException();
+		}
+
+		if (className.equals("com.hrms.NoSuchProofException")) {
+			return new com.hrms.NoSuchProofException();
 		}
 
 		return throwable;
@@ -810,12 +858,12 @@ public class ClpSerializer {
 		return newModel;
 	}
 
-	public static Object translateOutputEmployeeMst(BaseModel<?> oldModel) {
-		EmployeeMstClp newModel = new EmployeeMstClp();
+	public static Object translateOutputEmployeeMaster(BaseModel<?> oldModel) {
+		EmployeeMasterClp newModel = new EmployeeMasterClp();
 
 		newModel.setModelAttributes(oldModel.getModelAttributes());
 
-		newModel.setEmployeeMstRemoteModel(oldModel);
+		newModel.setEmployeeMasterRemoteModel(oldModel);
 
 		return newModel;
 	}
@@ -848,6 +896,17 @@ public class ClpSerializer {
 		newModel.setModelAttributes(oldModel.getModelAttributes());
 
 		newModel.setEmployeeQualificationRemoteModel(oldModel);
+
+		return newModel;
+	}
+
+	public static Object translateOutputEmployeeSubDepartment(
+		BaseModel<?> oldModel) {
+		EmployeeSubDepartmentClp newModel = new EmployeeSubDepartmentClp();
+
+		newModel.setModelAttributes(oldModel.getModelAttributes());
+
+		newModel.setEmployeeSubDepartmentRemoteModel(oldModel);
 
 		return newModel;
 	}
@@ -928,6 +987,16 @@ public class ClpSerializer {
 		newModel.setModelAttributes(oldModel.getModelAttributes());
 
 		newModel.setOfferRemoteModel(oldModel);
+
+		return newModel;
+	}
+
+	public static Object translateOutputProof(BaseModel<?> oldModel) {
+		ProofClp newModel = new ProofClp();
+
+		newModel.setModelAttributes(oldModel.getModelAttributes());
+
+		newModel.setProofRemoteModel(oldModel);
 
 		return newModel;
 	}

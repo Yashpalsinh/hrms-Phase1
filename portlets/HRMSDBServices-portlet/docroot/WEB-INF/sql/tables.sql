@@ -72,6 +72,7 @@ create table HRMS_EmployeeAttendance (
 	signoutTime DATE null,
 	totalTime DATE null,
 	approved BOOLEAN,
+	approvedBy LONG,
 	createDate DATE null,
 	modifiedDate DATE null,
 	createBy LONG,
@@ -136,6 +137,26 @@ create table HRMS_EmployeeLeave (
 	modifiedBy LONG
 );
 
+create table HRMS_EmployeeMaster (
+	employeeMasterId LONG not null primary key,
+	employeeId VARCHAR(75) null,
+	userId LONG,
+	gender INTEGER,
+	dateOfBirth DATE null,
+	joiningDate DATE null,
+	leavingDate DATE null,
+	maritalStatus INTEGER,
+	nationality VARCHAR(75) null,
+	employeeDesignationId INTEGER,
+	employeeDepartmentId INTEGER,
+	employeeSubDepartmentId INTEGER,
+	employeeTypeId INTEGER,
+	recruitedOnBasisOf VARCHAR(75) null,
+	recruitedBy LONG,
+	createBy INTEGER,
+	modifiedBy INTEGER
+);
+
 create table HRMS_EmployeeMst (
 	employeeMstId LONG not null primary key,
 	employeeId VARCHAR(75) null,
@@ -172,9 +193,10 @@ create table HRMS_EmployeePreviousCompany (
 );
 
 create table HRMS_EmployeeProof (
-	employeeProofId LONG not null primary key,
-	proofType VARCHAR(75) null,
-	status BOOLEAN
+	employeeproofNo LONG not null primary key,
+	proofId LONG,
+	userId LONG,
+	expirationDate DATE null
 );
 
 create table HRMS_EmployeeQualification (
@@ -183,7 +205,7 @@ create table HRMS_EmployeeQualification (
 	groupId LONG,
 	companyId LONG,
 	degreeName VARCHAR(75) null,
-	mainSubject VARCHAR(75) null,
+	specialization VARCHAR(75) null,
 	university VARCHAR(75) null,
 	score VARCHAR(75) null,
 	startDate DATE null,
@@ -192,6 +214,13 @@ create table HRMS_EmployeeQualification (
 	modifiedDate DATE null,
 	createBy LONG,
 	modifiedBy LONG
+);
+
+create table HRMS_EmployeeSubDepartment (
+	employeeSubDepartmentId LONG not null primary key,
+	subDepartmentName VARCHAR(75) null,
+	employeeDepartmentId LONG,
+	status BOOLEAN
 );
 
 create table HRMS_EmployeeTimesheet (
@@ -279,7 +308,6 @@ create table HRMS_Leave (
 	leaveType VARCHAR(75) null,
 	leavesAllowedPerYear INTEGER,
 	carryOver BOOLEAN,
-	carryOverLimit INTEGER,
 	encachement BOOLEAN,
 	Status BOOLEAN,
 	createDate DATE null,
@@ -293,14 +321,9 @@ create table HRMS_LeavesApplied (
 	userId LONG,
 	groupId LONG,
 	companyId LONG,
-	employeeName VARCHAR(75) null,
-	leaveName VARCHAR(75) null,
 	entitlement VARCHAR(75) null,
-	leaveDuration VARCHAR(75) null,
 	leaveFrom DATE null,
 	leaveTo DATE null,
-	leaveDate DATE null,
-	leavePeriod VARCHAR(75) null,
 	approvalStatus VARCHAR(75) null,
 	leaveId LONG,
 	createDate DATE null,
@@ -321,4 +344,10 @@ create table HRMS_Offer (
 	modifiedDate DATE null,
 	createBy LONG,
 	modifiedBy LONG
+);
+
+create table HRMS_Proof (
+	proofId LONG not null primary key,
+	proofType VARCHAR(75) null,
+	status BOOLEAN
 );

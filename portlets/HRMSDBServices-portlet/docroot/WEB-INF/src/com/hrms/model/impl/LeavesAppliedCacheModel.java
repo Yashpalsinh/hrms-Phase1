@@ -38,7 +38,7 @@ public class LeavesAppliedCacheModel implements CacheModel<LeavesApplied>,
 	Externalizable {
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(37);
+		StringBundler sb = new StringBundler(27);
 
 		sb.append("{appliedLeaveId=");
 		sb.append(appliedLeaveId);
@@ -48,22 +48,12 @@ public class LeavesAppliedCacheModel implements CacheModel<LeavesApplied>,
 		sb.append(groupId);
 		sb.append(", companyId=");
 		sb.append(companyId);
-		sb.append(", employeeName=");
-		sb.append(employeeName);
-		sb.append(", leaveName=");
-		sb.append(leaveName);
 		sb.append(", entitlement=");
 		sb.append(entitlement);
-		sb.append(", leaveDuration=");
-		sb.append(leaveDuration);
 		sb.append(", leaveFrom=");
 		sb.append(leaveFrom);
 		sb.append(", leaveTo=");
 		sb.append(leaveTo);
-		sb.append(", leaveDate=");
-		sb.append(leaveDate);
-		sb.append(", leavePeriod=");
-		sb.append(leavePeriod);
 		sb.append(", approvalStatus=");
 		sb.append(approvalStatus);
 		sb.append(", leaveId=");
@@ -90,32 +80,11 @@ public class LeavesAppliedCacheModel implements CacheModel<LeavesApplied>,
 		leavesAppliedImpl.setGroupId(groupId);
 		leavesAppliedImpl.setCompanyId(companyId);
 
-		if (employeeName == null) {
-			leavesAppliedImpl.setEmployeeName(StringPool.BLANK);
-		}
-		else {
-			leavesAppliedImpl.setEmployeeName(employeeName);
-		}
-
-		if (leaveName == null) {
-			leavesAppliedImpl.setLeaveName(StringPool.BLANK);
-		}
-		else {
-			leavesAppliedImpl.setLeaveName(leaveName);
-		}
-
 		if (entitlement == null) {
 			leavesAppliedImpl.setEntitlement(StringPool.BLANK);
 		}
 		else {
 			leavesAppliedImpl.setEntitlement(entitlement);
-		}
-
-		if (leaveDuration == null) {
-			leavesAppliedImpl.setLeaveDuration(StringPool.BLANK);
-		}
-		else {
-			leavesAppliedImpl.setLeaveDuration(leaveDuration);
 		}
 
 		if (leaveFrom == Long.MIN_VALUE) {
@@ -130,20 +99,6 @@ public class LeavesAppliedCacheModel implements CacheModel<LeavesApplied>,
 		}
 		else {
 			leavesAppliedImpl.setLeaveTo(new Date(leaveTo));
-		}
-
-		if (leaveDate == Long.MIN_VALUE) {
-			leavesAppliedImpl.setLeaveDate(null);
-		}
-		else {
-			leavesAppliedImpl.setLeaveDate(new Date(leaveDate));
-		}
-
-		if (leavePeriod == null) {
-			leavesAppliedImpl.setLeavePeriod(StringPool.BLANK);
-		}
-		else {
-			leavesAppliedImpl.setLeavePeriod(leavePeriod);
 		}
 
 		if (approvalStatus == null) {
@@ -183,14 +138,9 @@ public class LeavesAppliedCacheModel implements CacheModel<LeavesApplied>,
 		userId = objectInput.readLong();
 		groupId = objectInput.readLong();
 		companyId = objectInput.readLong();
-		employeeName = objectInput.readUTF();
-		leaveName = objectInput.readUTF();
 		entitlement = objectInput.readUTF();
-		leaveDuration = objectInput.readUTF();
 		leaveFrom = objectInput.readLong();
 		leaveTo = objectInput.readLong();
-		leaveDate = objectInput.readLong();
-		leavePeriod = objectInput.readUTF();
 		approvalStatus = objectInput.readUTF();
 		leaveId = objectInput.readLong();
 		createDate = objectInput.readLong();
@@ -207,20 +157,6 @@ public class LeavesAppliedCacheModel implements CacheModel<LeavesApplied>,
 		objectOutput.writeLong(groupId);
 		objectOutput.writeLong(companyId);
 
-		if (employeeName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(employeeName);
-		}
-
-		if (leaveName == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(leaveName);
-		}
-
 		if (entitlement == null) {
 			objectOutput.writeUTF(StringPool.BLANK);
 		}
@@ -228,23 +164,8 @@ public class LeavesAppliedCacheModel implements CacheModel<LeavesApplied>,
 			objectOutput.writeUTF(entitlement);
 		}
 
-		if (leaveDuration == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(leaveDuration);
-		}
-
 		objectOutput.writeLong(leaveFrom);
 		objectOutput.writeLong(leaveTo);
-		objectOutput.writeLong(leaveDate);
-
-		if (leavePeriod == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(leavePeriod);
-		}
 
 		if (approvalStatus == null) {
 			objectOutput.writeUTF(StringPool.BLANK);
@@ -264,14 +185,9 @@ public class LeavesAppliedCacheModel implements CacheModel<LeavesApplied>,
 	public long userId;
 	public long groupId;
 	public long companyId;
-	public String employeeName;
-	public String leaveName;
 	public String entitlement;
-	public String leaveDuration;
 	public long leaveFrom;
 	public long leaveTo;
-	public long leaveDate;
-	public String leavePeriod;
 	public String approvalStatus;
 	public long leaveId;
 	public long createDate;

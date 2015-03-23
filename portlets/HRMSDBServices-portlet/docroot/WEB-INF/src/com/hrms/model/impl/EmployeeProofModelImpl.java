@@ -19,14 +19,15 @@ import com.hrms.model.EmployeeProofModel;
 import com.hrms.model.EmployeeProofSoap;
 
 import com.liferay.portal.kernel.bean.AutoEscapeBeanHandler;
+import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.json.JSON;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
-import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.model.CacheModel;
 import com.liferay.portal.model.impl.BaseModelImpl;
 import com.liferay.portal.service.ServiceContext;
+import com.liferay.portal.util.PortalUtil;
 
 import com.liferay.portlet.expando.model.ExpandoBridge;
 import com.liferay.portlet.expando.util.ExpandoBridgeFactoryUtil;
@@ -36,6 +37,7 @@ import java.io.Serializable;
 import java.sql.Types;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -63,14 +65,15 @@ public class EmployeeProofModelImpl extends BaseModelImpl<EmployeeProof>
 	 */
 	public static final String TABLE_NAME = "HRMS_EmployeeProof";
 	public static final Object[][] TABLE_COLUMNS = {
-			{ "employeeProofId", Types.BIGINT },
-			{ "proofType", Types.VARCHAR },
-			{ "status", Types.BOOLEAN }
+			{ "employeeproofNo", Types.BIGINT },
+			{ "proofId", Types.BIGINT },
+			{ "userId", Types.BIGINT },
+			{ "expirationDate", Types.TIMESTAMP }
 		};
-	public static final String TABLE_SQL_CREATE = "create table HRMS_EmployeeProof (employeeProofId LONG not null primary key,proofType VARCHAR(75) null,status BOOLEAN)";
+	public static final String TABLE_SQL_CREATE = "create table HRMS_EmployeeProof (employeeproofNo LONG not null primary key,proofId LONG,userId LONG,expirationDate DATE null)";
 	public static final String TABLE_SQL_DROP = "drop table HRMS_EmployeeProof";
-	public static final String ORDER_BY_JPQL = " ORDER BY employeeProof.employeeProofId ASC";
-	public static final String ORDER_BY_SQL = " ORDER BY HRMS_EmployeeProof.employeeProofId ASC";
+	public static final String ORDER_BY_JPQL = " ORDER BY employeeProof.employeeproofNo ASC";
+	public static final String ORDER_BY_SQL = " ORDER BY HRMS_EmployeeProof.employeeproofNo ASC";
 	public static final String DATA_SOURCE = "liferayDataSource";
 	public static final String SESSION_FACTORY = "liferaySessionFactory";
 	public static final String TX_MANAGER = "liferayTransactionManager";
@@ -95,9 +98,10 @@ public class EmployeeProofModelImpl extends BaseModelImpl<EmployeeProof>
 
 		EmployeeProof model = new EmployeeProofImpl();
 
-		model.setEmployeeProofId(soapModel.getEmployeeProofId());
-		model.setProofType(soapModel.getProofType());
-		model.setStatus(soapModel.getStatus());
+		model.setEmployeeproofNo(soapModel.getEmployeeproofNo());
+		model.setProofId(soapModel.getProofId());
+		model.setUserId(soapModel.getUserId());
+		model.setExpirationDate(soapModel.getExpirationDate());
 
 		return model;
 	}
@@ -130,17 +134,17 @@ public class EmployeeProofModelImpl extends BaseModelImpl<EmployeeProof>
 
 	@Override
 	public long getPrimaryKey() {
-		return _employeeProofId;
+		return _employeeproofNo;
 	}
 
 	@Override
 	public void setPrimaryKey(long primaryKey) {
-		setEmployeeProofId(primaryKey);
+		setEmployeeproofNo(primaryKey);
 	}
 
 	@Override
 	public Serializable getPrimaryKeyObj() {
-		return _employeeProofId;
+		return _employeeproofNo;
 	}
 
 	@Override
@@ -162,75 +166,93 @@ public class EmployeeProofModelImpl extends BaseModelImpl<EmployeeProof>
 	public Map<String, Object> getModelAttributes() {
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
-		attributes.put("employeeProofId", getEmployeeProofId());
-		attributes.put("proofType", getProofType());
-		attributes.put("status", getStatus());
+		attributes.put("employeeproofNo", getEmployeeproofNo());
+		attributes.put("proofId", getProofId());
+		attributes.put("userId", getUserId());
+		attributes.put("expirationDate", getExpirationDate());
 
 		return attributes;
 	}
 
 	@Override
 	public void setModelAttributes(Map<String, Object> attributes) {
-		Long employeeProofId = (Long)attributes.get("employeeProofId");
+		Long employeeproofNo = (Long)attributes.get("employeeproofNo");
 
-		if (employeeProofId != null) {
-			setEmployeeProofId(employeeProofId);
+		if (employeeproofNo != null) {
+			setEmployeeproofNo(employeeproofNo);
 		}
 
-		String proofType = (String)attributes.get("proofType");
+		Long proofId = (Long)attributes.get("proofId");
 
-		if (proofType != null) {
-			setProofType(proofType);
+		if (proofId != null) {
+			setProofId(proofId);
 		}
 
-		Boolean status = (Boolean)attributes.get("status");
+		Long userId = (Long)attributes.get("userId");
 
-		if (status != null) {
-			setStatus(status);
+		if (userId != null) {
+			setUserId(userId);
+		}
+
+		Date expirationDate = (Date)attributes.get("expirationDate");
+
+		if (expirationDate != null) {
+			setExpirationDate(expirationDate);
 		}
 	}
 
 	@JSON
 	@Override
-	public long getEmployeeProofId() {
-		return _employeeProofId;
+	public long getEmployeeproofNo() {
+		return _employeeproofNo;
 	}
 
 	@Override
-	public void setEmployeeProofId(long employeeProofId) {
-		_employeeProofId = employeeProofId;
-	}
-
-	@JSON
-	@Override
-	public String getProofType() {
-		if (_proofType == null) {
-			return StringPool.BLANK;
-		}
-		else {
-			return _proofType;
-		}
-	}
-
-	@Override
-	public void setProofType(String proofType) {
-		_proofType = proofType;
+	public void setEmployeeproofNo(long employeeproofNo) {
+		_employeeproofNo = employeeproofNo;
 	}
 
 	@JSON
 	@Override
-	public boolean getStatus() {
-		return _status;
+	public long getProofId() {
+		return _proofId;
 	}
 
 	@Override
-	public boolean isStatus() {
-		return _status;
+	public void setProofId(long proofId) {
+		_proofId = proofId;
+	}
+
+	@JSON
+	@Override
+	public long getUserId() {
+		return _userId;
 	}
 
 	@Override
-	public void setStatus(boolean status) {
-		_status = status;
+	public void setUserId(long userId) {
+		_userId = userId;
+	}
+
+	@Override
+	public String getUserUuid() throws SystemException {
+		return PortalUtil.getUserValue(getUserId(), "uuid", _userUuid);
+	}
+
+	@Override
+	public void setUserUuid(String userUuid) {
+		_userUuid = userUuid;
+	}
+
+	@JSON
+	@Override
+	public Date getExpirationDate() {
+		return _expirationDate;
+	}
+
+	@Override
+	public void setExpirationDate(Date expirationDate) {
+		_expirationDate = expirationDate;
 	}
 
 	@Override
@@ -260,9 +282,10 @@ public class EmployeeProofModelImpl extends BaseModelImpl<EmployeeProof>
 	public Object clone() {
 		EmployeeProofImpl employeeProofImpl = new EmployeeProofImpl();
 
-		employeeProofImpl.setEmployeeProofId(getEmployeeProofId());
-		employeeProofImpl.setProofType(getProofType());
-		employeeProofImpl.setStatus(getStatus());
+		employeeProofImpl.setEmployeeproofNo(getEmployeeproofNo());
+		employeeProofImpl.setProofId(getProofId());
+		employeeProofImpl.setUserId(getUserId());
+		employeeProofImpl.setExpirationDate(getExpirationDate());
 
 		employeeProofImpl.resetOriginalValues();
 
@@ -319,31 +342,36 @@ public class EmployeeProofModelImpl extends BaseModelImpl<EmployeeProof>
 	public CacheModel<EmployeeProof> toCacheModel() {
 		EmployeeProofCacheModel employeeProofCacheModel = new EmployeeProofCacheModel();
 
-		employeeProofCacheModel.employeeProofId = getEmployeeProofId();
+		employeeProofCacheModel.employeeproofNo = getEmployeeproofNo();
 
-		employeeProofCacheModel.proofType = getProofType();
+		employeeProofCacheModel.proofId = getProofId();
 
-		String proofType = employeeProofCacheModel.proofType;
+		employeeProofCacheModel.userId = getUserId();
 
-		if ((proofType != null) && (proofType.length() == 0)) {
-			employeeProofCacheModel.proofType = null;
+		Date expirationDate = getExpirationDate();
+
+		if (expirationDate != null) {
+			employeeProofCacheModel.expirationDate = expirationDate.getTime();
 		}
-
-		employeeProofCacheModel.status = getStatus();
+		else {
+			employeeProofCacheModel.expirationDate = Long.MIN_VALUE;
+		}
 
 		return employeeProofCacheModel;
 	}
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(7);
+		StringBundler sb = new StringBundler(9);
 
-		sb.append("{employeeProofId=");
-		sb.append(getEmployeeProofId());
-		sb.append(", proofType=");
-		sb.append(getProofType());
-		sb.append(", status=");
-		sb.append(getStatus());
+		sb.append("{employeeproofNo=");
+		sb.append(getEmployeeproofNo());
+		sb.append(", proofId=");
+		sb.append(getProofId());
+		sb.append(", userId=");
+		sb.append(getUserId());
+		sb.append(", expirationDate=");
+		sb.append(getExpirationDate());
 		sb.append("}");
 
 		return sb.toString();
@@ -351,23 +379,27 @@ public class EmployeeProofModelImpl extends BaseModelImpl<EmployeeProof>
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(13);
+		StringBundler sb = new StringBundler(16);
 
 		sb.append("<model><model-name>");
 		sb.append("com.hrms.model.EmployeeProof");
 		sb.append("</model-name>");
 
 		sb.append(
-			"<column><column-name>employeeProofId</column-name><column-value><![CDATA[");
-		sb.append(getEmployeeProofId());
+			"<column><column-name>employeeproofNo</column-name><column-value><![CDATA[");
+		sb.append(getEmployeeproofNo());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>proofType</column-name><column-value><![CDATA[");
-		sb.append(getProofType());
+			"<column><column-name>proofId</column-name><column-value><![CDATA[");
+		sb.append(getProofId());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>status</column-name><column-value><![CDATA[");
-		sb.append(getStatus());
+			"<column><column-name>userId</column-name><column-value><![CDATA[");
+		sb.append(getUserId());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>expirationDate</column-name><column-value><![CDATA[");
+		sb.append(getExpirationDate());
 		sb.append("]]></column-value></column>");
 
 		sb.append("</model>");
@@ -379,8 +411,10 @@ public class EmployeeProofModelImpl extends BaseModelImpl<EmployeeProof>
 	private static Class<?>[] _escapedModelInterfaces = new Class[] {
 			EmployeeProof.class
 		};
-	private long _employeeProofId;
-	private String _proofType;
-	private boolean _status;
+	private long _employeeproofNo;
+	private long _proofId;
+	private long _userId;
+	private String _userUuid;
+	private Date _expirationDate;
 	private EmployeeProof _escapedModel;
 }

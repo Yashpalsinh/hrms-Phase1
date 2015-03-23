@@ -59,22 +59,22 @@ public interface EmployeeProofLocalService extends BaseLocalService,
 	/**
 	* Creates a new employee proof with the primary key. Does not add the employee proof to the database.
 	*
-	* @param employeeProofId the primary key for the new employee proof
+	* @param employeeproofNo the primary key for the new employee proof
 	* @return the new employee proof
 	*/
 	public com.hrms.model.EmployeeProof createEmployeeProof(
-		long employeeProofId);
+		long employeeproofNo);
 
 	/**
 	* Deletes the employee proof with the primary key from the database. Also notifies the appropriate model listeners.
 	*
-	* @param employeeProofId the primary key of the employee proof
+	* @param employeeproofNo the primary key of the employee proof
 	* @return the employee proof that was removed
 	* @throws PortalException if a employee proof with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	public com.hrms.model.EmployeeProof deleteEmployeeProof(
-		long employeeProofId)
+		long employeeproofNo)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
 
@@ -167,19 +167,19 @@ public interface EmployeeProofLocalService extends BaseLocalService,
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public com.hrms.model.EmployeeProof fetchEmployeeProof(long employeeProofId)
+	public com.hrms.model.EmployeeProof fetchEmployeeProof(long employeeproofNo)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
 	* Returns the employee proof with the primary key.
 	*
-	* @param employeeProofId the primary key of the employee proof
+	* @param employeeproofNo the primary key of the employee proof
 	* @return the employee proof
 	* @throws PortalException if a employee proof with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public com.hrms.model.EmployeeProof getEmployeeProof(long employeeProofId)
+	public com.hrms.model.EmployeeProof getEmployeeProof(long employeeproofNo)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
 

@@ -100,27 +100,13 @@ public class LeaveLocalServiceClpInvoker {
 
 		_methodParameterTypes15 = new String[] { "com.hrms.model.Leave" };
 
-		_methodName154 = "getBeanIdentifier";
+		_methodName166 = "getBeanIdentifier";
 
-		_methodParameterTypes154 = new String[] {  };
+		_methodParameterTypes166 = new String[] {  };
 
-		_methodName155 = "setBeanIdentifier";
+		_methodName167 = "setBeanIdentifier";
 
-		_methodParameterTypes155 = new String[] { "java.lang.String" };
-
-		_methodName160 = "getSearchLeaves";
-
-		_methodParameterTypes160 = new String[] {
-				"java.lang.String", "java.lang.String", "int", "boolean",
-				"boolean", "boolean", "boolean", "int", "int"
-			};
-
-		_methodName161 = "getSearchLeavesCount";
-
-		_methodParameterTypes161 = new String[] {
-				"java.lang.String", "java.lang.String", "int", "boolean",
-				"boolean", "boolean", "boolean", "int", "int"
-			};
+		_methodParameterTypes167 = new String[] { "java.lang.String" };
 	}
 
 	public Object invokeMethod(String name, String[] parameterTypes,
@@ -212,42 +198,16 @@ public class LeaveLocalServiceClpInvoker {
 			return LeaveLocalServiceUtil.updateLeave((com.hrms.model.Leave)arguments[0]);
 		}
 
-		if (_methodName154.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes154, parameterTypes)) {
+		if (_methodName166.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes166, parameterTypes)) {
 			return LeaveLocalServiceUtil.getBeanIdentifier();
 		}
 
-		if (_methodName155.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes155, parameterTypes)) {
+		if (_methodName167.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes167, parameterTypes)) {
 			LeaveLocalServiceUtil.setBeanIdentifier((java.lang.String)arguments[0]);
 
 			return null;
-		}
-
-		if (_methodName160.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes160, parameterTypes)) {
-			return LeaveLocalServiceUtil.getSearchLeaves((java.lang.String)arguments[0],
-				(java.lang.String)arguments[1],
-				((Integer)arguments[2]).intValue(),
-				((Boolean)arguments[3]).booleanValue(),
-				((Boolean)arguments[4]).booleanValue(),
-				((Boolean)arguments[5]).booleanValue(),
-				((Boolean)arguments[6]).booleanValue(),
-				((Integer)arguments[7]).intValue(),
-				((Integer)arguments[8]).intValue());
-		}
-
-		if (_methodName161.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes161, parameterTypes)) {
-			return LeaveLocalServiceUtil.getSearchLeavesCount((java.lang.String)arguments[0],
-				(java.lang.String)arguments[1],
-				((Integer)arguments[2]).intValue(),
-				((Boolean)arguments[3]).booleanValue(),
-				((Boolean)arguments[4]).booleanValue(),
-				((Boolean)arguments[5]).booleanValue(),
-				((Boolean)arguments[6]).booleanValue(),
-				((Integer)arguments[7]).intValue(),
-				((Integer)arguments[8]).intValue());
 		}
 
 		throw new UnsupportedOperationException();
@@ -285,12 +245,8 @@ public class LeaveLocalServiceClpInvoker {
 	private String[] _methodParameterTypes14;
 	private String _methodName15;
 	private String[] _methodParameterTypes15;
-	private String _methodName154;
-	private String[] _methodParameterTypes154;
-	private String _methodName155;
-	private String[] _methodParameterTypes155;
-	private String _methodName160;
-	private String[] _methodParameterTypes160;
-	private String _methodName161;
-	private String[] _methodParameterTypes161;
+	private String _methodName166;
+	private String[] _methodParameterTypes166;
+	private String _methodName167;
+	private String[] _methodParameterTypes167;
 }

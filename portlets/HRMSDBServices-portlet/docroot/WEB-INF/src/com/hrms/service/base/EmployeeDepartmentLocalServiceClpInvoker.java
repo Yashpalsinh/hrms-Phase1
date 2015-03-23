@@ -106,13 +106,34 @@ public class EmployeeDepartmentLocalServiceClpInvoker {
 				"com.hrms.model.EmployeeDepartment"
 			};
 
-		_methodName154 = "getBeanIdentifier";
+		_methodName166 = "getBeanIdentifier";
 
-		_methodParameterTypes154 = new String[] {  };
+		_methodParameterTypes166 = new String[] {  };
 
-		_methodName155 = "setBeanIdentifier";
+		_methodName167 = "setBeanIdentifier";
 
-		_methodParameterTypes155 = new String[] { "java.lang.String" };
+		_methodParameterTypes167 = new String[] { "java.lang.String" };
+
+		_methodName172 = "getSerachEmployeeDepartments";
+
+		_methodParameterTypes172 = new String[] {
+				"java.lang.String", "java.lang.String", "boolean", "int", "int",
+				"com.liferay.portal.kernel.util.OrderByComparator"
+			};
+
+		_methodName173 = "getSearchEmployeeDepartmentsCount";
+
+		_methodParameterTypes173 = new String[] {
+				"java.lang.String", "java.lang.String", "boolean"
+			};
+
+		_methodName176 = "findByemployeeDepartmentId";
+
+		_methodParameterTypes176 = new String[] { "long" };
+
+		_methodName177 = "findByStatus";
+
+		_methodParameterTypes177 = new String[] { "boolean" };
 	}
 
 	public Object invokeMethod(String name, String[] parameterTypes,
@@ -204,16 +225,43 @@ public class EmployeeDepartmentLocalServiceClpInvoker {
 			return EmployeeDepartmentLocalServiceUtil.updateEmployeeDepartment((com.hrms.model.EmployeeDepartment)arguments[0]);
 		}
 
-		if (_methodName154.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes154, parameterTypes)) {
+		if (_methodName166.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes166, parameterTypes)) {
 			return EmployeeDepartmentLocalServiceUtil.getBeanIdentifier();
 		}
 
-		if (_methodName155.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes155, parameterTypes)) {
+		if (_methodName167.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes167, parameterTypes)) {
 			EmployeeDepartmentLocalServiceUtil.setBeanIdentifier((java.lang.String)arguments[0]);
 
 			return null;
+		}
+
+		if (_methodName172.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes172, parameterTypes)) {
+			return EmployeeDepartmentLocalServiceUtil.getSerachEmployeeDepartments((java.lang.String)arguments[0],
+				(java.lang.String)arguments[1],
+				((Boolean)arguments[2]).booleanValue(),
+				((Integer)arguments[3]).intValue(),
+				((Integer)arguments[4]).intValue(),
+				(com.liferay.portal.kernel.util.OrderByComparator)arguments[5]);
+		}
+
+		if (_methodName173.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes173, parameterTypes)) {
+			return EmployeeDepartmentLocalServiceUtil.getSearchEmployeeDepartmentsCount((java.lang.String)arguments[0],
+				(java.lang.String)arguments[1],
+				((Boolean)arguments[2]).booleanValue());
+		}
+
+		if (_methodName176.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes176, parameterTypes)) {
+			return EmployeeDepartmentLocalServiceUtil.findByemployeeDepartmentId(((Long)arguments[0]).longValue());
+		}
+
+		if (_methodName177.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes177, parameterTypes)) {
+			return EmployeeDepartmentLocalServiceUtil.findByStatus(((Boolean)arguments[0]).booleanValue());
 		}
 
 		throw new UnsupportedOperationException();
@@ -251,8 +299,16 @@ public class EmployeeDepartmentLocalServiceClpInvoker {
 	private String[] _methodParameterTypes14;
 	private String _methodName15;
 	private String[] _methodParameterTypes15;
-	private String _methodName154;
-	private String[] _methodParameterTypes154;
-	private String _methodName155;
-	private String[] _methodParameterTypes155;
+	private String _methodName166;
+	private String[] _methodParameterTypes166;
+	private String _methodName167;
+	private String[] _methodParameterTypes167;
+	private String _methodName172;
+	private String[] _methodParameterTypes172;
+	private String _methodName173;
+	private String[] _methodParameterTypes173;
+	private String _methodName176;
+	private String[] _methodParameterTypes176;
+	private String _methodName177;
+	private String[] _methodParameterTypes177;
 }

@@ -2,5 +2,5 @@
 <!DOCTYPE project>
 
 <project name="HRMSDBServices-portlet" basedir="." default="deploy">
-	<import file="/home/nirali/liferayEE/liferay-plugins-sdk-6.2/portlets/build-common-portlet.xml" />
+	<import file="../build-common-portlet.xml" />
 </project>

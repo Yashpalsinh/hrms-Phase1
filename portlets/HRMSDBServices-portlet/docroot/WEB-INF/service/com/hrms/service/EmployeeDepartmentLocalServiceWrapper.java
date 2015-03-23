@@ -289,6 +289,39 @@ public class EmployeeDepartmentLocalServiceWrapper
 			parameterTypes, arguments);
 	}
 
+	@Override
+	public java.util.List getSerachEmployeeDepartments(
+		java.lang.String departmentName, java.lang.String status,
+		boolean andSearch, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _employeeDepartmentLocalService.getSerachEmployeeDepartments(departmentName,
+			status, andSearch, start, end, orderByComparator);
+	}
+
+	@Override
+	public int getSearchEmployeeDepartmentsCount(
+		java.lang.String departmentName, java.lang.String status,
+		boolean andSearch)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _employeeDepartmentLocalService.getSearchEmployeeDepartmentsCount(departmentName,
+			status, andSearch);
+	}
+
+	@Override
+	public com.hrms.model.EmployeeDepartment findByemployeeDepartmentId(
+		long employeeDepartmentId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _employeeDepartmentLocalService.findByemployeeDepartmentId(employeeDepartmentId);
+	}
+
+	@Override
+	public java.util.List<com.hrms.model.EmployeeDepartment> findByStatus(
+		boolean stat)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _employeeDepartmentLocalService.findByStatus(stat);
+	}
+
 	/**
 	 * @deprecated As of 6.1.0, replaced by {@link #getWrappedService}
 	 */

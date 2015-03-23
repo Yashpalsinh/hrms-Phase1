@@ -267,27 +267,6 @@ public class LeaveLocalServiceUtil {
 		return getService().invokeMethod(name, parameterTypes, arguments);
 	}
 
-	public static java.util.List<com.hrms.model.Leave> getSearchLeaves(
-		java.lang.String leaveName, java.lang.String leaveType,
-		int leavesAllowedPerYear, boolean carryOver, boolean encachement,
-		boolean Status, boolean andSearch, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService()
-				   .getSearchLeaves(leaveName, leaveType, leavesAllowedPerYear,
-			carryOver, encachement, Status, andSearch, start, end);
-	}
-
-	public static int getSearchLeavesCount(java.lang.String leaveName,
-		java.lang.String leaveType, int leavesAllowedPerYear,
-		boolean carryOver, boolean encachement, boolean Status,
-		boolean andSearch, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService()
-				   .getSearchLeavesCount(leaveName, leaveType,
-			leavesAllowedPerYear, carryOver, encachement, Status, andSearch,
-			start, end);
-	}
-
 	public static void clearService() {
 		_service = null;
 	}

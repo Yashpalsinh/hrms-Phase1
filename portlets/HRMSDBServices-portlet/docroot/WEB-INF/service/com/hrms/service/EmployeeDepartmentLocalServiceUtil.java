@@ -275,6 +275,37 @@ public class EmployeeDepartmentLocalServiceUtil {
 		return getService().invokeMethod(name, parameterTypes, arguments);
 	}
 
+	public static java.util.List getSerachEmployeeDepartments(
+		java.lang.String departmentName, java.lang.String status,
+		boolean andSearch, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getService()
+				   .getSerachEmployeeDepartments(departmentName, status,
+			andSearch, start, end, orderByComparator);
+	}
+
+	public static int getSearchEmployeeDepartmentsCount(
+		java.lang.String departmentName, java.lang.String status,
+		boolean andSearch)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getService()
+				   .getSearchEmployeeDepartmentsCount(departmentName, status,
+			andSearch);
+	}
+
+	public static com.hrms.model.EmployeeDepartment findByemployeeDepartmentId(
+		long employeeDepartmentId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getService().findByemployeeDepartmentId(employeeDepartmentId);
+	}
+
+	public static java.util.List<com.hrms.model.EmployeeDepartment> findByStatus(
+		boolean stat)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getService().findByStatus(stat);
+	}
+
 	public static void clearService() {
 		_service = null;
 	}

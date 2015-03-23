@@ -14,27 +14,119 @@
 
 package com.hrms.service.impl;
 
+import com.hrms.NoSuchEmployeeDepartmentException;
+import com.hrms.model.EmployeeDepartment;
+import com.hrms.service.EmployeeDepartmentLocalServiceUtil;
 import com.hrms.service.base.EmployeeDepartmentLocalServiceBaseImpl;
+import com.hrms.service.persistence.EmployeeDepartmentUtil;
+import com.liferay.portal.kernel.dao.orm.DynamicQuery;
+import com.liferay.portal.kernel.dao.orm.DynamicQueryFactoryUtil;
+import com.liferay.portal.kernel.dao.orm.Junction;
+import com.liferay.portal.kernel.dao.orm.Property;
+import com.liferay.portal.kernel.dao.orm.PropertyFactoryUtil;
+import com.liferay.portal.kernel.dao.orm.RestrictionsFactoryUtil;
+import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.kernel.util.Validator;
 
-/**
- * The implementation of the employee department local service.
- *
- * <p>
- * All custom service methods should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the {@link com.hrms.service.EmployeeDepartmentLocalService} interface.
- *
- * <p>
- * This is a local service. Methods of this service will not have security checks based on the propagated JAAS credentials because this service can only be accessed from within the same VM.
- * </p>
- *
- * @author yashpalsinh
- * @see com.hrms.service.base.EmployeeDepartmentLocalServiceBaseImpl
- * @see com.hrms.service.EmployeeDepartmentLocalServiceUtil
- */
+import java.util.List;
+
+
 public class EmployeeDepartmentLocalServiceImpl
 	extends EmployeeDepartmentLocalServiceBaseImpl {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never reference this interface directly. Always use {@link com.hrms.service.EmployeeDepartmentLocalServiceUtil} to access the employee department local service.
-	 */
+	//method to retrive data according to search parameter from view.jsp
+		public List getSerachEmployeeDepartments(String departmentName,String status,boolean andSearch, int start, int end, OrderByComparator orderByComparator)
+		        throws SystemException
+		        
+		    {	
+			 if(Validator.isNotNull(status))
+		        {
+				 boolean status1=Boolean.parseBoolean(status);
+				 DynamicQuery dynamicQuery = buildDynamicQuery(departmentName,status1,andSearch);
+			     return EmployeeDepartmentLocalServiceUtil.dynamicQuery(dynamicQuery, start, end, orderByComparator);
+		        }
+			
+			 else{
+		        DynamicQuery dynamicQuery = buildDynamicQuery(departmentName,andSearch);
+		        return EmployeeDepartmentLocalServiceUtil.dynamicQuery(dynamicQuery, start, end, orderByComparator);
+			 }
+			 }
+		//get total numbers of entry to set total in search container
+		    public int getSearchEmployeeDepartmentsCount(String departmentName,String status,boolean andSearch)
+		            throws SystemException
+		    {
+		    	
+				 if(Validator.isNotNull(status))
+			        {
+					 boolean status1=Boolean.parseBoolean(status);
+					 DynamicQuery dynamicQuery = buildDynamicQuery(departmentName,status1,andSearch);
+				     return (int)EmployeeDepartmentLocalServiceUtil.dynamicQueryCount(dynamicQuery);
+			        }
+				
+				 else{
+					 DynamicQuery dynamicQuery = buildDynamicQuery(departmentName,andSearch);
+				     return (int)EmployeeDepartmentLocalServiceUtil.dynamicQueryCount(dynamicQuery);
+				 }
+				
+		    	
+		    }
+
+		    protected DynamicQuery buildDynamicQuery(String departmentName,Boolean status,boolean andSearch)
+		    {	Junction junction = null;
+		        if(andSearch)
+		            junction = RestrictionsFactoryUtil.conjunction();
+		        else
+		            junction = RestrictionsFactoryUtil.disjunction();
+		       
+		        if(Validator.isNotNull(departmentName))
+		        {
+		            Property property = PropertyFactoryUtil.forName("departmentName");
+		            String value = (new StringBuilder("%")).append(departmentName).append("%").toString();
+		            junction.add(property.like(value));
+		        }
+		        if(Validator.isNotNull(status))
+		        {
+		            Property property = PropertyFactoryUtil.forName("status");
+		            junction.add(property.eq(Boolean.valueOf(status)));
+		        }
+		         
+		        DynamicQuery dynamicQuery = DynamicQueryFactoryUtil.forClass(EmployeeDepartment.class, getClassLoader());
+		        return dynamicQuery.add(junction);
+		    }
+		    protected DynamicQuery buildDynamicQuery(String departmentName,boolean andSearch)
+		    {	Junction junction = null;
+		        if(andSearch)
+		            junction = RestrictionsFactoryUtil.conjunction();
+		        else
+		            junction = RestrictionsFactoryUtil.disjunction();
+		       
+		        if(Validator.isNotNull(departmentName))
+		        {
+		            Property property = PropertyFactoryUtil.forName("departmentName");
+		            String value = (new StringBuilder("%")).append(departmentName).append("%").toString();
+		            junction.add(property.like(value));
+		        }
+		       
+		        DynamicQuery dynamicQuery = DynamicQueryFactoryUtil.forClass(EmployeeDepartment.class, getClassLoader());
+		        return dynamicQuery.add(junction);
+		    }
+		    
+		    
+		    public EmployeeDepartment findByemployeeDepartmentId(long employeeDepartmentId)
+					throws com.liferay.portal.kernel.exception.SystemException {
+		    		EmployeeDepartment employeeDepartment = null;
+					try {
+						employeeDepartment = EmployeeDepartmentUtil.findByemployeeDepartmentId(employeeDepartmentId);
+						
+					} catch (NoSuchEmployeeDepartmentException e) {
+						
+						e.printStackTrace();
+					}
+					return employeeDepartment ;
+				}
+		    
+		    public java.util.List<EmployeeDepartment> findByStatus(boolean stat)
+		    		throws com.liferay.portal.kernel.exception.SystemException {
+		    		return getEmployeeDepartmentPersistence().findBystatus(stat);
+		    		}
 }

@@ -50,8 +50,8 @@ public class EmployeeQualificationCacheModel implements CacheModel<EmployeeQuali
 		sb.append(companyId);
 		sb.append(", degreeName=");
 		sb.append(degreeName);
-		sb.append(", mainSubject=");
-		sb.append(mainSubject);
+		sb.append(", specialization=");
+		sb.append(specialization);
 		sb.append(", university=");
 		sb.append(university);
 		sb.append(", score=");
@@ -89,11 +89,11 @@ public class EmployeeQualificationCacheModel implements CacheModel<EmployeeQuali
 			employeeQualificationImpl.setDegreeName(degreeName);
 		}
 
-		if (mainSubject == null) {
-			employeeQualificationImpl.setMainSubject(StringPool.BLANK);
+		if (specialization == null) {
+			employeeQualificationImpl.setSpecialization(StringPool.BLANK);
 		}
 		else {
-			employeeQualificationImpl.setMainSubject(mainSubject);
+			employeeQualificationImpl.setSpecialization(specialization);
 		}
 
 		if (university == null) {
@@ -153,7 +153,7 @@ public class EmployeeQualificationCacheModel implements CacheModel<EmployeeQuali
 		groupId = objectInput.readLong();
 		companyId = objectInput.readLong();
 		degreeName = objectInput.readUTF();
-		mainSubject = objectInput.readUTF();
+		specialization = objectInput.readUTF();
 		university = objectInput.readUTF();
 		score = objectInput.readUTF();
 		startDate = objectInput.readLong();
@@ -179,11 +179,11 @@ public class EmployeeQualificationCacheModel implements CacheModel<EmployeeQuali
 			objectOutput.writeUTF(degreeName);
 		}
 
-		if (mainSubject == null) {
+		if (specialization == null) {
 			objectOutput.writeUTF(StringPool.BLANK);
 		}
 		else {
-			objectOutput.writeUTF(mainSubject);
+			objectOutput.writeUTF(specialization);
 		}
 
 		if (university == null) {
@@ -213,7 +213,7 @@ public class EmployeeQualificationCacheModel implements CacheModel<EmployeeQuali
 	public long groupId;
 	public long companyId;
 	public String degreeName;
-	public String mainSubject;
+	public String specialization;
 	public String university;
 	public String score;
 	public long startDate;
