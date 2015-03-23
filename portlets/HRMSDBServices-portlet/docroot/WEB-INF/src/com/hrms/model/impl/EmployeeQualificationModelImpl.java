@@ -71,7 +71,7 @@ public class EmployeeQualificationModelImpl extends BaseModelImpl<EmployeeQualif
 			{ "groupId", Types.BIGINT },
 			{ "companyId", Types.BIGINT },
 			{ "degreeName", Types.VARCHAR },
-			{ "specialization", Types.VARCHAR },
+			{ "mainSubject", Types.VARCHAR },
 			{ "university", Types.VARCHAR },
 			{ "score", Types.VARCHAR },
 			{ "startDate", Types.TIMESTAMP },
@@ -81,7 +81,7 @@ public class EmployeeQualificationModelImpl extends BaseModelImpl<EmployeeQualif
 			{ "createBy", Types.BIGINT },
 			{ "modifiedBy", Types.BIGINT }
 		};
-	public static final String TABLE_SQL_CREATE = "create table HRMS_EmployeeQualification (employeeQualificationId LONG not null primary key,userId LONG,groupId LONG,companyId LONG,degreeName VARCHAR(75) null,specialization VARCHAR(75) null,university VARCHAR(75) null,score VARCHAR(75) null,startDate DATE null,endDate DATE null,createDate DATE null,modifiedDate DATE null,createBy LONG,modifiedBy LONG)";
+	public static final String TABLE_SQL_CREATE = "create table HRMS_EmployeeQualification (employeeQualificationId LONG not null primary key,userId LONG,groupId LONG,companyId LONG,degreeName VARCHAR(75) null,mainSubject VARCHAR(75) null,university VARCHAR(75) null,score VARCHAR(75) null,startDate DATE null,endDate DATE null,createDate DATE null,modifiedDate DATE null,createBy LONG,modifiedBy LONG)";
 	public static final String TABLE_SQL_DROP = "drop table HRMS_EmployeeQualification";
 	public static final String ORDER_BY_JPQL = " ORDER BY employeeQualification.employeeQualificationId ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY HRMS_EmployeeQualification.employeeQualificationId ASC";
@@ -94,12 +94,7 @@ public class EmployeeQualificationModelImpl extends BaseModelImpl<EmployeeQualif
 	public static final boolean FINDER_CACHE_ENABLED = GetterUtil.getBoolean(com.liferay.util.service.ServiceProps.get(
 				"value.object.finder.cache.enabled.com.hrms.model.EmployeeQualification"),
 			true);
-	public static final boolean COLUMN_BITMASK_ENABLED = GetterUtil.getBoolean(com.liferay.util.service.ServiceProps.get(
-				"value.object.column.bitmask.enabled.com.hrms.model.EmployeeQualification"),
-			true);
-	public static long CREATEBY_COLUMN_BITMASK = 1L;
-	public static long MODIFIEDBY_COLUMN_BITMASK = 2L;
-	public static long EMPLOYEEQUALIFICATIONID_COLUMN_BITMASK = 4L;
+	public static final boolean COLUMN_BITMASK_ENABLED = false;
 
 	/**
 	 * Converts the soap model instance into a normal model instance.
@@ -120,7 +115,7 @@ public class EmployeeQualificationModelImpl extends BaseModelImpl<EmployeeQualif
 		model.setGroupId(soapModel.getGroupId());
 		model.setCompanyId(soapModel.getCompanyId());
 		model.setDegreeName(soapModel.getDegreeName());
-		model.setSpecialization(soapModel.getSpecialization());
+		model.setMainSubject(soapModel.getMainSubject());
 		model.setUniversity(soapModel.getUniversity());
 		model.setScore(soapModel.getScore());
 		model.setStartDate(soapModel.getStartDate());
@@ -199,7 +194,7 @@ public class EmployeeQualificationModelImpl extends BaseModelImpl<EmployeeQualif
 		attributes.put("groupId", getGroupId());
 		attributes.put("companyId", getCompanyId());
 		attributes.put("degreeName", getDegreeName());
-		attributes.put("specialization", getSpecialization());
+		attributes.put("mainSubject", getMainSubject());
 		attributes.put("university", getUniversity());
 		attributes.put("score", getScore());
 		attributes.put("startDate", getStartDate());
@@ -245,10 +240,10 @@ public class EmployeeQualificationModelImpl extends BaseModelImpl<EmployeeQualif
 			setDegreeName(degreeName);
 		}
 
-		String specialization = (String)attributes.get("specialization");
+		String mainSubject = (String)attributes.get("mainSubject");
 
-		if (specialization != null) {
-			setSpecialization(specialization);
+		if (mainSubject != null) {
+			setMainSubject(mainSubject);
 		}
 
 		String university = (String)attributes.get("university");
@@ -372,18 +367,18 @@ public class EmployeeQualificationModelImpl extends BaseModelImpl<EmployeeQualif
 
 	@JSON
 	@Override
-	public String getSpecialization() {
-		if (_specialization == null) {
+	public String getMainSubject() {
+		if (_mainSubject == null) {
 			return StringPool.BLANK;
 		}
 		else {
-			return _specialization;
+			return _mainSubject;
 		}
 	}
 
 	@Override
-	public void setSpecialization(String specialization) {
-		_specialization = specialization;
+	public void setMainSubject(String mainSubject) {
+		_mainSubject = mainSubject;
 	}
 
 	@JSON
@@ -470,19 +465,7 @@ public class EmployeeQualificationModelImpl extends BaseModelImpl<EmployeeQualif
 
 	@Override
 	public void setCreateBy(long createBy) {
-		_columnBitmask |= CREATEBY_COLUMN_BITMASK;
-
-		if (!_setOriginalCreateBy) {
-			_setOriginalCreateBy = true;
-
-			_originalCreateBy = _createBy;
-		}
-
 		_createBy = createBy;
-	}
-
-	public long getOriginalCreateBy() {
-		return _originalCreateBy;
 	}
 
 	@JSON
@@ -493,23 +476,7 @@ public class EmployeeQualificationModelImpl extends BaseModelImpl<EmployeeQualif
 
 	@Override
 	public void setModifiedBy(long modifiedBy) {
-		_columnBitmask |= MODIFIEDBY_COLUMN_BITMASK;
-
-		if (!_setOriginalModifiedBy) {
-			_setOriginalModifiedBy = true;
-
-			_originalModifiedBy = _modifiedBy;
-		}
-
 		_modifiedBy = modifiedBy;
-	}
-
-	public long getOriginalModifiedBy() {
-		return _originalModifiedBy;
-	}
-
-	public long getColumnBitmask() {
-		return _columnBitmask;
 	}
 
 	@Override
@@ -544,7 +511,7 @@ public class EmployeeQualificationModelImpl extends BaseModelImpl<EmployeeQualif
 		employeeQualificationImpl.setGroupId(getGroupId());
 		employeeQualificationImpl.setCompanyId(getCompanyId());
 		employeeQualificationImpl.setDegreeName(getDegreeName());
-		employeeQualificationImpl.setSpecialization(getSpecialization());
+		employeeQualificationImpl.setMainSubject(getMainSubject());
 		employeeQualificationImpl.setUniversity(getUniversity());
 		employeeQualificationImpl.setScore(getScore());
 		employeeQualificationImpl.setStartDate(getStartDate());
@@ -603,17 +570,6 @@ public class EmployeeQualificationModelImpl extends BaseModelImpl<EmployeeQualif
 
 	@Override
 	public void resetOriginalValues() {
-		EmployeeQualificationModelImpl employeeQualificationModelImpl = this;
-
-		employeeQualificationModelImpl._originalCreateBy = employeeQualificationModelImpl._createBy;
-
-		employeeQualificationModelImpl._setOriginalCreateBy = false;
-
-		employeeQualificationModelImpl._originalModifiedBy = employeeQualificationModelImpl._modifiedBy;
-
-		employeeQualificationModelImpl._setOriginalModifiedBy = false;
-
-		employeeQualificationModelImpl._columnBitmask = 0;
 	}
 
 	@Override
@@ -636,12 +592,12 @@ public class EmployeeQualificationModelImpl extends BaseModelImpl<EmployeeQualif
 			employeeQualificationCacheModel.degreeName = null;
 		}
 
-		employeeQualificationCacheModel.specialization = getSpecialization();
+		employeeQualificationCacheModel.mainSubject = getMainSubject();
 
-		String specialization = employeeQualificationCacheModel.specialization;
+		String mainSubject = employeeQualificationCacheModel.mainSubject;
 
-		if ((specialization != null) && (specialization.length() == 0)) {
-			employeeQualificationCacheModel.specialization = null;
+		if ((mainSubject != null) && (mainSubject.length() == 0)) {
+			employeeQualificationCacheModel.mainSubject = null;
 		}
 
 		employeeQualificationCacheModel.university = getUniversity();
@@ -717,8 +673,8 @@ public class EmployeeQualificationModelImpl extends BaseModelImpl<EmployeeQualif
 		sb.append(getCompanyId());
 		sb.append(", degreeName=");
 		sb.append(getDegreeName());
-		sb.append(", specialization=");
-		sb.append(getSpecialization());
+		sb.append(", mainSubject=");
+		sb.append(getMainSubject());
 		sb.append(", university=");
 		sb.append(getUniversity());
 		sb.append(", score=");
@@ -769,8 +725,8 @@ public class EmployeeQualificationModelImpl extends BaseModelImpl<EmployeeQualif
 		sb.append(getDegreeName());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>specialization</column-name><column-value><![CDATA[");
-		sb.append(getSpecialization());
+			"<column><column-name>mainSubject</column-name><column-value><![CDATA[");
+		sb.append(getMainSubject());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>university</column-name><column-value><![CDATA[");
@@ -820,7 +776,7 @@ public class EmployeeQualificationModelImpl extends BaseModelImpl<EmployeeQualif
 	private long _groupId;
 	private long _companyId;
 	private String _degreeName;
-	private String _specialization;
+	private String _mainSubject;
 	private String _university;
 	private String _score;
 	private Date _startDate;
@@ -828,11 +784,6 @@ public class EmployeeQualificationModelImpl extends BaseModelImpl<EmployeeQualif
 	private Date _createDate;
 	private Date _modifiedDate;
 	private long _createBy;
-	private long _originalCreateBy;
-	private boolean _setOriginalCreateBy;
 	private long _modifiedBy;
-	private long _originalModifiedBy;
-	private boolean _setOriginalModifiedBy;
-	private long _columnBitmask;
 	private EmployeeQualification _escapedModel;
 }

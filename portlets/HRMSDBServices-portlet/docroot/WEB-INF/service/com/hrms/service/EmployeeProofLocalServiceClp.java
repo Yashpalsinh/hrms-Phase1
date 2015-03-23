@@ -142,12 +142,12 @@ public class EmployeeProofLocalServiceClp implements EmployeeProofLocalService {
 
 	@Override
 	public com.hrms.model.EmployeeProof createEmployeeProof(
-		long employeeproofNo) {
+		long employeeProofId) {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName1,
-					_methodParameterTypes1, new Object[] { employeeproofNo });
+					_methodParameterTypes1, new Object[] { employeeProofId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -166,14 +166,14 @@ public class EmployeeProofLocalServiceClp implements EmployeeProofLocalService {
 
 	@Override
 	public com.hrms.model.EmployeeProof deleteEmployeeProof(
-		long employeeproofNo)
+		long employeeProofId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName2,
-					_methodParameterTypes2, new Object[] { employeeproofNo });
+					_methodParameterTypes2, new Object[] { employeeProofId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -426,13 +426,13 @@ public class EmployeeProofLocalServiceClp implements EmployeeProofLocalService {
 	}
 
 	@Override
-	public com.hrms.model.EmployeeProof fetchEmployeeProof(long employeeproofNo)
+	public com.hrms.model.EmployeeProof fetchEmployeeProof(long employeeProofId)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName10,
-					_methodParameterTypes10, new Object[] { employeeproofNo });
+					_methodParameterTypes10, new Object[] { employeeProofId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -454,14 +454,14 @@ public class EmployeeProofLocalServiceClp implements EmployeeProofLocalService {
 	}
 
 	@Override
-	public com.hrms.model.EmployeeProof getEmployeeProof(long employeeproofNo)
+	public com.hrms.model.EmployeeProof getEmployeeProof(long employeeProofId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName11,
-					_methodParameterTypes11, new Object[] { employeeproofNo });
+					_methodParameterTypes11, new Object[] { employeeProofId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);

@@ -72,7 +72,6 @@
 		<field name="signoutTime" type="Date" />
 		<field name="totalTime" type="Date" />
 		<field name="approved" type="boolean" />
-		<field name="approvedBy" type="long" />
 		<field name="createDate" type="Date" />
 		<field name="modifiedDate" type="Date" />
 		<field name="createBy" type="long" />
@@ -131,22 +130,21 @@
 		<field name="createBy" type="long" />
 		<field name="modifiedBy" type="long" />
 	</model>
-	<model name="com.hrms.model.EmployeeMaster">
-		<field name="employeeMasterId" type="long" />
+	<model name="com.hrms.model.EmployeeMst">
+		<field name="employeeMstId" type="long" />
 		<field name="employeeId" type="String" />
 		<field name="userId" type="long" />
 		<field name="gender" type="int" />
 		<field name="dateOfBirth" type="Date" />
 		<field name="joiningDate" type="Date" />
 		<field name="leavingDate" type="Date" />
-		<field name="maritalStatus" type="int" />
+		<field name="maritualStatus" type="int" />
 		<field name="nationality" type="String" />
 		<field name="employeeDesignationId" type="int" />
 		<field name="employeeDepartmentId" type="int" />
-		<field name="employeeSubDepartmentId" type="int" />
 		<field name="employeeTypeId" type="int" />
-		<field name="recruitedOnBasisOf" type="String" />
-		<field name="recruitedBy" type="long" />
+		<field name="employeeProofId" type="int" />
+		<field name="proofNumber" type="String" />
 		<field name="createBy" type="int" />
 		<field name="modifiedBy" type="int" />
 	</model>
@@ -166,10 +164,9 @@
 		<field name="modifiedBy" type="long" />
 	</model>
 	<model name="com.hrms.model.EmployeeProof">
-		<field name="employeeproofNo" type="long" />
-		<field name="proofId" type="long" />
-		<field name="userId" type="long" />
-		<field name="expirationDate" type="Date" />
+		<field name="employeeProofId" type="long" />
+		<field name="proofType" type="String" />
+		<field name="status" type="boolean" />
 	</model>
 	<model name="com.hrms.model.EmployeeQualification">
 		<field name="employeeQualificationId" type="long" />
@@ -177,7 +174,7 @@
 		<field name="groupId" type="long" />
 		<field name="companyId" type="long" />
 		<field name="degreeName" type="String" />
-		<field name="specialization" type="String" />
+		<field name="mainSubject" type="String" />
 		<field name="university" type="String" />
 		<field name="score" type="String" />
 		<field name="startDate" type="Date" />
@@ -186,12 +183,6 @@
 		<field name="modifiedDate" type="Date" />
 		<field name="createBy" type="long" />
 		<field name="modifiedBy" type="long" />
-	</model>
-	<model name="com.hrms.model.EmployeeSubDepartment">
-		<field name="employeeSubDepartmentId" type="long" />
-		<field name="subDepartmentName" type="String" />
-		<field name="employeeDepartmentId" type="long" />
-		<field name="status" type="boolean" />
 	</model>
 	<model name="com.hrms.model.EmployeeTimesheet">
 		<field name="timesheetId" type="long" />
@@ -273,6 +264,7 @@
 		<field name="leaveType" type="String" />
 		<field name="leavesAllowedPerYear" type="int" />
 		<field name="carryOver" type="boolean" />
+		<field name="carryOverLimit" type="int" />
 		<field name="encachement" type="boolean" />
 		<field name="Status" type="boolean" />
 		<field name="createDate" type="Date" />
@@ -285,9 +277,14 @@
 		<field name="userId" type="long" />
 		<field name="groupId" type="long" />
 		<field name="companyId" type="long" />
+		<field name="employeeName" type="String" />
+		<field name="leaveName" type="String" />
 		<field name="entitlement" type="String" />
+		<field name="leaveDuration" type="String" />
 		<field name="leaveFrom" type="Date" />
 		<field name="leaveTo" type="Date" />
+		<field name="leaveDate" type="Date" />
+		<field name="leavePeriod" type="String" />
 		<field name="approvalStatus" type="String" />
 		<field name="leaveId" type="long" />
 		<field name="createDate" type="Date" />
@@ -307,10 +304,5 @@
 		<field name="modifiedDate" type="Date" />
 		<field name="createBy" type="long" />
 		<field name="modifiedBy" type="long" />
-	</model>
-	<model name="com.hrms.model.Proof">
-		<field name="proofId" type="long" />
-		<field name="proofType" type="String" />
-		<field name="status" type="boolean" />
 	</model>
 </model-hints>

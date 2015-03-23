@@ -80,11 +80,7 @@ public class EmployeeDesignationModelImpl extends BaseModelImpl<EmployeeDesignat
 	public static final boolean FINDER_CACHE_ENABLED = GetterUtil.getBoolean(com.liferay.util.service.ServiceProps.get(
 				"value.object.finder.cache.enabled.com.hrms.model.EmployeeDesignation"),
 			true);
-	public static final boolean COLUMN_BITMASK_ENABLED = GetterUtil.getBoolean(com.liferay.util.service.ServiceProps.get(
-				"value.object.column.bitmask.enabled.com.hrms.model.EmployeeDesignation"),
-			true);
-	public static long STATUS_COLUMN_BITMASK = 1L;
-	public static long EMPLOYEEDESIGNATIONID_COLUMN_BITMASK = 2L;
+	public static final boolean COLUMN_BITMASK_ENABLED = false;
 
 	/**
 	 * Converts the soap model instance into a normal model instance.
@@ -236,23 +232,7 @@ public class EmployeeDesignationModelImpl extends BaseModelImpl<EmployeeDesignat
 
 	@Override
 	public void setStatus(boolean status) {
-		_columnBitmask |= STATUS_COLUMN_BITMASK;
-
-		if (!_setOriginalStatus) {
-			_setOriginalStatus = true;
-
-			_originalStatus = _status;
-		}
-
 		_status = status;
-	}
-
-	public boolean getOriginalStatus() {
-		return _originalStatus;
-	}
-
-	public long getColumnBitmask() {
-		return _columnBitmask;
 	}
 
 	@Override
@@ -335,13 +315,6 @@ public class EmployeeDesignationModelImpl extends BaseModelImpl<EmployeeDesignat
 
 	@Override
 	public void resetOriginalValues() {
-		EmployeeDesignationModelImpl employeeDesignationModelImpl = this;
-
-		employeeDesignationModelImpl._originalStatus = employeeDesignationModelImpl._status;
-
-		employeeDesignationModelImpl._setOriginalStatus = false;
-
-		employeeDesignationModelImpl._columnBitmask = 0;
 	}
 
 	@Override
@@ -411,8 +384,5 @@ public class EmployeeDesignationModelImpl extends BaseModelImpl<EmployeeDesignat
 	private long _employeeDesignationId;
 	private String _designationName;
 	private boolean _status;
-	private boolean _originalStatus;
-	private boolean _setOriginalStatus;
-	private long _columnBitmask;
 	private EmployeeDesignation _escapedModel;
 }

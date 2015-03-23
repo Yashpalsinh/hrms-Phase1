@@ -17,14 +17,13 @@ package com.hrms.model.impl;
 import com.hrms.model.EmployeeProof;
 
 import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.model.CacheModel;
 
 import java.io.Externalizable;
 import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
-
-import java.util.Date;
 
 /**
  * The cache model class for representing EmployeeProof in entity cache.
@@ -37,16 +36,14 @@ public class EmployeeProofCacheModel implements CacheModel<EmployeeProof>,
 	Externalizable {
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(9);
+		StringBundler sb = new StringBundler(7);
 
-		sb.append("{employeeproofNo=");
-		sb.append(employeeproofNo);
-		sb.append(", proofId=");
-		sb.append(proofId);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", expirationDate=");
-		sb.append(expirationDate);
+		sb.append("{employeeProofId=");
+		sb.append(employeeProofId);
+		sb.append(", proofType=");
+		sb.append(proofType);
+		sb.append(", status=");
+		sb.append(status);
 		sb.append("}");
 
 		return sb.toString();
@@ -56,16 +53,16 @@ public class EmployeeProofCacheModel implements CacheModel<EmployeeProof>,
 	public EmployeeProof toEntityModel() {
 		EmployeeProofImpl employeeProofImpl = new EmployeeProofImpl();
 
-		employeeProofImpl.setEmployeeproofNo(employeeproofNo);
-		employeeProofImpl.setProofId(proofId);
-		employeeProofImpl.setUserId(userId);
+		employeeProofImpl.setEmployeeProofId(employeeProofId);
 
-		if (expirationDate == Long.MIN_VALUE) {
-			employeeProofImpl.setExpirationDate(null);
+		if (proofType == null) {
+			employeeProofImpl.setProofType(StringPool.BLANK);
 		}
 		else {
-			employeeProofImpl.setExpirationDate(new Date(expirationDate));
+			employeeProofImpl.setProofType(proofType);
 		}
+
+		employeeProofImpl.setStatus(status);
 
 		employeeProofImpl.resetOriginalValues();
 
@@ -74,23 +71,27 @@ public class EmployeeProofCacheModel implements CacheModel<EmployeeProof>,
 
 	@Override
 	public void readExternal(ObjectInput objectInput) throws IOException {
-		employeeproofNo = objectInput.readLong();
-		proofId = objectInput.readLong();
-		userId = objectInput.readLong();
-		expirationDate = objectInput.readLong();
+		employeeProofId = objectInput.readLong();
+		proofType = objectInput.readUTF();
+		status = objectInput.readBoolean();
 	}
 
 	@Override
 	public void writeExternal(ObjectOutput objectOutput)
 		throws IOException {
-		objectOutput.writeLong(employeeproofNo);
-		objectOutput.writeLong(proofId);
-		objectOutput.writeLong(userId);
-		objectOutput.writeLong(expirationDate);
+		objectOutput.writeLong(employeeProofId);
+
+		if (proofType == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(proofType);
+		}
+
+		objectOutput.writeBoolean(status);
 	}
 
-	public long employeeproofNo;
-	public long proofId;
-	public long userId;
-	public long expirationDate;
+	public long employeeProofId;
+	public String proofType;
+	public boolean status;
 }
