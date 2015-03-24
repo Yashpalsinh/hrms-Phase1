@@ -71,12 +71,7 @@
 		<tr>
 			<td><aui:input name="taskDescription" type="textarea" label="Task Description"
 				value="${empTimesheet == null ? '' : empTimesheet.taskDescription}" /></td>
-			<td>
-				<div class="div-taskfile">
-					<label class="taskfile-label">Task File</label> 
-					<input type="file" name='<portlet:namespace/>taskFile' id="taskFile" class="taskfile" />
-				</div>
-			</td>
+			
 			<td>
 				<div class="div-task-completed">
 					<input type="checkbox" class="task-completed-checkbox" name='<portlet:namespace/>taskCompleted' 
@@ -88,32 +83,7 @@
 		<tr>
 			<td></td><td></td>
 			<td><aui:button type="submit" value="Submit" name="submitTimesheet" /> &nbsp;&nbsp;
-			<aui:button type="cancel" value="Cancel" name="cancelTimesheet"  /></td>
+			<aui:button type="cancel" value="Cancel" name="cancelTimesheet" href="<%=listTimesheets%>" /></td>
 		</tr>
 	</table>
 </aui:form>
-
-<%-- <aui:script use="aui-base,aui-io-request">
-    A.one('#<portlet:namespace/>submitTimesheet').on('click', function(event) {
-        var A = AUI();
-        var url = '${empTimesheet == null ? createTimesheetURL : updateTimesheetURL}';
-        A.io.request(
-            url,
-            {
-                method: 'POST',
-                form: {id: '<portlet:namespace/>timesheetForm'},
-                on: {
-                    success: function() {
-                        Liferay.Util.getOpener().refreshPortlet();
-                        Liferay.Util.getOpener().closePopup('dialog');
-                    }
-                }
-            }
-        );
-    });
-</aui:script>
-<aui:script use="aui-base">
-    A.one('#<portlet:namespace/>cancelTimesheet').on('click', function(event) {
-        Liferay.Util.getOpener().closePopup('dialog');
-    });
-</aui:script> --%>

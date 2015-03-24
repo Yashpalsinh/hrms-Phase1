@@ -80,8 +80,6 @@ public class HRMSTimesheetController {
 		employeeTimesheet.setBilled(false);
 		employeeTimesheet.setTaskCompleted(timesheetModel.isTaskCompleted());
 
-		// Code for file is appended later.
-
 		// Details related to the audit fields .
 		ThemeDisplay themeDisplay = (ThemeDisplay) actionRequest
 				.getAttribute(WebKeys.THEME_DISPLAY);

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+	<service name="Plugin_HRMS_EmployeeTimesheetService" provider="java:RPC" style="rpc" use="encoded">
+		<parameter name="allowedMethods" value="*" />
+		<parameter name="className" value="com.hrms.service.http.EmployeeTimesheetServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<parameter name="wsdlPortType" value="EmployeeTimesheetServiceSoap" />
+		<parameter name="wsdlServiceElement" value="EmployeeTimesheetServiceSoapService" />
+		<parameter name="wsdlServicePort" value="Plugin_HRMS_EmployeeTimesheetService" />
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.hrms.com" />
+	</service>
+</deployment>
