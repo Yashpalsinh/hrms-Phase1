@@ -14,7 +14,19 @@
 
 package com.hrms.service.impl;
 
+import java.util.List;
+
+import com.hrms.NoSuchEmployeeMstException;
+import com.hrms.model.EmployeeMst;
 import com.hrms.service.base.EmployeeMstLocalServiceBaseImpl;
+import com.liferay.portal.kernel.dao.orm.Criterion;
+import com.liferay.portal.kernel.dao.orm.DynamicQuery;
+import com.liferay.portal.kernel.dao.orm.DynamicQueryFactoryUtil;
+import com.liferay.portal.kernel.dao.orm.RestrictionsFactoryUtil;
+import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.util.PortalClassLoaderUtil;
+import com.liferay.portal.model.User;
+import com.liferay.portal.service.UserLocalServiceUtil;
 
 /**
  * The implementation of the employee mst local service.
@@ -36,4 +48,31 @@ public class EmployeeMstLocalServiceImpl extends EmployeeMstLocalServiceBaseImpl
 	 *
 	 * Never reference this interface directly. Always use {@link com.hrms.service.EmployeeMstLocalServiceUtil} to access the employee mst local service.
 	 */
+	public EmployeeMst findEmployeeByUserId(long userId) throws NoSuchEmployeeMstException, SystemException
+	{
+		return employeeMstPersistence.findByuserId(userId);
+	}
+	public List<User> getEmployeesByKeywords(String keywords)
+            throws SystemException {
+
+        try {
+            DynamicQuery dynamicQuery = DynamicQueryFactoryUtil.forClass(
+                    User.class, PortalClassLoaderUtil.getClassLoader());
+            Criterion criterion = RestrictionsFactoryUtil.or(
+                    RestrictionsFactoryUtil.like("firstName", "%" + keywords
+                            + "%"),
+                    RestrictionsFactoryUtil.like("lastName", "%" + keywords
+                            + "%"));
+            dynamicQuery.add(criterion);
+
+            List<User> userList = UserLocalServiceUtil
+                    .dynamicQuery(dynamicQuery);
+            return userList;
+        } catch (Exception e) {
+            System.out.println("error");
+            e.printStackTrace();
+            return null;
+        }
+
+    }
 }
