@@ -49,9 +49,10 @@ public class OfferWrapper implements Offer, ModelWrapper<Offer> {
 	public Map<String, Object> getModelAttributes() {
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
-		attributes.put("OferrId", getOferrId());
+		attributes.put("OfferId", getOfferId());
 		attributes.put("candidateId", getCandidateId());
 		attributes.put("employeeDepartmentId", getEmployeeDepartmentId());
+		attributes.put("employeeSubDepartmentId", getEmployeeSubDepartmentId());
 		attributes.put("employeeDesignationId", getEmployeeDesignationId());
 		attributes.put("employeeTypeId", getEmployeeTypeId());
 		attributes.put("salary", getSalary());
@@ -66,10 +67,10 @@ public class OfferWrapper implements Offer, ModelWrapper<Offer> {
 
 	@Override
 	public void setModelAttributes(Map<String, Object> attributes) {
-		Long OferrId = (Long)attributes.get("OferrId");
+		Long OfferId = (Long)attributes.get("OfferId");
 
-		if (OferrId != null) {
-			setOferrId(OferrId);
+		if (OfferId != null) {
+			setOfferId(OfferId);
 		}
 
 		Long candidateId = (Long)attributes.get("candidateId");
@@ -82,6 +83,13 @@ public class OfferWrapper implements Offer, ModelWrapper<Offer> {
 
 		if (employeeDepartmentId != null) {
 			setEmployeeDepartmentId(employeeDepartmentId);
+		}
+
+		Long employeeSubDepartmentId = (Long)attributes.get(
+				"employeeSubDepartmentId");
+
+		if (employeeSubDepartmentId != null) {
+			setEmployeeSubDepartmentId(employeeSubDepartmentId);
 		}
 
 		Long employeeDesignationId = (Long)attributes.get(
@@ -155,23 +163,23 @@ public class OfferWrapper implements Offer, ModelWrapper<Offer> {
 	}
 
 	/**
-	* Returns the oferr ID of this offer.
+	* Returns the offer ID of this offer.
 	*
-	* @return the oferr ID of this offer
+	* @return the offer ID of this offer
 	*/
 	@Override
-	public long getOferrId() {
-		return _offer.getOferrId();
+	public long getOfferId() {
+		return _offer.getOfferId();
 	}
 
 	/**
-	* Sets the oferr ID of this offer.
+	* Sets the offer ID of this offer.
 	*
-	* @param OferrId the oferr ID of this offer
+	* @param OfferId the offer ID of this offer
 	*/
 	@Override
-	public void setOferrId(long OferrId) {
-		_offer.setOferrId(OferrId);
+	public void setOfferId(long OfferId) {
+		_offer.setOfferId(OfferId);
 	}
 
 	/**
@@ -212,6 +220,26 @@ public class OfferWrapper implements Offer, ModelWrapper<Offer> {
 	@Override
 	public void setEmployeeDepartmentId(long employeeDepartmentId) {
 		_offer.setEmployeeDepartmentId(employeeDepartmentId);
+	}
+
+	/**
+	* Returns the employee sub department ID of this offer.
+	*
+	* @return the employee sub department ID of this offer
+	*/
+	@Override
+	public long getEmployeeSubDepartmentId() {
+		return _offer.getEmployeeSubDepartmentId();
+	}
+
+	/**
+	* Sets the employee sub department ID of this offer.
+	*
+	* @param employeeSubDepartmentId the employee sub department ID of this offer
+	*/
+	@Override
+	public void setEmployeeSubDepartmentId(long employeeSubDepartmentId) {
+		_offer.setEmployeeSubDepartmentId(employeeSubDepartmentId);
 	}
 
 	/**

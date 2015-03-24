@@ -81,8 +81,6 @@ public class EmployeeTimesheetClp extends BaseModelImpl<EmployeeTimesheet>
 		attributes.put("companyId", getCompanyId());
 		attributes.put("taskTitle", getTaskTitle());
 		attributes.put("taskDescription", getTaskDescription());
-		attributes.put("taskFileId", getTaskFileId());
-		attributes.put("taskFilePath", getTaskFilePath());
 		attributes.put("taskStarttime", getTaskStarttime());
 		attributes.put("taskEndtime", getTaskEndtime());
 		attributes.put("taskDate", getTaskDate());
@@ -136,18 +134,6 @@ public class EmployeeTimesheetClp extends BaseModelImpl<EmployeeTimesheet>
 			setTaskDescription(taskDescription);
 		}
 
-		Long taskFileId = (Long)attributes.get("taskFileId");
-
-		if (taskFileId != null) {
-			setTaskFileId(taskFileId);
-		}
-
-		String taskFilePath = (String)attributes.get("taskFilePath");
-
-		if (taskFilePath != null) {
-			setTaskFilePath(taskFilePath);
-		}
-
 		Date taskStarttime = (Date)attributes.get("taskStarttime");
 
 		if (taskStarttime != null) {
@@ -166,7 +152,7 @@ public class EmployeeTimesheetClp extends BaseModelImpl<EmployeeTimesheet>
 			setTaskDate(taskDate);
 		}
 
-		Date duration = (Date)attributes.get("duration");
+		String duration = (String)attributes.get("duration");
 
 		if (duration != null) {
 			setDuration(duration);
@@ -365,52 +351,6 @@ public class EmployeeTimesheetClp extends BaseModelImpl<EmployeeTimesheet>
 	}
 
 	@Override
-	public long getTaskFileId() {
-		return _taskFileId;
-	}
-
-	@Override
-	public void setTaskFileId(long taskFileId) {
-		_taskFileId = taskFileId;
-
-		if (_employeeTimesheetRemoteModel != null) {
-			try {
-				Class<?> clazz = _employeeTimesheetRemoteModel.getClass();
-
-				Method method = clazz.getMethod("setTaskFileId", long.class);
-
-				method.invoke(_employeeTimesheetRemoteModel, taskFileId);
-			}
-			catch (Exception e) {
-				throw new UnsupportedOperationException(e);
-			}
-		}
-	}
-
-	@Override
-	public String getTaskFilePath() {
-		return _taskFilePath;
-	}
-
-	@Override
-	public void setTaskFilePath(String taskFilePath) {
-		_taskFilePath = taskFilePath;
-
-		if (_employeeTimesheetRemoteModel != null) {
-			try {
-				Class<?> clazz = _employeeTimesheetRemoteModel.getClass();
-
-				Method method = clazz.getMethod("setTaskFilePath", String.class);
-
-				method.invoke(_employeeTimesheetRemoteModel, taskFilePath);
-			}
-			catch (Exception e) {
-				throw new UnsupportedOperationException(e);
-			}
-		}
-	}
-
-	@Override
 	public Date getTaskStarttime() {
 		return _taskStarttime;
 	}
@@ -480,19 +420,19 @@ public class EmployeeTimesheetClp extends BaseModelImpl<EmployeeTimesheet>
 	}
 
 	@Override
-	public Date getDuration() {
+	public String getDuration() {
 		return _duration;
 	}
 
 	@Override
-	public void setDuration(Date duration) {
+	public void setDuration(String duration) {
 		_duration = duration;
 
 		if (_employeeTimesheetRemoteModel != null) {
 			try {
 				Class<?> clazz = _employeeTimesheetRemoteModel.getClass();
 
-				Method method = clazz.getMethod("setDuration", Date.class);
+				Method method = clazz.getMethod("setDuration", String.class);
 
 				method.invoke(_employeeTimesheetRemoteModel, duration);
 			}
@@ -756,8 +696,6 @@ public class EmployeeTimesheetClp extends BaseModelImpl<EmployeeTimesheet>
 		clone.setCompanyId(getCompanyId());
 		clone.setTaskTitle(getTaskTitle());
 		clone.setTaskDescription(getTaskDescription());
-		clone.setTaskFileId(getTaskFileId());
-		clone.setTaskFilePath(getTaskFilePath());
 		clone.setTaskStarttime(getTaskStarttime());
 		clone.setTaskEndtime(getTaskEndtime());
 		clone.setTaskDate(getTaskDate());
@@ -817,7 +755,7 @@ public class EmployeeTimesheetClp extends BaseModelImpl<EmployeeTimesheet>
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(39);
+		StringBundler sb = new StringBundler(35);
 
 		sb.append("{timesheetId=");
 		sb.append(getTimesheetId());
@@ -831,10 +769,6 @@ public class EmployeeTimesheetClp extends BaseModelImpl<EmployeeTimesheet>
 		sb.append(getTaskTitle());
 		sb.append(", taskDescription=");
 		sb.append(getTaskDescription());
-		sb.append(", taskFileId=");
-		sb.append(getTaskFileId());
-		sb.append(", taskFilePath=");
-		sb.append(getTaskFilePath());
 		sb.append(", taskStarttime=");
 		sb.append(getTaskStarttime());
 		sb.append(", taskEndtime=");
@@ -864,7 +798,7 @@ public class EmployeeTimesheetClp extends BaseModelImpl<EmployeeTimesheet>
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(61);
+		StringBundler sb = new StringBundler(55);
 
 		sb.append("<model><model-name>");
 		sb.append("com.hrms.model.EmployeeTimesheet");
@@ -893,14 +827,6 @@ public class EmployeeTimesheetClp extends BaseModelImpl<EmployeeTimesheet>
 		sb.append(
 			"<column><column-name>taskDescription</column-name><column-value><![CDATA[");
 		sb.append(getTaskDescription());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>taskFileId</column-name><column-value><![CDATA[");
-		sb.append(getTaskFileId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>taskFilePath</column-name><column-value><![CDATA[");
-		sb.append(getTaskFilePath());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>taskStarttime</column-name><column-value><![CDATA[");
@@ -959,12 +885,10 @@ public class EmployeeTimesheetClp extends BaseModelImpl<EmployeeTimesheet>
 	private long _companyId;
 	private String _taskTitle;
 	private String _taskDescription;
-	private long _taskFileId;
-	private String _taskFilePath;
 	private Date _taskStarttime;
 	private Date _taskEndtime;
 	private Date _taskDate;
-	private Date _duration;
+	private String _duration;
 	private boolean _taskCompleted;
 	private boolean _billable;
 	private boolean _billed;

@@ -56,8 +56,9 @@ public class LeaveWrapper implements Leave, ModelWrapper<Leave> {
 		attributes.put("leaveType", getLeaveType());
 		attributes.put("leavesAllowedPerYear", getLeavesAllowedPerYear());
 		attributes.put("carryOver", getCarryOver());
+		attributes.put("carryOverLimit", getCarryOverLimit());
 		attributes.put("encachement", getEncachement());
-		attributes.put("Status", getStatus());
+		attributes.put("status", getStatus());
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
 		attributes.put("createBy", getCreateBy());
@@ -111,16 +112,22 @@ public class LeaveWrapper implements Leave, ModelWrapper<Leave> {
 			setCarryOver(carryOver);
 		}
 
+		Integer carryOverLimit = (Integer)attributes.get("carryOverLimit");
+
+		if (carryOverLimit != null) {
+			setCarryOverLimit(carryOverLimit);
+		}
+
 		Boolean encachement = (Boolean)attributes.get("encachement");
 
 		if (encachement != null) {
 			setEncachement(encachement);
 		}
 
-		Boolean Status = (Boolean)attributes.get("Status");
+		Boolean status = (Boolean)attributes.get("status");
 
-		if (Status != null) {
-			setStatus(Status);
+		if (status != null) {
+			setStatus(status);
 		}
 
 		Date createDate = (Date)attributes.get("createDate");
@@ -319,6 +326,26 @@ public class LeaveWrapper implements Leave, ModelWrapper<Leave> {
 	}
 
 	/**
+	* Returns the carry over limit of this leave.
+	*
+	* @return the carry over limit of this leave
+	*/
+	@Override
+	public int getCarryOverLimit() {
+		return _leave.getCarryOverLimit();
+	}
+
+	/**
+	* Sets the carry over limit of this leave.
+	*
+	* @param carryOverLimit the carry over limit of this leave
+	*/
+	@Override
+	public void setCarryOverLimit(int carryOverLimit) {
+		_leave.setCarryOverLimit(carryOverLimit);
+	}
+
+	/**
 	* Returns the encachement of this leave.
 	*
 	* @return the encachement of this leave
@@ -371,11 +398,11 @@ public class LeaveWrapper implements Leave, ModelWrapper<Leave> {
 	/**
 	* Sets whether this leave is status.
 	*
-	* @param Status the status of this leave
+	* @param status the status of this leave
 	*/
 	@Override
-	public void setStatus(boolean Status) {
-		_leave.setStatus(Status);
+	public void setStatus(boolean status) {
+		_leave.setStatus(status);
 	}
 
 	/**

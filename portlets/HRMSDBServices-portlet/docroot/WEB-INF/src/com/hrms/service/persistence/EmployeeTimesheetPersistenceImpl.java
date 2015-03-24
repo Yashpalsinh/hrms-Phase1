@@ -1361,8 +1361,6 @@ public class EmployeeTimesheetPersistenceImpl extends BasePersistenceImpl<Employ
 		employeeTimesheetImpl.setCompanyId(employeeTimesheet.getCompanyId());
 		employeeTimesheetImpl.setTaskTitle(employeeTimesheet.getTaskTitle());
 		employeeTimesheetImpl.setTaskDescription(employeeTimesheet.getTaskDescription());
-		employeeTimesheetImpl.setTaskFileId(employeeTimesheet.getTaskFileId());
-		employeeTimesheetImpl.setTaskFilePath(employeeTimesheet.getTaskFilePath());
 		employeeTimesheetImpl.setTaskStarttime(employeeTimesheet.getTaskStarttime());
 		employeeTimesheetImpl.setTaskEndtime(employeeTimesheet.getTaskEndtime());
 		employeeTimesheetImpl.setTaskDate(employeeTimesheet.getTaskDate());

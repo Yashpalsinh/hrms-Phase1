@@ -11,6 +11,7 @@
 		<attributes>
 			<id name="candidateId" />
 			<basic name="employeeDepartmentId" />
+			<basic name="employeeSubDepartmentId" />
 			<basic name="employeeDesignationId" />
 			<basic name="title" />
 			<basic name="firstName" />
@@ -118,9 +119,7 @@
 			<basic name="signoutTime">
 				<temporal>TIMESTAMP</temporal>
 			</basic>
-			<basic name="totalTime">
-				<temporal>TIMESTAMP</temporal>
-			</basic>
+			<basic name="totalTime" />
 			<basic name="approved" />
 			<basic name="approvedBy" />
 			<basic name="createDate">
@@ -234,9 +233,9 @@
 			<transient name="userUuid" />
 		</attributes>
 	</mapped-superclass>
-	<mapped-superclass class="com.hrms.model.impl.EmployeeMasterModelImpl">
+	<mapped-superclass class="com.hrms.model.impl.EmployeeMstModelImpl">
 		<attributes>
-			<id name="employeeMasterId" />
+			<id name="employeeMstId" />
 			<basic name="employeeId" />
 			<basic name="userId" />
 			<basic name="gender" />
@@ -249,14 +248,13 @@
 			<basic name="leavingDate">
 				<temporal>TIMESTAMP</temporal>
 			</basic>
-			<basic name="maritalStatus" />
+			<basic name="maritualStatus" />
 			<basic name="nationality" />
 			<basic name="employeeDesignationId" />
 			<basic name="employeeDepartmentId" />
 			<basic name="employeeSubDepartmentId" />
 			<basic name="employeeTypeId" />
-			<basic name="recruitedOnBasisOf" />
-			<basic name="recruitedBy" />
+			<basic name="employeeProofId" />
 			<basic name="createBy" />
 			<basic name="modifiedBy" />
 			<transient name="modelAttributes" />
@@ -315,7 +313,7 @@
 			<basic name="groupId" />
 			<basic name="companyId" />
 			<basic name="degreeName" />
-			<basic name="specialization" />
+			<basic name="mainSubject" />
 			<basic name="university" />
 			<basic name="score" />
 			<basic name="startDate">
@@ -357,8 +355,6 @@
 			<basic name="companyId" />
 			<basic name="taskTitle" />
 			<basic name="taskDescription" />
-			<basic name="taskFileId" />
-			<basic name="taskFilePath" />
 			<basic name="taskStarttime">
 				<temporal>TIMESTAMP</temporal>
 			</basic>
@@ -368,9 +364,7 @@
 			<basic name="taskDate">
 				<temporal>TIMESTAMP</temporal>
 			</basic>
-			<basic name="duration">
-				<temporal>TIMESTAMP</temporal>
-			</basic>
+			<basic name="duration" />
 			<basic name="taskCompleted" />
 			<basic name="billable" />
 			<basic name="billed" />
@@ -482,8 +476,9 @@
 			<basic name="leaveType" />
 			<basic name="leavesAllowedPerYear" />
 			<basic name="carryOver" />
+			<basic name="carryOverLimit" />
 			<basic name="encachement" />
-			<basic name="Status" />
+			<basic name="status" />
 			<basic name="createDate">
 				<temporal>TIMESTAMP</temporal>
 			</basic>
@@ -503,13 +498,20 @@
 			<basic name="userId" />
 			<basic name="groupId" />
 			<basic name="companyId" />
+			<basic name="employeeName" />
+			<basic name="leaveName" />
 			<basic name="entitlement" />
+			<basic name="leaveDuration" />
 			<basic name="leaveFrom">
 				<temporal>TIMESTAMP</temporal>
 			</basic>
 			<basic name="leaveTo">
 				<temporal>TIMESTAMP</temporal>
 			</basic>
+			<basic name="leaveDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="leavePeriod" />
 			<basic name="approvalStatus" />
 			<basic name="leaveId" />
 			<basic name="createDate">
@@ -528,9 +530,10 @@
 	</mapped-superclass>
 	<mapped-superclass class="com.hrms.model.impl.OfferModelImpl">
 		<attributes>
-			<id name="OferrId" />
+			<id name="OfferId" />
 			<basic name="candidateId" />
 			<basic name="employeeDepartmentId" />
+			<basic name="employeeSubDepartmentId" />
 			<basic name="employeeDesignationId" />
 			<basic name="employeeTypeId" />
 			<basic name="salary" />
@@ -558,6 +561,20 @@
 			<transient name="modelAttributes" />
 			<transient name="primaryKey" />
 			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.hrms.model.impl.TodoModelImpl">
+		<attributes>
+			<id name="taskId" />
+			<basic name="userId" />
+			<basic name="date">
+				<column name="DATE_" />
+			</basic>
+			<basic name="taskDetails" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
 		</attributes>
 	</mapped-superclass>
 	<entity class="com.hrms.model.impl.CandidateImpl" name="Candidate">
@@ -596,8 +613,8 @@
 		<table name="HRMS_EmployeeLeave" />
 		<attributes />
 	</entity>
-	<entity class="com.hrms.model.impl.EmployeeMasterImpl" name="EmployeeMaster">
-		<table name="HRMS_EmployeeMaster" />
+	<entity class="com.hrms.model.impl.EmployeeMstImpl" name="EmployeeMst">
+		<table name="HRMS_EmployeeMst" />
 		<attributes />
 	</entity>
 	<entity class="com.hrms.model.impl.EmployeePreviousCompanyImpl" name="EmployeePreviousCompany">
@@ -650,6 +667,10 @@
 	</entity>
 	<entity class="com.hrms.model.impl.ProofImpl" name="Proof">
 		<table name="HRMS_Proof" />
+		<attributes />
+	</entity>
+	<entity class="com.hrms.model.impl.TodoImpl" name="Todo">
+		<table name="HRMS_Todo" />
 		<attributes />
 	</entity>
 </entity-mappings>

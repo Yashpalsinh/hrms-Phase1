@@ -1,6 +1,7 @@
 create table HRMS_Candidate (
 	candidateId LONG not null primary key,
 	employeeDepartmentId LONG,
+	employeeSubDepartmentId LONG,
 	employeeDesignationId LONG,
 	title VARCHAR(75) null,
 	firstName VARCHAR(75) null,
@@ -70,7 +71,7 @@ create table HRMS_EmployeeAttendance (
 	attendanceDate DATE null,
 	signinTime DATE null,
 	signoutTime DATE null,
-	totalTime DATE null,
+	totalTime DOUBLE,
 	approved BOOLEAN,
 	approvedBy LONG,
 	createDate DATE null,
@@ -161,7 +162,7 @@ create table HRMS_EmployeeMst (
 	employeeMstId LONG not null primary key,
 	employeeId VARCHAR(75) null,
 	userId LONG,
-	gender INTEGER,
+	gender LONG,
 	dateOfBirth DATE null,
 	joiningDate DATE null,
 	leavingDate DATE null,
@@ -169,9 +170,9 @@ create table HRMS_EmployeeMst (
 	nationality VARCHAR(75) null,
 	employeeDesignationId INTEGER,
 	employeeDepartmentId INTEGER,
+	employeeSubDepartmentId INTEGER,
 	employeeTypeId INTEGER,
 	employeeProofId INTEGER,
-	proofNumber VARCHAR(75) null,
 	createBy INTEGER,
 	modifiedBy INTEGER
 );
@@ -205,7 +206,7 @@ create table HRMS_EmployeeQualification (
 	groupId LONG,
 	companyId LONG,
 	degreeName VARCHAR(75) null,
-	specialization VARCHAR(75) null,
+	mainSubject VARCHAR(75) null,
 	university VARCHAR(75) null,
 	score VARCHAR(75) null,
 	startDate DATE null,
@@ -230,12 +231,10 @@ create table HRMS_EmployeeTimesheet (
 	companyId LONG,
 	taskTitle VARCHAR(75) null,
 	taskDescription VARCHAR(75) null,
-	taskFileId LONG,
-	taskFilePath VARCHAR(75) null,
 	taskStarttime DATE null,
 	taskEndtime DATE null,
 	taskDate DATE null,
-	duration DATE null,
+	duration VARCHAR(75) null,
 	taskCompleted BOOLEAN,
 	billable BOOLEAN,
 	billed BOOLEAN,
@@ -308,8 +307,9 @@ create table HRMS_Leave (
 	leaveType VARCHAR(75) null,
 	leavesAllowedPerYear INTEGER,
 	carryOver BOOLEAN,
+	carryOverLimit INTEGER,
 	encachement BOOLEAN,
-	Status BOOLEAN,
+	status BOOLEAN,
 	createDate DATE null,
 	modifiedDate DATE null,
 	createBy LONG,
@@ -321,9 +321,14 @@ create table HRMS_LeavesApplied (
 	userId LONG,
 	groupId LONG,
 	companyId LONG,
+	employeeName VARCHAR(75) null,
+	leaveName VARCHAR(75) null,
 	entitlement VARCHAR(75) null,
+	leaveDuration VARCHAR(75) null,
 	leaveFrom DATE null,
 	leaveTo DATE null,
+	leaveDate DATE null,
+	leavePeriod VARCHAR(75) null,
 	approvalStatus VARCHAR(75) null,
 	leaveId LONG,
 	createDate DATE null,
@@ -333,9 +338,10 @@ create table HRMS_LeavesApplied (
 );
 
 create table HRMS_Offer (
-	OferrId LONG not null primary key,
+	OfferId LONG not null primary key,
 	candidateId LONG,
 	employeeDepartmentId LONG,
+	employeeSubDepartmentId LONG,
 	employeeDesignationId LONG,
 	employeeTypeId LONG,
 	salary LONG,
@@ -350,4 +356,11 @@ create table HRMS_Proof (
 	proofId LONG not null primary key,
 	proofType VARCHAR(75) null,
 	status BOOLEAN
+);
+
+create table HRMS_Todo (
+	taskId LONG not null primary key,
+	userId LONG,
+	date_ VARCHAR(75) null,
+	taskDetails VARCHAR(75) null
 );

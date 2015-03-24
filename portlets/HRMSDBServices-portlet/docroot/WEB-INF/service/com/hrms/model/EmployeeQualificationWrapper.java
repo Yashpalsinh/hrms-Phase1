@@ -56,7 +56,7 @@ public class EmployeeQualificationWrapper implements EmployeeQualification,
 		attributes.put("groupId", getGroupId());
 		attributes.put("companyId", getCompanyId());
 		attributes.put("degreeName", getDegreeName());
-		attributes.put("specialization", getSpecialization());
+		attributes.put("mainSubject", getMainSubject());
 		attributes.put("university", getUniversity());
 		attributes.put("score", getScore());
 		attributes.put("startDate", getStartDate());
@@ -102,10 +102,10 @@ public class EmployeeQualificationWrapper implements EmployeeQualification,
 			setDegreeName(degreeName);
 		}
 
-		String specialization = (String)attributes.get("specialization");
+		String mainSubject = (String)attributes.get("mainSubject");
 
-		if (specialization != null) {
-			setSpecialization(specialization);
+		if (mainSubject != null) {
+			setMainSubject(mainSubject);
 		}
 
 		String university = (String)attributes.get("university");
@@ -300,23 +300,23 @@ public class EmployeeQualificationWrapper implements EmployeeQualification,
 	}
 
 	/**
-	* Returns the specialization of this employee qualification.
+	* Returns the main subject of this employee qualification.
 	*
-	* @return the specialization of this employee qualification
+	* @return the main subject of this employee qualification
 	*/
 	@Override
-	public java.lang.String getSpecialization() {
-		return _employeeQualification.getSpecialization();
+	public java.lang.String getMainSubject() {
+		return _employeeQualification.getMainSubject();
 	}
 
 	/**
-	* Sets the specialization of this employee qualification.
+	* Sets the main subject of this employee qualification.
 	*
-	* @param specialization the specialization of this employee qualification
+	* @param mainSubject the main subject of this employee qualification
 	*/
 	@Override
-	public void setSpecialization(java.lang.String specialization) {
-		_employeeQualification.setSpecialization(specialization);
+	public void setMainSubject(java.lang.String mainSubject) {
+		_employeeQualification.setMainSubject(mainSubject);
 	}
 
 	/**

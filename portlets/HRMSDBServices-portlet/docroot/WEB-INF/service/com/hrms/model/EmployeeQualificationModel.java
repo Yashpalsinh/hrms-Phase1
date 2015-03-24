@@ -147,19 +147,19 @@ public interface EmployeeQualificationModel extends BaseModel<EmployeeQualificat
 	public void setDegreeName(String degreeName);
 
 	/**
-	 * Returns the specialization of this employee qualification.
+	 * Returns the main subject of this employee qualification.
 	 *
-	 * @return the specialization of this employee qualification
+	 * @return the main subject of this employee qualification
 	 */
 	@AutoEscape
-	public String getSpecialization();
+	public String getMainSubject();
 
 	/**
-	 * Sets the specialization of this employee qualification.
+	 * Sets the main subject of this employee qualification.
 	 *
-	 * @param specialization the specialization of this employee qualification
+	 * @param mainSubject the main subject of this employee qualification
 	 */
-	public void setSpecialization(String specialization);
+	public void setMainSubject(String mainSubject);
 
 	/**
 	 * Returns the university of this employee qualification.

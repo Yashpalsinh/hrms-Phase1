@@ -30,6 +30,7 @@ import com.hrms.service.persistence.EmployeeMstPersistence;
 import com.hrms.service.persistence.EmployeePreviousCompanyPersistence;
 import com.hrms.service.persistence.EmployeeProofPersistence;
 import com.hrms.service.persistence.EmployeeQualificationPersistence;
+import com.hrms.service.persistence.EmployeeSubDepartmentPersistence;
 import com.hrms.service.persistence.EmployeeTimesheetPersistence;
 import com.hrms.service.persistence.EmployeeTypePersistence;
 import com.hrms.service.persistence.EmployeeWarningPersistence;
@@ -38,6 +39,8 @@ import com.hrms.service.persistence.JobLibraryPersistence;
 import com.hrms.service.persistence.LeavePersistence;
 import com.hrms.service.persistence.LeavesAppliedPersistence;
 import com.hrms.service.persistence.OfferPersistence;
+import com.hrms.service.persistence.ProofPersistence;
+import com.hrms.service.persistence.TodoPersistence;
 
 import com.liferay.portal.kernel.bean.BeanReference;
 import com.liferay.portal.kernel.bean.IdentifiableBean;
@@ -1043,6 +1046,63 @@ public abstract class EmployeeMstLocalServiceBaseImpl
 	}
 
 	/**
+	 * Returns the employee sub department local service.
+	 *
+	 * @return the employee sub department local service
+	 */
+	public com.hrms.service.EmployeeSubDepartmentLocalService getEmployeeSubDepartmentLocalService() {
+		return employeeSubDepartmentLocalService;
+	}
+
+	/**
+	 * Sets the employee sub department local service.
+	 *
+	 * @param employeeSubDepartmentLocalService the employee sub department local service
+	 */
+	public void setEmployeeSubDepartmentLocalService(
+		com.hrms.service.EmployeeSubDepartmentLocalService employeeSubDepartmentLocalService) {
+		this.employeeSubDepartmentLocalService = employeeSubDepartmentLocalService;
+	}
+
+	/**
+	 * Returns the employee sub department remote service.
+	 *
+	 * @return the employee sub department remote service
+	 */
+	public com.hrms.service.EmployeeSubDepartmentService getEmployeeSubDepartmentService() {
+		return employeeSubDepartmentService;
+	}
+
+	/**
+	 * Sets the employee sub department remote service.
+	 *
+	 * @param employeeSubDepartmentService the employee sub department remote service
+	 */
+	public void setEmployeeSubDepartmentService(
+		com.hrms.service.EmployeeSubDepartmentService employeeSubDepartmentService) {
+		this.employeeSubDepartmentService = employeeSubDepartmentService;
+	}
+
+	/**
+	 * Returns the employee sub department persistence.
+	 *
+	 * @return the employee sub department persistence
+	 */
+	public EmployeeSubDepartmentPersistence getEmployeeSubDepartmentPersistence() {
+		return employeeSubDepartmentPersistence;
+	}
+
+	/**
+	 * Sets the employee sub department persistence.
+	 *
+	 * @param employeeSubDepartmentPersistence the employee sub department persistence
+	 */
+	public void setEmployeeSubDepartmentPersistence(
+		EmployeeSubDepartmentPersistence employeeSubDepartmentPersistence) {
+		this.employeeSubDepartmentPersistence = employeeSubDepartmentPersistence;
+	}
+
+	/**
 	 * Returns the employee timesheet local service.
 	 *
 	 * @return the employee timesheet local service
@@ -1495,6 +1555,116 @@ public abstract class EmployeeMstLocalServiceBaseImpl
 	}
 
 	/**
+	 * Returns the proof local service.
+	 *
+	 * @return the proof local service
+	 */
+	public com.hrms.service.ProofLocalService getProofLocalService() {
+		return proofLocalService;
+	}
+
+	/**
+	 * Sets the proof local service.
+	 *
+	 * @param proofLocalService the proof local service
+	 */
+	public void setProofLocalService(
+		com.hrms.service.ProofLocalService proofLocalService) {
+		this.proofLocalService = proofLocalService;
+	}
+
+	/**
+	 * Returns the proof remote service.
+	 *
+	 * @return the proof remote service
+	 */
+	public com.hrms.service.ProofService getProofService() {
+		return proofService;
+	}
+
+	/**
+	 * Sets the proof remote service.
+	 *
+	 * @param proofService the proof remote service
+	 */
+	public void setProofService(com.hrms.service.ProofService proofService) {
+		this.proofService = proofService;
+	}
+
+	/**
+	 * Returns the proof persistence.
+	 *
+	 * @return the proof persistence
+	 */
+	public ProofPersistence getProofPersistence() {
+		return proofPersistence;
+	}
+
+	/**
+	 * Sets the proof persistence.
+	 *
+	 * @param proofPersistence the proof persistence
+	 */
+	public void setProofPersistence(ProofPersistence proofPersistence) {
+		this.proofPersistence = proofPersistence;
+	}
+
+	/**
+	 * Returns the todo local service.
+	 *
+	 * @return the todo local service
+	 */
+	public com.hrms.service.TodoLocalService getTodoLocalService() {
+		return todoLocalService;
+	}
+
+	/**
+	 * Sets the todo local service.
+	 *
+	 * @param todoLocalService the todo local service
+	 */
+	public void setTodoLocalService(
+		com.hrms.service.TodoLocalService todoLocalService) {
+		this.todoLocalService = todoLocalService;
+	}
+
+	/**
+	 * Returns the todo remote service.
+	 *
+	 * @return the todo remote service
+	 */
+	public com.hrms.service.TodoService getTodoService() {
+		return todoService;
+	}
+
+	/**
+	 * Sets the todo remote service.
+	 *
+	 * @param todoService the todo remote service
+	 */
+	public void setTodoService(com.hrms.service.TodoService todoService) {
+		this.todoService = todoService;
+	}
+
+	/**
+	 * Returns the todo persistence.
+	 *
+	 * @return the todo persistence
+	 */
+	public TodoPersistence getTodoPersistence() {
+		return todoPersistence;
+	}
+
+	/**
+	 * Sets the todo persistence.
+	 *
+	 * @param todoPersistence the todo persistence
+	 */
+	public void setTodoPersistence(TodoPersistence todoPersistence) {
+		this.todoPersistence = todoPersistence;
+	}
+
+	/**
 	 * Returns the counter local service.
 	 *
 	 * @return the counter local service
@@ -1748,6 +1918,12 @@ public abstract class EmployeeMstLocalServiceBaseImpl
 	protected com.hrms.service.EmployeeQualificationService employeeQualificationService;
 	@BeanReference(type = EmployeeQualificationPersistence.class)
 	protected EmployeeQualificationPersistence employeeQualificationPersistence;
+	@BeanReference(type = com.hrms.service.EmployeeSubDepartmentLocalService.class)
+	protected com.hrms.service.EmployeeSubDepartmentLocalService employeeSubDepartmentLocalService;
+	@BeanReference(type = com.hrms.service.EmployeeSubDepartmentService.class)
+	protected com.hrms.service.EmployeeSubDepartmentService employeeSubDepartmentService;
+	@BeanReference(type = EmployeeSubDepartmentPersistence.class)
+	protected EmployeeSubDepartmentPersistence employeeSubDepartmentPersistence;
 	@BeanReference(type = com.hrms.service.EmployeeTimesheetLocalService.class)
 	protected com.hrms.service.EmployeeTimesheetLocalService employeeTimesheetLocalService;
 	@BeanReference(type = com.hrms.service.EmployeeTimesheetService.class)
@@ -1796,6 +1972,18 @@ public abstract class EmployeeMstLocalServiceBaseImpl
 	protected com.hrms.service.OfferService offerService;
 	@BeanReference(type = OfferPersistence.class)
 	protected OfferPersistence offerPersistence;
+	@BeanReference(type = com.hrms.service.ProofLocalService.class)
+	protected com.hrms.service.ProofLocalService proofLocalService;
+	@BeanReference(type = com.hrms.service.ProofService.class)
+	protected com.hrms.service.ProofService proofService;
+	@BeanReference(type = ProofPersistence.class)
+	protected ProofPersistence proofPersistence;
+	@BeanReference(type = com.hrms.service.TodoLocalService.class)
+	protected com.hrms.service.TodoLocalService todoLocalService;
+	@BeanReference(type = com.hrms.service.TodoService.class)
+	protected com.hrms.service.TodoService todoService;
+	@BeanReference(type = TodoPersistence.class)
+	protected TodoPersistence todoPersistence;
 	@BeanReference(type = com.liferay.counter.service.CounterLocalService.class)
 	protected com.liferay.counter.service.CounterLocalService counterLocalService;
 	@BeanReference(type = com.liferay.portal.service.ResourceLocalService.class)

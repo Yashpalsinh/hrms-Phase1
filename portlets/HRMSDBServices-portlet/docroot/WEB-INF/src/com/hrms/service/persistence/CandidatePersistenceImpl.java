@@ -321,6 +321,7 @@ public class CandidatePersistenceImpl extends BasePersistenceImpl<Candidate>
 
 		candidateImpl.setCandidateId(candidate.getCandidateId());
 		candidateImpl.setEmployeeDepartmentId(candidate.getEmployeeDepartmentId());
+		candidateImpl.setEmployeeSubDepartmentId(candidate.getEmployeeSubDepartmentId());
 		candidateImpl.setEmployeeDesignationId(candidate.getEmployeeDesignationId());
 		candidateImpl.setTitle(candidate.getTitle());
 		candidateImpl.setFirstName(candidate.getFirstName());

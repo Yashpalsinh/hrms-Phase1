@@ -176,6 +176,332 @@ public class EmployeeMstUtil {
 	}
 
 	/**
+	* Returns all the employee msts where createBy = &#63;.
+	*
+	* @param createBy the create by
+	* @return the matching employee msts
+	* @throws SystemException if a system exception occurred
+	*/
+	public static java.util.List<com.hrms.model.EmployeeMst> findBycreateBy(
+		int createBy)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().findBycreateBy(createBy);
+	}
+
+	/**
+	* Returns a range of all the employee msts where createBy = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.hrms.model.impl.EmployeeMstModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param createBy the create by
+	* @param start the lower bound of the range of employee msts
+	* @param end the upper bound of the range of employee msts (not inclusive)
+	* @return the range of matching employee msts
+	* @throws SystemException if a system exception occurred
+	*/
+	public static java.util.List<com.hrms.model.EmployeeMst> findBycreateBy(
+		int createBy, int start, int end)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().findBycreateBy(createBy, start, end);
+	}
+
+	/**
+	* Returns an ordered range of all the employee msts where createBy = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.hrms.model.impl.EmployeeMstModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param createBy the create by
+	* @param start the lower bound of the range of employee msts
+	* @param end the upper bound of the range of employee msts (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @return the ordered range of matching employee msts
+	* @throws SystemException if a system exception occurred
+	*/
+	public static java.util.List<com.hrms.model.EmployeeMst> findBycreateBy(
+		int createBy, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence()
+				   .findBycreateBy(createBy, start, end, orderByComparator);
+	}
+
+	/**
+	* Returns the first employee mst in the ordered set where createBy = &#63;.
+	*
+	* @param createBy the create by
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching employee mst
+	* @throws com.hrms.NoSuchEmployeeMstException if a matching employee mst could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.hrms.model.EmployeeMst findBycreateBy_First(
+		int createBy,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.hrms.NoSuchEmployeeMstException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().findBycreateBy_First(createBy, orderByComparator);
+	}
+
+	/**
+	* Returns the first employee mst in the ordered set where createBy = &#63;.
+	*
+	* @param createBy the create by
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching employee mst, or <code>null</code> if a matching employee mst could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.hrms.model.EmployeeMst fetchBycreateBy_First(
+		int createBy,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence()
+				   .fetchBycreateBy_First(createBy, orderByComparator);
+	}
+
+	/**
+	* Returns the last employee mst in the ordered set where createBy = &#63;.
+	*
+	* @param createBy the create by
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching employee mst
+	* @throws com.hrms.NoSuchEmployeeMstException if a matching employee mst could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.hrms.model.EmployeeMst findBycreateBy_Last(int createBy,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.hrms.NoSuchEmployeeMstException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().findBycreateBy_Last(createBy, orderByComparator);
+	}
+
+	/**
+	* Returns the last employee mst in the ordered set where createBy = &#63;.
+	*
+	* @param createBy the create by
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching employee mst, or <code>null</code> if a matching employee mst could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.hrms.model.EmployeeMst fetchBycreateBy_Last(
+		int createBy,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().fetchBycreateBy_Last(createBy, orderByComparator);
+	}
+
+	/**
+	* Returns the employee msts before and after the current employee mst in the ordered set where createBy = &#63;.
+	*
+	* @param employeeMstId the primary key of the current employee mst
+	* @param createBy the create by
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the previous, current, and next employee mst
+	* @throws com.hrms.NoSuchEmployeeMstException if a employee mst with the primary key could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.hrms.model.EmployeeMst[] findBycreateBy_PrevAndNext(
+		long employeeMstId, int createBy,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.hrms.NoSuchEmployeeMstException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence()
+				   .findBycreateBy_PrevAndNext(employeeMstId, createBy,
+			orderByComparator);
+	}
+
+	/**
+	* Removes all the employee msts where createBy = &#63; from the database.
+	*
+	* @param createBy the create by
+	* @throws SystemException if a system exception occurred
+	*/
+	public static void removeBycreateBy(int createBy)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		getPersistence().removeBycreateBy(createBy);
+	}
+
+	/**
+	* Returns the number of employee msts where createBy = &#63;.
+	*
+	* @param createBy the create by
+	* @return the number of matching employee msts
+	* @throws SystemException if a system exception occurred
+	*/
+	public static int countBycreateBy(int createBy)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().countBycreateBy(createBy);
+	}
+
+	/**
+	* Returns all the employee msts where modifiedBy = &#63;.
+	*
+	* @param modifiedBy the modified by
+	* @return the matching employee msts
+	* @throws SystemException if a system exception occurred
+	*/
+	public static java.util.List<com.hrms.model.EmployeeMst> findBymodifiedBy(
+		int modifiedBy)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().findBymodifiedBy(modifiedBy);
+	}
+
+	/**
+	* Returns a range of all the employee msts where modifiedBy = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.hrms.model.impl.EmployeeMstModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param modifiedBy the modified by
+	* @param start the lower bound of the range of employee msts
+	* @param end the upper bound of the range of employee msts (not inclusive)
+	* @return the range of matching employee msts
+	* @throws SystemException if a system exception occurred
+	*/
+	public static java.util.List<com.hrms.model.EmployeeMst> findBymodifiedBy(
+		int modifiedBy, int start, int end)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().findBymodifiedBy(modifiedBy, start, end);
+	}
+
+	/**
+	* Returns an ordered range of all the employee msts where modifiedBy = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.hrms.model.impl.EmployeeMstModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param modifiedBy the modified by
+	* @param start the lower bound of the range of employee msts
+	* @param end the upper bound of the range of employee msts (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @return the ordered range of matching employee msts
+	* @throws SystemException if a system exception occurred
+	*/
+	public static java.util.List<com.hrms.model.EmployeeMst> findBymodifiedBy(
+		int modifiedBy, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence()
+				   .findBymodifiedBy(modifiedBy, start, end, orderByComparator);
+	}
+
+	/**
+	* Returns the first employee mst in the ordered set where modifiedBy = &#63;.
+	*
+	* @param modifiedBy the modified by
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching employee mst
+	* @throws com.hrms.NoSuchEmployeeMstException if a matching employee mst could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.hrms.model.EmployeeMst findBymodifiedBy_First(
+		int modifiedBy,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.hrms.NoSuchEmployeeMstException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence()
+				   .findBymodifiedBy_First(modifiedBy, orderByComparator);
+	}
+
+	/**
+	* Returns the first employee mst in the ordered set where modifiedBy = &#63;.
+	*
+	* @param modifiedBy the modified by
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching employee mst, or <code>null</code> if a matching employee mst could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.hrms.model.EmployeeMst fetchBymodifiedBy_First(
+		int modifiedBy,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence()
+				   .fetchBymodifiedBy_First(modifiedBy, orderByComparator);
+	}
+
+	/**
+	* Returns the last employee mst in the ordered set where modifiedBy = &#63;.
+	*
+	* @param modifiedBy the modified by
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching employee mst
+	* @throws com.hrms.NoSuchEmployeeMstException if a matching employee mst could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.hrms.model.EmployeeMst findBymodifiedBy_Last(
+		int modifiedBy,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.hrms.NoSuchEmployeeMstException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence()
+				   .findBymodifiedBy_Last(modifiedBy, orderByComparator);
+	}
+
+	/**
+	* Returns the last employee mst in the ordered set where modifiedBy = &#63;.
+	*
+	* @param modifiedBy the modified by
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching employee mst, or <code>null</code> if a matching employee mst could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.hrms.model.EmployeeMst fetchBymodifiedBy_Last(
+		int modifiedBy,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence()
+				   .fetchBymodifiedBy_Last(modifiedBy, orderByComparator);
+	}
+
+	/**
+	* Returns the employee msts before and after the current employee mst in the ordered set where modifiedBy = &#63;.
+	*
+	* @param employeeMstId the primary key of the current employee mst
+	* @param modifiedBy the modified by
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the previous, current, and next employee mst
+	* @throws com.hrms.NoSuchEmployeeMstException if a employee mst with the primary key could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.hrms.model.EmployeeMst[] findBymodifiedBy_PrevAndNext(
+		long employeeMstId, int modifiedBy,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.hrms.NoSuchEmployeeMstException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence()
+				   .findBymodifiedBy_PrevAndNext(employeeMstId, modifiedBy,
+			orderByComparator);
+	}
+
+	/**
+	* Removes all the employee msts where modifiedBy = &#63; from the database.
+	*
+	* @param modifiedBy the modified by
+	* @throws SystemException if a system exception occurred
+	*/
+	public static void removeBymodifiedBy(int modifiedBy)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		getPersistence().removeBymodifiedBy(modifiedBy);
+	}
+
+	/**
+	* Returns the number of employee msts where modifiedBy = &#63;.
+	*
+	* @param modifiedBy the modified by
+	* @return the number of matching employee msts
+	* @throws SystemException if a system exception occurred
+	*/
+	public static int countBymodifiedBy(int modifiedBy)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().countBymodifiedBy(modifiedBy);
+	}
+
+	/**
 	* Caches the employee mst in the entity cache if it is enabled.
 	*
 	* @param employeeMst the employee mst

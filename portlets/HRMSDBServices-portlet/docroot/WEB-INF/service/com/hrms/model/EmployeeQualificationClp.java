@@ -80,7 +80,7 @@ public class EmployeeQualificationClp extends BaseModelImpl<EmployeeQualificatio
 		attributes.put("groupId", getGroupId());
 		attributes.put("companyId", getCompanyId());
 		attributes.put("degreeName", getDegreeName());
-		attributes.put("specialization", getSpecialization());
+		attributes.put("mainSubject", getMainSubject());
 		attributes.put("university", getUniversity());
 		attributes.put("score", getScore());
 		attributes.put("startDate", getStartDate());
@@ -126,10 +126,10 @@ public class EmployeeQualificationClp extends BaseModelImpl<EmployeeQualificatio
 			setDegreeName(degreeName);
 		}
 
-		String specialization = (String)attributes.get("specialization");
+		String mainSubject = (String)attributes.get("mainSubject");
 
-		if (specialization != null) {
-			setSpecialization(specialization);
+		if (mainSubject != null) {
+			setMainSubject(mainSubject);
 		}
 
 		String university = (String)attributes.get("university");
@@ -309,22 +309,21 @@ public class EmployeeQualificationClp extends BaseModelImpl<EmployeeQualificatio
 	}
 
 	@Override
-	public String getSpecialization() {
-		return _specialization;
+	public String getMainSubject() {
+		return _mainSubject;
 	}
 
 	@Override
-	public void setSpecialization(String specialization) {
-		_specialization = specialization;
+	public void setMainSubject(String mainSubject) {
+		_mainSubject = mainSubject;
 
 		if (_employeeQualificationRemoteModel != null) {
 			try {
 				Class<?> clazz = _employeeQualificationRemoteModel.getClass();
 
-				Method method = clazz.getMethod("setSpecialization",
-						String.class);
+				Method method = clazz.getMethod("setMainSubject", String.class);
 
-				method.invoke(_employeeQualificationRemoteModel, specialization);
+				method.invoke(_employeeQualificationRemoteModel, mainSubject);
 			}
 			catch (Exception e) {
 				throw new UnsupportedOperationException(e);
@@ -592,7 +591,7 @@ public class EmployeeQualificationClp extends BaseModelImpl<EmployeeQualificatio
 		clone.setGroupId(getGroupId());
 		clone.setCompanyId(getCompanyId());
 		clone.setDegreeName(getDegreeName());
-		clone.setSpecialization(getSpecialization());
+		clone.setMainSubject(getMainSubject());
 		clone.setUniversity(getUniversity());
 		clone.setScore(getScore());
 		clone.setStartDate(getStartDate());
@@ -661,8 +660,8 @@ public class EmployeeQualificationClp extends BaseModelImpl<EmployeeQualificatio
 		sb.append(getCompanyId());
 		sb.append(", degreeName=");
 		sb.append(getDegreeName());
-		sb.append(", specialization=");
-		sb.append(getSpecialization());
+		sb.append(", mainSubject=");
+		sb.append(getMainSubject());
 		sb.append(", university=");
 		sb.append(getUniversity());
 		sb.append(", score=");
@@ -713,8 +712,8 @@ public class EmployeeQualificationClp extends BaseModelImpl<EmployeeQualificatio
 		sb.append(getDegreeName());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>specialization</column-name><column-value><![CDATA[");
-		sb.append(getSpecialization());
+			"<column><column-name>mainSubject</column-name><column-value><![CDATA[");
+		sb.append(getMainSubject());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>university</column-name><column-value><![CDATA[");
@@ -760,7 +759,7 @@ public class EmployeeQualificationClp extends BaseModelImpl<EmployeeQualificatio
 	private long _groupId;
 	private long _companyId;
 	private String _degreeName;
-	private String _specialization;
+	private String _mainSubject;
 	private String _university;
 	private String _score;
 	private Date _startDate;

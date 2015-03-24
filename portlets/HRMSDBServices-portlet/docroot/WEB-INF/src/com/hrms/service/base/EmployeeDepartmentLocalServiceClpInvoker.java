@@ -106,34 +106,34 @@ public class EmployeeDepartmentLocalServiceClpInvoker {
 				"com.hrms.model.EmployeeDepartment"
 			};
 
-		_methodName166 = "getBeanIdentifier";
+		_methodName172 = "getBeanIdentifier";
 
-		_methodParameterTypes166 = new String[] {  };
+		_methodParameterTypes172 = new String[] {  };
 
-		_methodName167 = "setBeanIdentifier";
+		_methodName173 = "setBeanIdentifier";
 
-		_methodParameterTypes167 = new String[] { "java.lang.String" };
+		_methodParameterTypes173 = new String[] { "java.lang.String" };
 
-		_methodName172 = "getSerachEmployeeDepartments";
+		_methodName178 = "getSerachEmployeeDepartments";
 
-		_methodParameterTypes172 = new String[] {
+		_methodParameterTypes178 = new String[] {
 				"java.lang.String", "java.lang.String", "boolean", "int", "int",
 				"com.liferay.portal.kernel.util.OrderByComparator"
 			};
 
-		_methodName173 = "getSearchEmployeeDepartmentsCount";
+		_methodName179 = "getSearchEmployeeDepartmentsCount";
 
-		_methodParameterTypes173 = new String[] {
+		_methodParameterTypes179 = new String[] {
 				"java.lang.String", "java.lang.String", "boolean"
 			};
 
-		_methodName176 = "findByemployeeDepartmentId";
+		_methodName182 = "findByemployeeDepartmentId";
 
-		_methodParameterTypes176 = new String[] { "long" };
+		_methodParameterTypes182 = new String[] { "long" };
 
-		_methodName177 = "findByStatus";
+		_methodName183 = "findByStatus";
 
-		_methodParameterTypes177 = new String[] { "boolean" };
+		_methodParameterTypes183 = new String[] { "boolean" };
 	}
 
 	public Object invokeMethod(String name, String[] parameterTypes,
@@ -225,20 +225,20 @@ public class EmployeeDepartmentLocalServiceClpInvoker {
 			return EmployeeDepartmentLocalServiceUtil.updateEmployeeDepartment((com.hrms.model.EmployeeDepartment)arguments[0]);
 		}
 
-		if (_methodName166.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes166, parameterTypes)) {
+		if (_methodName172.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes172, parameterTypes)) {
 			return EmployeeDepartmentLocalServiceUtil.getBeanIdentifier();
 		}
 
-		if (_methodName167.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes167, parameterTypes)) {
+		if (_methodName173.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes173, parameterTypes)) {
 			EmployeeDepartmentLocalServiceUtil.setBeanIdentifier((java.lang.String)arguments[0]);
 
 			return null;
 		}
 
-		if (_methodName172.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes172, parameterTypes)) {
+		if (_methodName178.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes178, parameterTypes)) {
 			return EmployeeDepartmentLocalServiceUtil.getSerachEmployeeDepartments((java.lang.String)arguments[0],
 				(java.lang.String)arguments[1],
 				((Boolean)arguments[2]).booleanValue(),
@@ -247,20 +247,20 @@ public class EmployeeDepartmentLocalServiceClpInvoker {
 				(com.liferay.portal.kernel.util.OrderByComparator)arguments[5]);
 		}
 
-		if (_methodName173.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes173, parameterTypes)) {
+		if (_methodName179.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes179, parameterTypes)) {
 			return EmployeeDepartmentLocalServiceUtil.getSearchEmployeeDepartmentsCount((java.lang.String)arguments[0],
 				(java.lang.String)arguments[1],
 				((Boolean)arguments[2]).booleanValue());
 		}
 
-		if (_methodName176.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes176, parameterTypes)) {
+		if (_methodName182.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes182, parameterTypes)) {
 			return EmployeeDepartmentLocalServiceUtil.findByemployeeDepartmentId(((Long)arguments[0]).longValue());
 		}
 
-		if (_methodName177.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes177, parameterTypes)) {
+		if (_methodName183.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes183, parameterTypes)) {
 			return EmployeeDepartmentLocalServiceUtil.findByStatus(((Boolean)arguments[0]).booleanValue());
 		}
 
@@ -299,16 +299,16 @@ public class EmployeeDepartmentLocalServiceClpInvoker {
 	private String[] _methodParameterTypes14;
 	private String _methodName15;
 	private String[] _methodParameterTypes15;
-	private String _methodName166;
-	private String[] _methodParameterTypes166;
-	private String _methodName167;
-	private String[] _methodParameterTypes167;
 	private String _methodName172;
 	private String[] _methodParameterTypes172;
 	private String _methodName173;
 	private String[] _methodParameterTypes173;
-	private String _methodName176;
-	private String[] _methodParameterTypes176;
-	private String _methodName177;
-	private String[] _methodParameterTypes177;
+	private String _methodName178;
+	private String[] _methodParameterTypes178;
+	private String _methodName179;
+	private String[] _methodParameterTypes179;
+	private String _methodName182;
+	private String[] _methodParameterTypes182;
+	private String _methodName183;
+	private String[] _methodParameterTypes183;
 }

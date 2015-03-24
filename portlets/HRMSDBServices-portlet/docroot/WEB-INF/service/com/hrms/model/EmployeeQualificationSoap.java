@@ -37,7 +37,7 @@ public class EmployeeQualificationSoap implements Serializable {
 		soapModel.setGroupId(model.getGroupId());
 		soapModel.setCompanyId(model.getCompanyId());
 		soapModel.setDegreeName(model.getDegreeName());
-		soapModel.setSpecialization(model.getSpecialization());
+		soapModel.setMainSubject(model.getMainSubject());
 		soapModel.setUniversity(model.getUniversity());
 		soapModel.setScore(model.getScore());
 		soapModel.setStartDate(model.getStartDate());
@@ -141,12 +141,12 @@ public class EmployeeQualificationSoap implements Serializable {
 		_degreeName = degreeName;
 	}
 
-	public String getSpecialization() {
-		return _specialization;
+	public String getMainSubject() {
+		return _mainSubject;
 	}
 
-	public void setSpecialization(String specialization) {
-		_specialization = specialization;
+	public void setMainSubject(String mainSubject) {
+		_mainSubject = mainSubject;
 	}
 
 	public String getUniversity() {
@@ -218,7 +218,7 @@ public class EmployeeQualificationSoap implements Serializable {
 	private long _groupId;
 	private long _companyId;
 	private String _degreeName;
-	private String _specialization;
+	private String _mainSubject;
 	private String _university;
 	private String _score;
 	private Date _startDate;

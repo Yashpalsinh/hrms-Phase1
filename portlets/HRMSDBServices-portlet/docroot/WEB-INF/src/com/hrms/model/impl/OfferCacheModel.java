@@ -36,14 +36,16 @@ import java.util.Date;
 public class OfferCacheModel implements CacheModel<Offer>, Externalizable {
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(23);
+		StringBundler sb = new StringBundler(25);
 
-		sb.append("{OferrId=");
-		sb.append(OferrId);
+		sb.append("{OfferId=");
+		sb.append(OfferId);
 		sb.append(", candidateId=");
 		sb.append(candidateId);
 		sb.append(", employeeDepartmentId=");
 		sb.append(employeeDepartmentId);
+		sb.append(", employeeSubDepartmentId=");
+		sb.append(employeeSubDepartmentId);
 		sb.append(", employeeDesignationId=");
 		sb.append(employeeDesignationId);
 		sb.append(", employeeTypeId=");
@@ -69,9 +71,10 @@ public class OfferCacheModel implements CacheModel<Offer>, Externalizable {
 	public Offer toEntityModel() {
 		OfferImpl offerImpl = new OfferImpl();
 
-		offerImpl.setOferrId(OferrId);
+		offerImpl.setOfferId(OfferId);
 		offerImpl.setCandidateId(candidateId);
 		offerImpl.setEmployeeDepartmentId(employeeDepartmentId);
+		offerImpl.setEmployeeSubDepartmentId(employeeSubDepartmentId);
 		offerImpl.setEmployeeDesignationId(employeeDesignationId);
 		offerImpl.setEmployeeTypeId(employeeTypeId);
 		offerImpl.setSalary(salary);
@@ -107,9 +110,10 @@ public class OfferCacheModel implements CacheModel<Offer>, Externalizable {
 
 	@Override
 	public void readExternal(ObjectInput objectInput) throws IOException {
-		OferrId = objectInput.readLong();
+		OfferId = objectInput.readLong();
 		candidateId = objectInput.readLong();
 		employeeDepartmentId = objectInput.readLong();
+		employeeSubDepartmentId = objectInput.readLong();
 		employeeDesignationId = objectInput.readLong();
 		employeeTypeId = objectInput.readLong();
 		salary = objectInput.readLong();
@@ -123,9 +127,10 @@ public class OfferCacheModel implements CacheModel<Offer>, Externalizable {
 	@Override
 	public void writeExternal(ObjectOutput objectOutput)
 		throws IOException {
-		objectOutput.writeLong(OferrId);
+		objectOutput.writeLong(OfferId);
 		objectOutput.writeLong(candidateId);
 		objectOutput.writeLong(employeeDepartmentId);
+		objectOutput.writeLong(employeeSubDepartmentId);
 		objectOutput.writeLong(employeeDesignationId);
 		objectOutput.writeLong(employeeTypeId);
 		objectOutput.writeLong(salary);
@@ -136,9 +141,10 @@ public class OfferCacheModel implements CacheModel<Offer>, Externalizable {
 		objectOutput.writeLong(modifiedBy);
 	}
 
-	public long OferrId;
+	public long OfferId;
 	public long candidateId;
 	public long employeeDepartmentId;
+	public long employeeSubDepartmentId;
 	public long employeeDesignationId;
 	public long employeeTypeId;
 	public long salary;

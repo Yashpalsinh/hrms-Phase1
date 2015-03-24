@@ -54,25 +54,25 @@ public class OfferLocalServiceUtil {
 	/**
 	* Creates a new offer with the primary key. Does not add the offer to the database.
 	*
-	* @param OferrId the primary key for the new offer
+	* @param OfferId the primary key for the new offer
 	* @return the new offer
 	*/
-	public static com.hrms.model.Offer createOffer(long OferrId) {
-		return getService().createOffer(OferrId);
+	public static com.hrms.model.Offer createOffer(long OfferId) {
+		return getService().createOffer(OfferId);
 	}
 
 	/**
 	* Deletes the offer with the primary key from the database. Also notifies the appropriate model listeners.
 	*
-	* @param OferrId the primary key of the offer
+	* @param OfferId the primary key of the offer
 	* @return the offer that was removed
 	* @throws PortalException if a offer with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public static com.hrms.model.Offer deleteOffer(long OferrId)
+	public static com.hrms.model.Offer deleteOffer(long OfferId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return getService().deleteOffer(OferrId);
+		return getService().deleteOffer(OfferId);
 	}
 
 	/**
@@ -177,23 +177,23 @@ public class OfferLocalServiceUtil {
 		return getService().dynamicQueryCount(dynamicQuery, projection);
 	}
 
-	public static com.hrms.model.Offer fetchOffer(long OferrId)
+	public static com.hrms.model.Offer fetchOffer(long OfferId)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().fetchOffer(OferrId);
+		return getService().fetchOffer(OfferId);
 	}
 
 	/**
 	* Returns the offer with the primary key.
 	*
-	* @param OferrId the primary key of the offer
+	* @param OfferId the primary key of the offer
 	* @return the offer
 	* @throws PortalException if a offer with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public static com.hrms.model.Offer getOffer(long OferrId)
+	public static com.hrms.model.Offer getOffer(long OfferId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return getService().getOffer(OferrId);
+		return getService().getOffer(OfferId);
 	}
 
 	public static com.liferay.portal.model.PersistedModel getPersistedModel(

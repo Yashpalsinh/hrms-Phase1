@@ -75,6 +75,7 @@ public class CandidateClp extends BaseModelImpl<Candidate> implements Candidate 
 
 		attributes.put("candidateId", getCandidateId());
 		attributes.put("employeeDepartmentId", getEmployeeDepartmentId());
+		attributes.put("employeeSubDepartmentId", getEmployeeSubDepartmentId());
 		attributes.put("employeeDesignationId", getEmployeeDesignationId());
 		attributes.put("title", getTitle());
 		attributes.put("firstName", getFirstName());
@@ -120,6 +121,13 @@ public class CandidateClp extends BaseModelImpl<Candidate> implements Candidate 
 
 		if (employeeDepartmentId != null) {
 			setEmployeeDepartmentId(employeeDepartmentId);
+		}
+
+		Long employeeSubDepartmentId = (Long)attributes.get(
+				"employeeSubDepartmentId");
+
+		if (employeeSubDepartmentId != null) {
+			setEmployeeSubDepartmentId(employeeSubDepartmentId);
 		}
 
 		Long employeeDesignationId = (Long)attributes.get(
@@ -338,6 +346,30 @@ public class CandidateClp extends BaseModelImpl<Candidate> implements Candidate 
 						long.class);
 
 				method.invoke(_candidateRemoteModel, employeeDepartmentId);
+			}
+			catch (Exception e) {
+				throw new UnsupportedOperationException(e);
+			}
+		}
+	}
+
+	@Override
+	public long getEmployeeSubDepartmentId() {
+		return _employeeSubDepartmentId;
+	}
+
+	@Override
+	public void setEmployeeSubDepartmentId(long employeeSubDepartmentId) {
+		_employeeSubDepartmentId = employeeSubDepartmentId;
+
+		if (_candidateRemoteModel != null) {
+			try {
+				Class<?> clazz = _candidateRemoteModel.getClass();
+
+				Method method = clazz.getMethod("setEmployeeSubDepartmentId",
+						long.class);
+
+				method.invoke(_candidateRemoteModel, employeeSubDepartmentId);
 			}
 			catch (Exception e) {
 				throw new UnsupportedOperationException(e);
@@ -1094,6 +1126,7 @@ public class CandidateClp extends BaseModelImpl<Candidate> implements Candidate 
 
 		clone.setCandidateId(getCandidateId());
 		clone.setEmployeeDepartmentId(getEmployeeDepartmentId());
+		clone.setEmployeeSubDepartmentId(getEmployeeSubDepartmentId());
 		clone.setEmployeeDesignationId(getEmployeeDesignationId());
 		clone.setTitle(getTitle());
 		clone.setFirstName(getFirstName());
@@ -1171,12 +1204,14 @@ public class CandidateClp extends BaseModelImpl<Candidate> implements Candidate 
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(63);
+		StringBundler sb = new StringBundler(65);
 
 		sb.append("{candidateId=");
 		sb.append(getCandidateId());
 		sb.append(", employeeDepartmentId=");
 		sb.append(getEmployeeDepartmentId());
+		sb.append(", employeeSubDepartmentId=");
+		sb.append(getEmployeeSubDepartmentId());
 		sb.append(", employeeDesignationId=");
 		sb.append(getEmployeeDesignationId());
 		sb.append(", title=");
@@ -1242,7 +1277,7 @@ public class CandidateClp extends BaseModelImpl<Candidate> implements Candidate 
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(97);
+		StringBundler sb = new StringBundler(100);
 
 		sb.append("<model><model-name>");
 		sb.append("com.hrms.model.Candidate");
@@ -1255,6 +1290,10 @@ public class CandidateClp extends BaseModelImpl<Candidate> implements Candidate 
 		sb.append(
 			"<column><column-name>employeeDepartmentId</column-name><column-value><![CDATA[");
 		sb.append(getEmployeeDepartmentId());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>employeeSubDepartmentId</column-name><column-value><![CDATA[");
+		sb.append(getEmployeeSubDepartmentId());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>employeeDesignationId</column-name><column-value><![CDATA[");
@@ -1380,6 +1419,7 @@ public class CandidateClp extends BaseModelImpl<Candidate> implements Candidate 
 
 	private long _candidateId;
 	private long _employeeDepartmentId;
+	private long _employeeSubDepartmentId;
 	private long _employeeDesignationId;
 	private String _title;
 	private String _firstName;

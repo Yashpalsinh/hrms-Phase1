@@ -23,7 +23,7 @@ import com.hrms.model.EmployeeDepartmentClp;
 import com.hrms.model.EmployeeDesignationClp;
 import com.hrms.model.EmployeeLanguageDetailClp;
 import com.hrms.model.EmployeeLeaveClp;
-import com.hrms.model.EmployeeMasterClp;
+import com.hrms.model.EmployeeMstClp;
 import com.hrms.model.EmployeePreviousCompanyClp;
 import com.hrms.model.EmployeeProofClp;
 import com.hrms.model.EmployeeQualificationClp;
@@ -37,6 +37,7 @@ import com.hrms.model.LeaveClp;
 import com.hrms.model.LeavesAppliedClp;
 import com.hrms.model.OfferClp;
 import com.hrms.model.ProofClp;
+import com.hrms.model.TodoClp;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
@@ -160,8 +161,8 @@ public class ClpSerializer {
 			return translateInputEmployeeLeave(oldModel);
 		}
 
-		if (oldModelClassName.equals(EmployeeMasterClp.class.getName())) {
-			return translateInputEmployeeMaster(oldModel);
+		if (oldModelClassName.equals(EmployeeMstClp.class.getName())) {
+			return translateInputEmployeeMst(oldModel);
 		}
 
 		if (oldModelClassName.equals(EmployeePreviousCompanyClp.class.getName())) {
@@ -214,6 +215,10 @@ public class ClpSerializer {
 
 		if (oldModelClassName.equals(ProofClp.class.getName())) {
 			return translateInputProof(oldModel);
+		}
+
+		if (oldModelClassName.equals(TodoClp.class.getName())) {
+			return translateInputTodo(oldModel);
 		}
 
 		return oldModel;
@@ -324,10 +329,10 @@ public class ClpSerializer {
 		return newModel;
 	}
 
-	public static Object translateInputEmployeeMaster(BaseModel<?> oldModel) {
-		EmployeeMasterClp oldClpModel = (EmployeeMasterClp)oldModel;
+	public static Object translateInputEmployeeMst(BaseModel<?> oldModel) {
+		EmployeeMstClp oldClpModel = (EmployeeMstClp)oldModel;
 
-		BaseModel<?> newModel = oldClpModel.getEmployeeMasterRemoteModel();
+		BaseModel<?> newModel = oldClpModel.getEmployeeMstRemoteModel();
 
 		newModel.setModelAttributes(oldClpModel.getModelAttributes());
 
@@ -467,6 +472,16 @@ public class ClpSerializer {
 		return newModel;
 	}
 
+	public static Object translateInputTodo(BaseModel<?> oldModel) {
+		TodoClp oldClpModel = (TodoClp)oldModel;
+
+		BaseModel<?> newModel = oldClpModel.getTodoRemoteModel();
+
+		newModel.setModelAttributes(oldClpModel.getModelAttributes());
+
+		return newModel;
+	}
+
 	public static Object translateInput(Object obj) {
 		if (obj instanceof BaseModel<?>) {
 			return translateInput((BaseModel<?>)obj);
@@ -527,8 +542,8 @@ public class ClpSerializer {
 			return translateOutputEmployeeLeave(oldModel);
 		}
 
-		if (oldModelClassName.equals("com.hrms.model.impl.EmployeeMasterImpl")) {
-			return translateOutputEmployeeMaster(oldModel);
+		if (oldModelClassName.equals("com.hrms.model.impl.EmployeeMstImpl")) {
+			return translateOutputEmployeeMst(oldModel);
 		}
 
 		if (oldModelClassName.equals(
@@ -585,6 +600,10 @@ public class ClpSerializer {
 
 		if (oldModelClassName.equals("com.hrms.model.impl.ProofImpl")) {
 			return translateOutputProof(oldModel);
+		}
+
+		if (oldModelClassName.equals("com.hrms.model.impl.TodoImpl")) {
+			return translateOutputTodo(oldModel);
 		}
 
 		return oldModel;
@@ -703,8 +722,8 @@ public class ClpSerializer {
 			return new com.hrms.NoSuchEmployeeLeaveException();
 		}
 
-		if (className.equals("com.hrms.NoSuchEmployeeMasterException")) {
-			return new com.hrms.NoSuchEmployeeMasterException();
+		if (className.equals("com.hrms.NoSuchEmployeeMstException")) {
+			return new com.hrms.NoSuchEmployeeMstException();
 		}
 
 		if (className.equals("com.hrms.NoSuchEmployeePreviousCompanyException")) {
@@ -757,6 +776,10 @@ public class ClpSerializer {
 
 		if (className.equals("com.hrms.NoSuchProofException")) {
 			return new com.hrms.NoSuchProofException();
+		}
+
+		if (className.equals("com.hrms.NoSuchTodoException")) {
+			return new com.hrms.NoSuchTodoException();
 		}
 
 		return throwable;
@@ -858,12 +881,12 @@ public class ClpSerializer {
 		return newModel;
 	}
 
-	public static Object translateOutputEmployeeMaster(BaseModel<?> oldModel) {
-		EmployeeMasterClp newModel = new EmployeeMasterClp();
+	public static Object translateOutputEmployeeMst(BaseModel<?> oldModel) {
+		EmployeeMstClp newModel = new EmployeeMstClp();
 
 		newModel.setModelAttributes(oldModel.getModelAttributes());
 
-		newModel.setEmployeeMasterRemoteModel(oldModel);
+		newModel.setEmployeeMstRemoteModel(oldModel);
 
 		return newModel;
 	}
@@ -997,6 +1020,16 @@ public class ClpSerializer {
 		newModel.setModelAttributes(oldModel.getModelAttributes());
 
 		newModel.setProofRemoteModel(oldModel);
+
+		return newModel;
+	}
+
+	public static Object translateOutputTodo(BaseModel<?> oldModel) {
+		TodoClp newModel = new TodoClp();
+
+		newModel.setModelAttributes(oldModel.getModelAttributes());
+
+		newModel.setTodoRemoteModel(oldModel);
 
 		return newModel;
 	}

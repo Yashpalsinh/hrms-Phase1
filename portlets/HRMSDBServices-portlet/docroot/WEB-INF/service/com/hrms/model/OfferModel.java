@@ -59,18 +59,18 @@ public interface OfferModel extends BaseModel<Offer> {
 	public void setPrimaryKey(long primaryKey);
 
 	/**
-	 * Returns the oferr ID of this offer.
+	 * Returns the offer ID of this offer.
 	 *
-	 * @return the oferr ID of this offer
+	 * @return the offer ID of this offer
 	 */
-	public long getOferrId();
+	public long getOfferId();
 
 	/**
-	 * Sets the oferr ID of this offer.
+	 * Sets the offer ID of this offer.
 	 *
-	 * @param OferrId the oferr ID of this offer
+	 * @param OfferId the offer ID of this offer
 	 */
-	public void setOferrId(long OferrId);
+	public void setOfferId(long OfferId);
 
 	/**
 	 * Returns the candidate ID of this offer.
@@ -99,6 +99,20 @@ public interface OfferModel extends BaseModel<Offer> {
 	 * @param employeeDepartmentId the employee department ID of this offer
 	 */
 	public void setEmployeeDepartmentId(long employeeDepartmentId);
+
+	/**
+	 * Returns the employee sub department ID of this offer.
+	 *
+	 * @return the employee sub department ID of this offer
+	 */
+	public long getEmployeeSubDepartmentId();
+
+	/**
+	 * Sets the employee sub department ID of this offer.
+	 *
+	 * @param employeeSubDepartmentId the employee sub department ID of this offer
+	 */
+	public void setEmployeeSubDepartmentId(long employeeSubDepartmentId);
 
 	/**
 	 * Returns the employee designation ID of this offer.

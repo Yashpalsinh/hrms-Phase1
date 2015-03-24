@@ -56,8 +56,6 @@ public class EmployeeTimesheetWrapper implements EmployeeTimesheet,
 		attributes.put("companyId", getCompanyId());
 		attributes.put("taskTitle", getTaskTitle());
 		attributes.put("taskDescription", getTaskDescription());
-		attributes.put("taskFileId", getTaskFileId());
-		attributes.put("taskFilePath", getTaskFilePath());
 		attributes.put("taskStarttime", getTaskStarttime());
 		attributes.put("taskEndtime", getTaskEndtime());
 		attributes.put("taskDate", getTaskDate());
@@ -111,18 +109,6 @@ public class EmployeeTimesheetWrapper implements EmployeeTimesheet,
 			setTaskDescription(taskDescription);
 		}
 
-		Long taskFileId = (Long)attributes.get("taskFileId");
-
-		if (taskFileId != null) {
-			setTaskFileId(taskFileId);
-		}
-
-		String taskFilePath = (String)attributes.get("taskFilePath");
-
-		if (taskFilePath != null) {
-			setTaskFilePath(taskFilePath);
-		}
-
 		Date taskStarttime = (Date)attributes.get("taskStarttime");
 
 		if (taskStarttime != null) {
@@ -141,7 +127,7 @@ public class EmployeeTimesheetWrapper implements EmployeeTimesheet,
 			setTaskDate(taskDate);
 		}
 
-		Date duration = (Date)attributes.get("duration");
+		String duration = (String)attributes.get("duration");
 
 		if (duration != null) {
 			setDuration(duration);
@@ -353,46 +339,6 @@ public class EmployeeTimesheetWrapper implements EmployeeTimesheet,
 	}
 
 	/**
-	* Returns the task file ID of this employee timesheet.
-	*
-	* @return the task file ID of this employee timesheet
-	*/
-	@Override
-	public long getTaskFileId() {
-		return _employeeTimesheet.getTaskFileId();
-	}
-
-	/**
-	* Sets the task file ID of this employee timesheet.
-	*
-	* @param taskFileId the task file ID of this employee timesheet
-	*/
-	@Override
-	public void setTaskFileId(long taskFileId) {
-		_employeeTimesheet.setTaskFileId(taskFileId);
-	}
-
-	/**
-	* Returns the task file path of this employee timesheet.
-	*
-	* @return the task file path of this employee timesheet
-	*/
-	@Override
-	public java.lang.String getTaskFilePath() {
-		return _employeeTimesheet.getTaskFilePath();
-	}
-
-	/**
-	* Sets the task file path of this employee timesheet.
-	*
-	* @param taskFilePath the task file path of this employee timesheet
-	*/
-	@Override
-	public void setTaskFilePath(java.lang.String taskFilePath) {
-		_employeeTimesheet.setTaskFilePath(taskFilePath);
-	}
-
-	/**
 	* Returns the task starttime of this employee timesheet.
 	*
 	* @return the task starttime of this employee timesheet
@@ -458,7 +404,7 @@ public class EmployeeTimesheetWrapper implements EmployeeTimesheet,
 	* @return the duration of this employee timesheet
 	*/
 	@Override
-	public java.util.Date getDuration() {
+	public java.lang.String getDuration() {
 		return _employeeTimesheet.getDuration();
 	}
 
@@ -468,7 +414,7 @@ public class EmployeeTimesheetWrapper implements EmployeeTimesheet,
 	* @param duration the duration of this employee timesheet
 	*/
 	@Override
-	public void setDuration(java.util.Date duration) {
+	public void setDuration(java.lang.String duration) {
 		_employeeTimesheet.setDuration(duration);
 	}
 

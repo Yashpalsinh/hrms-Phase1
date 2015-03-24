@@ -123,14 +123,14 @@ public interface EmployeeMstModel extends BaseModel<EmployeeMst> {
 	 *
 	 * @return the gender of this employee mst
 	 */
-	public int getGender();
+	public long getGender();
 
 	/**
 	 * Sets the gender of this employee mst.
 	 *
 	 * @param gender the gender of this employee mst
 	 */
-	public void setGender(int gender);
+	public void setGender(long gender);
 
 	/**
 	 * Returns the date of birth of this employee mst.
@@ -232,6 +232,20 @@ public interface EmployeeMstModel extends BaseModel<EmployeeMst> {
 	public void setEmployeeDepartmentId(int employeeDepartmentId);
 
 	/**
+	 * Returns the employee sub department ID of this employee mst.
+	 *
+	 * @return the employee sub department ID of this employee mst
+	 */
+	public int getEmployeeSubDepartmentId();
+
+	/**
+	 * Sets the employee sub department ID of this employee mst.
+	 *
+	 * @param employeeSubDepartmentId the employee sub department ID of this employee mst
+	 */
+	public void setEmployeeSubDepartmentId(int employeeSubDepartmentId);
+
+	/**
 	 * Returns the employee type ID of this employee mst.
 	 *
 	 * @return the employee type ID of this employee mst
@@ -258,21 +272,6 @@ public interface EmployeeMstModel extends BaseModel<EmployeeMst> {
 	 * @param employeeProofId the employee proof ID of this employee mst
 	 */
 	public void setEmployeeProofId(int employeeProofId);
-
-	/**
-	 * Returns the proof number of this employee mst.
-	 *
-	 * @return the proof number of this employee mst
-	 */
-	@AutoEscape
-	public String getProofNumber();
-
-	/**
-	 * Sets the proof number of this employee mst.
-	 *
-	 * @param proofNumber the proof number of this employee mst
-	 */
-	public void setProofNumber(String proofNumber);
 
 	/**
 	 * Returns the create by of this employee mst.

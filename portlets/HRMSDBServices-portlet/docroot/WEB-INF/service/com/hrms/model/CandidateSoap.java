@@ -33,6 +33,7 @@ public class CandidateSoap implements Serializable {
 
 		soapModel.setCandidateId(model.getCandidateId());
 		soapModel.setEmployeeDepartmentId(model.getEmployeeDepartmentId());
+		soapModel.setEmployeeSubDepartmentId(model.getEmployeeSubDepartmentId());
 		soapModel.setEmployeeDesignationId(model.getEmployeeDesignationId());
 		soapModel.setTitle(model.getTitle());
 		soapModel.setFirstName(model.getFirstName());
@@ -128,6 +129,14 @@ public class CandidateSoap implements Serializable {
 
 	public void setEmployeeDepartmentId(long employeeDepartmentId) {
 		_employeeDepartmentId = employeeDepartmentId;
+	}
+
+	public long getEmployeeSubDepartmentId() {
+		return _employeeSubDepartmentId;
+	}
+
+	public void setEmployeeSubDepartmentId(long employeeSubDepartmentId) {
+		_employeeSubDepartmentId = employeeSubDepartmentId;
 	}
 
 	public long getEmployeeDesignationId() {
@@ -372,6 +381,7 @@ public class CandidateSoap implements Serializable {
 
 	private long _candidateId;
 	private long _employeeDepartmentId;
+	private long _employeeSubDepartmentId;
 	private long _employeeDesignationId;
 	private String _title;
 	private String _firstName;

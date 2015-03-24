@@ -54,20 +54,20 @@ public interface OfferPersistence extends BasePersistence<Offer> {
 	/**
 	* Creates a new offer with the primary key. Does not add the offer to the database.
 	*
-	* @param OferrId the primary key for the new offer
+	* @param OfferId the primary key for the new offer
 	* @return the new offer
 	*/
-	public com.hrms.model.Offer create(long OferrId);
+	public com.hrms.model.Offer create(long OfferId);
 
 	/**
 	* Removes the offer with the primary key from the database. Also notifies the appropriate model listeners.
 	*
-	* @param OferrId the primary key of the offer
+	* @param OfferId the primary key of the offer
 	* @return the offer that was removed
 	* @throws com.hrms.NoSuchOfferException if a offer with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public com.hrms.model.Offer remove(long OferrId)
+	public com.hrms.model.Offer remove(long OfferId)
 		throws com.hrms.NoSuchOfferException,
 			com.liferay.portal.kernel.exception.SystemException;
 
@@ -77,23 +77,23 @@ public interface OfferPersistence extends BasePersistence<Offer> {
 	/**
 	* Returns the offer with the primary key or throws a {@link com.hrms.NoSuchOfferException} if it could not be found.
 	*
-	* @param OferrId the primary key of the offer
+	* @param OfferId the primary key of the offer
 	* @return the offer
 	* @throws com.hrms.NoSuchOfferException if a offer with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public com.hrms.model.Offer findByPrimaryKey(long OferrId)
+	public com.hrms.model.Offer findByPrimaryKey(long OfferId)
 		throws com.hrms.NoSuchOfferException,
 			com.liferay.portal.kernel.exception.SystemException;
 
 	/**
 	* Returns the offer with the primary key or returns <code>null</code> if it could not be found.
 	*
-	* @param OferrId the primary key of the offer
+	* @param OfferId the primary key of the offer
 	* @return the offer, or <code>null</code> if a offer with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public com.hrms.model.Offer fetchByPrimaryKey(long OferrId)
+	public com.hrms.model.Offer fetchByPrimaryKey(long OfferId)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**

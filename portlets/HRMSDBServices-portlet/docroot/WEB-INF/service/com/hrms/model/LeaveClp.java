@@ -80,8 +80,9 @@ public class LeaveClp extends BaseModelImpl<Leave> implements Leave {
 		attributes.put("leaveType", getLeaveType());
 		attributes.put("leavesAllowedPerYear", getLeavesAllowedPerYear());
 		attributes.put("carryOver", getCarryOver());
+		attributes.put("carryOverLimit", getCarryOverLimit());
 		attributes.put("encachement", getEncachement());
-		attributes.put("Status", getStatus());
+		attributes.put("status", getStatus());
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
 		attributes.put("createBy", getCreateBy());
@@ -135,16 +136,22 @@ public class LeaveClp extends BaseModelImpl<Leave> implements Leave {
 			setCarryOver(carryOver);
 		}
 
+		Integer carryOverLimit = (Integer)attributes.get("carryOverLimit");
+
+		if (carryOverLimit != null) {
+			setCarryOverLimit(carryOverLimit);
+		}
+
 		Boolean encachement = (Boolean)attributes.get("encachement");
 
 		if (encachement != null) {
 			setEncachement(encachement);
 		}
 
-		Boolean Status = (Boolean)attributes.get("Status");
+		Boolean status = (Boolean)attributes.get("status");
 
-		if (Status != null) {
-			setStatus(Status);
+		if (status != null) {
+			setStatus(status);
 		}
 
 		Date createDate = (Date)attributes.get("createDate");
@@ -340,6 +347,29 @@ public class LeaveClp extends BaseModelImpl<Leave> implements Leave {
 	}
 
 	@Override
+	public int getCarryOverLimit() {
+		return _carryOverLimit;
+	}
+
+	@Override
+	public void setCarryOverLimit(int carryOverLimit) {
+		_carryOverLimit = carryOverLimit;
+
+		if (_leaveRemoteModel != null) {
+			try {
+				Class<?> clazz = _leaveRemoteModel.getClass();
+
+				Method method = clazz.getMethod("setCarryOverLimit", int.class);
+
+				method.invoke(_leaveRemoteModel, carryOverLimit);
+			}
+			catch (Exception e) {
+				throw new UnsupportedOperationException(e);
+			}
+		}
+	}
+
+	@Override
 	public boolean getEncachement() {
 		return _encachement;
 	}
@@ -369,17 +399,17 @@ public class LeaveClp extends BaseModelImpl<Leave> implements Leave {
 
 	@Override
 	public boolean getStatus() {
-		return _Status;
+		return _status;
 	}
 
 	@Override
 	public boolean isStatus() {
-		return _Status;
+		return _status;
 	}
 
 	@Override
-	public void setStatus(boolean Status) {
-		_Status = Status;
+	public void setStatus(boolean status) {
+		_status = status;
 
 		if (_leaveRemoteModel != null) {
 			try {
@@ -387,7 +417,7 @@ public class LeaveClp extends BaseModelImpl<Leave> implements Leave {
 
 				Method method = clazz.getMethod("setStatus", boolean.class);
 
-				method.invoke(_leaveRemoteModel, Status);
+				method.invoke(_leaveRemoteModel, status);
 			}
 			catch (Exception e) {
 				throw new UnsupportedOperationException(e);
@@ -563,6 +593,7 @@ public class LeaveClp extends BaseModelImpl<Leave> implements Leave {
 		clone.setLeaveType(getLeaveType());
 		clone.setLeavesAllowedPerYear(getLeavesAllowedPerYear());
 		clone.setCarryOver(getCarryOver());
+		clone.setCarryOverLimit(getCarryOverLimit());
 		clone.setEncachement(getEncachement());
 		clone.setStatus(getStatus());
 		clone.setCreateDate(getCreateDate());
@@ -617,7 +648,7 @@ public class LeaveClp extends BaseModelImpl<Leave> implements Leave {
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(27);
+		StringBundler sb = new StringBundler(29);
 
 		sb.append("{leaveId=");
 		sb.append(getLeaveId());
@@ -633,9 +664,11 @@ public class LeaveClp extends BaseModelImpl<Leave> implements Leave {
 		sb.append(getLeavesAllowedPerYear());
 		sb.append(", carryOver=");
 		sb.append(getCarryOver());
+		sb.append(", carryOverLimit=");
+		sb.append(getCarryOverLimit());
 		sb.append(", encachement=");
 		sb.append(getEncachement());
-		sb.append(", Status=");
+		sb.append(", status=");
 		sb.append(getStatus());
 		sb.append(", createDate=");
 		sb.append(getCreateDate());
@@ -652,7 +685,7 @@ public class LeaveClp extends BaseModelImpl<Leave> implements Leave {
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(43);
+		StringBundler sb = new StringBundler(46);
 
 		sb.append("<model><model-name>");
 		sb.append("com.hrms.model.Leave");
@@ -687,11 +720,15 @@ public class LeaveClp extends BaseModelImpl<Leave> implements Leave {
 		sb.append(getCarryOver());
 		sb.append("]]></column-value></column>");
 		sb.append(
+			"<column><column-name>carryOverLimit</column-name><column-value><![CDATA[");
+		sb.append(getCarryOverLimit());
+		sb.append("]]></column-value></column>");
+		sb.append(
 			"<column><column-name>encachement</column-name><column-value><![CDATA[");
 		sb.append(getEncachement());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>Status</column-name><column-value><![CDATA[");
+			"<column><column-name>status</column-name><column-value><![CDATA[");
 		sb.append(getStatus());
 		sb.append("]]></column-value></column>");
 		sb.append(
@@ -723,8 +760,9 @@ public class LeaveClp extends BaseModelImpl<Leave> implements Leave {
 	private String _leaveType;
 	private int _leavesAllowedPerYear;
 	private boolean _carryOver;
+	private int _carryOverLimit;
 	private boolean _encachement;
-	private boolean _Status;
+	private boolean _status;
 	private Date _createDate;
 	private Date _modifiedDate;
 	private long _createBy;

@@ -38,12 +38,14 @@ public class CandidateCacheModel implements CacheModel<Candidate>,
 	Externalizable {
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(63);
+		StringBundler sb = new StringBundler(65);
 
 		sb.append("{candidateId=");
 		sb.append(candidateId);
 		sb.append(", employeeDepartmentId=");
 		sb.append(employeeDepartmentId);
+		sb.append(", employeeSubDepartmentId=");
+		sb.append(employeeSubDepartmentId);
 		sb.append(", employeeDesignationId=");
 		sb.append(employeeDesignationId);
 		sb.append(", title=");
@@ -113,6 +115,7 @@ public class CandidateCacheModel implements CacheModel<Candidate>,
 
 		candidateImpl.setCandidateId(candidateId);
 		candidateImpl.setEmployeeDepartmentId(employeeDepartmentId);
+		candidateImpl.setEmployeeSubDepartmentId(employeeSubDepartmentId);
 		candidateImpl.setEmployeeDesignationId(employeeDesignationId);
 
 		if (title == null) {
@@ -255,6 +258,7 @@ public class CandidateCacheModel implements CacheModel<Candidate>,
 	public void readExternal(ObjectInput objectInput) throws IOException {
 		candidateId = objectInput.readLong();
 		employeeDepartmentId = objectInput.readLong();
+		employeeSubDepartmentId = objectInput.readLong();
 		employeeDesignationId = objectInput.readLong();
 		title = objectInput.readUTF();
 		firstName = objectInput.readUTF();
@@ -291,6 +295,7 @@ public class CandidateCacheModel implements CacheModel<Candidate>,
 		throws IOException {
 		objectOutput.writeLong(candidateId);
 		objectOutput.writeLong(employeeDepartmentId);
+		objectOutput.writeLong(employeeSubDepartmentId);
 		objectOutput.writeLong(employeeDesignationId);
 
 		if (title == null) {
@@ -409,6 +414,7 @@ public class CandidateCacheModel implements CacheModel<Candidate>,
 
 	public long candidateId;
 	public long employeeDepartmentId;
+	public long employeeSubDepartmentId;
 	public long employeeDesignationId;
 	public String title;
 	public String firstName;

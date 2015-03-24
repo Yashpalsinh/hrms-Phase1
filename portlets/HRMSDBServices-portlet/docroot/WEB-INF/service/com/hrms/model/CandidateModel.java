@@ -88,6 +88,20 @@ public interface CandidateModel extends BaseModel<Candidate> {
 	public void setEmployeeDepartmentId(long employeeDepartmentId);
 
 	/**
+	 * Returns the employee sub department ID of this candidate.
+	 *
+	 * @return the employee sub department ID of this candidate
+	 */
+	public long getEmployeeSubDepartmentId();
+
+	/**
+	 * Sets the employee sub department ID of this candidate.
+	 *
+	 * @param employeeSubDepartmentId the employee sub department ID of this candidate
+	 */
+	public void setEmployeeSubDepartmentId(long employeeSubDepartmentId);
+
+	/**
 	 * Returns the employee designation ID of this candidate.
 	 *
 	 * @return the employee designation ID of this candidate

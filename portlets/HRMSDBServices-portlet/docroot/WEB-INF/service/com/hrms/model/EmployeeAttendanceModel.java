@@ -177,14 +177,14 @@ public interface EmployeeAttendanceModel extends BaseModel<EmployeeAttendance> {
 	 *
 	 * @return the total time of this employee attendance
 	 */
-	public Date getTotalTime();
+	public double getTotalTime();
 
 	/**
 	 * Sets the total time of this employee attendance.
 	 *
 	 * @param totalTime the total time of this employee attendance
 	 */
-	public void setTotalTime(Date totalTime);
+	public void setTotalTime(double totalTime);
 
 	/**
 	 * Returns the approved of this employee attendance.

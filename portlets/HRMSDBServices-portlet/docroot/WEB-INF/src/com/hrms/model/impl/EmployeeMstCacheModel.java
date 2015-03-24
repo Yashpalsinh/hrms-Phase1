@@ -62,12 +62,12 @@ public class EmployeeMstCacheModel implements CacheModel<EmployeeMst>,
 		sb.append(employeeDesignationId);
 		sb.append(", employeeDepartmentId=");
 		sb.append(employeeDepartmentId);
+		sb.append(", employeeSubDepartmentId=");
+		sb.append(employeeSubDepartmentId);
 		sb.append(", employeeTypeId=");
 		sb.append(employeeTypeId);
 		sb.append(", employeeProofId=");
 		sb.append(employeeProofId);
-		sb.append(", proofNumber=");
-		sb.append(proofNumber);
 		sb.append(", createBy=");
 		sb.append(createBy);
 		sb.append(", modifiedBy=");
@@ -125,16 +125,9 @@ public class EmployeeMstCacheModel implements CacheModel<EmployeeMst>,
 
 		employeeMstImpl.setEmployeeDesignationId(employeeDesignationId);
 		employeeMstImpl.setEmployeeDepartmentId(employeeDepartmentId);
+		employeeMstImpl.setEmployeeSubDepartmentId(employeeSubDepartmentId);
 		employeeMstImpl.setEmployeeTypeId(employeeTypeId);
 		employeeMstImpl.setEmployeeProofId(employeeProofId);
-
-		if (proofNumber == null) {
-			employeeMstImpl.setProofNumber(StringPool.BLANK);
-		}
-		else {
-			employeeMstImpl.setProofNumber(proofNumber);
-		}
-
 		employeeMstImpl.setCreateBy(createBy);
 		employeeMstImpl.setModifiedBy(modifiedBy);
 
@@ -148,7 +141,7 @@ public class EmployeeMstCacheModel implements CacheModel<EmployeeMst>,
 		employeeMstId = objectInput.readLong();
 		employeeId = objectInput.readUTF();
 		userId = objectInput.readLong();
-		gender = objectInput.readInt();
+		gender = objectInput.readLong();
 		dateOfBirth = objectInput.readLong();
 		joiningDate = objectInput.readLong();
 		leavingDate = objectInput.readLong();
@@ -156,9 +149,9 @@ public class EmployeeMstCacheModel implements CacheModel<EmployeeMst>,
 		nationality = objectInput.readUTF();
 		employeeDesignationId = objectInput.readInt();
 		employeeDepartmentId = objectInput.readInt();
+		employeeSubDepartmentId = objectInput.readInt();
 		employeeTypeId = objectInput.readInt();
 		employeeProofId = objectInput.readInt();
-		proofNumber = objectInput.readUTF();
 		createBy = objectInput.readInt();
 		modifiedBy = objectInput.readInt();
 	}
@@ -176,7 +169,7 @@ public class EmployeeMstCacheModel implements CacheModel<EmployeeMst>,
 		}
 
 		objectOutput.writeLong(userId);
-		objectOutput.writeInt(gender);
+		objectOutput.writeLong(gender);
 		objectOutput.writeLong(dateOfBirth);
 		objectOutput.writeLong(joiningDate);
 		objectOutput.writeLong(leavingDate);
@@ -191,16 +184,9 @@ public class EmployeeMstCacheModel implements CacheModel<EmployeeMst>,
 
 		objectOutput.writeInt(employeeDesignationId);
 		objectOutput.writeInt(employeeDepartmentId);
+		objectOutput.writeInt(employeeSubDepartmentId);
 		objectOutput.writeInt(employeeTypeId);
 		objectOutput.writeInt(employeeProofId);
-
-		if (proofNumber == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(proofNumber);
-		}
-
 		objectOutput.writeInt(createBy);
 		objectOutput.writeInt(modifiedBy);
 	}
@@ -208,7 +194,7 @@ public class EmployeeMstCacheModel implements CacheModel<EmployeeMst>,
 	public long employeeMstId;
 	public String employeeId;
 	public long userId;
-	public int gender;
+	public long gender;
 	public long dateOfBirth;
 	public long joiningDate;
 	public long leavingDate;
@@ -216,9 +202,9 @@ public class EmployeeMstCacheModel implements CacheModel<EmployeeMst>,
 	public String nationality;
 	public int employeeDesignationId;
 	public int employeeDepartmentId;
+	public int employeeSubDepartmentId;
 	public int employeeTypeId;
 	public int employeeProofId;
-	public String proofNumber;
 	public int createBy;
 	public int modifiedBy;
 }

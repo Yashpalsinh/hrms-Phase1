@@ -38,6 +38,7 @@ public class LeaveSoap implements Serializable {
 		soapModel.setLeaveType(model.getLeaveType());
 		soapModel.setLeavesAllowedPerYear(model.getLeavesAllowedPerYear());
 		soapModel.setCarryOver(model.getCarryOver());
+		soapModel.setCarryOverLimit(model.getCarryOverLimit());
 		soapModel.setEncachement(model.getEncachement());
 		soapModel.setStatus(model.getStatus());
 		soapModel.setCreateDate(model.getCreateDate());
@@ -156,6 +157,14 @@ public class LeaveSoap implements Serializable {
 		_carryOver = carryOver;
 	}
 
+	public int getCarryOverLimit() {
+		return _carryOverLimit;
+	}
+
+	public void setCarryOverLimit(int carryOverLimit) {
+		_carryOverLimit = carryOverLimit;
+	}
+
 	public boolean getEncachement() {
 		return _encachement;
 	}
@@ -169,15 +178,15 @@ public class LeaveSoap implements Serializable {
 	}
 
 	public boolean getStatus() {
-		return _Status;
+		return _status;
 	}
 
 	public boolean isStatus() {
-		return _Status;
+		return _status;
 	}
 
-	public void setStatus(boolean Status) {
-		_Status = Status;
+	public void setStatus(boolean status) {
+		_status = status;
 	}
 
 	public Date getCreateDate() {
@@ -219,8 +228,9 @@ public class LeaveSoap implements Serializable {
 	private String _leaveType;
 	private int _leavesAllowedPerYear;
 	private boolean _carryOver;
+	private int _carryOverLimit;
 	private boolean _encachement;
-	private boolean _Status;
+	private boolean _status;
 	private Date _createDate;
 	private Date _modifiedDate;
 	private long _createBy;

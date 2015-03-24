@@ -61,9 +61,9 @@ public class EmployeeMstWrapper implements EmployeeMst,
 		attributes.put("nationality", getNationality());
 		attributes.put("employeeDesignationId", getEmployeeDesignationId());
 		attributes.put("employeeDepartmentId", getEmployeeDepartmentId());
+		attributes.put("employeeSubDepartmentId", getEmployeeSubDepartmentId());
 		attributes.put("employeeTypeId", getEmployeeTypeId());
 		attributes.put("employeeProofId", getEmployeeProofId());
-		attributes.put("proofNumber", getProofNumber());
 		attributes.put("createBy", getCreateBy());
 		attributes.put("modifiedBy", getModifiedBy());
 
@@ -90,7 +90,7 @@ public class EmployeeMstWrapper implements EmployeeMst,
 			setUserId(userId);
 		}
 
-		Integer gender = (Integer)attributes.get("gender");
+		Long gender = (Long)attributes.get("gender");
 
 		if (gender != null) {
 			setGender(gender);
@@ -140,6 +140,13 @@ public class EmployeeMstWrapper implements EmployeeMst,
 			setEmployeeDepartmentId(employeeDepartmentId);
 		}
 
+		Integer employeeSubDepartmentId = (Integer)attributes.get(
+				"employeeSubDepartmentId");
+
+		if (employeeSubDepartmentId != null) {
+			setEmployeeSubDepartmentId(employeeSubDepartmentId);
+		}
+
 		Integer employeeTypeId = (Integer)attributes.get("employeeTypeId");
 
 		if (employeeTypeId != null) {
@@ -150,12 +157,6 @@ public class EmployeeMstWrapper implements EmployeeMst,
 
 		if (employeeProofId != null) {
 			setEmployeeProofId(employeeProofId);
-		}
-
-		String proofNumber = (String)attributes.get("proofNumber");
-
-		if (proofNumber != null) {
-			setProofNumber(proofNumber);
 		}
 
 		Integer createBy = (Integer)attributes.get("createBy");
@@ -279,7 +280,7 @@ public class EmployeeMstWrapper implements EmployeeMst,
 	* @return the gender of this employee mst
 	*/
 	@Override
-	public int getGender() {
+	public long getGender() {
 		return _employeeMst.getGender();
 	}
 
@@ -289,7 +290,7 @@ public class EmployeeMstWrapper implements EmployeeMst,
 	* @param gender the gender of this employee mst
 	*/
 	@Override
-	public void setGender(int gender) {
+	public void setGender(long gender) {
 		_employeeMst.setGender(gender);
 	}
 
@@ -434,6 +435,26 @@ public class EmployeeMstWrapper implements EmployeeMst,
 	}
 
 	/**
+	* Returns the employee sub department ID of this employee mst.
+	*
+	* @return the employee sub department ID of this employee mst
+	*/
+	@Override
+	public int getEmployeeSubDepartmentId() {
+		return _employeeMst.getEmployeeSubDepartmentId();
+	}
+
+	/**
+	* Sets the employee sub department ID of this employee mst.
+	*
+	* @param employeeSubDepartmentId the employee sub department ID of this employee mst
+	*/
+	@Override
+	public void setEmployeeSubDepartmentId(int employeeSubDepartmentId) {
+		_employeeMst.setEmployeeSubDepartmentId(employeeSubDepartmentId);
+	}
+
+	/**
 	* Returns the employee type ID of this employee mst.
 	*
 	* @return the employee type ID of this employee mst
@@ -471,26 +492,6 @@ public class EmployeeMstWrapper implements EmployeeMst,
 	@Override
 	public void setEmployeeProofId(int employeeProofId) {
 		_employeeMst.setEmployeeProofId(employeeProofId);
-	}
-
-	/**
-	* Returns the proof number of this employee mst.
-	*
-	* @return the proof number of this employee mst
-	*/
-	@Override
-	public java.lang.String getProofNumber() {
-		return _employeeMst.getProofNumber();
-	}
-
-	/**
-	* Sets the proof number of this employee mst.
-	*
-	* @param proofNumber the proof number of this employee mst
-	*/
-	@Override
-	public void setProofNumber(java.lang.String proofNumber) {
-		_employeeMst.setProofNumber(proofNumber);
 	}
 
 	/**

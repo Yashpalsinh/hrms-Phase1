@@ -45,27 +45,27 @@ public class OfferLocalServiceWrapper implements OfferLocalService,
 	/**
 	* Creates a new offer with the primary key. Does not add the offer to the database.
 	*
-	* @param OferrId the primary key for the new offer
+	* @param OfferId the primary key for the new offer
 	* @return the new offer
 	*/
 	@Override
-	public com.hrms.model.Offer createOffer(long OferrId) {
-		return _offerLocalService.createOffer(OferrId);
+	public com.hrms.model.Offer createOffer(long OfferId) {
+		return _offerLocalService.createOffer(OfferId);
 	}
 
 	/**
 	* Deletes the offer with the primary key from the database. Also notifies the appropriate model listeners.
 	*
-	* @param OferrId the primary key of the offer
+	* @param OfferId the primary key of the offer
 	* @return the offer that was removed
 	* @throws PortalException if a offer with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	@Override
-	public com.hrms.model.Offer deleteOffer(long OferrId)
+	public com.hrms.model.Offer deleteOffer(long OfferId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return _offerLocalService.deleteOffer(OferrId);
+		return _offerLocalService.deleteOffer(OfferId);
 	}
 
 	/**
@@ -178,24 +178,24 @@ public class OfferLocalServiceWrapper implements OfferLocalService,
 	}
 
 	@Override
-	public com.hrms.model.Offer fetchOffer(long OferrId)
+	public com.hrms.model.Offer fetchOffer(long OfferId)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return _offerLocalService.fetchOffer(OferrId);
+		return _offerLocalService.fetchOffer(OfferId);
 	}
 
 	/**
 	* Returns the offer with the primary key.
 	*
-	* @param OferrId the primary key of the offer
+	* @param OfferId the primary key of the offer
 	* @return the offer
 	* @throws PortalException if a offer with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	@Override
-	public com.hrms.model.Offer getOffer(long OferrId)
+	public com.hrms.model.Offer getOffer(long OfferId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return _offerLocalService.getOffer(OferrId);
+		return _offerLocalService.getOffer(OfferId);
 	}
 
 	@Override

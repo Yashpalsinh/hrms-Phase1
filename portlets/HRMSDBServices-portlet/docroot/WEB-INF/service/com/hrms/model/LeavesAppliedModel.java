@@ -132,6 +132,36 @@ public interface LeavesAppliedModel extends BaseModel<LeavesApplied> {
 	public void setCompanyId(long companyId);
 
 	/**
+	 * Returns the employee name of this leaves applied.
+	 *
+	 * @return the employee name of this leaves applied
+	 */
+	@AutoEscape
+	public String getEmployeeName();
+
+	/**
+	 * Sets the employee name of this leaves applied.
+	 *
+	 * @param employeeName the employee name of this leaves applied
+	 */
+	public void setEmployeeName(String employeeName);
+
+	/**
+	 * Returns the leave name of this leaves applied.
+	 *
+	 * @return the leave name of this leaves applied
+	 */
+	@AutoEscape
+	public String getLeaveName();
+
+	/**
+	 * Sets the leave name of this leaves applied.
+	 *
+	 * @param leaveName the leave name of this leaves applied
+	 */
+	public void setLeaveName(String leaveName);
+
+	/**
 	 * Returns the entitlement of this leaves applied.
 	 *
 	 * @return the entitlement of this leaves applied
@@ -145,6 +175,21 @@ public interface LeavesAppliedModel extends BaseModel<LeavesApplied> {
 	 * @param entitlement the entitlement of this leaves applied
 	 */
 	public void setEntitlement(String entitlement);
+
+	/**
+	 * Returns the leave duration of this leaves applied.
+	 *
+	 * @return the leave duration of this leaves applied
+	 */
+	@AutoEscape
+	public String getLeaveDuration();
+
+	/**
+	 * Sets the leave duration of this leaves applied.
+	 *
+	 * @param leaveDuration the leave duration of this leaves applied
+	 */
+	public void setLeaveDuration(String leaveDuration);
 
 	/**
 	 * Returns the leave from of this leaves applied.
@@ -173,6 +218,35 @@ public interface LeavesAppliedModel extends BaseModel<LeavesApplied> {
 	 * @param leaveTo the leave to of this leaves applied
 	 */
 	public void setLeaveTo(Date leaveTo);
+
+	/**
+	 * Returns the leave date of this leaves applied.
+	 *
+	 * @return the leave date of this leaves applied
+	 */
+	public Date getLeaveDate();
+
+	/**
+	 * Sets the leave date of this leaves applied.
+	 *
+	 * @param leaveDate the leave date of this leaves applied
+	 */
+	public void setLeaveDate(Date leaveDate);
+
+	/**
+	 * Returns the leave period of this leaves applied.
+	 *
+	 * @return the leave period of this leaves applied
+	 */
+	@AutoEscape
+	public String getLeavePeriod();
+
+	/**
+	 * Sets the leave period of this leaves applied.
+	 *
+	 * @param leavePeriod the leave period of this leaves applied
+	 */
+	public void setLeavePeriod(String leavePeriod);
 
 	/**
 	 * Returns the approval status of this leaves applied.

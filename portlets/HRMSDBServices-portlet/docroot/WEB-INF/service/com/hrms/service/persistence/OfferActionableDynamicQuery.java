@@ -33,6 +33,6 @@ public abstract class OfferActionableDynamicQuery
 
 		setClassLoader(com.hrms.service.ClpSerializer.class.getClassLoader());
 
-		setPrimaryKeyPropertyName("OferrId");
+		setPrimaryKeyPropertyName("OfferId");
 	}
 }

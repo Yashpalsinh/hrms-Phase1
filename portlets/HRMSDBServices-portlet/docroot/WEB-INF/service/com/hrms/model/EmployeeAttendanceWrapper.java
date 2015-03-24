@@ -112,7 +112,7 @@ public class EmployeeAttendanceWrapper implements EmployeeAttendance,
 			setSignoutTime(signoutTime);
 		}
 
-		Date totalTime = (Date)attributes.get("totalTime");
+		Double totalTime = (Double)attributes.get("totalTime");
 
 		if (totalTime != null) {
 			setTotalTime(totalTime);
@@ -343,7 +343,7 @@ public class EmployeeAttendanceWrapper implements EmployeeAttendance,
 	* @return the total time of this employee attendance
 	*/
 	@Override
-	public java.util.Date getTotalTime() {
+	public double getTotalTime() {
 		return _employeeAttendance.getTotalTime();
 	}
 
@@ -353,7 +353,7 @@ public class EmployeeAttendanceWrapper implements EmployeeAttendance,
 	* @param totalTime the total time of this employee attendance
 	*/
 	@Override
-	public void setTotalTime(java.util.Date totalTime) {
+	public void setTotalTime(double totalTime) {
 		_employeeAttendance.setTotalTime(totalTime);
 	}
 

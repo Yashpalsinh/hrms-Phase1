@@ -69,7 +69,7 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 			{ "employeeMstId", Types.BIGINT },
 			{ "employeeId", Types.VARCHAR },
 			{ "userId", Types.BIGINT },
-			{ "gender", Types.INTEGER },
+			{ "gender", Types.BIGINT },
 			{ "dateOfBirth", Types.TIMESTAMP },
 			{ "joiningDate", Types.TIMESTAMP },
 			{ "leavingDate", Types.TIMESTAMP },
@@ -77,13 +77,13 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 			{ "nationality", Types.VARCHAR },
 			{ "employeeDesignationId", Types.INTEGER },
 			{ "employeeDepartmentId", Types.INTEGER },
+			{ "employeeSubDepartmentId", Types.INTEGER },
 			{ "employeeTypeId", Types.INTEGER },
 			{ "employeeProofId", Types.INTEGER },
-			{ "proofNumber", Types.VARCHAR },
 			{ "createBy", Types.INTEGER },
 			{ "modifiedBy", Types.INTEGER }
 		};
-	public static final String TABLE_SQL_CREATE = "create table HRMS_EmployeeMst (employeeMstId LONG not null primary key,employeeId VARCHAR(75) null,userId LONG,gender INTEGER,dateOfBirth DATE null,joiningDate DATE null,leavingDate DATE null,maritualStatus INTEGER,nationality VARCHAR(75) null,employeeDesignationId INTEGER,employeeDepartmentId INTEGER,employeeTypeId INTEGER,employeeProofId INTEGER,proofNumber VARCHAR(75) null,createBy INTEGER,modifiedBy INTEGER)";
+	public static final String TABLE_SQL_CREATE = "create table HRMS_EmployeeMst (employeeMstId LONG not null primary key,employeeId VARCHAR(75) null,userId LONG,gender LONG,dateOfBirth DATE null,joiningDate DATE null,leavingDate DATE null,maritualStatus INTEGER,nationality VARCHAR(75) null,employeeDesignationId INTEGER,employeeDepartmentId INTEGER,employeeSubDepartmentId INTEGER,employeeTypeId INTEGER,employeeProofId INTEGER,createBy INTEGER,modifiedBy INTEGER)";
 	public static final String TABLE_SQL_DROP = "drop table HRMS_EmployeeMst";
 	public static final String ORDER_BY_JPQL = " ORDER BY employeeMst.employeeMstId ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY HRMS_EmployeeMst.employeeMstId ASC";
@@ -99,8 +99,10 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 	public static final boolean COLUMN_BITMASK_ENABLED = GetterUtil.getBoolean(com.liferay.util.service.ServiceProps.get(
 				"value.object.column.bitmask.enabled.com.hrms.model.EmployeeMst"),
 			true);
-	public static long USERID_COLUMN_BITMASK = 1L;
-	public static long EMPLOYEEMSTID_COLUMN_BITMASK = 2L;
+	public static long CREATEBY_COLUMN_BITMASK = 1L;
+	public static long MODIFIEDBY_COLUMN_BITMASK = 2L;
+	public static long USERID_COLUMN_BITMASK = 4L;
+	public static long EMPLOYEEMSTID_COLUMN_BITMASK = 8L;
 
 	/**
 	 * Converts the soap model instance into a normal model instance.
@@ -126,9 +128,9 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 		model.setNationality(soapModel.getNationality());
 		model.setEmployeeDesignationId(soapModel.getEmployeeDesignationId());
 		model.setEmployeeDepartmentId(soapModel.getEmployeeDepartmentId());
+		model.setEmployeeSubDepartmentId(soapModel.getEmployeeSubDepartmentId());
 		model.setEmployeeTypeId(soapModel.getEmployeeTypeId());
 		model.setEmployeeProofId(soapModel.getEmployeeProofId());
-		model.setProofNumber(soapModel.getProofNumber());
 		model.setCreateBy(soapModel.getCreateBy());
 		model.setModifiedBy(soapModel.getModifiedBy());
 
@@ -206,9 +208,9 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 		attributes.put("nationality", getNationality());
 		attributes.put("employeeDesignationId", getEmployeeDesignationId());
 		attributes.put("employeeDepartmentId", getEmployeeDepartmentId());
+		attributes.put("employeeSubDepartmentId", getEmployeeSubDepartmentId());
 		attributes.put("employeeTypeId", getEmployeeTypeId());
 		attributes.put("employeeProofId", getEmployeeProofId());
-		attributes.put("proofNumber", getProofNumber());
 		attributes.put("createBy", getCreateBy());
 		attributes.put("modifiedBy", getModifiedBy());
 
@@ -235,7 +237,7 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 			setUserId(userId);
 		}
 
-		Integer gender = (Integer)attributes.get("gender");
+		Long gender = (Long)attributes.get("gender");
 
 		if (gender != null) {
 			setGender(gender);
@@ -285,6 +287,13 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 			setEmployeeDepartmentId(employeeDepartmentId);
 		}
 
+		Integer employeeSubDepartmentId = (Integer)attributes.get(
+				"employeeSubDepartmentId");
+
+		if (employeeSubDepartmentId != null) {
+			setEmployeeSubDepartmentId(employeeSubDepartmentId);
+		}
+
 		Integer employeeTypeId = (Integer)attributes.get("employeeTypeId");
 
 		if (employeeTypeId != null) {
@@ -295,12 +304,6 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 
 		if (employeeProofId != null) {
 			setEmployeeProofId(employeeProofId);
-		}
-
-		String proofNumber = (String)attributes.get("proofNumber");
-
-		if (proofNumber != null) {
-			setProofNumber(proofNumber);
 		}
 
 		Integer createBy = (Integer)attributes.get("createBy");
@@ -378,12 +381,12 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 
 	@JSON
 	@Override
-	public int getGender() {
+	public long getGender() {
 		return _gender;
 	}
 
 	@Override
-	public void setGender(int gender) {
+	public void setGender(long gender) {
 		_gender = gender;
 	}
 
@@ -471,6 +474,17 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 
 	@JSON
 	@Override
+	public int getEmployeeSubDepartmentId() {
+		return _employeeSubDepartmentId;
+	}
+
+	@Override
+	public void setEmployeeSubDepartmentId(int employeeSubDepartmentId) {
+		_employeeSubDepartmentId = employeeSubDepartmentId;
+	}
+
+	@JSON
+	@Override
 	public int getEmployeeTypeId() {
 		return _employeeTypeId;
 	}
@@ -493,29 +507,25 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 
 	@JSON
 	@Override
-	public String getProofNumber() {
-		if (_proofNumber == null) {
-			return StringPool.BLANK;
-		}
-		else {
-			return _proofNumber;
-		}
-	}
-
-	@Override
-	public void setProofNumber(String proofNumber) {
-		_proofNumber = proofNumber;
-	}
-
-	@JSON
-	@Override
 	public int getCreateBy() {
 		return _createBy;
 	}
 
 	@Override
 	public void setCreateBy(int createBy) {
+		_columnBitmask |= CREATEBY_COLUMN_BITMASK;
+
+		if (!_setOriginalCreateBy) {
+			_setOriginalCreateBy = true;
+
+			_originalCreateBy = _createBy;
+		}
+
 		_createBy = createBy;
+	}
+
+	public int getOriginalCreateBy() {
+		return _originalCreateBy;
 	}
 
 	@JSON
@@ -526,7 +536,19 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 
 	@Override
 	public void setModifiedBy(int modifiedBy) {
+		_columnBitmask |= MODIFIEDBY_COLUMN_BITMASK;
+
+		if (!_setOriginalModifiedBy) {
+			_setOriginalModifiedBy = true;
+
+			_originalModifiedBy = _modifiedBy;
+		}
+
 		_modifiedBy = modifiedBy;
+	}
+
+	public int getOriginalModifiedBy() {
+		return _originalModifiedBy;
 	}
 
 	public long getColumnBitmask() {
@@ -571,9 +593,9 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 		employeeMstImpl.setNationality(getNationality());
 		employeeMstImpl.setEmployeeDesignationId(getEmployeeDesignationId());
 		employeeMstImpl.setEmployeeDepartmentId(getEmployeeDepartmentId());
+		employeeMstImpl.setEmployeeSubDepartmentId(getEmployeeSubDepartmentId());
 		employeeMstImpl.setEmployeeTypeId(getEmployeeTypeId());
 		employeeMstImpl.setEmployeeProofId(getEmployeeProofId());
-		employeeMstImpl.setProofNumber(getProofNumber());
 		employeeMstImpl.setCreateBy(getCreateBy());
 		employeeMstImpl.setModifiedBy(getModifiedBy());
 
@@ -631,6 +653,14 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 		employeeMstModelImpl._originalUserId = employeeMstModelImpl._userId;
 
 		employeeMstModelImpl._setOriginalUserId = false;
+
+		employeeMstModelImpl._originalCreateBy = employeeMstModelImpl._createBy;
+
+		employeeMstModelImpl._setOriginalCreateBy = false;
+
+		employeeMstModelImpl._originalModifiedBy = employeeMstModelImpl._modifiedBy;
+
+		employeeMstModelImpl._setOriginalModifiedBy = false;
 
 		employeeMstModelImpl._columnBitmask = 0;
 	}
@@ -694,17 +724,11 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 
 		employeeMstCacheModel.employeeDepartmentId = getEmployeeDepartmentId();
 
+		employeeMstCacheModel.employeeSubDepartmentId = getEmployeeSubDepartmentId();
+
 		employeeMstCacheModel.employeeTypeId = getEmployeeTypeId();
 
 		employeeMstCacheModel.employeeProofId = getEmployeeProofId();
-
-		employeeMstCacheModel.proofNumber = getProofNumber();
-
-		String proofNumber = employeeMstCacheModel.proofNumber;
-
-		if ((proofNumber != null) && (proofNumber.length() == 0)) {
-			employeeMstCacheModel.proofNumber = null;
-		}
 
 		employeeMstCacheModel.createBy = getCreateBy();
 
@@ -739,12 +763,12 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 		sb.append(getEmployeeDesignationId());
 		sb.append(", employeeDepartmentId=");
 		sb.append(getEmployeeDepartmentId());
+		sb.append(", employeeSubDepartmentId=");
+		sb.append(getEmployeeSubDepartmentId());
 		sb.append(", employeeTypeId=");
 		sb.append(getEmployeeTypeId());
 		sb.append(", employeeProofId=");
 		sb.append(getEmployeeProofId());
-		sb.append(", proofNumber=");
-		sb.append(getProofNumber());
 		sb.append(", createBy=");
 		sb.append(getCreateBy());
 		sb.append(", modifiedBy=");
@@ -807,16 +831,16 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 		sb.append(getEmployeeDepartmentId());
 		sb.append("]]></column-value></column>");
 		sb.append(
+			"<column><column-name>employeeSubDepartmentId</column-name><column-value><![CDATA[");
+		sb.append(getEmployeeSubDepartmentId());
+		sb.append("]]></column-value></column>");
+		sb.append(
 			"<column><column-name>employeeTypeId</column-name><column-value><![CDATA[");
 		sb.append(getEmployeeTypeId());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>employeeProofId</column-name><column-value><![CDATA[");
 		sb.append(getEmployeeProofId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>proofNumber</column-name><column-value><![CDATA[");
-		sb.append(getProofNumber());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>createBy</column-name><column-value><![CDATA[");
@@ -842,7 +866,7 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 	private String _userUuid;
 	private long _originalUserId;
 	private boolean _setOriginalUserId;
-	private int _gender;
+	private long _gender;
 	private Date _dateOfBirth;
 	private Date _joiningDate;
 	private Date _leavingDate;
@@ -850,11 +874,15 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 	private String _nationality;
 	private int _employeeDesignationId;
 	private int _employeeDepartmentId;
+	private int _employeeSubDepartmentId;
 	private int _employeeTypeId;
 	private int _employeeProofId;
-	private String _proofNumber;
 	private int _createBy;
+	private int _originalCreateBy;
+	private boolean _setOriginalCreateBy;
 	private int _modifiedBy;
+	private int _originalModifiedBy;
+	private boolean _setOriginalModifiedBy;
 	private long _columnBitmask;
 	private EmployeeMst _escapedModel;
 }

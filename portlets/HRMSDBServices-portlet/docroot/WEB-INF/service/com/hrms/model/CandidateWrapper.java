@@ -51,6 +51,7 @@ public class CandidateWrapper implements Candidate, ModelWrapper<Candidate> {
 
 		attributes.put("candidateId", getCandidateId());
 		attributes.put("employeeDepartmentId", getEmployeeDepartmentId());
+		attributes.put("employeeSubDepartmentId", getEmployeeSubDepartmentId());
 		attributes.put("employeeDesignationId", getEmployeeDesignationId());
 		attributes.put("title", getTitle());
 		attributes.put("firstName", getFirstName());
@@ -96,6 +97,13 @@ public class CandidateWrapper implements Candidate, ModelWrapper<Candidate> {
 
 		if (employeeDepartmentId != null) {
 			setEmployeeDepartmentId(employeeDepartmentId);
+		}
+
+		Long employeeSubDepartmentId = (Long)attributes.get(
+				"employeeSubDepartmentId");
+
+		if (employeeSubDepartmentId != null) {
+			setEmployeeSubDepartmentId(employeeSubDepartmentId);
 		}
 
 		Long employeeDesignationId = (Long)attributes.get(
@@ -332,6 +340,26 @@ public class CandidateWrapper implements Candidate, ModelWrapper<Candidate> {
 	@Override
 	public void setEmployeeDepartmentId(long employeeDepartmentId) {
 		_candidate.setEmployeeDepartmentId(employeeDepartmentId);
+	}
+
+	/**
+	* Returns the employee sub department ID of this candidate.
+	*
+	* @return the employee sub department ID of this candidate
+	*/
+	@Override
+	public long getEmployeeSubDepartmentId() {
+		return _candidate.getEmployeeSubDepartmentId();
+	}
+
+	/**
+	* Sets the employee sub department ID of this candidate.
+	*
+	* @param employeeSubDepartmentId the employee sub department ID of this candidate
+	*/
+	@Override
+	public void setEmployeeSubDepartmentId(long employeeSubDepartmentId) {
+		_candidate.setEmployeeSubDepartmentId(employeeSubDepartmentId);
 	}
 
 	/**

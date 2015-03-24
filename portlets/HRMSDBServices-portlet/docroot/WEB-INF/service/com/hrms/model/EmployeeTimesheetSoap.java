@@ -37,8 +37,6 @@ public class EmployeeTimesheetSoap implements Serializable {
 		soapModel.setCompanyId(model.getCompanyId());
 		soapModel.setTaskTitle(model.getTaskTitle());
 		soapModel.setTaskDescription(model.getTaskDescription());
-		soapModel.setTaskFileId(model.getTaskFileId());
-		soapModel.setTaskFilePath(model.getTaskFilePath());
 		soapModel.setTaskStarttime(model.getTaskStarttime());
 		soapModel.setTaskEndtime(model.getTaskEndtime());
 		soapModel.setTaskDate(model.getTaskDate());
@@ -153,22 +151,6 @@ public class EmployeeTimesheetSoap implements Serializable {
 		_taskDescription = taskDescription;
 	}
 
-	public long getTaskFileId() {
-		return _taskFileId;
-	}
-
-	public void setTaskFileId(long taskFileId) {
-		_taskFileId = taskFileId;
-	}
-
-	public String getTaskFilePath() {
-		return _taskFilePath;
-	}
-
-	public void setTaskFilePath(String taskFilePath) {
-		_taskFilePath = taskFilePath;
-	}
-
 	public Date getTaskStarttime() {
 		return _taskStarttime;
 	}
@@ -193,11 +175,11 @@ public class EmployeeTimesheetSoap implements Serializable {
 		_taskDate = taskDate;
 	}
 
-	public Date getDuration() {
+	public String getDuration() {
 		return _duration;
 	}
 
-	public void setDuration(Date duration) {
+	public void setDuration(String duration) {
 		_duration = duration;
 	}
 
@@ -275,12 +257,10 @@ public class EmployeeTimesheetSoap implements Serializable {
 	private long _companyId;
 	private String _taskTitle;
 	private String _taskDescription;
-	private long _taskFileId;
-	private String _taskFilePath;
 	private Date _taskStarttime;
 	private Date _taskEndtime;
 	private Date _taskDate;
-	private Date _duration;
+	private String _duration;
 	private boolean _taskCompleted;
 	private boolean _billable;
 	private boolean _billed;
