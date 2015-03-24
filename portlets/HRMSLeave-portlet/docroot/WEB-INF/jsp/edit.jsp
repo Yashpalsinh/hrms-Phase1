@@ -51,7 +51,7 @@
  			
  			<div id="textBox">
  			
-				<aui:input name="carryOverLimit" inlineLabel="true">
+				<aui:input name="carryOverLimit" inlineLabel="true" value="${leave.carryOverLimit }">
 					<aui:validator name="max"  errorMessage="please enter only upto 10">10</aui:validator>
 				</aui:input>
 				
