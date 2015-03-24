@@ -13,9 +13,9 @@
 	<bean
 		class="org.springframework.web.portlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
 		
-	<bean id="JobLibrary" class="com.hrms.model.impl.JobLibraryImpl"></bean>
+<!-- 	<bean id="JobLibrary" class="com.hrms.model.impl.JobLibraryImpl"></bean> -->
 
-
+	<bean class="com.hrms.JobRequisitionModel" />
 	<bean class="com.hrms.RequisitionController" />
 
 	<bean id="jspViewResolver"

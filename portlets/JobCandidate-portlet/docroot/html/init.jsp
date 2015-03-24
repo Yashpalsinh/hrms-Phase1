@@ -14,9 +14,6 @@
 <%@page import="com.hrms.model.JobLibrary"%>
 <%@page import="com.hrms.model.Candidate"%>
 <%@page import="com.liferay.portal.kernel.util.ParamUtil"%>
-<%@page import="com.liferay.portal.kernel.util.CalendarUtil"%>
-<%@page import="com.liferay.portal.kernel.servlet.SessionErrors"%>
-<%@page import="com.liferay.portal.kernel.servlet.SessionMessages"%>
 <%@page import="com.liferay.portal.kernel.util.*"%>
 <%@page import="java.util.List"%>
 <%@page import="com.hrms.service.JobLibraryLocalServiceUtil"%>
@@ -27,16 +24,17 @@
 <%@page import="javax.portlet.PortletSession"%>
 <%@page import="java.util.ResourceBundle"%>
 <%@page import="com.liferay.portal.kernel.portlet.LiferayWindowState"%>
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/custom.css" />
+<%@page import="com.liferay.portal.service.CountryServiceUtil" %>
 <%@page import="java.util.Locale"%>
 <portlet:defineObjects />
 <liferay-theme:defineObjects />
 
+
 <% 
- 	long jobLibraryId = ParamUtil.getLong(request,"jobLibraryId");
-	String jobTitle = ParamUtil.getString(request, "jobTitle");
-	String jobDescription = ParamUtil.getString(request, "jobDescription");
-	String responsibility = ParamUtil.getString(request, "responsibility");
+ 	long candidateId = ParamUtil.getLong(request,"candidateId");
+	String title = ParamUtil.getString(request, "title");
+	String firstName = ParamUtil.getString(request, "firstName");
+	String middleName = ParamUtil.getString(request, "middleName");
 	
 	
 %>

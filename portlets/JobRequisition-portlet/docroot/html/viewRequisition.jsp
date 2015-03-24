@@ -1,26 +1,6 @@
 
 <%@ include file="/html/init.jsp"%>
 
-
-<head>
-	<style type="text/css">
-		
-		.lablesize
-		{
-			font-weight: 600;
-		}
-		.lablecolor
-		{
-		font-weight: 800;
-		color: #91A244;
-		}
-		
-		
-		
-		
-	</style>
-</head>
-
 <%
 String Redirect=ParamUtil.getString(request, "backURL");
 long joblibraryId = ParamUtil.getLong(request, "jobLibraryId");

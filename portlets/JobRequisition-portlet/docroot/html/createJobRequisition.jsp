@@ -1,41 +1,6 @@
 
 <%@include file="/html/init.jsp"%>
 
-<head>
-<style type="text/css">
-
-	.WebHRForm1 {
-    font-family: "Titillium Web",sans-serif;
-    font-size: 12px;
-    font-weight: normal;
-    color: rgb(88, 100, 126);
-    border-width: 0px 0px 1px;
-    border-style: none none solid;
-    border-color: -moz-use-text-color -moz-use-text-color rgb(185, 185, 185);
-    background-color: transparent;
-	}
-	.WebHR_Heading2 {
-    font-size: 18px;
-    font-weight: normal;
-    font-family: "Titillium Web",sans-serif;
-    color: rgb(0, 51, 102);
-	}
-</style >
-</head>
-<% if(SessionMessages.contains(renderRequest.getPortletSession(),"jobLibrary-add-success")){%>
-<liferay-ui:success key="jobLibrary-add-success" message="jobLibrary has been added successfully." />
-<%} %>
-<% if(SessionErrors.contains(renderRequest.getPortletSession(),"jobLibrary-add-error")){%>
-<liferay-ui:error key="jobLibrary-add-error" message="There is an Error occured while adding jobLibrary please try again" />
-<%} %>
-
-<% if(SessionMessages.contains(renderRequest.getPortletSession(),"jobLibrary-update-success")){%>
-<liferay-ui:success key="jobLibrary-update-success" message="jobLibrary has been updated successfully." />
-<%} %>
-<% if(SessionErrors.contains(renderRequest.getPortletSession(),"jobLibrary-update-error")){%>
-<liferay-ui:error key="jobLibrary-update-error" message="There is an Error occured while updating jobLibrary please try again" />
-<%} %>
-
 <%
 	JobLibrary joblibrary = (JobLibrary) request
 			.getAttribute("joblibrary");
@@ -47,15 +12,15 @@ System.out.println(joblibrary);
 <portlet:actionURL var="addRequisitionURL">
 	<portlet:param name="action" value="addRequisition" />
 </portlet:actionURL>
-<portlet:actionURL var="editRequisitionURL">
-	<portlet:param name="action" value="updateRequisition" />
-	<c:if test="${joblibrary != null}">
-		<portlet:param name="jobLibraryId" value="${joblibrary.jobLibraryId }"/>
-	</c:if>
-</portlet:actionURL>
+<%-- <portlet:actionURL var="editRequisitionURL"> --%>
+<%-- 	<portlet:param name="action" value="updateRequisition" /> --%>
+<%-- 	<c:if test="${joblibrary != null}"> --%>
+<%-- 		<portlet:param name="jobLibraryId" value="${joblibrary.jobLibraryId }"/> --%>
+<%-- 	</c:if> --%>
+<%-- </portlet:actionURL> --%>
 <table>
 <tbody>
-<aui:form method="post" action="<%=(joblibrary == null ? addRequisitionURL : editRequisitionURL)%>"
+<aui:form method="post" action="<%= addRequisitionURL%>"
 	commandName="reg">
 	 <tr>
     <th class="WebHR_Heading2">ADD JOB REQUISITION FORM</th>
