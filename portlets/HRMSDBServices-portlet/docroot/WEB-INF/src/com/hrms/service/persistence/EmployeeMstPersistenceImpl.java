@@ -304,7 +304,7 @@ public class EmployeeMstPersistenceImpl extends BasePersistenceImpl<EmployeeMst>
 			EmployeeMstModelImpl.FINDER_CACHE_ENABLED, EmployeeMstImpl.class,
 			FINDER_CLASS_NAME_LIST_WITH_PAGINATION, "findBycreateBy",
 			new String[] {
-				Integer.class.getName(),
+				Long.class.getName(),
 				
 			Integer.class.getName(), Integer.class.getName(),
 				OrderByComparator.class.getName()
@@ -313,12 +313,12 @@ public class EmployeeMstPersistenceImpl extends BasePersistenceImpl<EmployeeMst>
 		new FinderPath(EmployeeMstModelImpl.ENTITY_CACHE_ENABLED,
 			EmployeeMstModelImpl.FINDER_CACHE_ENABLED, EmployeeMstImpl.class,
 			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "findBycreateBy",
-			new String[] { Integer.class.getName() },
+			new String[] { Long.class.getName() },
 			EmployeeMstModelImpl.CREATEBY_COLUMN_BITMASK);
 	public static final FinderPath FINDER_PATH_COUNT_BY_CREATEBY = new FinderPath(EmployeeMstModelImpl.ENTITY_CACHE_ENABLED,
 			EmployeeMstModelImpl.FINDER_CACHE_ENABLED, Long.class,
 			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countBycreateBy",
-			new String[] { Integer.class.getName() });
+			new String[] { Long.class.getName() });
 
 	/**
 	 * Returns all the employee msts where createBy = &#63;.
@@ -328,7 +328,7 @@ public class EmployeeMstPersistenceImpl extends BasePersistenceImpl<EmployeeMst>
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public List<EmployeeMst> findBycreateBy(int createBy)
+	public List<EmployeeMst> findBycreateBy(long createBy)
 		throws SystemException {
 		return findBycreateBy(createBy, QueryUtil.ALL_POS, QueryUtil.ALL_POS,
 			null);
@@ -348,7 +348,7 @@ public class EmployeeMstPersistenceImpl extends BasePersistenceImpl<EmployeeMst>
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public List<EmployeeMst> findBycreateBy(int createBy, int start, int end)
+	public List<EmployeeMst> findBycreateBy(long createBy, int start, int end)
 		throws SystemException {
 		return findBycreateBy(createBy, start, end, null);
 	}
@@ -368,7 +368,7 @@ public class EmployeeMstPersistenceImpl extends BasePersistenceImpl<EmployeeMst>
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public List<EmployeeMst> findBycreateBy(int createBy, int start, int end,
+	public List<EmployeeMst> findBycreateBy(long createBy, int start, int end,
 		OrderByComparator orderByComparator) throws SystemException {
 		boolean pagination = true;
 		FinderPath finderPath = null;
@@ -475,7 +475,7 @@ public class EmployeeMstPersistenceImpl extends BasePersistenceImpl<EmployeeMst>
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public EmployeeMst findBycreateBy_First(int createBy,
+	public EmployeeMst findBycreateBy_First(long createBy,
 		OrderByComparator orderByComparator)
 		throws NoSuchEmployeeMstException, SystemException {
 		EmployeeMst employeeMst = fetchBycreateBy_First(createBy,
@@ -506,7 +506,7 @@ public class EmployeeMstPersistenceImpl extends BasePersistenceImpl<EmployeeMst>
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public EmployeeMst fetchBycreateBy_First(int createBy,
+	public EmployeeMst fetchBycreateBy_First(long createBy,
 		OrderByComparator orderByComparator) throws SystemException {
 		List<EmployeeMst> list = findBycreateBy(createBy, 0, 1,
 				orderByComparator);
@@ -528,7 +528,7 @@ public class EmployeeMstPersistenceImpl extends BasePersistenceImpl<EmployeeMst>
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public EmployeeMst findBycreateBy_Last(int createBy,
+	public EmployeeMst findBycreateBy_Last(long createBy,
 		OrderByComparator orderByComparator)
 		throws NoSuchEmployeeMstException, SystemException {
 		EmployeeMst employeeMst = fetchBycreateBy_Last(createBy,
@@ -559,7 +559,7 @@ public class EmployeeMstPersistenceImpl extends BasePersistenceImpl<EmployeeMst>
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public EmployeeMst fetchBycreateBy_Last(int createBy,
+	public EmployeeMst fetchBycreateBy_Last(long createBy,
 		OrderByComparator orderByComparator) throws SystemException {
 		int count = countBycreateBy(createBy);
 
@@ -589,7 +589,7 @@ public class EmployeeMstPersistenceImpl extends BasePersistenceImpl<EmployeeMst>
 	 */
 	@Override
 	public EmployeeMst[] findBycreateBy_PrevAndNext(long employeeMstId,
-		int createBy, OrderByComparator orderByComparator)
+		long createBy, OrderByComparator orderByComparator)
 		throws NoSuchEmployeeMstException, SystemException {
 		EmployeeMst employeeMst = findByPrimaryKey(employeeMstId);
 
@@ -619,7 +619,7 @@ public class EmployeeMstPersistenceImpl extends BasePersistenceImpl<EmployeeMst>
 	}
 
 	protected EmployeeMst getBycreateBy_PrevAndNext(Session session,
-		EmployeeMst employeeMst, int createBy,
+		EmployeeMst employeeMst, long createBy,
 		OrderByComparator orderByComparator, boolean previous) {
 		StringBundler query = null;
 
@@ -730,7 +730,7 @@ public class EmployeeMstPersistenceImpl extends BasePersistenceImpl<EmployeeMst>
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public void removeBycreateBy(int createBy) throws SystemException {
+	public void removeBycreateBy(long createBy) throws SystemException {
 		for (EmployeeMst employeeMst : findBycreateBy(createBy,
 				QueryUtil.ALL_POS, QueryUtil.ALL_POS, null)) {
 			remove(employeeMst);
@@ -745,7 +745,7 @@ public class EmployeeMstPersistenceImpl extends BasePersistenceImpl<EmployeeMst>
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public int countBycreateBy(int createBy) throws SystemException {
+	public int countBycreateBy(long createBy) throws SystemException {
 		FinderPath finderPath = FINDER_PATH_COUNT_BY_CREATEBY;
 
 		Object[] finderArgs = new Object[] { createBy };
@@ -796,7 +796,7 @@ public class EmployeeMstPersistenceImpl extends BasePersistenceImpl<EmployeeMst>
 			EmployeeMstModelImpl.FINDER_CACHE_ENABLED, EmployeeMstImpl.class,
 			FINDER_CLASS_NAME_LIST_WITH_PAGINATION, "findBymodifiedBy",
 			new String[] {
-				Integer.class.getName(),
+				Long.class.getName(),
 				
 			Integer.class.getName(), Integer.class.getName(),
 				OrderByComparator.class.getName()
@@ -805,12 +805,12 @@ public class EmployeeMstPersistenceImpl extends BasePersistenceImpl<EmployeeMst>
 		new FinderPath(EmployeeMstModelImpl.ENTITY_CACHE_ENABLED,
 			EmployeeMstModelImpl.FINDER_CACHE_ENABLED, EmployeeMstImpl.class,
 			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "findBymodifiedBy",
-			new String[] { Integer.class.getName() },
+			new String[] { Long.class.getName() },
 			EmployeeMstModelImpl.MODIFIEDBY_COLUMN_BITMASK);
 	public static final FinderPath FINDER_PATH_COUNT_BY_MODIFIEDBY = new FinderPath(EmployeeMstModelImpl.ENTITY_CACHE_ENABLED,
 			EmployeeMstModelImpl.FINDER_CACHE_ENABLED, Long.class,
 			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countBymodifiedBy",
-			new String[] { Integer.class.getName() });
+			new String[] { Long.class.getName() });
 
 	/**
 	 * Returns all the employee msts where modifiedBy = &#63;.
@@ -820,7 +820,7 @@ public class EmployeeMstPersistenceImpl extends BasePersistenceImpl<EmployeeMst>
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public List<EmployeeMst> findBymodifiedBy(int modifiedBy)
+	public List<EmployeeMst> findBymodifiedBy(long modifiedBy)
 		throws SystemException {
 		return findBymodifiedBy(modifiedBy, QueryUtil.ALL_POS,
 			QueryUtil.ALL_POS, null);
@@ -840,8 +840,8 @@ public class EmployeeMstPersistenceImpl extends BasePersistenceImpl<EmployeeMst>
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public List<EmployeeMst> findBymodifiedBy(int modifiedBy, int start, int end)
-		throws SystemException {
+	public List<EmployeeMst> findBymodifiedBy(long modifiedBy, int start,
+		int end) throws SystemException {
 		return findBymodifiedBy(modifiedBy, start, end, null);
 	}
 
@@ -860,7 +860,7 @@ public class EmployeeMstPersistenceImpl extends BasePersistenceImpl<EmployeeMst>
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public List<EmployeeMst> findBymodifiedBy(int modifiedBy, int start,
+	public List<EmployeeMst> findBymodifiedBy(long modifiedBy, int start,
 		int end, OrderByComparator orderByComparator) throws SystemException {
 		boolean pagination = true;
 		FinderPath finderPath = null;
@@ -967,7 +967,7 @@ public class EmployeeMstPersistenceImpl extends BasePersistenceImpl<EmployeeMst>
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public EmployeeMst findBymodifiedBy_First(int modifiedBy,
+	public EmployeeMst findBymodifiedBy_First(long modifiedBy,
 		OrderByComparator orderByComparator)
 		throws NoSuchEmployeeMstException, SystemException {
 		EmployeeMst employeeMst = fetchBymodifiedBy_First(modifiedBy,
@@ -998,7 +998,7 @@ public class EmployeeMstPersistenceImpl extends BasePersistenceImpl<EmployeeMst>
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public EmployeeMst fetchBymodifiedBy_First(int modifiedBy,
+	public EmployeeMst fetchBymodifiedBy_First(long modifiedBy,
 		OrderByComparator orderByComparator) throws SystemException {
 		List<EmployeeMst> list = findBymodifiedBy(modifiedBy, 0, 1,
 				orderByComparator);
@@ -1020,7 +1020,7 @@ public class EmployeeMstPersistenceImpl extends BasePersistenceImpl<EmployeeMst>
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public EmployeeMst findBymodifiedBy_Last(int modifiedBy,
+	public EmployeeMst findBymodifiedBy_Last(long modifiedBy,
 		OrderByComparator orderByComparator)
 		throws NoSuchEmployeeMstException, SystemException {
 		EmployeeMst employeeMst = fetchBymodifiedBy_Last(modifiedBy,
@@ -1051,7 +1051,7 @@ public class EmployeeMstPersistenceImpl extends BasePersistenceImpl<EmployeeMst>
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public EmployeeMst fetchBymodifiedBy_Last(int modifiedBy,
+	public EmployeeMst fetchBymodifiedBy_Last(long modifiedBy,
 		OrderByComparator orderByComparator) throws SystemException {
 		int count = countBymodifiedBy(modifiedBy);
 
@@ -1081,7 +1081,7 @@ public class EmployeeMstPersistenceImpl extends BasePersistenceImpl<EmployeeMst>
 	 */
 	@Override
 	public EmployeeMst[] findBymodifiedBy_PrevAndNext(long employeeMstId,
-		int modifiedBy, OrderByComparator orderByComparator)
+		long modifiedBy, OrderByComparator orderByComparator)
 		throws NoSuchEmployeeMstException, SystemException {
 		EmployeeMst employeeMst = findByPrimaryKey(employeeMstId);
 
@@ -1111,7 +1111,7 @@ public class EmployeeMstPersistenceImpl extends BasePersistenceImpl<EmployeeMst>
 	}
 
 	protected EmployeeMst getBymodifiedBy_PrevAndNext(Session session,
-		EmployeeMst employeeMst, int modifiedBy,
+		EmployeeMst employeeMst, long modifiedBy,
 		OrderByComparator orderByComparator, boolean previous) {
 		StringBundler query = null;
 
@@ -1222,7 +1222,7 @@ public class EmployeeMstPersistenceImpl extends BasePersistenceImpl<EmployeeMst>
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public void removeBymodifiedBy(int modifiedBy) throws SystemException {
+	public void removeBymodifiedBy(long modifiedBy) throws SystemException {
 		for (EmployeeMst employeeMst : findBymodifiedBy(modifiedBy,
 				QueryUtil.ALL_POS, QueryUtil.ALL_POS, null)) {
 			remove(employeeMst);
@@ -1237,7 +1237,7 @@ public class EmployeeMstPersistenceImpl extends BasePersistenceImpl<EmployeeMst>
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public int countBymodifiedBy(int modifiedBy) throws SystemException {
+	public int countBymodifiedBy(long modifiedBy) throws SystemException {
 		FinderPath finderPath = FINDER_PATH_COUNT_BY_MODIFIEDBY;
 
 		Object[] finderArgs = new Object[] { modifiedBy };
@@ -1615,7 +1615,7 @@ public class EmployeeMstPersistenceImpl extends BasePersistenceImpl<EmployeeMst>
 		employeeMstImpl.setEmployeeMstId(employeeMst.getEmployeeMstId());
 		employeeMstImpl.setEmployeeId(employeeMst.getEmployeeId());
 		employeeMstImpl.setUserId(employeeMst.getUserId());
-		employeeMstImpl.setGender(employeeMst.getGender());
+		employeeMstImpl.setGender(employeeMst.isGender());
 		employeeMstImpl.setDateOfBirth(employeeMst.getDateOfBirth());
 		employeeMstImpl.setJoiningDate(employeeMst.getJoiningDate());
 		employeeMstImpl.setLeavingDate(employeeMst.getLeavingDate());
@@ -1624,8 +1624,7 @@ public class EmployeeMstPersistenceImpl extends BasePersistenceImpl<EmployeeMst>
 		employeeMstImpl.setEmployeeDesignationId(employeeMst.getEmployeeDesignationId());
 		employeeMstImpl.setEmployeeDepartmentId(employeeMst.getEmployeeDepartmentId());
 		employeeMstImpl.setEmployeeSubDepartmentId(employeeMst.getEmployeeSubDepartmentId());
-		employeeMstImpl.setEmployeeTypeId(employeeMst.getEmployeeTypeId());
-		employeeMstImpl.setEmployeeProofId(employeeMst.getEmployeeProofId());
+		employeeMstImpl.setEmployeeType(employeeMst.getEmployeeType());
 		employeeMstImpl.setCreateBy(employeeMst.getCreateBy());
 		employeeMstImpl.setModifiedBy(employeeMst.getModifiedBy());
 

@@ -100,7 +100,7 @@ public interface EmployeeMstPersistence extends BasePersistence<EmployeeMst> {
 	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<com.hrms.model.EmployeeMst> findBycreateBy(
-		int createBy)
+		long createBy)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
@@ -117,7 +117,7 @@ public interface EmployeeMstPersistence extends BasePersistence<EmployeeMst> {
 	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<com.hrms.model.EmployeeMst> findBycreateBy(
-		int createBy, int start, int end)
+		long createBy, int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
@@ -135,7 +135,7 @@ public interface EmployeeMstPersistence extends BasePersistence<EmployeeMst> {
 	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<com.hrms.model.EmployeeMst> findBycreateBy(
-		int createBy, int start, int end,
+		long createBy, int start, int end,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
@@ -148,7 +148,7 @@ public interface EmployeeMstPersistence extends BasePersistence<EmployeeMst> {
 	* @throws com.hrms.NoSuchEmployeeMstException if a matching employee mst could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public com.hrms.model.EmployeeMst findBycreateBy_First(int createBy,
+	public com.hrms.model.EmployeeMst findBycreateBy_First(long createBy,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.hrms.NoSuchEmployeeMstException,
 			com.liferay.portal.kernel.exception.SystemException;
@@ -161,7 +161,7 @@ public interface EmployeeMstPersistence extends BasePersistence<EmployeeMst> {
 	* @return the first matching employee mst, or <code>null</code> if a matching employee mst could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public com.hrms.model.EmployeeMst fetchBycreateBy_First(int createBy,
+	public com.hrms.model.EmployeeMst fetchBycreateBy_First(long createBy,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
@@ -174,7 +174,7 @@ public interface EmployeeMstPersistence extends BasePersistence<EmployeeMst> {
 	* @throws com.hrms.NoSuchEmployeeMstException if a matching employee mst could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public com.hrms.model.EmployeeMst findBycreateBy_Last(int createBy,
+	public com.hrms.model.EmployeeMst findBycreateBy_Last(long createBy,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.hrms.NoSuchEmployeeMstException,
 			com.liferay.portal.kernel.exception.SystemException;
@@ -187,7 +187,7 @@ public interface EmployeeMstPersistence extends BasePersistence<EmployeeMst> {
 	* @return the last matching employee mst, or <code>null</code> if a matching employee mst could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public com.hrms.model.EmployeeMst fetchBycreateBy_Last(int createBy,
+	public com.hrms.model.EmployeeMst fetchBycreateBy_Last(long createBy,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
@@ -202,7 +202,7 @@ public interface EmployeeMstPersistence extends BasePersistence<EmployeeMst> {
 	* @throws SystemException if a system exception occurred
 	*/
 	public com.hrms.model.EmployeeMst[] findBycreateBy_PrevAndNext(
-		long employeeMstId, int createBy,
+		long employeeMstId, long createBy,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.hrms.NoSuchEmployeeMstException,
 			com.liferay.portal.kernel.exception.SystemException;
@@ -213,7 +213,7 @@ public interface EmployeeMstPersistence extends BasePersistence<EmployeeMst> {
 	* @param createBy the create by
 	* @throws SystemException if a system exception occurred
 	*/
-	public void removeBycreateBy(int createBy)
+	public void removeBycreateBy(long createBy)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
@@ -223,7 +223,7 @@ public interface EmployeeMstPersistence extends BasePersistence<EmployeeMst> {
 	* @return the number of matching employee msts
 	* @throws SystemException if a system exception occurred
 	*/
-	public int countBycreateBy(int createBy)
+	public int countBycreateBy(long createBy)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
@@ -234,7 +234,7 @@ public interface EmployeeMstPersistence extends BasePersistence<EmployeeMst> {
 	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<com.hrms.model.EmployeeMst> findBymodifiedBy(
-		int modifiedBy)
+		long modifiedBy)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
@@ -251,7 +251,7 @@ public interface EmployeeMstPersistence extends BasePersistence<EmployeeMst> {
 	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<com.hrms.model.EmployeeMst> findBymodifiedBy(
-		int modifiedBy, int start, int end)
+		long modifiedBy, int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
@@ -269,7 +269,7 @@ public interface EmployeeMstPersistence extends BasePersistence<EmployeeMst> {
 	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<com.hrms.model.EmployeeMst> findBymodifiedBy(
-		int modifiedBy, int start, int end,
+		long modifiedBy, int start, int end,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
@@ -282,7 +282,7 @@ public interface EmployeeMstPersistence extends BasePersistence<EmployeeMst> {
 	* @throws com.hrms.NoSuchEmployeeMstException if a matching employee mst could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public com.hrms.model.EmployeeMst findBymodifiedBy_First(int modifiedBy,
+	public com.hrms.model.EmployeeMst findBymodifiedBy_First(long modifiedBy,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.hrms.NoSuchEmployeeMstException,
 			com.liferay.portal.kernel.exception.SystemException;
@@ -295,7 +295,7 @@ public interface EmployeeMstPersistence extends BasePersistence<EmployeeMst> {
 	* @return the first matching employee mst, or <code>null</code> if a matching employee mst could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public com.hrms.model.EmployeeMst fetchBymodifiedBy_First(int modifiedBy,
+	public com.hrms.model.EmployeeMst fetchBymodifiedBy_First(long modifiedBy,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
@@ -308,7 +308,7 @@ public interface EmployeeMstPersistence extends BasePersistence<EmployeeMst> {
 	* @throws com.hrms.NoSuchEmployeeMstException if a matching employee mst could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public com.hrms.model.EmployeeMst findBymodifiedBy_Last(int modifiedBy,
+	public com.hrms.model.EmployeeMst findBymodifiedBy_Last(long modifiedBy,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.hrms.NoSuchEmployeeMstException,
 			com.liferay.portal.kernel.exception.SystemException;
@@ -321,7 +321,7 @@ public interface EmployeeMstPersistence extends BasePersistence<EmployeeMst> {
 	* @return the last matching employee mst, or <code>null</code> if a matching employee mst could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public com.hrms.model.EmployeeMst fetchBymodifiedBy_Last(int modifiedBy,
+	public com.hrms.model.EmployeeMst fetchBymodifiedBy_Last(long modifiedBy,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
@@ -336,7 +336,7 @@ public interface EmployeeMstPersistence extends BasePersistence<EmployeeMst> {
 	* @throws SystemException if a system exception occurred
 	*/
 	public com.hrms.model.EmployeeMst[] findBymodifiedBy_PrevAndNext(
-		long employeeMstId, int modifiedBy,
+		long employeeMstId, long modifiedBy,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.hrms.NoSuchEmployeeMstException,
 			com.liferay.portal.kernel.exception.SystemException;
@@ -347,7 +347,7 @@ public interface EmployeeMstPersistence extends BasePersistence<EmployeeMst> {
 	* @param modifiedBy the modified by
 	* @throws SystemException if a system exception occurred
 	*/
-	public void removeBymodifiedBy(int modifiedBy)
+	public void removeBymodifiedBy(long modifiedBy)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
@@ -357,7 +357,7 @@ public interface EmployeeMstPersistence extends BasePersistence<EmployeeMst> {
 	* @return the number of matching employee msts
 	* @throws SystemException if a system exception occurred
 	*/
-	public int countBymodifiedBy(int modifiedBy)
+	public int countBymodifiedBy(long modifiedBy)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**

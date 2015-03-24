@@ -191,19 +191,18 @@
 		</id>
 		<property name="employeeId" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
-		<property name="gender" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="gender" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
 		<property name="dateOfBirth" type="org.hibernate.type.TimestampType" />
 		<property name="joiningDate" type="org.hibernate.type.TimestampType" />
 		<property name="leavingDate" type="org.hibernate.type.TimestampType" />
 		<property name="maritualStatus" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
 		<property name="nationality" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-		<property name="employeeDesignationId" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
-		<property name="employeeDepartmentId" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
-		<property name="employeeSubDepartmentId" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
-		<property name="employeeTypeId" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
-		<property name="employeeProofId" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
-		<property name="createBy" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
-		<property name="modifiedBy" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="employeeDesignationId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="employeeDepartmentId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="employeeSubDepartmentId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="employeeType" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createBy" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="modifiedBy" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 	</class>
 	<class name="com.hrms.model.impl.EmployeePreviousCompanyImpl" table="HRMS_EmployeePreviousCompany">
 		<cache usage="read-write" />

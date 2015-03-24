@@ -253,8 +253,7 @@
 			<basic name="employeeDesignationId" />
 			<basic name="employeeDepartmentId" />
 			<basic name="employeeSubDepartmentId" />
-			<basic name="employeeTypeId" />
-			<basic name="employeeProofId" />
+			<basic name="employeeType" />
 			<basic name="createBy" />
 			<basic name="modifiedBy" />
 			<transient name="modelAttributes" />

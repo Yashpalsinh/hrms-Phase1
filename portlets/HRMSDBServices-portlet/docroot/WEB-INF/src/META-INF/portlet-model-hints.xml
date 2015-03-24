@@ -136,19 +136,18 @@
 		<field name="employeeMstId" type="long" />
 		<field name="employeeId" type="String" />
 		<field name="userId" type="long" />
-		<field name="gender" type="long" />
+		<field name="gender" type="boolean" />
 		<field name="dateOfBirth" type="Date" />
 		<field name="joiningDate" type="Date" />
 		<field name="leavingDate" type="Date" />
 		<field name="maritualStatus" type="int" />
 		<field name="nationality" type="String" />
-		<field name="employeeDesignationId" type="int" />
-		<field name="employeeDepartmentId" type="int" />
-		<field name="employeeSubDepartmentId" type="int" />
-		<field name="employeeTypeId" type="int" />
-		<field name="employeeProofId" type="int" />
-		<field name="createBy" type="int" />
-		<field name="modifiedBy" type="int" />
+		<field name="employeeDesignationId" type="long" />
+		<field name="employeeDepartmentId" type="long" />
+		<field name="employeeSubDepartmentId" type="long" />
+		<field name="employeeType" type="String" />
+		<field name="createBy" type="long" />
+		<field name="modifiedBy" type="long" />
 	</model>
 	<model name="com.hrms.model.EmployeePreviousCompany">
 		<field name="employeePreviousCompanyId" type="long" />

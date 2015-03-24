@@ -43,8 +43,7 @@ public class EmployeeMstSoap implements Serializable {
 		soapModel.setEmployeeDesignationId(model.getEmployeeDesignationId());
 		soapModel.setEmployeeDepartmentId(model.getEmployeeDepartmentId());
 		soapModel.setEmployeeSubDepartmentId(model.getEmployeeSubDepartmentId());
-		soapModel.setEmployeeTypeId(model.getEmployeeTypeId());
-		soapModel.setEmployeeProofId(model.getEmployeeProofId());
+		soapModel.setEmployeeType(model.getEmployeeType());
 		soapModel.setCreateBy(model.getCreateBy());
 		soapModel.setModifiedBy(model.getModifiedBy());
 
@@ -123,11 +122,15 @@ public class EmployeeMstSoap implements Serializable {
 		_userId = userId;
 	}
 
-	public long getGender() {
+	public boolean getGender() {
 		return _gender;
 	}
 
-	public void setGender(long gender) {
+	public boolean isGender() {
+		return _gender;
+	}
+
+	public void setGender(boolean gender) {
 		_gender = gender;
 	}
 
@@ -171,76 +174,67 @@ public class EmployeeMstSoap implements Serializable {
 		_nationality = nationality;
 	}
 
-	public int getEmployeeDesignationId() {
+	public long getEmployeeDesignationId() {
 		return _employeeDesignationId;
 	}
 
-	public void setEmployeeDesignationId(int employeeDesignationId) {
+	public void setEmployeeDesignationId(long employeeDesignationId) {
 		_employeeDesignationId = employeeDesignationId;
 	}
 
-	public int getEmployeeDepartmentId() {
+	public long getEmployeeDepartmentId() {
 		return _employeeDepartmentId;
 	}
 
-	public void setEmployeeDepartmentId(int employeeDepartmentId) {
+	public void setEmployeeDepartmentId(long employeeDepartmentId) {
 		_employeeDepartmentId = employeeDepartmentId;
 	}
 
-	public int getEmployeeSubDepartmentId() {
+	public long getEmployeeSubDepartmentId() {
 		return _employeeSubDepartmentId;
 	}
 
-	public void setEmployeeSubDepartmentId(int employeeSubDepartmentId) {
+	public void setEmployeeSubDepartmentId(long employeeSubDepartmentId) {
 		_employeeSubDepartmentId = employeeSubDepartmentId;
 	}
 
-	public int getEmployeeTypeId() {
-		return _employeeTypeId;
+	public String getEmployeeType() {
+		return _employeeType;
 	}
 
-	public void setEmployeeTypeId(int employeeTypeId) {
-		_employeeTypeId = employeeTypeId;
+	public void setEmployeeType(String employeeType) {
+		_employeeType = employeeType;
 	}
 
-	public int getEmployeeProofId() {
-		return _employeeProofId;
-	}
-
-	public void setEmployeeProofId(int employeeProofId) {
-		_employeeProofId = employeeProofId;
-	}
-
-	public int getCreateBy() {
+	public long getCreateBy() {
 		return _createBy;
 	}
 
-	public void setCreateBy(int createBy) {
+	public void setCreateBy(long createBy) {
 		_createBy = createBy;
 	}
 
-	public int getModifiedBy() {
+	public long getModifiedBy() {
 		return _modifiedBy;
 	}
 
-	public void setModifiedBy(int modifiedBy) {
+	public void setModifiedBy(long modifiedBy) {
 		_modifiedBy = modifiedBy;
 	}
 
 	private long _employeeMstId;
 	private String _employeeId;
 	private long _userId;
-	private long _gender;
+	private boolean _gender;
 	private Date _dateOfBirth;
 	private Date _joiningDate;
 	private Date _leavingDate;
 	private int _maritualStatus;
 	private String _nationality;
-	private int _employeeDesignationId;
-	private int _employeeDepartmentId;
-	private int _employeeSubDepartmentId;
-	private int _employeeTypeId;
-	private int _employeeProofId;
-	private int _createBy;
-	private int _modifiedBy;
+	private long _employeeDesignationId;
+	private long _employeeDepartmentId;
+	private long _employeeSubDepartmentId;
+	private String _employeeType;
+	private long _createBy;
+	private long _modifiedBy;
 }

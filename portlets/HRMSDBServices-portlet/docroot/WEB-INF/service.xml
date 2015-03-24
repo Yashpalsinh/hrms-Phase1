@@ -13,19 +13,18 @@
 
 		<column name="employeeId" type="String" />
 		<column name="userId" type="long" />
-		<column name="gender" type="long" />
+		<column name="gender" type="boolean" />
 		<column name="dateOfBirth" type="Date" />
 		<column name="joiningDate" type="Date" />
 		<column name="leavingDate" type="Date" />
 		<column name="maritualStatus" type="int" />
 		<column name="nationality" type="String" />
-		<column name="employeeDesignationId" type="int" />
-		<column name="employeeDepartmentId" type="int" />
-		<column name="employeeSubDepartmentId" type="int" />
-		<column name="employeeTypeId" type="int" />
-		<column name="employeeProofId" type="int" />
-		<column name="createBy" type="int" />
-		<column name="modifiedBy" type="int" />
+		<column name="employeeDesignationId" type="long" />
+		<column name="employeeDepartmentId" type="long" />
+		<column name="employeeSubDepartmentId" type="long" />
+		<column name="employeeType" type="String" />
+		<column name="createBy" type="long" />
+		<column name="modifiedBy" type="long" />
 		
 	<finder name="userId" return-type="EmployeeMaster">
 			<finder-column name="userId" />

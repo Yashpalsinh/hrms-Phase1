@@ -69,21 +69,20 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 			{ "employeeMstId", Types.BIGINT },
 			{ "employeeId", Types.VARCHAR },
 			{ "userId", Types.BIGINT },
-			{ "gender", Types.BIGINT },
+			{ "gender", Types.BOOLEAN },
 			{ "dateOfBirth", Types.TIMESTAMP },
 			{ "joiningDate", Types.TIMESTAMP },
 			{ "leavingDate", Types.TIMESTAMP },
 			{ "maritualStatus", Types.INTEGER },
 			{ "nationality", Types.VARCHAR },
-			{ "employeeDesignationId", Types.INTEGER },
-			{ "employeeDepartmentId", Types.INTEGER },
-			{ "employeeSubDepartmentId", Types.INTEGER },
-			{ "employeeTypeId", Types.INTEGER },
-			{ "employeeProofId", Types.INTEGER },
-			{ "createBy", Types.INTEGER },
-			{ "modifiedBy", Types.INTEGER }
+			{ "employeeDesignationId", Types.BIGINT },
+			{ "employeeDepartmentId", Types.BIGINT },
+			{ "employeeSubDepartmentId", Types.BIGINT },
+			{ "employeeType", Types.VARCHAR },
+			{ "createBy", Types.BIGINT },
+			{ "modifiedBy", Types.BIGINT }
 		};
-	public static final String TABLE_SQL_CREATE = "create table HRMS_EmployeeMst (employeeMstId LONG not null primary key,employeeId VARCHAR(75) null,userId LONG,gender LONG,dateOfBirth DATE null,joiningDate DATE null,leavingDate DATE null,maritualStatus INTEGER,nationality VARCHAR(75) null,employeeDesignationId INTEGER,employeeDepartmentId INTEGER,employeeSubDepartmentId INTEGER,employeeTypeId INTEGER,employeeProofId INTEGER,createBy INTEGER,modifiedBy INTEGER)";
+	public static final String TABLE_SQL_CREATE = "create table HRMS_EmployeeMst (employeeMstId LONG not null primary key,employeeId VARCHAR(75) null,userId LONG,gender BOOLEAN,dateOfBirth DATE null,joiningDate DATE null,leavingDate DATE null,maritualStatus INTEGER,nationality VARCHAR(75) null,employeeDesignationId LONG,employeeDepartmentId LONG,employeeSubDepartmentId LONG,employeeType VARCHAR(75) null,createBy LONG,modifiedBy LONG)";
 	public static final String TABLE_SQL_DROP = "drop table HRMS_EmployeeMst";
 	public static final String ORDER_BY_JPQL = " ORDER BY employeeMst.employeeMstId ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY HRMS_EmployeeMst.employeeMstId ASC";
@@ -129,8 +128,7 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 		model.setEmployeeDesignationId(soapModel.getEmployeeDesignationId());
 		model.setEmployeeDepartmentId(soapModel.getEmployeeDepartmentId());
 		model.setEmployeeSubDepartmentId(soapModel.getEmployeeSubDepartmentId());
-		model.setEmployeeTypeId(soapModel.getEmployeeTypeId());
-		model.setEmployeeProofId(soapModel.getEmployeeProofId());
+		model.setEmployeeType(soapModel.getEmployeeType());
 		model.setCreateBy(soapModel.getCreateBy());
 		model.setModifiedBy(soapModel.getModifiedBy());
 
@@ -209,8 +207,7 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 		attributes.put("employeeDesignationId", getEmployeeDesignationId());
 		attributes.put("employeeDepartmentId", getEmployeeDepartmentId());
 		attributes.put("employeeSubDepartmentId", getEmployeeSubDepartmentId());
-		attributes.put("employeeTypeId", getEmployeeTypeId());
-		attributes.put("employeeProofId", getEmployeeProofId());
+		attributes.put("employeeType", getEmployeeType());
 		attributes.put("createBy", getCreateBy());
 		attributes.put("modifiedBy", getModifiedBy());
 
@@ -237,7 +234,7 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 			setUserId(userId);
 		}
 
-		Long gender = (Long)attributes.get("gender");
+		Boolean gender = (Boolean)attributes.get("gender");
 
 		if (gender != null) {
 			setGender(gender);
@@ -273,46 +270,39 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 			setNationality(nationality);
 		}
 
-		Integer employeeDesignationId = (Integer)attributes.get(
+		Long employeeDesignationId = (Long)attributes.get(
 				"employeeDesignationId");
 
 		if (employeeDesignationId != null) {
 			setEmployeeDesignationId(employeeDesignationId);
 		}
 
-		Integer employeeDepartmentId = (Integer)attributes.get(
-				"employeeDepartmentId");
+		Long employeeDepartmentId = (Long)attributes.get("employeeDepartmentId");
 
 		if (employeeDepartmentId != null) {
 			setEmployeeDepartmentId(employeeDepartmentId);
 		}
 
-		Integer employeeSubDepartmentId = (Integer)attributes.get(
+		Long employeeSubDepartmentId = (Long)attributes.get(
 				"employeeSubDepartmentId");
 
 		if (employeeSubDepartmentId != null) {
 			setEmployeeSubDepartmentId(employeeSubDepartmentId);
 		}
 
-		Integer employeeTypeId = (Integer)attributes.get("employeeTypeId");
+		String employeeType = (String)attributes.get("employeeType");
 
-		if (employeeTypeId != null) {
-			setEmployeeTypeId(employeeTypeId);
+		if (employeeType != null) {
+			setEmployeeType(employeeType);
 		}
 
-		Integer employeeProofId = (Integer)attributes.get("employeeProofId");
-
-		if (employeeProofId != null) {
-			setEmployeeProofId(employeeProofId);
-		}
-
-		Integer createBy = (Integer)attributes.get("createBy");
+		Long createBy = (Long)attributes.get("createBy");
 
 		if (createBy != null) {
 			setCreateBy(createBy);
 		}
 
-		Integer modifiedBy = (Integer)attributes.get("modifiedBy");
+		Long modifiedBy = (Long)attributes.get("modifiedBy");
 
 		if (modifiedBy != null) {
 			setModifiedBy(modifiedBy);
@@ -381,12 +371,17 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 
 	@JSON
 	@Override
-	public long getGender() {
+	public boolean getGender() {
 		return _gender;
 	}
 
 	@Override
-	public void setGender(long gender) {
+	public boolean isGender() {
+		return _gender;
+	}
+
+	@Override
+	public void setGender(boolean gender) {
 		_gender = gender;
 	}
 
@@ -452,67 +447,61 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 
 	@JSON
 	@Override
-	public int getEmployeeDesignationId() {
+	public long getEmployeeDesignationId() {
 		return _employeeDesignationId;
 	}
 
 	@Override
-	public void setEmployeeDesignationId(int employeeDesignationId) {
+	public void setEmployeeDesignationId(long employeeDesignationId) {
 		_employeeDesignationId = employeeDesignationId;
 	}
 
 	@JSON
 	@Override
-	public int getEmployeeDepartmentId() {
+	public long getEmployeeDepartmentId() {
 		return _employeeDepartmentId;
 	}
 
 	@Override
-	public void setEmployeeDepartmentId(int employeeDepartmentId) {
+	public void setEmployeeDepartmentId(long employeeDepartmentId) {
 		_employeeDepartmentId = employeeDepartmentId;
 	}
 
 	@JSON
 	@Override
-	public int getEmployeeSubDepartmentId() {
+	public long getEmployeeSubDepartmentId() {
 		return _employeeSubDepartmentId;
 	}
 
 	@Override
-	public void setEmployeeSubDepartmentId(int employeeSubDepartmentId) {
+	public void setEmployeeSubDepartmentId(long employeeSubDepartmentId) {
 		_employeeSubDepartmentId = employeeSubDepartmentId;
 	}
 
 	@JSON
 	@Override
-	public int getEmployeeTypeId() {
-		return _employeeTypeId;
+	public String getEmployeeType() {
+		if (_employeeType == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _employeeType;
+		}
 	}
 
 	@Override
-	public void setEmployeeTypeId(int employeeTypeId) {
-		_employeeTypeId = employeeTypeId;
-	}
-
-	@JSON
-	@Override
-	public int getEmployeeProofId() {
-		return _employeeProofId;
-	}
-
-	@Override
-	public void setEmployeeProofId(int employeeProofId) {
-		_employeeProofId = employeeProofId;
+	public void setEmployeeType(String employeeType) {
+		_employeeType = employeeType;
 	}
 
 	@JSON
 	@Override
-	public int getCreateBy() {
+	public long getCreateBy() {
 		return _createBy;
 	}
 
 	@Override
-	public void setCreateBy(int createBy) {
+	public void setCreateBy(long createBy) {
 		_columnBitmask |= CREATEBY_COLUMN_BITMASK;
 
 		if (!_setOriginalCreateBy) {
@@ -524,18 +513,18 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 		_createBy = createBy;
 	}
 
-	public int getOriginalCreateBy() {
+	public long getOriginalCreateBy() {
 		return _originalCreateBy;
 	}
 
 	@JSON
 	@Override
-	public int getModifiedBy() {
+	public long getModifiedBy() {
 		return _modifiedBy;
 	}
 
 	@Override
-	public void setModifiedBy(int modifiedBy) {
+	public void setModifiedBy(long modifiedBy) {
 		_columnBitmask |= MODIFIEDBY_COLUMN_BITMASK;
 
 		if (!_setOriginalModifiedBy) {
@@ -547,7 +536,7 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 		_modifiedBy = modifiedBy;
 	}
 
-	public int getOriginalModifiedBy() {
+	public long getOriginalModifiedBy() {
 		return _originalModifiedBy;
 	}
 
@@ -594,8 +583,7 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 		employeeMstImpl.setEmployeeDesignationId(getEmployeeDesignationId());
 		employeeMstImpl.setEmployeeDepartmentId(getEmployeeDepartmentId());
 		employeeMstImpl.setEmployeeSubDepartmentId(getEmployeeSubDepartmentId());
-		employeeMstImpl.setEmployeeTypeId(getEmployeeTypeId());
-		employeeMstImpl.setEmployeeProofId(getEmployeeProofId());
+		employeeMstImpl.setEmployeeType(getEmployeeType());
 		employeeMstImpl.setCreateBy(getCreateBy());
 		employeeMstImpl.setModifiedBy(getModifiedBy());
 
@@ -726,9 +714,13 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 
 		employeeMstCacheModel.employeeSubDepartmentId = getEmployeeSubDepartmentId();
 
-		employeeMstCacheModel.employeeTypeId = getEmployeeTypeId();
+		employeeMstCacheModel.employeeType = getEmployeeType();
 
-		employeeMstCacheModel.employeeProofId = getEmployeeProofId();
+		String employeeType = employeeMstCacheModel.employeeType;
+
+		if ((employeeType != null) && (employeeType.length() == 0)) {
+			employeeMstCacheModel.employeeType = null;
+		}
 
 		employeeMstCacheModel.createBy = getCreateBy();
 
@@ -739,7 +731,7 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(33);
+		StringBundler sb = new StringBundler(31);
 
 		sb.append("{employeeMstId=");
 		sb.append(getEmployeeMstId());
@@ -765,10 +757,8 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 		sb.append(getEmployeeDepartmentId());
 		sb.append(", employeeSubDepartmentId=");
 		sb.append(getEmployeeSubDepartmentId());
-		sb.append(", employeeTypeId=");
-		sb.append(getEmployeeTypeId());
-		sb.append(", employeeProofId=");
-		sb.append(getEmployeeProofId());
+		sb.append(", employeeType=");
+		sb.append(getEmployeeType());
 		sb.append(", createBy=");
 		sb.append(getCreateBy());
 		sb.append(", modifiedBy=");
@@ -780,7 +770,7 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(52);
+		StringBundler sb = new StringBundler(49);
 
 		sb.append("<model><model-name>");
 		sb.append("com.hrms.model.EmployeeMst");
@@ -835,12 +825,8 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 		sb.append(getEmployeeSubDepartmentId());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>employeeTypeId</column-name><column-value><![CDATA[");
-		sb.append(getEmployeeTypeId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>employeeProofId</column-name><column-value><![CDATA[");
-		sb.append(getEmployeeProofId());
+			"<column><column-name>employeeType</column-name><column-value><![CDATA[");
+		sb.append(getEmployeeType());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>createBy</column-name><column-value><![CDATA[");
@@ -866,22 +852,21 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 	private String _userUuid;
 	private long _originalUserId;
 	private boolean _setOriginalUserId;
-	private long _gender;
+	private boolean _gender;
 	private Date _dateOfBirth;
 	private Date _joiningDate;
 	private Date _leavingDate;
 	private int _maritualStatus;
 	private String _nationality;
-	private int _employeeDesignationId;
-	private int _employeeDepartmentId;
-	private int _employeeSubDepartmentId;
-	private int _employeeTypeId;
-	private int _employeeProofId;
-	private int _createBy;
-	private int _originalCreateBy;
+	private long _employeeDesignationId;
+	private long _employeeDepartmentId;
+	private long _employeeSubDepartmentId;
+	private String _employeeType;
+	private long _createBy;
+	private long _originalCreateBy;
 	private boolean _setOriginalCreateBy;
-	private int _modifiedBy;
-	private int _originalModifiedBy;
+	private long _modifiedBy;
+	private long _originalModifiedBy;
 	private boolean _setOriginalModifiedBy;
 	private long _columnBitmask;
 	private EmployeeMst _escapedModel;

@@ -87,8 +87,7 @@ public class EmployeeMstClp extends BaseModelImpl<EmployeeMst>
 		attributes.put("employeeDesignationId", getEmployeeDesignationId());
 		attributes.put("employeeDepartmentId", getEmployeeDepartmentId());
 		attributes.put("employeeSubDepartmentId", getEmployeeSubDepartmentId());
-		attributes.put("employeeTypeId", getEmployeeTypeId());
-		attributes.put("employeeProofId", getEmployeeProofId());
+		attributes.put("employeeType", getEmployeeType());
 		attributes.put("createBy", getCreateBy());
 		attributes.put("modifiedBy", getModifiedBy());
 
@@ -115,7 +114,7 @@ public class EmployeeMstClp extends BaseModelImpl<EmployeeMst>
 			setUserId(userId);
 		}
 
-		Long gender = (Long)attributes.get("gender");
+		Boolean gender = (Boolean)attributes.get("gender");
 
 		if (gender != null) {
 			setGender(gender);
@@ -151,46 +150,39 @@ public class EmployeeMstClp extends BaseModelImpl<EmployeeMst>
 			setNationality(nationality);
 		}
 
-		Integer employeeDesignationId = (Integer)attributes.get(
+		Long employeeDesignationId = (Long)attributes.get(
 				"employeeDesignationId");
 
 		if (employeeDesignationId != null) {
 			setEmployeeDesignationId(employeeDesignationId);
 		}
 
-		Integer employeeDepartmentId = (Integer)attributes.get(
-				"employeeDepartmentId");
+		Long employeeDepartmentId = (Long)attributes.get("employeeDepartmentId");
 
 		if (employeeDepartmentId != null) {
 			setEmployeeDepartmentId(employeeDepartmentId);
 		}
 
-		Integer employeeSubDepartmentId = (Integer)attributes.get(
+		Long employeeSubDepartmentId = (Long)attributes.get(
 				"employeeSubDepartmentId");
 
 		if (employeeSubDepartmentId != null) {
 			setEmployeeSubDepartmentId(employeeSubDepartmentId);
 		}
 
-		Integer employeeTypeId = (Integer)attributes.get("employeeTypeId");
+		String employeeType = (String)attributes.get("employeeType");
 
-		if (employeeTypeId != null) {
-			setEmployeeTypeId(employeeTypeId);
+		if (employeeType != null) {
+			setEmployeeType(employeeType);
 		}
 
-		Integer employeeProofId = (Integer)attributes.get("employeeProofId");
-
-		if (employeeProofId != null) {
-			setEmployeeProofId(employeeProofId);
-		}
-
-		Integer createBy = (Integer)attributes.get("createBy");
+		Long createBy = (Long)attributes.get("createBy");
 
 		if (createBy != null) {
 			setCreateBy(createBy);
 		}
 
-		Integer modifiedBy = (Integer)attributes.get("modifiedBy");
+		Long modifiedBy = (Long)attributes.get("modifiedBy");
 
 		if (modifiedBy != null) {
 			setModifiedBy(modifiedBy);
@@ -277,19 +269,24 @@ public class EmployeeMstClp extends BaseModelImpl<EmployeeMst>
 	}
 
 	@Override
-	public long getGender() {
+	public boolean getGender() {
 		return _gender;
 	}
 
 	@Override
-	public void setGender(long gender) {
+	public boolean isGender() {
+		return _gender;
+	}
+
+	@Override
+	public void setGender(boolean gender) {
 		_gender = gender;
 
 		if (_employeeMstRemoteModel != null) {
 			try {
 				Class<?> clazz = _employeeMstRemoteModel.getClass();
 
-				Method method = clazz.getMethod("setGender", long.class);
+				Method method = clazz.getMethod("setGender", boolean.class);
 
 				method.invoke(_employeeMstRemoteModel, gender);
 			}
@@ -415,12 +412,12 @@ public class EmployeeMstClp extends BaseModelImpl<EmployeeMst>
 	}
 
 	@Override
-	public int getEmployeeDesignationId() {
+	public long getEmployeeDesignationId() {
 		return _employeeDesignationId;
 	}
 
 	@Override
-	public void setEmployeeDesignationId(int employeeDesignationId) {
+	public void setEmployeeDesignationId(long employeeDesignationId) {
 		_employeeDesignationId = employeeDesignationId;
 
 		if (_employeeMstRemoteModel != null) {
@@ -428,7 +425,7 @@ public class EmployeeMstClp extends BaseModelImpl<EmployeeMst>
 				Class<?> clazz = _employeeMstRemoteModel.getClass();
 
 				Method method = clazz.getMethod("setEmployeeDesignationId",
-						int.class);
+						long.class);
 
 				method.invoke(_employeeMstRemoteModel, employeeDesignationId);
 			}
@@ -439,12 +436,12 @@ public class EmployeeMstClp extends BaseModelImpl<EmployeeMst>
 	}
 
 	@Override
-	public int getEmployeeDepartmentId() {
+	public long getEmployeeDepartmentId() {
 		return _employeeDepartmentId;
 	}
 
 	@Override
-	public void setEmployeeDepartmentId(int employeeDepartmentId) {
+	public void setEmployeeDepartmentId(long employeeDepartmentId) {
 		_employeeDepartmentId = employeeDepartmentId;
 
 		if (_employeeMstRemoteModel != null) {
@@ -452,7 +449,7 @@ public class EmployeeMstClp extends BaseModelImpl<EmployeeMst>
 				Class<?> clazz = _employeeMstRemoteModel.getClass();
 
 				Method method = clazz.getMethod("setEmployeeDepartmentId",
-						int.class);
+						long.class);
 
 				method.invoke(_employeeMstRemoteModel, employeeDepartmentId);
 			}
@@ -463,12 +460,12 @@ public class EmployeeMstClp extends BaseModelImpl<EmployeeMst>
 	}
 
 	@Override
-	public int getEmployeeSubDepartmentId() {
+	public long getEmployeeSubDepartmentId() {
 		return _employeeSubDepartmentId;
 	}
 
 	@Override
-	public void setEmployeeSubDepartmentId(int employeeSubDepartmentId) {
+	public void setEmployeeSubDepartmentId(long employeeSubDepartmentId) {
 		_employeeSubDepartmentId = employeeSubDepartmentId;
 
 		if (_employeeMstRemoteModel != null) {
@@ -476,7 +473,7 @@ public class EmployeeMstClp extends BaseModelImpl<EmployeeMst>
 				Class<?> clazz = _employeeMstRemoteModel.getClass();
 
 				Method method = clazz.getMethod("setEmployeeSubDepartmentId",
-						int.class);
+						long.class);
 
 				method.invoke(_employeeMstRemoteModel, employeeSubDepartmentId);
 			}
@@ -487,21 +484,21 @@ public class EmployeeMstClp extends BaseModelImpl<EmployeeMst>
 	}
 
 	@Override
-	public int getEmployeeTypeId() {
-		return _employeeTypeId;
+	public String getEmployeeType() {
+		return _employeeType;
 	}
 
 	@Override
-	public void setEmployeeTypeId(int employeeTypeId) {
-		_employeeTypeId = employeeTypeId;
+	public void setEmployeeType(String employeeType) {
+		_employeeType = employeeType;
 
 		if (_employeeMstRemoteModel != null) {
 			try {
 				Class<?> clazz = _employeeMstRemoteModel.getClass();
 
-				Method method = clazz.getMethod("setEmployeeTypeId", int.class);
+				Method method = clazz.getMethod("setEmployeeType", String.class);
 
-				method.invoke(_employeeMstRemoteModel, employeeTypeId);
+				method.invoke(_employeeMstRemoteModel, employeeType);
 			}
 			catch (Exception e) {
 				throw new UnsupportedOperationException(e);
@@ -510,42 +507,19 @@ public class EmployeeMstClp extends BaseModelImpl<EmployeeMst>
 	}
 
 	@Override
-	public int getEmployeeProofId() {
-		return _employeeProofId;
-	}
-
-	@Override
-	public void setEmployeeProofId(int employeeProofId) {
-		_employeeProofId = employeeProofId;
-
-		if (_employeeMstRemoteModel != null) {
-			try {
-				Class<?> clazz = _employeeMstRemoteModel.getClass();
-
-				Method method = clazz.getMethod("setEmployeeProofId", int.class);
-
-				method.invoke(_employeeMstRemoteModel, employeeProofId);
-			}
-			catch (Exception e) {
-				throw new UnsupportedOperationException(e);
-			}
-		}
-	}
-
-	@Override
-	public int getCreateBy() {
+	public long getCreateBy() {
 		return _createBy;
 	}
 
 	@Override
-	public void setCreateBy(int createBy) {
+	public void setCreateBy(long createBy) {
 		_createBy = createBy;
 
 		if (_employeeMstRemoteModel != null) {
 			try {
 				Class<?> clazz = _employeeMstRemoteModel.getClass();
 
-				Method method = clazz.getMethod("setCreateBy", int.class);
+				Method method = clazz.getMethod("setCreateBy", long.class);
 
 				method.invoke(_employeeMstRemoteModel, createBy);
 			}
@@ -556,19 +530,19 @@ public class EmployeeMstClp extends BaseModelImpl<EmployeeMst>
 	}
 
 	@Override
-	public int getModifiedBy() {
+	public long getModifiedBy() {
 		return _modifiedBy;
 	}
 
 	@Override
-	public void setModifiedBy(int modifiedBy) {
+	public void setModifiedBy(long modifiedBy) {
 		_modifiedBy = modifiedBy;
 
 		if (_employeeMstRemoteModel != null) {
 			try {
 				Class<?> clazz = _employeeMstRemoteModel.getClass();
 
-				Method method = clazz.getMethod("setModifiedBy", int.class);
+				Method method = clazz.getMethod("setModifiedBy", long.class);
 
 				method.invoke(_employeeMstRemoteModel, modifiedBy);
 			}
@@ -659,8 +633,7 @@ public class EmployeeMstClp extends BaseModelImpl<EmployeeMst>
 		clone.setEmployeeDesignationId(getEmployeeDesignationId());
 		clone.setEmployeeDepartmentId(getEmployeeDepartmentId());
 		clone.setEmployeeSubDepartmentId(getEmployeeSubDepartmentId());
-		clone.setEmployeeTypeId(getEmployeeTypeId());
-		clone.setEmployeeProofId(getEmployeeProofId());
+		clone.setEmployeeType(getEmployeeType());
 		clone.setCreateBy(getCreateBy());
 		clone.setModifiedBy(getModifiedBy());
 
@@ -711,7 +684,7 @@ public class EmployeeMstClp extends BaseModelImpl<EmployeeMst>
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(33);
+		StringBundler sb = new StringBundler(31);
 
 		sb.append("{employeeMstId=");
 		sb.append(getEmployeeMstId());
@@ -737,10 +710,8 @@ public class EmployeeMstClp extends BaseModelImpl<EmployeeMst>
 		sb.append(getEmployeeDepartmentId());
 		sb.append(", employeeSubDepartmentId=");
 		sb.append(getEmployeeSubDepartmentId());
-		sb.append(", employeeTypeId=");
-		sb.append(getEmployeeTypeId());
-		sb.append(", employeeProofId=");
-		sb.append(getEmployeeProofId());
+		sb.append(", employeeType=");
+		sb.append(getEmployeeType());
 		sb.append(", createBy=");
 		sb.append(getCreateBy());
 		sb.append(", modifiedBy=");
@@ -752,7 +723,7 @@ public class EmployeeMstClp extends BaseModelImpl<EmployeeMst>
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(52);
+		StringBundler sb = new StringBundler(49);
 
 		sb.append("<model><model-name>");
 		sb.append("com.hrms.model.EmployeeMst");
@@ -807,12 +778,8 @@ public class EmployeeMstClp extends BaseModelImpl<EmployeeMst>
 		sb.append(getEmployeeSubDepartmentId());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>employeeTypeId</column-name><column-value><![CDATA[");
-		sb.append(getEmployeeTypeId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>employeeProofId</column-name><column-value><![CDATA[");
-		sb.append(getEmployeeProofId());
+			"<column><column-name>employeeType</column-name><column-value><![CDATA[");
+		sb.append(getEmployeeType());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>createBy</column-name><column-value><![CDATA[");
@@ -832,18 +799,17 @@ public class EmployeeMstClp extends BaseModelImpl<EmployeeMst>
 	private String _employeeId;
 	private long _userId;
 	private String _userUuid;
-	private long _gender;
+	private boolean _gender;
 	private Date _dateOfBirth;
 	private Date _joiningDate;
 	private Date _leavingDate;
 	private int _maritualStatus;
 	private String _nationality;
-	private int _employeeDesignationId;
-	private int _employeeDepartmentId;
-	private int _employeeSubDepartmentId;
-	private int _employeeTypeId;
-	private int _employeeProofId;
-	private int _createBy;
-	private int _modifiedBy;
+	private long _employeeDesignationId;
+	private long _employeeDepartmentId;
+	private long _employeeSubDepartmentId;
+	private String _employeeType;
+	private long _createBy;
+	private long _modifiedBy;
 	private BaseModel<?> _employeeMstRemoteModel;
 }

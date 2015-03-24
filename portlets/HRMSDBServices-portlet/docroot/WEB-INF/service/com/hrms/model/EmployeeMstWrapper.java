@@ -62,8 +62,7 @@ public class EmployeeMstWrapper implements EmployeeMst,
 		attributes.put("employeeDesignationId", getEmployeeDesignationId());
 		attributes.put("employeeDepartmentId", getEmployeeDepartmentId());
 		attributes.put("employeeSubDepartmentId", getEmployeeSubDepartmentId());
-		attributes.put("employeeTypeId", getEmployeeTypeId());
-		attributes.put("employeeProofId", getEmployeeProofId());
+		attributes.put("employeeType", getEmployeeType());
 		attributes.put("createBy", getCreateBy());
 		attributes.put("modifiedBy", getModifiedBy());
 
@@ -90,7 +89,7 @@ public class EmployeeMstWrapper implements EmployeeMst,
 			setUserId(userId);
 		}
 
-		Long gender = (Long)attributes.get("gender");
+		Boolean gender = (Boolean)attributes.get("gender");
 
 		if (gender != null) {
 			setGender(gender);
@@ -126,46 +125,39 @@ public class EmployeeMstWrapper implements EmployeeMst,
 			setNationality(nationality);
 		}
 
-		Integer employeeDesignationId = (Integer)attributes.get(
+		Long employeeDesignationId = (Long)attributes.get(
 				"employeeDesignationId");
 
 		if (employeeDesignationId != null) {
 			setEmployeeDesignationId(employeeDesignationId);
 		}
 
-		Integer employeeDepartmentId = (Integer)attributes.get(
-				"employeeDepartmentId");
+		Long employeeDepartmentId = (Long)attributes.get("employeeDepartmentId");
 
 		if (employeeDepartmentId != null) {
 			setEmployeeDepartmentId(employeeDepartmentId);
 		}
 
-		Integer employeeSubDepartmentId = (Integer)attributes.get(
+		Long employeeSubDepartmentId = (Long)attributes.get(
 				"employeeSubDepartmentId");
 
 		if (employeeSubDepartmentId != null) {
 			setEmployeeSubDepartmentId(employeeSubDepartmentId);
 		}
 
-		Integer employeeTypeId = (Integer)attributes.get("employeeTypeId");
+		String employeeType = (String)attributes.get("employeeType");
 
-		if (employeeTypeId != null) {
-			setEmployeeTypeId(employeeTypeId);
+		if (employeeType != null) {
+			setEmployeeType(employeeType);
 		}
 
-		Integer employeeProofId = (Integer)attributes.get("employeeProofId");
-
-		if (employeeProofId != null) {
-			setEmployeeProofId(employeeProofId);
-		}
-
-		Integer createBy = (Integer)attributes.get("createBy");
+		Long createBy = (Long)attributes.get("createBy");
 
 		if (createBy != null) {
 			setCreateBy(createBy);
 		}
 
-		Integer modifiedBy = (Integer)attributes.get("modifiedBy");
+		Long modifiedBy = (Long)attributes.get("modifiedBy");
 
 		if (modifiedBy != null) {
 			setModifiedBy(modifiedBy);
@@ -280,17 +272,27 @@ public class EmployeeMstWrapper implements EmployeeMst,
 	* @return the gender of this employee mst
 	*/
 	@Override
-	public long getGender() {
+	public boolean getGender() {
 		return _employeeMst.getGender();
 	}
 
 	/**
-	* Sets the gender of this employee mst.
+	* Returns <code>true</code> if this employee mst is gender.
+	*
+	* @return <code>true</code> if this employee mst is gender; <code>false</code> otherwise
+	*/
+	@Override
+	public boolean isGender() {
+		return _employeeMst.isGender();
+	}
+
+	/**
+	* Sets whether this employee mst is gender.
 	*
 	* @param gender the gender of this employee mst
 	*/
 	@Override
-	public void setGender(long gender) {
+	public void setGender(boolean gender) {
 		_employeeMst.setGender(gender);
 	}
 
@@ -400,7 +402,7 @@ public class EmployeeMstWrapper implements EmployeeMst,
 	* @return the employee designation ID of this employee mst
 	*/
 	@Override
-	public int getEmployeeDesignationId() {
+	public long getEmployeeDesignationId() {
 		return _employeeMst.getEmployeeDesignationId();
 	}
 
@@ -410,7 +412,7 @@ public class EmployeeMstWrapper implements EmployeeMst,
 	* @param employeeDesignationId the employee designation ID of this employee mst
 	*/
 	@Override
-	public void setEmployeeDesignationId(int employeeDesignationId) {
+	public void setEmployeeDesignationId(long employeeDesignationId) {
 		_employeeMst.setEmployeeDesignationId(employeeDesignationId);
 	}
 
@@ -420,7 +422,7 @@ public class EmployeeMstWrapper implements EmployeeMst,
 	* @return the employee department ID of this employee mst
 	*/
 	@Override
-	public int getEmployeeDepartmentId() {
+	public long getEmployeeDepartmentId() {
 		return _employeeMst.getEmployeeDepartmentId();
 	}
 
@@ -430,7 +432,7 @@ public class EmployeeMstWrapper implements EmployeeMst,
 	* @param employeeDepartmentId the employee department ID of this employee mst
 	*/
 	@Override
-	public void setEmployeeDepartmentId(int employeeDepartmentId) {
+	public void setEmployeeDepartmentId(long employeeDepartmentId) {
 		_employeeMst.setEmployeeDepartmentId(employeeDepartmentId);
 	}
 
@@ -440,7 +442,7 @@ public class EmployeeMstWrapper implements EmployeeMst,
 	* @return the employee sub department ID of this employee mst
 	*/
 	@Override
-	public int getEmployeeSubDepartmentId() {
+	public long getEmployeeSubDepartmentId() {
 		return _employeeMst.getEmployeeSubDepartmentId();
 	}
 
@@ -450,48 +452,28 @@ public class EmployeeMstWrapper implements EmployeeMst,
 	* @param employeeSubDepartmentId the employee sub department ID of this employee mst
 	*/
 	@Override
-	public void setEmployeeSubDepartmentId(int employeeSubDepartmentId) {
+	public void setEmployeeSubDepartmentId(long employeeSubDepartmentId) {
 		_employeeMst.setEmployeeSubDepartmentId(employeeSubDepartmentId);
 	}
 
 	/**
-	* Returns the employee type ID of this employee mst.
+	* Returns the employee type of this employee mst.
 	*
-	* @return the employee type ID of this employee mst
+	* @return the employee type of this employee mst
 	*/
 	@Override
-	public int getEmployeeTypeId() {
-		return _employeeMst.getEmployeeTypeId();
+	public java.lang.String getEmployeeType() {
+		return _employeeMst.getEmployeeType();
 	}
 
 	/**
-	* Sets the employee type ID of this employee mst.
+	* Sets the employee type of this employee mst.
 	*
-	* @param employeeTypeId the employee type ID of this employee mst
+	* @param employeeType the employee type of this employee mst
 	*/
 	@Override
-	public void setEmployeeTypeId(int employeeTypeId) {
-		_employeeMst.setEmployeeTypeId(employeeTypeId);
-	}
-
-	/**
-	* Returns the employee proof ID of this employee mst.
-	*
-	* @return the employee proof ID of this employee mst
-	*/
-	@Override
-	public int getEmployeeProofId() {
-		return _employeeMst.getEmployeeProofId();
-	}
-
-	/**
-	* Sets the employee proof ID of this employee mst.
-	*
-	* @param employeeProofId the employee proof ID of this employee mst
-	*/
-	@Override
-	public void setEmployeeProofId(int employeeProofId) {
-		_employeeMst.setEmployeeProofId(employeeProofId);
+	public void setEmployeeType(java.lang.String employeeType) {
+		_employeeMst.setEmployeeType(employeeType);
 	}
 
 	/**
@@ -500,7 +482,7 @@ public class EmployeeMstWrapper implements EmployeeMst,
 	* @return the create by of this employee mst
 	*/
 	@Override
-	public int getCreateBy() {
+	public long getCreateBy() {
 		return _employeeMst.getCreateBy();
 	}
 
@@ -510,7 +492,7 @@ public class EmployeeMstWrapper implements EmployeeMst,
 	* @param createBy the create by of this employee mst
 	*/
 	@Override
-	public void setCreateBy(int createBy) {
+	public void setCreateBy(long createBy) {
 		_employeeMst.setCreateBy(createBy);
 	}
 
@@ -520,7 +502,7 @@ public class EmployeeMstWrapper implements EmployeeMst,
 	* @return the modified by of this employee mst
 	*/
 	@Override
-	public int getModifiedBy() {
+	public long getModifiedBy() {
 		return _employeeMst.getModifiedBy();
 	}
 
@@ -530,7 +512,7 @@ public class EmployeeMstWrapper implements EmployeeMst,
 	* @param modifiedBy the modified by of this employee mst
 	*/
 	@Override
-	public void setModifiedBy(int modifiedBy) {
+	public void setModifiedBy(long modifiedBy) {
 		_employeeMst.setModifiedBy(modifiedBy);
 	}
 
