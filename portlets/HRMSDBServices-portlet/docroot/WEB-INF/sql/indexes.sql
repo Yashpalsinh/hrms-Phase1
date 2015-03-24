@@ -19,6 +19,8 @@ create index IX_9E52A12C on HRMS_EmployeeMaster (createBy);
 create index IX_F031DEB9 on HRMS_EmployeeMaster (modifiedBy);
 create index IX_C3F4B1FF on HRMS_EmployeeMaster (userId);
 
+create index IX_8AC70FBE on HRMS_EmployeeMst (createBy);
+create index IX_9144F0CB on HRMS_EmployeeMst (modifiedBy);
 create index IX_5779D11 on HRMS_EmployeeMst (userId);
 
 create index IX_B45E0D36 on HRMS_EmployeePreviousCompany (createBy);
@@ -37,3 +39,5 @@ create index IX_45490CF5 on HRMS_EmployeeTimesheet (userId);
 
 create index IX_17A7994C on HRMS_EmployeeWarning (createBy);
 create index IX_68294ED9 on HRMS_EmployeeWarning (modifiedBy);
+
+create index IX_48915AD5 on HRMS_Todo (userId);

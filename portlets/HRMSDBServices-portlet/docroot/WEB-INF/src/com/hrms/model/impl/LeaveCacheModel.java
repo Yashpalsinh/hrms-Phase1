@@ -37,7 +37,7 @@ import java.util.Date;
 public class LeaveCacheModel implements CacheModel<Leave>, Externalizable {
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(27);
+		StringBundler sb = new StringBundler(29);
 
 		sb.append("{leaveId=");
 		sb.append(leaveId);
@@ -53,10 +53,12 @@ public class LeaveCacheModel implements CacheModel<Leave>, Externalizable {
 		sb.append(leavesAllowedPerYear);
 		sb.append(", carryOver=");
 		sb.append(carryOver);
+		sb.append(", carryOverLimit=");
+		sb.append(carryOverLimit);
 		sb.append(", encachement=");
 		sb.append(encachement);
-		sb.append(", Status=");
-		sb.append(Status);
+		sb.append(", status=");
+		sb.append(status);
 		sb.append(", createDate=");
 		sb.append(createDate);
 		sb.append(", modifiedDate=");
@@ -94,8 +96,9 @@ public class LeaveCacheModel implements CacheModel<Leave>, Externalizable {
 
 		leaveImpl.setLeavesAllowedPerYear(leavesAllowedPerYear);
 		leaveImpl.setCarryOver(carryOver);
+		leaveImpl.setCarryOverLimit(carryOverLimit);
 		leaveImpl.setEncachement(encachement);
-		leaveImpl.setStatus(Status);
+		leaveImpl.setStatus(status);
 
 		if (createDate == Long.MIN_VALUE) {
 			leaveImpl.setCreateDate(null);
@@ -128,8 +131,9 @@ public class LeaveCacheModel implements CacheModel<Leave>, Externalizable {
 		leaveType = objectInput.readUTF();
 		leavesAllowedPerYear = objectInput.readInt();
 		carryOver = objectInput.readBoolean();
+		carryOverLimit = objectInput.readInt();
 		encachement = objectInput.readBoolean();
-		Status = objectInput.readBoolean();
+		status = objectInput.readBoolean();
 		createDate = objectInput.readLong();
 		modifiedDate = objectInput.readLong();
 		createBy = objectInput.readLong();
@@ -159,8 +163,9 @@ public class LeaveCacheModel implements CacheModel<Leave>, Externalizable {
 
 		objectOutput.writeInt(leavesAllowedPerYear);
 		objectOutput.writeBoolean(carryOver);
+		objectOutput.writeInt(carryOverLimit);
 		objectOutput.writeBoolean(encachement);
-		objectOutput.writeBoolean(Status);
+		objectOutput.writeBoolean(status);
 		objectOutput.writeLong(createDate);
 		objectOutput.writeLong(modifiedDate);
 		objectOutput.writeLong(createBy);
@@ -174,8 +179,9 @@ public class LeaveCacheModel implements CacheModel<Leave>, Externalizable {
 	public String leaveType;
 	public int leavesAllowedPerYear;
 	public boolean carryOver;
+	public int carryOverLimit;
 	public boolean encachement;
-	public boolean Status;
+	public boolean status;
 	public long createDate;
 	public long modifiedDate;
 	public long createBy;

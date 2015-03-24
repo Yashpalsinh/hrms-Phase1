@@ -17,7 +17,7 @@
 	</aui:fieldset>
 	<aui:button-row>
 		<aui:button name="saveForm" value="Save" type="submit" />
-		<aui:button value="Back" type="button" />
+		<aui:button value="Back" type="button" onClick="javascript: window.history.go(-1)" />
 	</aui:button-row>
 
 </aui:form>

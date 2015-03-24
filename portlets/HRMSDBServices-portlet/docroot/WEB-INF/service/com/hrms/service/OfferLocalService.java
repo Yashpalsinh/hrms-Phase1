@@ -58,20 +58,20 @@ public interface OfferLocalService extends BaseLocalService,
 	/**
 	* Creates a new offer with the primary key. Does not add the offer to the database.
 	*
-	* @param OferrId the primary key for the new offer
+	* @param OfferId the primary key for the new offer
 	* @return the new offer
 	*/
-	public com.hrms.model.Offer createOffer(long OferrId);
+	public com.hrms.model.Offer createOffer(long OfferId);
 
 	/**
 	* Deletes the offer with the primary key from the database. Also notifies the appropriate model listeners.
 	*
-	* @param OferrId the primary key of the offer
+	* @param OfferId the primary key of the offer
 	* @return the offer that was removed
 	* @throws PortalException if a offer with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public com.hrms.model.Offer deleteOffer(long OferrId)
+	public com.hrms.model.Offer deleteOffer(long OfferId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
 
@@ -163,19 +163,19 @@ public interface OfferLocalService extends BaseLocalService,
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public com.hrms.model.Offer fetchOffer(long OferrId)
+	public com.hrms.model.Offer fetchOffer(long OfferId)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
 	* Returns the offer with the primary key.
 	*
-	* @param OferrId the primary key of the offer
+	* @param OfferId the primary key of the offer
 	* @return the offer
 	* @throws PortalException if a offer with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public com.hrms.model.Offer getOffer(long OferrId)
+	public com.hrms.model.Offer getOffer(long OfferId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
 

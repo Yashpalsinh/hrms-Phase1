@@ -31,9 +31,10 @@ public class OfferSoap implements Serializable {
 	public static OfferSoap toSoapModel(Offer model) {
 		OfferSoap soapModel = new OfferSoap();
 
-		soapModel.setOferrId(model.getOferrId());
+		soapModel.setOfferId(model.getOfferId());
 		soapModel.setCandidateId(model.getCandidateId());
 		soapModel.setEmployeeDepartmentId(model.getEmployeeDepartmentId());
+		soapModel.setEmployeeSubDepartmentId(model.getEmployeeSubDepartmentId());
 		soapModel.setEmployeeDesignationId(model.getEmployeeDesignationId());
 		soapModel.setEmployeeTypeId(model.getEmployeeTypeId());
 		soapModel.setSalary(model.getSalary());
@@ -87,19 +88,19 @@ public class OfferSoap implements Serializable {
 	}
 
 	public long getPrimaryKey() {
-		return _OferrId;
+		return _OfferId;
 	}
 
 	public void setPrimaryKey(long pk) {
-		setOferrId(pk);
+		setOfferId(pk);
 	}
 
-	public long getOferrId() {
-		return _OferrId;
+	public long getOfferId() {
+		return _OfferId;
 	}
 
-	public void setOferrId(long OferrId) {
-		_OferrId = OferrId;
+	public void setOfferId(long OfferId) {
+		_OfferId = OfferId;
 	}
 
 	public long getCandidateId() {
@@ -116,6 +117,14 @@ public class OfferSoap implements Serializable {
 
 	public void setEmployeeDepartmentId(long employeeDepartmentId) {
 		_employeeDepartmentId = employeeDepartmentId;
+	}
+
+	public long getEmployeeSubDepartmentId() {
+		return _employeeSubDepartmentId;
+	}
+
+	public void setEmployeeSubDepartmentId(long employeeSubDepartmentId) {
+		_employeeSubDepartmentId = employeeSubDepartmentId;
 	}
 
 	public long getEmployeeDesignationId() {
@@ -182,9 +191,10 @@ public class OfferSoap implements Serializable {
 		_modifiedBy = modifiedBy;
 	}
 
-	private long _OferrId;
+	private long _OfferId;
 	private long _candidateId;
 	private long _employeeDepartmentId;
+	private long _employeeSubDepartmentId;
 	private long _employeeDesignationId;
 	private long _employeeTypeId;
 	private long _salary;

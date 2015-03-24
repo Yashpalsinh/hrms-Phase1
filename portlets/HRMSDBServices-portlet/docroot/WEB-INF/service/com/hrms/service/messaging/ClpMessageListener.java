@@ -33,8 +33,8 @@ import com.hrms.service.EmployeeLanguageDetailLocalServiceUtil;
 import com.hrms.service.EmployeeLanguageDetailServiceUtil;
 import com.hrms.service.EmployeeLeaveLocalServiceUtil;
 import com.hrms.service.EmployeeLeaveServiceUtil;
-import com.hrms.service.EmployeeMasterLocalServiceUtil;
-import com.hrms.service.EmployeeMasterServiceUtil;
+import com.hrms.service.EmployeeMstLocalServiceUtil;
+import com.hrms.service.EmployeeMstServiceUtil;
 import com.hrms.service.EmployeePreviousCompanyLocalServiceUtil;
 import com.hrms.service.EmployeePreviousCompanyServiceUtil;
 import com.hrms.service.EmployeeProofLocalServiceUtil;
@@ -61,6 +61,8 @@ import com.hrms.service.OfferLocalServiceUtil;
 import com.hrms.service.OfferServiceUtil;
 import com.hrms.service.ProofLocalServiceUtil;
 import com.hrms.service.ProofServiceUtil;
+import com.hrms.service.TodoLocalServiceUtil;
+import com.hrms.service.TodoServiceUtil;
 
 import com.liferay.portal.kernel.messaging.BaseMessageListener;
 import com.liferay.portal.kernel.messaging.Message;
@@ -107,9 +109,9 @@ public class ClpMessageListener extends BaseMessageListener {
 			EmployeeLeaveLocalServiceUtil.clearService();
 
 			EmployeeLeaveServiceUtil.clearService();
-			EmployeeMasterLocalServiceUtil.clearService();
+			EmployeeMstLocalServiceUtil.clearService();
 
-			EmployeeMasterServiceUtil.clearService();
+			EmployeeMstServiceUtil.clearService();
 			EmployeePreviousCompanyLocalServiceUtil.clearService();
 
 			EmployeePreviousCompanyServiceUtil.clearService();
@@ -149,6 +151,9 @@ public class ClpMessageListener extends BaseMessageListener {
 			ProofLocalServiceUtil.clearService();
 
 			ProofServiceUtil.clearService();
+			TodoLocalServiceUtil.clearService();
+
+			TodoServiceUtil.clearService();
 		}
 	}
 }

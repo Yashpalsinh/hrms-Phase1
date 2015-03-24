@@ -38,7 +38,7 @@ public class EmployeeTimesheetCacheModel implements CacheModel<EmployeeTimesheet
 	Externalizable {
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(39);
+		StringBundler sb = new StringBundler(35);
 
 		sb.append("{timesheetId=");
 		sb.append(timesheetId);
@@ -52,10 +52,6 @@ public class EmployeeTimesheetCacheModel implements CacheModel<EmployeeTimesheet
 		sb.append(taskTitle);
 		sb.append(", taskDescription=");
 		sb.append(taskDescription);
-		sb.append(", taskFileId=");
-		sb.append(taskFileId);
-		sb.append(", taskFilePath=");
-		sb.append(taskFilePath);
 		sb.append(", taskStarttime=");
 		sb.append(taskStarttime);
 		sb.append(", taskEndtime=");
@@ -106,15 +102,6 @@ public class EmployeeTimesheetCacheModel implements CacheModel<EmployeeTimesheet
 			employeeTimesheetImpl.setTaskDescription(taskDescription);
 		}
 
-		employeeTimesheetImpl.setTaskFileId(taskFileId);
-
-		if (taskFilePath == null) {
-			employeeTimesheetImpl.setTaskFilePath(StringPool.BLANK);
-		}
-		else {
-			employeeTimesheetImpl.setTaskFilePath(taskFilePath);
-		}
-
 		if (taskStarttime == Long.MIN_VALUE) {
 			employeeTimesheetImpl.setTaskStarttime(null);
 		}
@@ -136,11 +123,11 @@ public class EmployeeTimesheetCacheModel implements CacheModel<EmployeeTimesheet
 			employeeTimesheetImpl.setTaskDate(new Date(taskDate));
 		}
 
-		if (duration == Long.MIN_VALUE) {
-			employeeTimesheetImpl.setDuration(null);
+		if (duration == null) {
+			employeeTimesheetImpl.setDuration(StringPool.BLANK);
 		}
 		else {
-			employeeTimesheetImpl.setDuration(new Date(duration));
+			employeeTimesheetImpl.setDuration(duration);
 		}
 
 		employeeTimesheetImpl.setTaskCompleted(taskCompleted);
@@ -177,12 +164,10 @@ public class EmployeeTimesheetCacheModel implements CacheModel<EmployeeTimesheet
 		companyId = objectInput.readLong();
 		taskTitle = objectInput.readUTF();
 		taskDescription = objectInput.readUTF();
-		taskFileId = objectInput.readLong();
-		taskFilePath = objectInput.readUTF();
 		taskStarttime = objectInput.readLong();
 		taskEndtime = objectInput.readLong();
 		taskDate = objectInput.readLong();
-		duration = objectInput.readLong();
+		duration = objectInput.readUTF();
 		taskCompleted = objectInput.readBoolean();
 		billable = objectInput.readBoolean();
 		billed = objectInput.readBoolean();
@@ -214,19 +199,17 @@ public class EmployeeTimesheetCacheModel implements CacheModel<EmployeeTimesheet
 			objectOutput.writeUTF(taskDescription);
 		}
 
-		objectOutput.writeLong(taskFileId);
-
-		if (taskFilePath == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(taskFilePath);
-		}
-
 		objectOutput.writeLong(taskStarttime);
 		objectOutput.writeLong(taskEndtime);
 		objectOutput.writeLong(taskDate);
-		objectOutput.writeLong(duration);
+
+		if (duration == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(duration);
+		}
+
 		objectOutput.writeBoolean(taskCompleted);
 		objectOutput.writeBoolean(billable);
 		objectOutput.writeBoolean(billed);
@@ -242,12 +225,10 @@ public class EmployeeTimesheetCacheModel implements CacheModel<EmployeeTimesheet
 	public long companyId;
 	public String taskTitle;
 	public String taskDescription;
-	public long taskFileId;
-	public String taskFilePath;
 	public long taskStarttime;
 	public long taskEndtime;
 	public long taskDate;
-	public long duration;
+	public String duration;
 	public boolean taskCompleted;
 	public boolean billable;
 	public boolean billed;

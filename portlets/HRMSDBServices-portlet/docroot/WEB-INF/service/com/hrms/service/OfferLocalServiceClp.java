@@ -139,12 +139,12 @@ public class OfferLocalServiceClp implements OfferLocalService {
 	}
 
 	@Override
-	public com.hrms.model.Offer createOffer(long OferrId) {
+	public com.hrms.model.Offer createOffer(long OfferId) {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName1,
-					_methodParameterTypes1, new Object[] { OferrId });
+					_methodParameterTypes1, new Object[] { OfferId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -162,14 +162,14 @@ public class OfferLocalServiceClp implements OfferLocalService {
 	}
 
 	@Override
-	public com.hrms.model.Offer deleteOffer(long OferrId)
+	public com.hrms.model.Offer deleteOffer(long OfferId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName2,
-					_methodParameterTypes2, new Object[] { OferrId });
+					_methodParameterTypes2, new Object[] { OfferId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -421,13 +421,13 @@ public class OfferLocalServiceClp implements OfferLocalService {
 	}
 
 	@Override
-	public com.hrms.model.Offer fetchOffer(long OferrId)
+	public com.hrms.model.Offer fetchOffer(long OfferId)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName10,
-					_methodParameterTypes10, new Object[] { OferrId });
+					_methodParameterTypes10, new Object[] { OfferId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -449,14 +449,14 @@ public class OfferLocalServiceClp implements OfferLocalService {
 	}
 
 	@Override
-	public com.hrms.model.Offer getOffer(long OferrId)
+	public com.hrms.model.Offer getOffer(long OfferId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName11,
-					_methodParameterTypes11, new Object[] { OferrId });
+					_methodParameterTypes11, new Object[] { OfferId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);

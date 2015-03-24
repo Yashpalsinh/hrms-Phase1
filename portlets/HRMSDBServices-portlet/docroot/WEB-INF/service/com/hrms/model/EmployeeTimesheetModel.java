@@ -162,35 +162,6 @@ public interface EmployeeTimesheetModel extends BaseModel<EmployeeTimesheet> {
 	public void setTaskDescription(String taskDescription);
 
 	/**
-	 * Returns the task file ID of this employee timesheet.
-	 *
-	 * @return the task file ID of this employee timesheet
-	 */
-	public long getTaskFileId();
-
-	/**
-	 * Sets the task file ID of this employee timesheet.
-	 *
-	 * @param taskFileId the task file ID of this employee timesheet
-	 */
-	public void setTaskFileId(long taskFileId);
-
-	/**
-	 * Returns the task file path of this employee timesheet.
-	 *
-	 * @return the task file path of this employee timesheet
-	 */
-	@AutoEscape
-	public String getTaskFilePath();
-
-	/**
-	 * Sets the task file path of this employee timesheet.
-	 *
-	 * @param taskFilePath the task file path of this employee timesheet
-	 */
-	public void setTaskFilePath(String taskFilePath);
-
-	/**
 	 * Returns the task starttime of this employee timesheet.
 	 *
 	 * @return the task starttime of this employee timesheet
@@ -237,14 +208,15 @@ public interface EmployeeTimesheetModel extends BaseModel<EmployeeTimesheet> {
 	 *
 	 * @return the duration of this employee timesheet
 	 */
-	public Date getDuration();
+	@AutoEscape
+	public String getDuration();
 
 	/**
 	 * Sets the duration of this employee timesheet.
 	 *
 	 * @param duration the duration of this employee timesheet
 	 */
-	public void setDuration(Date duration);
+	public void setDuration(String duration);
 
 	/**
 	 * Returns the task completed of this employee timesheet.

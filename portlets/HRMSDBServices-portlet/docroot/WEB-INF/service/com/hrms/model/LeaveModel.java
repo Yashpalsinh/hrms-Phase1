@@ -167,6 +167,20 @@ public interface LeaveModel extends BaseModel<Leave> {
 	public void setCarryOver(boolean carryOver);
 
 	/**
+	 * Returns the carry over limit of this leave.
+	 *
+	 * @return the carry over limit of this leave
+	 */
+	public int getCarryOverLimit();
+
+	/**
+	 * Sets the carry over limit of this leave.
+	 *
+	 * @param carryOverLimit the carry over limit of this leave
+	 */
+	public void setCarryOverLimit(int carryOverLimit);
+
+	/**
 	 * Returns the encachement of this leave.
 	 *
 	 * @return the encachement of this leave
@@ -204,9 +218,9 @@ public interface LeaveModel extends BaseModel<Leave> {
 	/**
 	 * Sets whether this leave is status.
 	 *
-	 * @param Status the status of this leave
+	 * @param status the status of this leave
 	 */
-	public void setStatus(boolean Status);
+	public void setStatus(boolean status);
 
 	/**
 	 * Returns the create date of this leave.

@@ -66,6 +66,7 @@ public class CandidateModelImpl extends BaseModelImpl<Candidate>
 	public static final Object[][] TABLE_COLUMNS = {
 			{ "candidateId", Types.BIGINT },
 			{ "employeeDepartmentId", Types.BIGINT },
+			{ "employeeSubDepartmentId", Types.BIGINT },
 			{ "employeeDesignationId", Types.BIGINT },
 			{ "title", Types.VARCHAR },
 			{ "firstName", Types.VARCHAR },
@@ -96,7 +97,7 @@ public class CandidateModelImpl extends BaseModelImpl<Candidate>
 			{ "createBy", Types.BIGINT },
 			{ "modifiedBy", Types.BIGINT }
 		};
-	public static final String TABLE_SQL_CREATE = "create table HRMS_Candidate (candidateId LONG not null primary key,employeeDepartmentId LONG,employeeDesignationId LONG,title VARCHAR(75) null,firstName VARCHAR(75) null,middleName VARCHAR(75) null,lastName VARCHAR(75) null,dateOfBirth DATE null,nationality VARCHAR(75) null,maritalStatus INTEGER,street1 VARCHAR(75) null,street2 VARCHAR(75) null,street3 VARCHAR(75) null,city VARCHAR(75) null,zip LONG,countryId LONG,personalEmail VARCHAR(75) null,currentCtc LONG,expectedCtc LONG,noticePeriod VARCHAR(75) null,resumeId LONG,resumePath VARCHAR(75) null,employeeProofId LONG,proofNumber VARCHAR(75) null,gender INTEGER,status BOOLEAN,shortListed BOOLEAN,createDate DATE null,modifiedDate DATE null,createBy LONG,modifiedBy LONG)";
+	public static final String TABLE_SQL_CREATE = "create table HRMS_Candidate (candidateId LONG not null primary key,employeeDepartmentId LONG,employeeSubDepartmentId LONG,employeeDesignationId LONG,title VARCHAR(75) null,firstName VARCHAR(75) null,middleName VARCHAR(75) null,lastName VARCHAR(75) null,dateOfBirth DATE null,nationality VARCHAR(75) null,maritalStatus INTEGER,street1 VARCHAR(75) null,street2 VARCHAR(75) null,street3 VARCHAR(75) null,city VARCHAR(75) null,zip LONG,countryId LONG,personalEmail VARCHAR(75) null,currentCtc LONG,expectedCtc LONG,noticePeriod VARCHAR(75) null,resumeId LONG,resumePath VARCHAR(75) null,employeeProofId LONG,proofNumber VARCHAR(75) null,gender INTEGER,status BOOLEAN,shortListed BOOLEAN,createDate DATE null,modifiedDate DATE null,createBy LONG,modifiedBy LONG)";
 	public static final String TABLE_SQL_DROP = "drop table HRMS_Candidate";
 	public static final String ORDER_BY_JPQL = " ORDER BY candidate.candidateId ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY HRMS_Candidate.candidateId ASC";
@@ -126,6 +127,7 @@ public class CandidateModelImpl extends BaseModelImpl<Candidate>
 
 		model.setCandidateId(soapModel.getCandidateId());
 		model.setEmployeeDepartmentId(soapModel.getEmployeeDepartmentId());
+		model.setEmployeeSubDepartmentId(soapModel.getEmployeeSubDepartmentId());
 		model.setEmployeeDesignationId(soapModel.getEmployeeDesignationId());
 		model.setTitle(soapModel.getTitle());
 		model.setFirstName(soapModel.getFirstName());
@@ -221,6 +223,7 @@ public class CandidateModelImpl extends BaseModelImpl<Candidate>
 
 		attributes.put("candidateId", getCandidateId());
 		attributes.put("employeeDepartmentId", getEmployeeDepartmentId());
+		attributes.put("employeeSubDepartmentId", getEmployeeSubDepartmentId());
 		attributes.put("employeeDesignationId", getEmployeeDesignationId());
 		attributes.put("title", getTitle());
 		attributes.put("firstName", getFirstName());
@@ -266,6 +269,13 @@ public class CandidateModelImpl extends BaseModelImpl<Candidate>
 
 		if (employeeDepartmentId != null) {
 			setEmployeeDepartmentId(employeeDepartmentId);
+		}
+
+		Long employeeSubDepartmentId = (Long)attributes.get(
+				"employeeSubDepartmentId");
+
+		if (employeeSubDepartmentId != null) {
+			setEmployeeSubDepartmentId(employeeSubDepartmentId);
 		}
 
 		Long employeeDesignationId = (Long)attributes.get(
@@ -464,6 +474,17 @@ public class CandidateModelImpl extends BaseModelImpl<Candidate>
 	@Override
 	public void setEmployeeDepartmentId(long employeeDepartmentId) {
 		_employeeDepartmentId = employeeDepartmentId;
+	}
+
+	@JSON
+	@Override
+	public long getEmployeeSubDepartmentId() {
+		return _employeeSubDepartmentId;
+	}
+
+	@Override
+	public void setEmployeeSubDepartmentId(long employeeSubDepartmentId) {
+		_employeeSubDepartmentId = employeeSubDepartmentId;
 	}
 
 	@JSON
@@ -889,6 +910,7 @@ public class CandidateModelImpl extends BaseModelImpl<Candidate>
 
 		candidateImpl.setCandidateId(getCandidateId());
 		candidateImpl.setEmployeeDepartmentId(getEmployeeDepartmentId());
+		candidateImpl.setEmployeeSubDepartmentId(getEmployeeSubDepartmentId());
 		candidateImpl.setEmployeeDesignationId(getEmployeeDesignationId());
 		candidateImpl.setTitle(getTitle());
 		candidateImpl.setFirstName(getFirstName());
@@ -977,6 +999,8 @@ public class CandidateModelImpl extends BaseModelImpl<Candidate>
 		candidateCacheModel.candidateId = getCandidateId();
 
 		candidateCacheModel.employeeDepartmentId = getEmployeeDepartmentId();
+
+		candidateCacheModel.employeeSubDepartmentId = getEmployeeSubDepartmentId();
 
 		candidateCacheModel.employeeDesignationId = getEmployeeDesignationId();
 
@@ -1140,12 +1164,14 @@ public class CandidateModelImpl extends BaseModelImpl<Candidate>
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(63);
+		StringBundler sb = new StringBundler(65);
 
 		sb.append("{candidateId=");
 		sb.append(getCandidateId());
 		sb.append(", employeeDepartmentId=");
 		sb.append(getEmployeeDepartmentId());
+		sb.append(", employeeSubDepartmentId=");
+		sb.append(getEmployeeSubDepartmentId());
 		sb.append(", employeeDesignationId=");
 		sb.append(getEmployeeDesignationId());
 		sb.append(", title=");
@@ -1211,7 +1237,7 @@ public class CandidateModelImpl extends BaseModelImpl<Candidate>
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(97);
+		StringBundler sb = new StringBundler(100);
 
 		sb.append("<model><model-name>");
 		sb.append("com.hrms.model.Candidate");
@@ -1224,6 +1250,10 @@ public class CandidateModelImpl extends BaseModelImpl<Candidate>
 		sb.append(
 			"<column><column-name>employeeDepartmentId</column-name><column-value><![CDATA[");
 		sb.append(getEmployeeDepartmentId());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>employeeSubDepartmentId</column-name><column-value><![CDATA[");
+		sb.append(getEmployeeSubDepartmentId());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>employeeDesignationId</column-name><column-value><![CDATA[");
@@ -1353,6 +1383,7 @@ public class CandidateModelImpl extends BaseModelImpl<Candidate>
 		};
 	private long _candidateId;
 	private long _employeeDepartmentId;
+	private long _employeeSubDepartmentId;
 	private long _employeeDesignationId;
 	private String _title;
 	private String _firstName;

@@ -323,6 +323,7 @@ public class LeavePersistenceImpl extends BasePersistenceImpl<Leave>
 		leaveImpl.setLeaveType(leave.getLeaveType());
 		leaveImpl.setLeavesAllowedPerYear(leave.getLeavesAllowedPerYear());
 		leaveImpl.setCarryOver(leave.isCarryOver());
+		leaveImpl.setCarryOverLimit(leave.getCarryOverLimit());
 		leaveImpl.setEncachement(leave.isEncachement());
 		leaveImpl.setStatus(leave.isStatus());
 		leaveImpl.setCreateDate(leave.getCreateDate());

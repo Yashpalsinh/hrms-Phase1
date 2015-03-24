@@ -137,7 +137,7 @@ public class EmployeeAttendanceClp extends BaseModelImpl<EmployeeAttendance>
 			setSignoutTime(signoutTime);
 		}
 
-		Date totalTime = (Date)attributes.get("totalTime");
+		Double totalTime = (Double)attributes.get("totalTime");
 
 		if (totalTime != null) {
 			setTotalTime(totalTime);
@@ -352,19 +352,19 @@ public class EmployeeAttendanceClp extends BaseModelImpl<EmployeeAttendance>
 	}
 
 	@Override
-	public Date getTotalTime() {
+	public double getTotalTime() {
 		return _totalTime;
 	}
 
 	@Override
-	public void setTotalTime(Date totalTime) {
+	public void setTotalTime(double totalTime) {
 		_totalTime = totalTime;
 
 		if (_employeeAttendanceRemoteModel != null) {
 			try {
 				Class<?> clazz = _employeeAttendanceRemoteModel.getClass();
 
-				Method method = clazz.getMethod("setTotalTime", Date.class);
+				Method method = clazz.getMethod("setTotalTime", double.class);
 
 				method.invoke(_employeeAttendanceRemoteModel, totalTime);
 			}
@@ -763,7 +763,7 @@ public class EmployeeAttendanceClp extends BaseModelImpl<EmployeeAttendance>
 	private Date _attendanceDate;
 	private Date _signinTime;
 	private Date _signoutTime;
-	private Date _totalTime;
+	private double _totalTime;
 	private boolean _approved;
 	private long _approvedBy;
 	private Date _createDate;

@@ -1367,7 +1367,7 @@ public class EmployeeQualificationPersistenceImpl extends BasePersistenceImpl<Em
 		employeeQualificationImpl.setGroupId(employeeQualification.getGroupId());
 		employeeQualificationImpl.setCompanyId(employeeQualification.getCompanyId());
 		employeeQualificationImpl.setDegreeName(employeeQualification.getDegreeName());
-		employeeQualificationImpl.setSpecialization(employeeQualification.getSpecialization());
+		employeeQualificationImpl.setMainSubject(employeeQualification.getMainSubject());
 		employeeQualificationImpl.setUniversity(employeeQualification.getUniversity());
 		employeeQualificationImpl.setScore(employeeQualification.getScore());
 		employeeQualificationImpl.setStartDate(employeeQualification.getStartDate());

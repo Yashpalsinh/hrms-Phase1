@@ -102,13 +102,7 @@ public class EmployeeAttendanceCacheModel implements CacheModel<EmployeeAttendan
 			employeeAttendanceImpl.setSignoutTime(new Date(signoutTime));
 		}
 
-		if (totalTime == Long.MIN_VALUE) {
-			employeeAttendanceImpl.setTotalTime(null);
-		}
-		else {
-			employeeAttendanceImpl.setTotalTime(new Date(totalTime));
-		}
-
+		employeeAttendanceImpl.setTotalTime(totalTime);
 		employeeAttendanceImpl.setApproved(approved);
 		employeeAttendanceImpl.setApprovedBy(approvedBy);
 
@@ -143,7 +137,7 @@ public class EmployeeAttendanceCacheModel implements CacheModel<EmployeeAttendan
 		attendanceDate = objectInput.readLong();
 		signinTime = objectInput.readLong();
 		signoutTime = objectInput.readLong();
-		totalTime = objectInput.readLong();
+		totalTime = objectInput.readDouble();
 		approved = objectInput.readBoolean();
 		approvedBy = objectInput.readLong();
 		createDate = objectInput.readLong();
@@ -162,7 +156,7 @@ public class EmployeeAttendanceCacheModel implements CacheModel<EmployeeAttendan
 		objectOutput.writeLong(attendanceDate);
 		objectOutput.writeLong(signinTime);
 		objectOutput.writeLong(signoutTime);
-		objectOutput.writeLong(totalTime);
+		objectOutput.writeDouble(totalTime);
 		objectOutput.writeBoolean(approved);
 		objectOutput.writeLong(approvedBy);
 		objectOutput.writeLong(createDate);
@@ -178,7 +172,7 @@ public class EmployeeAttendanceCacheModel implements CacheModel<EmployeeAttendan
 	public long attendanceDate;
 	public long signinTime;
 	public long signoutTime;
-	public long totalTime;
+	public double totalTime;
 	public boolean approved;
 	public long approvedBy;
 	public long createDate;

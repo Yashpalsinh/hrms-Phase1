@@ -35,9 +35,14 @@ public class LeavesAppliedSoap implements Serializable {
 		soapModel.setUserId(model.getUserId());
 		soapModel.setGroupId(model.getGroupId());
 		soapModel.setCompanyId(model.getCompanyId());
+		soapModel.setEmployeeName(model.getEmployeeName());
+		soapModel.setLeaveName(model.getLeaveName());
 		soapModel.setEntitlement(model.getEntitlement());
+		soapModel.setLeaveDuration(model.getLeaveDuration());
 		soapModel.setLeaveFrom(model.getLeaveFrom());
 		soapModel.setLeaveTo(model.getLeaveTo());
+		soapModel.setLeaveDate(model.getLeaveDate());
+		soapModel.setLeavePeriod(model.getLeavePeriod());
 		soapModel.setApprovalStatus(model.getApprovalStatus());
 		soapModel.setLeaveId(model.getLeaveId());
 		soapModel.setCreateDate(model.getCreateDate());
@@ -128,12 +133,36 @@ public class LeavesAppliedSoap implements Serializable {
 		_companyId = companyId;
 	}
 
+	public String getEmployeeName() {
+		return _employeeName;
+	}
+
+	public void setEmployeeName(String employeeName) {
+		_employeeName = employeeName;
+	}
+
+	public String getLeaveName() {
+		return _leaveName;
+	}
+
+	public void setLeaveName(String leaveName) {
+		_leaveName = leaveName;
+	}
+
 	public String getEntitlement() {
 		return _entitlement;
 	}
 
 	public void setEntitlement(String entitlement) {
 		_entitlement = entitlement;
+	}
+
+	public String getLeaveDuration() {
+		return _leaveDuration;
+	}
+
+	public void setLeaveDuration(String leaveDuration) {
+		_leaveDuration = leaveDuration;
 	}
 
 	public Date getLeaveFrom() {
@@ -150,6 +179,22 @@ public class LeavesAppliedSoap implements Serializable {
 
 	public void setLeaveTo(Date leaveTo) {
 		_leaveTo = leaveTo;
+	}
+
+	public Date getLeaveDate() {
+		return _leaveDate;
+	}
+
+	public void setLeaveDate(Date leaveDate) {
+		_leaveDate = leaveDate;
+	}
+
+	public String getLeavePeriod() {
+		return _leavePeriod;
+	}
+
+	public void setLeavePeriod(String leavePeriod) {
+		_leavePeriod = leavePeriod;
 	}
 
 	public String getApprovalStatus() {
@@ -204,9 +249,14 @@ public class LeavesAppliedSoap implements Serializable {
 	private long _userId;
 	private long _groupId;
 	private long _companyId;
+	private String _employeeName;
+	private String _leaveName;
 	private String _entitlement;
+	private String _leaveDuration;
 	private Date _leaveFrom;
 	private Date _leaveTo;
+	private Date _leaveDate;
+	private String _leavePeriod;
 	private String _approvalStatus;
 	private long _leaveId;
 	private Date _createDate;

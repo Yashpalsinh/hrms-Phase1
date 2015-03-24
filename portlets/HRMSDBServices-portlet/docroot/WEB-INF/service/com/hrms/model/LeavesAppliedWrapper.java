@@ -54,9 +54,14 @@ public class LeavesAppliedWrapper implements LeavesApplied,
 		attributes.put("userId", getUserId());
 		attributes.put("groupId", getGroupId());
 		attributes.put("companyId", getCompanyId());
+		attributes.put("employeeName", getEmployeeName());
+		attributes.put("leaveName", getLeaveName());
 		attributes.put("entitlement", getEntitlement());
+		attributes.put("leaveDuration", getLeaveDuration());
 		attributes.put("leaveFrom", getLeaveFrom());
 		attributes.put("leaveTo", getLeaveTo());
+		attributes.put("leaveDate", getLeaveDate());
+		attributes.put("leavePeriod", getLeavePeriod());
 		attributes.put("approvalStatus", getApprovalStatus());
 		attributes.put("leaveId", getLeaveId());
 		attributes.put("createDate", getCreateDate());
@@ -93,10 +98,28 @@ public class LeavesAppliedWrapper implements LeavesApplied,
 			setCompanyId(companyId);
 		}
 
+		String employeeName = (String)attributes.get("employeeName");
+
+		if (employeeName != null) {
+			setEmployeeName(employeeName);
+		}
+
+		String leaveName = (String)attributes.get("leaveName");
+
+		if (leaveName != null) {
+			setLeaveName(leaveName);
+		}
+
 		String entitlement = (String)attributes.get("entitlement");
 
 		if (entitlement != null) {
 			setEntitlement(entitlement);
+		}
+
+		String leaveDuration = (String)attributes.get("leaveDuration");
+
+		if (leaveDuration != null) {
+			setLeaveDuration(leaveDuration);
 		}
 
 		Date leaveFrom = (Date)attributes.get("leaveFrom");
@@ -109,6 +132,18 @@ public class LeavesAppliedWrapper implements LeavesApplied,
 
 		if (leaveTo != null) {
 			setLeaveTo(leaveTo);
+		}
+
+		Date leaveDate = (Date)attributes.get("leaveDate");
+
+		if (leaveDate != null) {
+			setLeaveDate(leaveDate);
+		}
+
+		String leavePeriod = (String)attributes.get("leavePeriod");
+
+		if (leavePeriod != null) {
+			setLeavePeriod(leavePeriod);
 		}
 
 		String approvalStatus = (String)attributes.get("approvalStatus");
@@ -271,6 +306,46 @@ public class LeavesAppliedWrapper implements LeavesApplied,
 	}
 
 	/**
+	* Returns the employee name of this leaves applied.
+	*
+	* @return the employee name of this leaves applied
+	*/
+	@Override
+	public java.lang.String getEmployeeName() {
+		return _leavesApplied.getEmployeeName();
+	}
+
+	/**
+	* Sets the employee name of this leaves applied.
+	*
+	* @param employeeName the employee name of this leaves applied
+	*/
+	@Override
+	public void setEmployeeName(java.lang.String employeeName) {
+		_leavesApplied.setEmployeeName(employeeName);
+	}
+
+	/**
+	* Returns the leave name of this leaves applied.
+	*
+	* @return the leave name of this leaves applied
+	*/
+	@Override
+	public java.lang.String getLeaveName() {
+		return _leavesApplied.getLeaveName();
+	}
+
+	/**
+	* Sets the leave name of this leaves applied.
+	*
+	* @param leaveName the leave name of this leaves applied
+	*/
+	@Override
+	public void setLeaveName(java.lang.String leaveName) {
+		_leavesApplied.setLeaveName(leaveName);
+	}
+
+	/**
 	* Returns the entitlement of this leaves applied.
 	*
 	* @return the entitlement of this leaves applied
@@ -288,6 +363,26 @@ public class LeavesAppliedWrapper implements LeavesApplied,
 	@Override
 	public void setEntitlement(java.lang.String entitlement) {
 		_leavesApplied.setEntitlement(entitlement);
+	}
+
+	/**
+	* Returns the leave duration of this leaves applied.
+	*
+	* @return the leave duration of this leaves applied
+	*/
+	@Override
+	public java.lang.String getLeaveDuration() {
+		return _leavesApplied.getLeaveDuration();
+	}
+
+	/**
+	* Sets the leave duration of this leaves applied.
+	*
+	* @param leaveDuration the leave duration of this leaves applied
+	*/
+	@Override
+	public void setLeaveDuration(java.lang.String leaveDuration) {
+		_leavesApplied.setLeaveDuration(leaveDuration);
 	}
 
 	/**
@@ -328,6 +423,46 @@ public class LeavesAppliedWrapper implements LeavesApplied,
 	@Override
 	public void setLeaveTo(java.util.Date leaveTo) {
 		_leavesApplied.setLeaveTo(leaveTo);
+	}
+
+	/**
+	* Returns the leave date of this leaves applied.
+	*
+	* @return the leave date of this leaves applied
+	*/
+	@Override
+	public java.util.Date getLeaveDate() {
+		return _leavesApplied.getLeaveDate();
+	}
+
+	/**
+	* Sets the leave date of this leaves applied.
+	*
+	* @param leaveDate the leave date of this leaves applied
+	*/
+	@Override
+	public void setLeaveDate(java.util.Date leaveDate) {
+		_leavesApplied.setLeaveDate(leaveDate);
+	}
+
+	/**
+	* Returns the leave period of this leaves applied.
+	*
+	* @return the leave period of this leaves applied
+	*/
+	@Override
+	public java.lang.String getLeavePeriod() {
+		return _leavesApplied.getLeavePeriod();
+	}
+
+	/**
+	* Sets the leave period of this leaves applied.
+	*
+	* @param leavePeriod the leave period of this leaves applied
+	*/
+	@Override
+	public void setLeavePeriod(java.lang.String leavePeriod) {
+		_leavesApplied.setLeavePeriod(leavePeriod);
 	}
 
 	/**

@@ -51,17 +51,17 @@ public class OfferClp extends BaseModelImpl<Offer> implements Offer {
 
 	@Override
 	public long getPrimaryKey() {
-		return _OferrId;
+		return _OfferId;
 	}
 
 	@Override
 	public void setPrimaryKey(long primaryKey) {
-		setOferrId(primaryKey);
+		setOfferId(primaryKey);
 	}
 
 	@Override
 	public Serializable getPrimaryKeyObj() {
-		return _OferrId;
+		return _OfferId;
 	}
 
 	@Override
@@ -73,9 +73,10 @@ public class OfferClp extends BaseModelImpl<Offer> implements Offer {
 	public Map<String, Object> getModelAttributes() {
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
-		attributes.put("OferrId", getOferrId());
+		attributes.put("OfferId", getOfferId());
 		attributes.put("candidateId", getCandidateId());
 		attributes.put("employeeDepartmentId", getEmployeeDepartmentId());
+		attributes.put("employeeSubDepartmentId", getEmployeeSubDepartmentId());
 		attributes.put("employeeDesignationId", getEmployeeDesignationId());
 		attributes.put("employeeTypeId", getEmployeeTypeId());
 		attributes.put("salary", getSalary());
@@ -90,10 +91,10 @@ public class OfferClp extends BaseModelImpl<Offer> implements Offer {
 
 	@Override
 	public void setModelAttributes(Map<String, Object> attributes) {
-		Long OferrId = (Long)attributes.get("OferrId");
+		Long OfferId = (Long)attributes.get("OfferId");
 
-		if (OferrId != null) {
-			setOferrId(OferrId);
+		if (OfferId != null) {
+			setOfferId(OfferId);
 		}
 
 		Long candidateId = (Long)attributes.get("candidateId");
@@ -106,6 +107,13 @@ public class OfferClp extends BaseModelImpl<Offer> implements Offer {
 
 		if (employeeDepartmentId != null) {
 			setEmployeeDepartmentId(employeeDepartmentId);
+		}
+
+		Long employeeSubDepartmentId = (Long)attributes.get(
+				"employeeSubDepartmentId");
+
+		if (employeeSubDepartmentId != null) {
+			setEmployeeSubDepartmentId(employeeSubDepartmentId);
 		}
 
 		Long employeeDesignationId = (Long)attributes.get(
@@ -159,21 +167,21 @@ public class OfferClp extends BaseModelImpl<Offer> implements Offer {
 	}
 
 	@Override
-	public long getOferrId() {
-		return _OferrId;
+	public long getOfferId() {
+		return _OfferId;
 	}
 
 	@Override
-	public void setOferrId(long OferrId) {
-		_OferrId = OferrId;
+	public void setOfferId(long OfferId) {
+		_OfferId = OfferId;
 
 		if (_offerRemoteModel != null) {
 			try {
 				Class<?> clazz = _offerRemoteModel.getClass();
 
-				Method method = clazz.getMethod("setOferrId", long.class);
+				Method method = clazz.getMethod("setOfferId", long.class);
 
-				method.invoke(_offerRemoteModel, OferrId);
+				method.invoke(_offerRemoteModel, OfferId);
 			}
 			catch (Exception e) {
 				throw new UnsupportedOperationException(e);
@@ -221,6 +229,30 @@ public class OfferClp extends BaseModelImpl<Offer> implements Offer {
 						long.class);
 
 				method.invoke(_offerRemoteModel, employeeDepartmentId);
+			}
+			catch (Exception e) {
+				throw new UnsupportedOperationException(e);
+			}
+		}
+	}
+
+	@Override
+	public long getEmployeeSubDepartmentId() {
+		return _employeeSubDepartmentId;
+	}
+
+	@Override
+	public void setEmployeeSubDepartmentId(long employeeSubDepartmentId) {
+		_employeeSubDepartmentId = employeeSubDepartmentId;
+
+		if (_offerRemoteModel != null) {
+			try {
+				Class<?> clazz = _offerRemoteModel.getClass();
+
+				Method method = clazz.getMethod("setEmployeeSubDepartmentId",
+						long.class);
+
+				method.invoke(_offerRemoteModel, employeeSubDepartmentId);
 			}
 			catch (Exception e) {
 				throw new UnsupportedOperationException(e);
@@ -482,9 +514,10 @@ public class OfferClp extends BaseModelImpl<Offer> implements Offer {
 	public Object clone() {
 		OfferClp clone = new OfferClp();
 
-		clone.setOferrId(getOferrId());
+		clone.setOfferId(getOfferId());
 		clone.setCandidateId(getCandidateId());
 		clone.setEmployeeDepartmentId(getEmployeeDepartmentId());
+		clone.setEmployeeSubDepartmentId(getEmployeeSubDepartmentId());
 		clone.setEmployeeDesignationId(getEmployeeDesignationId());
 		clone.setEmployeeTypeId(getEmployeeTypeId());
 		clone.setSalary(getSalary());
@@ -541,14 +574,16 @@ public class OfferClp extends BaseModelImpl<Offer> implements Offer {
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(23);
+		StringBundler sb = new StringBundler(25);
 
-		sb.append("{OferrId=");
-		sb.append(getOferrId());
+		sb.append("{OfferId=");
+		sb.append(getOfferId());
 		sb.append(", candidateId=");
 		sb.append(getCandidateId());
 		sb.append(", employeeDepartmentId=");
 		sb.append(getEmployeeDepartmentId());
+		sb.append(", employeeSubDepartmentId=");
+		sb.append(getEmployeeSubDepartmentId());
 		sb.append(", employeeDesignationId=");
 		sb.append(getEmployeeDesignationId());
 		sb.append(", employeeTypeId=");
@@ -572,15 +607,15 @@ public class OfferClp extends BaseModelImpl<Offer> implements Offer {
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(37);
+		StringBundler sb = new StringBundler(40);
 
 		sb.append("<model><model-name>");
 		sb.append("com.hrms.model.Offer");
 		sb.append("</model-name>");
 
 		sb.append(
-			"<column><column-name>OferrId</column-name><column-value><![CDATA[");
-		sb.append(getOferrId());
+			"<column><column-name>OfferId</column-name><column-value><![CDATA[");
+		sb.append(getOfferId());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>candidateId</column-name><column-value><![CDATA[");
@@ -589,6 +624,10 @@ public class OfferClp extends BaseModelImpl<Offer> implements Offer {
 		sb.append(
 			"<column><column-name>employeeDepartmentId</column-name><column-value><![CDATA[");
 		sb.append(getEmployeeDepartmentId());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>employeeSubDepartmentId</column-name><column-value><![CDATA[");
+		sb.append(getEmployeeSubDepartmentId());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>employeeDesignationId</column-name><column-value><![CDATA[");
@@ -628,9 +667,10 @@ public class OfferClp extends BaseModelImpl<Offer> implements Offer {
 		return sb.toString();
 	}
 
-	private long _OferrId;
+	private long _OfferId;
 	private long _candidateId;
 	private long _employeeDepartmentId;
+	private long _employeeSubDepartmentId;
 	private long _employeeDesignationId;
 	private long _employeeTypeId;
 	private long _salary;

@@ -167,15 +167,15 @@ public class OfferPersistenceImpl extends BasePersistenceImpl<Offer>
 	/**
 	 * Creates a new offer with the primary key. Does not add the offer to the database.
 	 *
-	 * @param OferrId the primary key for the new offer
+	 * @param OfferId the primary key for the new offer
 	 * @return the new offer
 	 */
 	@Override
-	public Offer create(long OferrId) {
+	public Offer create(long OfferId) {
 		Offer offer = new OfferImpl();
 
 		offer.setNew(true);
-		offer.setPrimaryKey(OferrId);
+		offer.setPrimaryKey(OfferId);
 
 		return offer;
 	}
@@ -183,15 +183,15 @@ public class OfferPersistenceImpl extends BasePersistenceImpl<Offer>
 	/**
 	 * Removes the offer with the primary key from the database. Also notifies the appropriate model listeners.
 	 *
-	 * @param OferrId the primary key of the offer
+	 * @param OfferId the primary key of the offer
 	 * @return the offer that was removed
 	 * @throws com.hrms.NoSuchOfferException if a offer with the primary key could not be found
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public Offer remove(long OferrId)
+	public Offer remove(long OfferId)
 		throws NoSuchOfferException, SystemException {
-		return remove((Serializable)OferrId);
+		return remove((Serializable)OfferId);
 	}
 
 	/**
@@ -316,9 +316,10 @@ public class OfferPersistenceImpl extends BasePersistenceImpl<Offer>
 		offerImpl.setNew(offer.isNew());
 		offerImpl.setPrimaryKey(offer.getPrimaryKey());
 
-		offerImpl.setOferrId(offer.getOferrId());
+		offerImpl.setOfferId(offer.getOfferId());
 		offerImpl.setCandidateId(offer.getCandidateId());
 		offerImpl.setEmployeeDepartmentId(offer.getEmployeeDepartmentId());
+		offerImpl.setEmployeeSubDepartmentId(offer.getEmployeeSubDepartmentId());
 		offerImpl.setEmployeeDesignationId(offer.getEmployeeDesignationId());
 		offerImpl.setEmployeeTypeId(offer.getEmployeeTypeId());
 		offerImpl.setSalary(offer.getSalary());
@@ -359,15 +360,15 @@ public class OfferPersistenceImpl extends BasePersistenceImpl<Offer>
 	/**
 	 * Returns the offer with the primary key or throws a {@link com.hrms.NoSuchOfferException} if it could not be found.
 	 *
-	 * @param OferrId the primary key of the offer
+	 * @param OfferId the primary key of the offer
 	 * @return the offer
 	 * @throws com.hrms.NoSuchOfferException if a offer with the primary key could not be found
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public Offer findByPrimaryKey(long OferrId)
+	public Offer findByPrimaryKey(long OfferId)
 		throws NoSuchOfferException, SystemException {
-		return findByPrimaryKey((Serializable)OferrId);
+		return findByPrimaryKey((Serializable)OfferId);
 	}
 
 	/**
@@ -420,13 +421,13 @@ public class OfferPersistenceImpl extends BasePersistenceImpl<Offer>
 	/**
 	 * Returns the offer with the primary key or returns <code>null</code> if it could not be found.
 	 *
-	 * @param OferrId the primary key of the offer
+	 * @param OfferId the primary key of the offer
 	 * @return the offer, or <code>null</code> if a offer with the primary key could not be found
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public Offer fetchByPrimaryKey(long OferrId) throws SystemException {
-		return fetchByPrimaryKey((Serializable)OferrId);
+	public Offer fetchByPrimaryKey(long OfferId) throws SystemException {
+		return fetchByPrimaryKey((Serializable)OfferId);
 	}
 
 	/**

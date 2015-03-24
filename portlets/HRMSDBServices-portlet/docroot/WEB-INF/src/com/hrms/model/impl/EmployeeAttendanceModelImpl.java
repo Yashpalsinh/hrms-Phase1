@@ -72,7 +72,7 @@ public class EmployeeAttendanceModelImpl extends BaseModelImpl<EmployeeAttendanc
 			{ "attendanceDate", Types.TIMESTAMP },
 			{ "signinTime", Types.TIMESTAMP },
 			{ "signoutTime", Types.TIMESTAMP },
-			{ "totalTime", Types.TIMESTAMP },
+			{ "totalTime", Types.DOUBLE },
 			{ "approved", Types.BOOLEAN },
 			{ "approvedBy", Types.BIGINT },
 			{ "createDate", Types.TIMESTAMP },
@@ -80,7 +80,7 @@ public class EmployeeAttendanceModelImpl extends BaseModelImpl<EmployeeAttendanc
 			{ "createBy", Types.BIGINT },
 			{ "modifiedBy", Types.BIGINT }
 		};
-	public static final String TABLE_SQL_CREATE = "create table HRMS_EmployeeAttendance (attendanceId LONG not null primary key,userId LONG,groupId LONG,companyId LONG,attendanceDate DATE null,signinTime DATE null,signoutTime DATE null,totalTime DATE null,approved BOOLEAN,approvedBy LONG,createDate DATE null,modifiedDate DATE null,createBy LONG,modifiedBy LONG)";
+	public static final String TABLE_SQL_CREATE = "create table HRMS_EmployeeAttendance (attendanceId LONG not null primary key,userId LONG,groupId LONG,companyId LONG,attendanceDate DATE null,signinTime DATE null,signoutTime DATE null,totalTime DOUBLE,approved BOOLEAN,approvedBy LONG,createDate DATE null,modifiedDate DATE null,createBy LONG,modifiedBy LONG)";
 	public static final String TABLE_SQL_DROP = "drop table HRMS_EmployeeAttendance";
 	public static final String ORDER_BY_JPQL = " ORDER BY employeeAttendance.attendanceId ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY HRMS_EmployeeAttendance.attendanceId ASC";
@@ -254,7 +254,7 @@ public class EmployeeAttendanceModelImpl extends BaseModelImpl<EmployeeAttendanc
 			setSignoutTime(signoutTime);
 		}
 
-		Date totalTime = (Date)attributes.get("totalTime");
+		Double totalTime = (Double)attributes.get("totalTime");
 
 		if (totalTime != null) {
 			setTotalTime(totalTime);
@@ -386,12 +386,12 @@ public class EmployeeAttendanceModelImpl extends BaseModelImpl<EmployeeAttendanc
 
 	@JSON
 	@Override
-	public Date getTotalTime() {
+	public double getTotalTime() {
 		return _totalTime;
 	}
 
 	@Override
-	public void setTotalTime(Date totalTime) {
+	public void setTotalTime(double totalTime) {
 		_totalTime = totalTime;
 	}
 
@@ -637,14 +637,7 @@ public class EmployeeAttendanceModelImpl extends BaseModelImpl<EmployeeAttendanc
 			employeeAttendanceCacheModel.signoutTime = Long.MIN_VALUE;
 		}
 
-		Date totalTime = getTotalTime();
-
-		if (totalTime != null) {
-			employeeAttendanceCacheModel.totalTime = totalTime.getTime();
-		}
-		else {
-			employeeAttendanceCacheModel.totalTime = Long.MIN_VALUE;
-		}
+		employeeAttendanceCacheModel.totalTime = getTotalTime();
 
 		employeeAttendanceCacheModel.approved = getApproved();
 
@@ -794,7 +787,7 @@ public class EmployeeAttendanceModelImpl extends BaseModelImpl<EmployeeAttendanc
 	private Date _attendanceDate;
 	private Date _signinTime;
 	private Date _signoutTime;
-	private Date _totalTime;
+	private double _totalTime;
 	private boolean _approved;
 	private long _approvedBy;
 	private Date _createDate;

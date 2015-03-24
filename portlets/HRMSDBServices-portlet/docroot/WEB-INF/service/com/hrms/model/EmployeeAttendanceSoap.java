@@ -156,11 +156,11 @@ public class EmployeeAttendanceSoap implements Serializable {
 		_signoutTime = signoutTime;
 	}
 
-	public Date getTotalTime() {
+	public double getTotalTime() {
 		return _totalTime;
 	}
 
-	public void setTotalTime(Date totalTime) {
+	public void setTotalTime(double totalTime) {
 		_totalTime = totalTime;
 	}
 
@@ -223,7 +223,7 @@ public class EmployeeAttendanceSoap implements Serializable {
 	private Date _attendanceDate;
 	private Date _signinTime;
 	private Date _signoutTime;
-	private Date _totalTime;
+	private double _totalTime;
 	private boolean _approved;
 	private long _approvedBy;
 	private Date _createDate;

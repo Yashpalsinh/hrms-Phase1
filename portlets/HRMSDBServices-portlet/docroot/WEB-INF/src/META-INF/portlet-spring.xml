@@ -28,9 +28,9 @@
 	<bean id="com.hrms.service.EmployeeLeaveLocalService" class="com.hrms.service.impl.EmployeeLeaveLocalServiceImpl" />
 	<bean id="com.hrms.service.EmployeeLeaveService" class="com.hrms.service.impl.EmployeeLeaveServiceImpl" />
 	<bean id="com.hrms.service.persistence.EmployeeLeavePersistence" class="com.hrms.service.persistence.EmployeeLeavePersistenceImpl" parent="basePersistence" />
-	<bean id="com.hrms.service.EmployeeMasterLocalService" class="com.hrms.service.impl.EmployeeMasterLocalServiceImpl" />
-	<bean id="com.hrms.service.EmployeeMasterService" class="com.hrms.service.impl.EmployeeMasterServiceImpl" />
-	<bean id="com.hrms.service.persistence.EmployeeMasterPersistence" class="com.hrms.service.persistence.EmployeeMasterPersistenceImpl" parent="basePersistence" />
+	<bean id="com.hrms.service.EmployeeMstLocalService" class="com.hrms.service.impl.EmployeeMstLocalServiceImpl" />
+	<bean id="com.hrms.service.EmployeeMstService" class="com.hrms.service.impl.EmployeeMstServiceImpl" />
+	<bean id="com.hrms.service.persistence.EmployeeMstPersistence" class="com.hrms.service.persistence.EmployeeMstPersistenceImpl" parent="basePersistence" />
 	<bean id="com.hrms.service.EmployeePreviousCompanyLocalService" class="com.hrms.service.impl.EmployeePreviousCompanyLocalServiceImpl" />
 	<bean id="com.hrms.service.EmployeePreviousCompanyService" class="com.hrms.service.impl.EmployeePreviousCompanyServiceImpl" />
 	<bean id="com.hrms.service.persistence.EmployeePreviousCompanyPersistence" class="com.hrms.service.persistence.EmployeePreviousCompanyPersistenceImpl" parent="basePersistence" />
@@ -70,4 +70,7 @@
 	<bean id="com.hrms.service.ProofLocalService" class="com.hrms.service.impl.ProofLocalServiceImpl" />
 	<bean id="com.hrms.service.ProofService" class="com.hrms.service.impl.ProofServiceImpl" />
 	<bean id="com.hrms.service.persistence.ProofPersistence" class="com.hrms.service.persistence.ProofPersistenceImpl" parent="basePersistence" />
+	<bean id="com.hrms.service.TodoLocalService" class="com.hrms.service.impl.TodoLocalServiceImpl" />
+	<bean id="com.hrms.service.TodoService" class="com.hrms.service.impl.TodoServiceImpl" />
+	<bean id="com.hrms.service.persistence.TodoPersistence" class="com.hrms.service.persistence.TodoPersistenceImpl" parent="basePersistence" />
 </beans>

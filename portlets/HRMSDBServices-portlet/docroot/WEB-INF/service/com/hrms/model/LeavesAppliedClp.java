@@ -79,9 +79,14 @@ public class LeavesAppliedClp extends BaseModelImpl<LeavesApplied>
 		attributes.put("userId", getUserId());
 		attributes.put("groupId", getGroupId());
 		attributes.put("companyId", getCompanyId());
+		attributes.put("employeeName", getEmployeeName());
+		attributes.put("leaveName", getLeaveName());
 		attributes.put("entitlement", getEntitlement());
+		attributes.put("leaveDuration", getLeaveDuration());
 		attributes.put("leaveFrom", getLeaveFrom());
 		attributes.put("leaveTo", getLeaveTo());
+		attributes.put("leaveDate", getLeaveDate());
+		attributes.put("leavePeriod", getLeavePeriod());
 		attributes.put("approvalStatus", getApprovalStatus());
 		attributes.put("leaveId", getLeaveId());
 		attributes.put("createDate", getCreateDate());
@@ -118,10 +123,28 @@ public class LeavesAppliedClp extends BaseModelImpl<LeavesApplied>
 			setCompanyId(companyId);
 		}
 
+		String employeeName = (String)attributes.get("employeeName");
+
+		if (employeeName != null) {
+			setEmployeeName(employeeName);
+		}
+
+		String leaveName = (String)attributes.get("leaveName");
+
+		if (leaveName != null) {
+			setLeaveName(leaveName);
+		}
+
 		String entitlement = (String)attributes.get("entitlement");
 
 		if (entitlement != null) {
 			setEntitlement(entitlement);
+		}
+
+		String leaveDuration = (String)attributes.get("leaveDuration");
+
+		if (leaveDuration != null) {
+			setLeaveDuration(leaveDuration);
 		}
 
 		Date leaveFrom = (Date)attributes.get("leaveFrom");
@@ -134,6 +157,18 @@ public class LeavesAppliedClp extends BaseModelImpl<LeavesApplied>
 
 		if (leaveTo != null) {
 			setLeaveTo(leaveTo);
+		}
+
+		Date leaveDate = (Date)attributes.get("leaveDate");
+
+		if (leaveDate != null) {
+			setLeaveDate(leaveDate);
+		}
+
+		String leavePeriod = (String)attributes.get("leavePeriod");
+
+		if (leavePeriod != null) {
+			setLeavePeriod(leavePeriod);
 		}
 
 		String approvalStatus = (String)attributes.get("approvalStatus");
@@ -276,6 +311,52 @@ public class LeavesAppliedClp extends BaseModelImpl<LeavesApplied>
 	}
 
 	@Override
+	public String getEmployeeName() {
+		return _employeeName;
+	}
+
+	@Override
+	public void setEmployeeName(String employeeName) {
+		_employeeName = employeeName;
+
+		if (_leavesAppliedRemoteModel != null) {
+			try {
+				Class<?> clazz = _leavesAppliedRemoteModel.getClass();
+
+				Method method = clazz.getMethod("setEmployeeName", String.class);
+
+				method.invoke(_leavesAppliedRemoteModel, employeeName);
+			}
+			catch (Exception e) {
+				throw new UnsupportedOperationException(e);
+			}
+		}
+	}
+
+	@Override
+	public String getLeaveName() {
+		return _leaveName;
+	}
+
+	@Override
+	public void setLeaveName(String leaveName) {
+		_leaveName = leaveName;
+
+		if (_leavesAppliedRemoteModel != null) {
+			try {
+				Class<?> clazz = _leavesAppliedRemoteModel.getClass();
+
+				Method method = clazz.getMethod("setLeaveName", String.class);
+
+				method.invoke(_leavesAppliedRemoteModel, leaveName);
+			}
+			catch (Exception e) {
+				throw new UnsupportedOperationException(e);
+			}
+		}
+	}
+
+	@Override
 	public String getEntitlement() {
 		return _entitlement;
 	}
@@ -291,6 +372,29 @@ public class LeavesAppliedClp extends BaseModelImpl<LeavesApplied>
 				Method method = clazz.getMethod("setEntitlement", String.class);
 
 				method.invoke(_leavesAppliedRemoteModel, entitlement);
+			}
+			catch (Exception e) {
+				throw new UnsupportedOperationException(e);
+			}
+		}
+	}
+
+	@Override
+	public String getLeaveDuration() {
+		return _leaveDuration;
+	}
+
+	@Override
+	public void setLeaveDuration(String leaveDuration) {
+		_leaveDuration = leaveDuration;
+
+		if (_leavesAppliedRemoteModel != null) {
+			try {
+				Class<?> clazz = _leavesAppliedRemoteModel.getClass();
+
+				Method method = clazz.getMethod("setLeaveDuration", String.class);
+
+				method.invoke(_leavesAppliedRemoteModel, leaveDuration);
 			}
 			catch (Exception e) {
 				throw new UnsupportedOperationException(e);
@@ -337,6 +441,52 @@ public class LeavesAppliedClp extends BaseModelImpl<LeavesApplied>
 				Method method = clazz.getMethod("setLeaveTo", Date.class);
 
 				method.invoke(_leavesAppliedRemoteModel, leaveTo);
+			}
+			catch (Exception e) {
+				throw new UnsupportedOperationException(e);
+			}
+		}
+	}
+
+	@Override
+	public Date getLeaveDate() {
+		return _leaveDate;
+	}
+
+	@Override
+	public void setLeaveDate(Date leaveDate) {
+		_leaveDate = leaveDate;
+
+		if (_leavesAppliedRemoteModel != null) {
+			try {
+				Class<?> clazz = _leavesAppliedRemoteModel.getClass();
+
+				Method method = clazz.getMethod("setLeaveDate", Date.class);
+
+				method.invoke(_leavesAppliedRemoteModel, leaveDate);
+			}
+			catch (Exception e) {
+				throw new UnsupportedOperationException(e);
+			}
+		}
+	}
+
+	@Override
+	public String getLeavePeriod() {
+		return _leavePeriod;
+	}
+
+	@Override
+	public void setLeavePeriod(String leavePeriod) {
+		_leavePeriod = leavePeriod;
+
+		if (_leavesAppliedRemoteModel != null) {
+			try {
+				Class<?> clazz = _leavesAppliedRemoteModel.getClass();
+
+				Method method = clazz.getMethod("setLeavePeriod", String.class);
+
+				method.invoke(_leavesAppliedRemoteModel, leavePeriod);
 			}
 			catch (Exception e) {
 				throw new UnsupportedOperationException(e);
@@ -557,9 +707,14 @@ public class LeavesAppliedClp extends BaseModelImpl<LeavesApplied>
 		clone.setUserId(getUserId());
 		clone.setGroupId(getGroupId());
 		clone.setCompanyId(getCompanyId());
+		clone.setEmployeeName(getEmployeeName());
+		clone.setLeaveName(getLeaveName());
 		clone.setEntitlement(getEntitlement());
+		clone.setLeaveDuration(getLeaveDuration());
 		clone.setLeaveFrom(getLeaveFrom());
 		clone.setLeaveTo(getLeaveTo());
+		clone.setLeaveDate(getLeaveDate());
+		clone.setLeavePeriod(getLeavePeriod());
 		clone.setApprovalStatus(getApprovalStatus());
 		clone.setLeaveId(getLeaveId());
 		clone.setCreateDate(getCreateDate());
@@ -614,7 +769,7 @@ public class LeavesAppliedClp extends BaseModelImpl<LeavesApplied>
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(27);
+		StringBundler sb = new StringBundler(37);
 
 		sb.append("{appliedLeaveId=");
 		sb.append(getAppliedLeaveId());
@@ -624,12 +779,22 @@ public class LeavesAppliedClp extends BaseModelImpl<LeavesApplied>
 		sb.append(getGroupId());
 		sb.append(", companyId=");
 		sb.append(getCompanyId());
+		sb.append(", employeeName=");
+		sb.append(getEmployeeName());
+		sb.append(", leaveName=");
+		sb.append(getLeaveName());
 		sb.append(", entitlement=");
 		sb.append(getEntitlement());
+		sb.append(", leaveDuration=");
+		sb.append(getLeaveDuration());
 		sb.append(", leaveFrom=");
 		sb.append(getLeaveFrom());
 		sb.append(", leaveTo=");
 		sb.append(getLeaveTo());
+		sb.append(", leaveDate=");
+		sb.append(getLeaveDate());
+		sb.append(", leavePeriod=");
+		sb.append(getLeavePeriod());
 		sb.append(", approvalStatus=");
 		sb.append(getApprovalStatus());
 		sb.append(", leaveId=");
@@ -649,7 +814,7 @@ public class LeavesAppliedClp extends BaseModelImpl<LeavesApplied>
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(43);
+		StringBundler sb = new StringBundler(58);
 
 		sb.append("<model><model-name>");
 		sb.append("com.hrms.model.LeavesApplied");
@@ -672,8 +837,20 @@ public class LeavesAppliedClp extends BaseModelImpl<LeavesApplied>
 		sb.append(getCompanyId());
 		sb.append("]]></column-value></column>");
 		sb.append(
+			"<column><column-name>employeeName</column-name><column-value><![CDATA[");
+		sb.append(getEmployeeName());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>leaveName</column-name><column-value><![CDATA[");
+		sb.append(getLeaveName());
+		sb.append("]]></column-value></column>");
+		sb.append(
 			"<column><column-name>entitlement</column-name><column-value><![CDATA[");
 		sb.append(getEntitlement());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>leaveDuration</column-name><column-value><![CDATA[");
+		sb.append(getLeaveDuration());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>leaveFrom</column-name><column-value><![CDATA[");
@@ -682,6 +859,14 @@ public class LeavesAppliedClp extends BaseModelImpl<LeavesApplied>
 		sb.append(
 			"<column><column-name>leaveTo</column-name><column-value><![CDATA[");
 		sb.append(getLeaveTo());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>leaveDate</column-name><column-value><![CDATA[");
+		sb.append(getLeaveDate());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>leavePeriod</column-name><column-value><![CDATA[");
+		sb.append(getLeavePeriod());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>approvalStatus</column-name><column-value><![CDATA[");
@@ -718,9 +903,14 @@ public class LeavesAppliedClp extends BaseModelImpl<LeavesApplied>
 	private String _userUuid;
 	private long _groupId;
 	private long _companyId;
+	private String _employeeName;
+	private String _leaveName;
 	private String _entitlement;
+	private String _leaveDuration;
 	private Date _leaveFrom;
 	private Date _leaveTo;
+	private Date _leaveDate;
+	private String _leavePeriod;
 	private String _approvalStatus;
 	private long _leaveId;
 	private Date _createDate;

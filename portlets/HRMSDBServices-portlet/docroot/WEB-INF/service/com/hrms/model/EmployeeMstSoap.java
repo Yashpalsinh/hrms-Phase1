@@ -42,9 +42,9 @@ public class EmployeeMstSoap implements Serializable {
 		soapModel.setNationality(model.getNationality());
 		soapModel.setEmployeeDesignationId(model.getEmployeeDesignationId());
 		soapModel.setEmployeeDepartmentId(model.getEmployeeDepartmentId());
+		soapModel.setEmployeeSubDepartmentId(model.getEmployeeSubDepartmentId());
 		soapModel.setEmployeeTypeId(model.getEmployeeTypeId());
 		soapModel.setEmployeeProofId(model.getEmployeeProofId());
-		soapModel.setProofNumber(model.getProofNumber());
 		soapModel.setCreateBy(model.getCreateBy());
 		soapModel.setModifiedBy(model.getModifiedBy());
 
@@ -123,11 +123,11 @@ public class EmployeeMstSoap implements Serializable {
 		_userId = userId;
 	}
 
-	public int getGender() {
+	public long getGender() {
 		return _gender;
 	}
 
-	public void setGender(int gender) {
+	public void setGender(long gender) {
 		_gender = gender;
 	}
 
@@ -187,6 +187,14 @@ public class EmployeeMstSoap implements Serializable {
 		_employeeDepartmentId = employeeDepartmentId;
 	}
 
+	public int getEmployeeSubDepartmentId() {
+		return _employeeSubDepartmentId;
+	}
+
+	public void setEmployeeSubDepartmentId(int employeeSubDepartmentId) {
+		_employeeSubDepartmentId = employeeSubDepartmentId;
+	}
+
 	public int getEmployeeTypeId() {
 		return _employeeTypeId;
 	}
@@ -201,14 +209,6 @@ public class EmployeeMstSoap implements Serializable {
 
 	public void setEmployeeProofId(int employeeProofId) {
 		_employeeProofId = employeeProofId;
-	}
-
-	public String getProofNumber() {
-		return _proofNumber;
-	}
-
-	public void setProofNumber(String proofNumber) {
-		_proofNumber = proofNumber;
 	}
 
 	public int getCreateBy() {
@@ -230,7 +230,7 @@ public class EmployeeMstSoap implements Serializable {
 	private long _employeeMstId;
 	private String _employeeId;
 	private long _userId;
-	private int _gender;
+	private long _gender;
 	private Date _dateOfBirth;
 	private Date _joiningDate;
 	private Date _leavingDate;
@@ -238,9 +238,9 @@ public class EmployeeMstSoap implements Serializable {
 	private String _nationality;
 	private int _employeeDesignationId;
 	private int _employeeDepartmentId;
+	private int _employeeSubDepartmentId;
 	private int _employeeTypeId;
 	private int _employeeProofId;
-	private String _proofNumber;
 	private int _createBy;
 	private int _modifiedBy;
 }

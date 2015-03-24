@@ -26,7 +26,7 @@ import com.hrms.service.persistence.EmployeeDepartmentPersistence;
 import com.hrms.service.persistence.EmployeeDesignationPersistence;
 import com.hrms.service.persistence.EmployeeLanguageDetailPersistence;
 import com.hrms.service.persistence.EmployeeLeavePersistence;
-import com.hrms.service.persistence.EmployeeMasterPersistence;
+import com.hrms.service.persistence.EmployeeMstPersistence;
 import com.hrms.service.persistence.EmployeePreviousCompanyPersistence;
 import com.hrms.service.persistence.EmployeeProofPersistence;
 import com.hrms.service.persistence.EmployeeQualificationPersistence;
@@ -40,6 +40,7 @@ import com.hrms.service.persistence.LeavePersistence;
 import com.hrms.service.persistence.LeavesAppliedPersistence;
 import com.hrms.service.persistence.OfferPersistence;
 import com.hrms.service.persistence.ProofPersistence;
+import com.hrms.service.persistence.TodoPersistence;
 
 import com.liferay.portal.kernel.bean.BeanReference;
 import com.liferay.portal.kernel.bean.IdentifiableBean;
@@ -808,60 +809,60 @@ public abstract class LeaveLocalServiceBaseImpl extends BaseLocalServiceImpl
 	}
 
 	/**
-	 * Returns the employee master local service.
+	 * Returns the employee mst local service.
 	 *
-	 * @return the employee master local service
+	 * @return the employee mst local service
 	 */
-	public com.hrms.service.EmployeeMasterLocalService getEmployeeMasterLocalService() {
-		return employeeMasterLocalService;
+	public com.hrms.service.EmployeeMstLocalService getEmployeeMstLocalService() {
+		return employeeMstLocalService;
 	}
 
 	/**
-	 * Sets the employee master local service.
+	 * Sets the employee mst local service.
 	 *
-	 * @param employeeMasterLocalService the employee master local service
+	 * @param employeeMstLocalService the employee mst local service
 	 */
-	public void setEmployeeMasterLocalService(
-		com.hrms.service.EmployeeMasterLocalService employeeMasterLocalService) {
-		this.employeeMasterLocalService = employeeMasterLocalService;
+	public void setEmployeeMstLocalService(
+		com.hrms.service.EmployeeMstLocalService employeeMstLocalService) {
+		this.employeeMstLocalService = employeeMstLocalService;
 	}
 
 	/**
-	 * Returns the employee master remote service.
+	 * Returns the employee mst remote service.
 	 *
-	 * @return the employee master remote service
+	 * @return the employee mst remote service
 	 */
-	public com.hrms.service.EmployeeMasterService getEmployeeMasterService() {
-		return employeeMasterService;
+	public com.hrms.service.EmployeeMstService getEmployeeMstService() {
+		return employeeMstService;
 	}
 
 	/**
-	 * Sets the employee master remote service.
+	 * Sets the employee mst remote service.
 	 *
-	 * @param employeeMasterService the employee master remote service
+	 * @param employeeMstService the employee mst remote service
 	 */
-	public void setEmployeeMasterService(
-		com.hrms.service.EmployeeMasterService employeeMasterService) {
-		this.employeeMasterService = employeeMasterService;
+	public void setEmployeeMstService(
+		com.hrms.service.EmployeeMstService employeeMstService) {
+		this.employeeMstService = employeeMstService;
 	}
 
 	/**
-	 * Returns the employee master persistence.
+	 * Returns the employee mst persistence.
 	 *
-	 * @return the employee master persistence
+	 * @return the employee mst persistence
 	 */
-	public EmployeeMasterPersistence getEmployeeMasterPersistence() {
-		return employeeMasterPersistence;
+	public EmployeeMstPersistence getEmployeeMstPersistence() {
+		return employeeMstPersistence;
 	}
 
 	/**
-	 * Sets the employee master persistence.
+	 * Sets the employee mst persistence.
 	 *
-	 * @param employeeMasterPersistence the employee master persistence
+	 * @param employeeMstPersistence the employee mst persistence
 	 */
-	public void setEmployeeMasterPersistence(
-		EmployeeMasterPersistence employeeMasterPersistence) {
-		this.employeeMasterPersistence = employeeMasterPersistence;
+	public void setEmployeeMstPersistence(
+		EmployeeMstPersistence employeeMstPersistence) {
+		this.employeeMstPersistence = employeeMstPersistence;
 	}
 
 	/**
@@ -1600,6 +1601,61 @@ public abstract class LeaveLocalServiceBaseImpl extends BaseLocalServiceImpl
 	}
 
 	/**
+	 * Returns the todo local service.
+	 *
+	 * @return the todo local service
+	 */
+	public com.hrms.service.TodoLocalService getTodoLocalService() {
+		return todoLocalService;
+	}
+
+	/**
+	 * Sets the todo local service.
+	 *
+	 * @param todoLocalService the todo local service
+	 */
+	public void setTodoLocalService(
+		com.hrms.service.TodoLocalService todoLocalService) {
+		this.todoLocalService = todoLocalService;
+	}
+
+	/**
+	 * Returns the todo remote service.
+	 *
+	 * @return the todo remote service
+	 */
+	public com.hrms.service.TodoService getTodoService() {
+		return todoService;
+	}
+
+	/**
+	 * Sets the todo remote service.
+	 *
+	 * @param todoService the todo remote service
+	 */
+	public void setTodoService(com.hrms.service.TodoService todoService) {
+		this.todoService = todoService;
+	}
+
+	/**
+	 * Returns the todo persistence.
+	 *
+	 * @return the todo persistence
+	 */
+	public TodoPersistence getTodoPersistence() {
+		return todoPersistence;
+	}
+
+	/**
+	 * Sets the todo persistence.
+	 *
+	 * @param todoPersistence the todo persistence
+	 */
+	public void setTodoPersistence(TodoPersistence todoPersistence) {
+		this.todoPersistence = todoPersistence;
+	}
+
+	/**
 	 * Returns the counter local service.
 	 *
 	 * @return the counter local service
@@ -1829,12 +1885,12 @@ public abstract class LeaveLocalServiceBaseImpl extends BaseLocalServiceImpl
 	protected com.hrms.service.EmployeeLeaveService employeeLeaveService;
 	@BeanReference(type = EmployeeLeavePersistence.class)
 	protected EmployeeLeavePersistence employeeLeavePersistence;
-	@BeanReference(type = com.hrms.service.EmployeeMasterLocalService.class)
-	protected com.hrms.service.EmployeeMasterLocalService employeeMasterLocalService;
-	@BeanReference(type = com.hrms.service.EmployeeMasterService.class)
-	protected com.hrms.service.EmployeeMasterService employeeMasterService;
-	@BeanReference(type = EmployeeMasterPersistence.class)
-	protected EmployeeMasterPersistence employeeMasterPersistence;
+	@BeanReference(type = com.hrms.service.EmployeeMstLocalService.class)
+	protected com.hrms.service.EmployeeMstLocalService employeeMstLocalService;
+	@BeanReference(type = com.hrms.service.EmployeeMstService.class)
+	protected com.hrms.service.EmployeeMstService employeeMstService;
+	@BeanReference(type = EmployeeMstPersistence.class)
+	protected EmployeeMstPersistence employeeMstPersistence;
 	@BeanReference(type = com.hrms.service.EmployeePreviousCompanyLocalService.class)
 	protected com.hrms.service.EmployeePreviousCompanyLocalService employeePreviousCompanyLocalService;
 	@BeanReference(type = com.hrms.service.EmployeePreviousCompanyService.class)
@@ -1913,6 +1969,12 @@ public abstract class LeaveLocalServiceBaseImpl extends BaseLocalServiceImpl
 	protected com.hrms.service.ProofService proofService;
 	@BeanReference(type = ProofPersistence.class)
 	protected ProofPersistence proofPersistence;
+	@BeanReference(type = com.hrms.service.TodoLocalService.class)
+	protected com.hrms.service.TodoLocalService todoLocalService;
+	@BeanReference(type = com.hrms.service.TodoService.class)
+	protected com.hrms.service.TodoService todoService;
+	@BeanReference(type = TodoPersistence.class)
+	protected TodoPersistence todoPersistence;
 	@BeanReference(type = com.liferay.counter.service.CounterLocalService.class)
 	protected com.liferay.counter.service.CounterLocalService counterLocalService;
 	@BeanReference(type = com.liferay.portal.service.ResourceLocalService.class)
