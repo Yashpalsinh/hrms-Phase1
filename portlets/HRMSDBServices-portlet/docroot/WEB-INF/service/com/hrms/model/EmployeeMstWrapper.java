@@ -62,6 +62,7 @@ public class EmployeeMstWrapper implements EmployeeMst,
 		attributes.put("employeeDesignationId", getEmployeeDesignationId());
 		attributes.put("employeeDepartmentId", getEmployeeDepartmentId());
 		attributes.put("employeeSubDepartmentId", getEmployeeSubDepartmentId());
+		attributes.put("employeeRecruitedBy", getEmployeeRecruitedBy());
 		attributes.put("employeeType", getEmployeeType());
 		attributes.put("createBy", getCreateBy());
 		attributes.put("modifiedBy", getModifiedBy());
@@ -143,6 +144,12 @@ public class EmployeeMstWrapper implements EmployeeMst,
 
 		if (employeeSubDepartmentId != null) {
 			setEmployeeSubDepartmentId(employeeSubDepartmentId);
+		}
+
+		Long employeeRecruitedBy = (Long)attributes.get("employeeRecruitedBy");
+
+		if (employeeRecruitedBy != null) {
+			setEmployeeRecruitedBy(employeeRecruitedBy);
 		}
 
 		String employeeType = (String)attributes.get("employeeType");
@@ -454,6 +461,26 @@ public class EmployeeMstWrapper implements EmployeeMst,
 	@Override
 	public void setEmployeeSubDepartmentId(long employeeSubDepartmentId) {
 		_employeeMst.setEmployeeSubDepartmentId(employeeSubDepartmentId);
+	}
+
+	/**
+	* Returns the employee recruited by of this employee mst.
+	*
+	* @return the employee recruited by of this employee mst
+	*/
+	@Override
+	public long getEmployeeRecruitedBy() {
+		return _employeeMst.getEmployeeRecruitedBy();
+	}
+
+	/**
+	* Sets the employee recruited by of this employee mst.
+	*
+	* @param employeeRecruitedBy the employee recruited by of this employee mst
+	*/
+	@Override
+	public void setEmployeeRecruitedBy(long employeeRecruitedBy) {
+		_employeeMst.setEmployeeRecruitedBy(employeeRecruitedBy);
 	}
 
 	/**

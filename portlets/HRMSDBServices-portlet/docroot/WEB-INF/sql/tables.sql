@@ -171,6 +171,7 @@ create table HRMS_EmployeeMst (
 	employeeDesignationId LONG,
 	employeeDepartmentId LONG,
 	employeeSubDepartmentId LONG,
+	employeeRecruitedBy LONG,
 	employeeType VARCHAR(75) null,
 	createBy LONG,
 	modifiedBy LONG

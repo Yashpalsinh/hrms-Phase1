@@ -45,8 +45,6 @@ import com.hrms.service.EmployeeSubDepartmentLocalServiceUtil;
 import com.hrms.service.EmployeeSubDepartmentServiceUtil;
 import com.hrms.service.EmployeeTimesheetLocalServiceUtil;
 import com.hrms.service.EmployeeTimesheetServiceUtil;
-import com.hrms.service.EmployeeTypeLocalServiceUtil;
-import com.hrms.service.EmployeeTypeServiceUtil;
 import com.hrms.service.EmployeeWarningLocalServiceUtil;
 import com.hrms.service.EmployeeWarningServiceUtil;
 import com.hrms.service.InterviewLocalServiceUtil;
@@ -127,9 +125,6 @@ public class ClpMessageListener extends BaseMessageListener {
 			EmployeeTimesheetLocalServiceUtil.clearService();
 
 			EmployeeTimesheetServiceUtil.clearService();
-			EmployeeTypeLocalServiceUtil.clearService();
-
-			EmployeeTypeServiceUtil.clearService();
 			EmployeeWarningLocalServiceUtil.clearService();
 
 			EmployeeWarningServiceUtil.clearService();

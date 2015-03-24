@@ -22,6 +22,7 @@
 		<column name="employeeDesignationId" type="long" />
 		<column name="employeeDepartmentId" type="long" />
 		<column name="employeeSubDepartmentId" type="long" />
+		<column name="employeeRecruitedBy" type="long" />
 		<column name="employeeType" type="String" />
 		<column name="createBy" type="long" />
 		<column name="modifiedBy" type="long" />
@@ -318,17 +319,6 @@
 		</finder> -->
   	</entity>
 
-	<entity name="EmployeeType" local-service="true" remote-service="true">
-		<!-- PK fields -->
-
-		<column name="employeeTypeId" type="long" primary="true" />
-
-		<!-- Fields -->
-		
-		<column name="employeeTypeName" type="String" />
-		<column name="status" type="boolean" />
-	
-	</entity>
 
 	<entity name="EmployeeTimesheet" local-service="true" remote-service="true">
 		<!-- PK fields -->

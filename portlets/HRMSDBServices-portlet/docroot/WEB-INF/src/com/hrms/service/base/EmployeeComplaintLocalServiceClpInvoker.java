@@ -102,13 +102,13 @@ public class EmployeeComplaintLocalServiceClpInvoker {
 				"com.hrms.model.EmployeeComplaint"
 			};
 
-		_methodName172 = "getBeanIdentifier";
+		_methodName166 = "getBeanIdentifier";
 
-		_methodParameterTypes172 = new String[] {  };
+		_methodParameterTypes166 = new String[] {  };
 
-		_methodName173 = "setBeanIdentifier";
+		_methodName167 = "setBeanIdentifier";
 
-		_methodParameterTypes173 = new String[] { "java.lang.String" };
+		_methodParameterTypes167 = new String[] { "java.lang.String" };
 	}
 
 	public Object invokeMethod(String name, String[] parameterTypes,
@@ -200,13 +200,13 @@ public class EmployeeComplaintLocalServiceClpInvoker {
 			return EmployeeComplaintLocalServiceUtil.updateEmployeeComplaint((com.hrms.model.EmployeeComplaint)arguments[0]);
 		}
 
-		if (_methodName172.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes172, parameterTypes)) {
+		if (_methodName166.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes166, parameterTypes)) {
 			return EmployeeComplaintLocalServiceUtil.getBeanIdentifier();
 		}
 
-		if (_methodName173.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes173, parameterTypes)) {
+		if (_methodName167.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes167, parameterTypes)) {
 			EmployeeComplaintLocalServiceUtil.setBeanIdentifier((java.lang.String)arguments[0]);
 
 			return null;
@@ -247,8 +247,8 @@ public class EmployeeComplaintLocalServiceClpInvoker {
 	private String[] _methodParameterTypes14;
 	private String _methodName15;
 	private String[] _methodParameterTypes15;
-	private String _methodName172;
-	private String[] _methodParameterTypes172;
-	private String _methodName173;
-	private String[] _methodParameterTypes173;
+	private String _methodName166;
+	private String[] _methodParameterTypes166;
+	private String _methodName167;
+	private String[] _methodParameterTypes167;
 }

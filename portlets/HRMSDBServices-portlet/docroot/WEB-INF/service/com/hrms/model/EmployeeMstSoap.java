@@ -43,6 +43,7 @@ public class EmployeeMstSoap implements Serializable {
 		soapModel.setEmployeeDesignationId(model.getEmployeeDesignationId());
 		soapModel.setEmployeeDepartmentId(model.getEmployeeDepartmentId());
 		soapModel.setEmployeeSubDepartmentId(model.getEmployeeSubDepartmentId());
+		soapModel.setEmployeeRecruitedBy(model.getEmployeeRecruitedBy());
 		soapModel.setEmployeeType(model.getEmployeeType());
 		soapModel.setCreateBy(model.getCreateBy());
 		soapModel.setModifiedBy(model.getModifiedBy());
@@ -198,6 +199,14 @@ public class EmployeeMstSoap implements Serializable {
 		_employeeSubDepartmentId = employeeSubDepartmentId;
 	}
 
+	public long getEmployeeRecruitedBy() {
+		return _employeeRecruitedBy;
+	}
+
+	public void setEmployeeRecruitedBy(long employeeRecruitedBy) {
+		_employeeRecruitedBy = employeeRecruitedBy;
+	}
+
 	public String getEmployeeType() {
 		return _employeeType;
 	}
@@ -234,6 +243,7 @@ public class EmployeeMstSoap implements Serializable {
 	private long _employeeDesignationId;
 	private long _employeeDepartmentId;
 	private long _employeeSubDepartmentId;
+	private long _employeeRecruitedBy;
 	private String _employeeType;
 	private long _createBy;
 	private long _modifiedBy;

@@ -253,6 +253,20 @@ public interface EmployeeMstModel extends BaseModel<EmployeeMst> {
 	public void setEmployeeSubDepartmentId(long employeeSubDepartmentId);
 
 	/**
+	 * Returns the employee recruited by of this employee mst.
+	 *
+	 * @return the employee recruited by of this employee mst
+	 */
+	public long getEmployeeRecruitedBy();
+
+	/**
+	 * Sets the employee recruited by of this employee mst.
+	 *
+	 * @param employeeRecruitedBy the employee recruited by of this employee mst
+	 */
+	public void setEmployeeRecruitedBy(long employeeRecruitedBy);
+
+	/**
 	 * Returns the employee type of this employee mst.
 	 *
 	 * @return the employee type of this employee mst

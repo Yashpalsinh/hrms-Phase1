@@ -29,7 +29,6 @@ import com.hrms.model.EmployeeProofClp;
 import com.hrms.model.EmployeeQualificationClp;
 import com.hrms.model.EmployeeSubDepartmentClp;
 import com.hrms.model.EmployeeTimesheetClp;
-import com.hrms.model.EmployeeTypeClp;
 import com.hrms.model.EmployeeWarningClp;
 import com.hrms.model.InterviewClp;
 import com.hrms.model.JobLibraryClp;
@@ -183,10 +182,6 @@ public class ClpSerializer {
 
 		if (oldModelClassName.equals(EmployeeTimesheetClp.class.getName())) {
 			return translateInputEmployeeTimesheet(oldModel);
-		}
-
-		if (oldModelClassName.equals(EmployeeTypeClp.class.getName())) {
-			return translateInputEmployeeType(oldModel);
 		}
 
 		if (oldModelClassName.equals(EmployeeWarningClp.class.getName())) {
@@ -392,16 +387,6 @@ public class ClpSerializer {
 		return newModel;
 	}
 
-	public static Object translateInputEmployeeType(BaseModel<?> oldModel) {
-		EmployeeTypeClp oldClpModel = (EmployeeTypeClp)oldModel;
-
-		BaseModel<?> newModel = oldClpModel.getEmployeeTypeRemoteModel();
-
-		newModel.setModelAttributes(oldClpModel.getModelAttributes());
-
-		return newModel;
-	}
-
 	public static Object translateInputEmployeeWarning(BaseModel<?> oldModel) {
 		EmployeeWarningClp oldClpModel = (EmployeeWarningClp)oldModel;
 
@@ -568,10 +553,6 @@ public class ClpSerializer {
 		if (oldModelClassName.equals(
 					"com.hrms.model.impl.EmployeeTimesheetImpl")) {
 			return translateOutputEmployeeTimesheet(oldModel);
-		}
-
-		if (oldModelClassName.equals("com.hrms.model.impl.EmployeeTypeImpl")) {
-			return translateOutputEmployeeType(oldModel);
 		}
 
 		if (oldModelClassName.equals("com.hrms.model.impl.EmployeeWarningImpl")) {
@@ -744,10 +725,6 @@ public class ClpSerializer {
 
 		if (className.equals("com.hrms.NoSuchEmployeeTimesheetException")) {
 			return new com.hrms.NoSuchEmployeeTimesheetException();
-		}
-
-		if (className.equals("com.hrms.NoSuchEmployeeTypeException")) {
-			return new com.hrms.NoSuchEmployeeTypeException();
 		}
 
 		if (className.equals("com.hrms.NoSuchEmployeeWarningException")) {
@@ -940,16 +917,6 @@ public class ClpSerializer {
 		newModel.setModelAttributes(oldModel.getModelAttributes());
 
 		newModel.setEmployeeTimesheetRemoteModel(oldModel);
-
-		return newModel;
-	}
-
-	public static Object translateOutputEmployeeType(BaseModel<?> oldModel) {
-		EmployeeTypeClp newModel = new EmployeeTypeClp();
-
-		newModel.setModelAttributes(oldModel.getModelAttributes());
-
-		newModel.setEmployeeTypeRemoteModel(oldModel);
 
 		return newModel;
 	}

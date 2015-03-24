@@ -145,6 +145,7 @@
 		<field name="employeeDesignationId" type="long" />
 		<field name="employeeDepartmentId" type="long" />
 		<field name="employeeSubDepartmentId" type="long" />
+		<field name="employeeRecruitedBy" type="long" />
 		<field name="employeeType" type="String" />
 		<field name="createBy" type="long" />
 		<field name="modifiedBy" type="long" />
@@ -210,11 +211,6 @@
 		<field name="modifiedDate" type="Date" />
 		<field name="createBy" type="long" />
 		<field name="modifiedBy" type="long" />
-	</model>
-	<model name="com.hrms.model.EmployeeType">
-		<field name="employeeTypeId" type="long" />
-		<field name="employeeTypeName" type="String" />
-		<field name="status" type="boolean" />
 	</model>
 	<model name="com.hrms.model.EmployeeWarning">
 		<field name="employeeWarningId" type="long" />

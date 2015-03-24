@@ -38,7 +38,7 @@ public class EmployeeMstCacheModel implements CacheModel<EmployeeMst>,
 	Externalizable {
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(31);
+		StringBundler sb = new StringBundler(33);
 
 		sb.append("{employeeMstId=");
 		sb.append(employeeMstId);
@@ -64,6 +64,8 @@ public class EmployeeMstCacheModel implements CacheModel<EmployeeMst>,
 		sb.append(employeeDepartmentId);
 		sb.append(", employeeSubDepartmentId=");
 		sb.append(employeeSubDepartmentId);
+		sb.append(", employeeRecruitedBy=");
+		sb.append(employeeRecruitedBy);
 		sb.append(", employeeType=");
 		sb.append(employeeType);
 		sb.append(", createBy=");
@@ -124,6 +126,7 @@ public class EmployeeMstCacheModel implements CacheModel<EmployeeMst>,
 		employeeMstImpl.setEmployeeDesignationId(employeeDesignationId);
 		employeeMstImpl.setEmployeeDepartmentId(employeeDepartmentId);
 		employeeMstImpl.setEmployeeSubDepartmentId(employeeSubDepartmentId);
+		employeeMstImpl.setEmployeeRecruitedBy(employeeRecruitedBy);
 
 		if (employeeType == null) {
 			employeeMstImpl.setEmployeeType(StringPool.BLANK);
@@ -154,6 +157,7 @@ public class EmployeeMstCacheModel implements CacheModel<EmployeeMst>,
 		employeeDesignationId = objectInput.readLong();
 		employeeDepartmentId = objectInput.readLong();
 		employeeSubDepartmentId = objectInput.readLong();
+		employeeRecruitedBy = objectInput.readLong();
 		employeeType = objectInput.readUTF();
 		createBy = objectInput.readLong();
 		modifiedBy = objectInput.readLong();
@@ -188,6 +192,7 @@ public class EmployeeMstCacheModel implements CacheModel<EmployeeMst>,
 		objectOutput.writeLong(employeeDesignationId);
 		objectOutput.writeLong(employeeDepartmentId);
 		objectOutput.writeLong(employeeSubDepartmentId);
+		objectOutput.writeLong(employeeRecruitedBy);
 
 		if (employeeType == null) {
 			objectOutput.writeUTF(StringPool.BLANK);
@@ -212,6 +217,7 @@ public class EmployeeMstCacheModel implements CacheModel<EmployeeMst>,
 	public long employeeDesignationId;
 	public long employeeDepartmentId;
 	public long employeeSubDepartmentId;
+	public long employeeRecruitedBy;
 	public String employeeType;
 	public long createBy;
 	public long modifiedBy;

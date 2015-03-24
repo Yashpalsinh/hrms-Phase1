@@ -106,30 +106,30 @@ public class EmployeeDesignationLocalServiceClpInvoker {
 				"com.hrms.model.EmployeeDesignation"
 			};
 
-		_methodName172 = "getBeanIdentifier";
+		_methodName166 = "getBeanIdentifier";
 
-		_methodParameterTypes172 = new String[] {  };
+		_methodParameterTypes166 = new String[] {  };
 
-		_methodName173 = "setBeanIdentifier";
+		_methodName167 = "setBeanIdentifier";
 
-		_methodParameterTypes173 = new String[] { "java.lang.String" };
+		_methodParameterTypes167 = new String[] { "java.lang.String" };
 
-		_methodName178 = "getSerachEmployeeDesignations";
+		_methodName172 = "getSerachEmployeeDesignations";
 
-		_methodParameterTypes178 = new String[] {
+		_methodParameterTypes172 = new String[] {
 				"java.lang.String", "java.lang.String", "boolean", "int", "int",
 				"com.liferay.portal.kernel.util.OrderByComparator"
 			};
 
-		_methodName179 = "getSearchEmployeeDesignationsCount";
+		_methodName173 = "getSearchEmployeeDesignationsCount";
 
-		_methodParameterTypes179 = new String[] {
+		_methodParameterTypes173 = new String[] {
 				"java.lang.String", "java.lang.String", "boolean"
 			};
 
-		_methodName182 = "findByStatus";
+		_methodName176 = "findByStatus";
 
-		_methodParameterTypes182 = new String[] { "boolean" };
+		_methodParameterTypes176 = new String[] { "boolean" };
 	}
 
 	public Object invokeMethod(String name, String[] parameterTypes,
@@ -221,20 +221,20 @@ public class EmployeeDesignationLocalServiceClpInvoker {
 			return EmployeeDesignationLocalServiceUtil.updateEmployeeDesignation((com.hrms.model.EmployeeDesignation)arguments[0]);
 		}
 
-		if (_methodName172.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes172, parameterTypes)) {
+		if (_methodName166.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes166, parameterTypes)) {
 			return EmployeeDesignationLocalServiceUtil.getBeanIdentifier();
 		}
 
-		if (_methodName173.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes173, parameterTypes)) {
+		if (_methodName167.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes167, parameterTypes)) {
 			EmployeeDesignationLocalServiceUtil.setBeanIdentifier((java.lang.String)arguments[0]);
 
 			return null;
 		}
 
-		if (_methodName178.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes178, parameterTypes)) {
+		if (_methodName172.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes172, parameterTypes)) {
 			return EmployeeDesignationLocalServiceUtil.getSerachEmployeeDesignations((java.lang.String)arguments[0],
 				(java.lang.String)arguments[1],
 				((Boolean)arguments[2]).booleanValue(),
@@ -243,15 +243,15 @@ public class EmployeeDesignationLocalServiceClpInvoker {
 				(com.liferay.portal.kernel.util.OrderByComparator)arguments[5]);
 		}
 
-		if (_methodName179.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes179, parameterTypes)) {
+		if (_methodName173.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes173, parameterTypes)) {
 			return EmployeeDesignationLocalServiceUtil.getSearchEmployeeDesignationsCount((java.lang.String)arguments[0],
 				(java.lang.String)arguments[1],
 				((Boolean)arguments[2]).booleanValue());
 		}
 
-		if (_methodName182.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes182, parameterTypes)) {
+		if (_methodName176.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes176, parameterTypes)) {
 			return EmployeeDesignationLocalServiceUtil.findByStatus(((Boolean)arguments[0]).booleanValue());
 		}
 
@@ -290,14 +290,14 @@ public class EmployeeDesignationLocalServiceClpInvoker {
 	private String[] _methodParameterTypes14;
 	private String _methodName15;
 	private String[] _methodParameterTypes15;
+	private String _methodName166;
+	private String[] _methodParameterTypes166;
+	private String _methodName167;
+	private String[] _methodParameterTypes167;
 	private String _methodName172;
 	private String[] _methodParameterTypes172;
 	private String _methodName173;
 	private String[] _methodParameterTypes173;
-	private String _methodName178;
-	private String[] _methodParameterTypes178;
-	private String _methodName179;
-	private String[] _methodParameterTypes179;
-	private String _methodName182;
-	private String[] _methodParameterTypes182;
+	private String _methodName176;
+	private String[] _methodParameterTypes176;
 }

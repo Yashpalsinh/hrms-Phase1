@@ -17,7 +17,6 @@
 	<import class="com.hrms.model.EmployeeQualification" />
 	<import class="com.hrms.model.EmployeeSubDepartment" />
 	<import class="com.hrms.model.EmployeeTimesheet" />
-	<import class="com.hrms.model.EmployeeType" />
 	<import class="com.hrms.model.EmployeeWarning" />
 	<import class="com.hrms.model.Interview" />
 	<import class="com.hrms.model.JobLibrary" />
@@ -200,6 +199,7 @@
 		<property name="employeeDesignationId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="employeeDepartmentId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="employeeSubDepartmentId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="employeeRecruitedBy" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="employeeType" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="createBy" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="modifiedBy" type="com.liferay.portal.dao.orm.hibernate.LongType" />
@@ -280,14 +280,6 @@
 		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
 		<property name="createBy" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="modifiedBy" type="com.liferay.portal.dao.orm.hibernate.LongType" />
-	</class>
-	<class name="com.hrms.model.impl.EmployeeTypeImpl" table="HRMS_EmployeeType">
-		<cache usage="read-write" />
-		<id name="employeeTypeId" type="long">
-			<generator class="assigned" />
-		</id>
-		<property name="employeeTypeName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-		<property name="status" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
 	</class>
 	<class name="com.hrms.model.impl.EmployeeWarningImpl" table="HRMS_EmployeeWarning">
 		<cache usage="read-write" />

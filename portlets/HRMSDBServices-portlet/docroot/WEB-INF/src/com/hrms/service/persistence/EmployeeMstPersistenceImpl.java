@@ -1624,6 +1624,7 @@ public class EmployeeMstPersistenceImpl extends BasePersistenceImpl<EmployeeMst>
 		employeeMstImpl.setEmployeeDesignationId(employeeMst.getEmployeeDesignationId());
 		employeeMstImpl.setEmployeeDepartmentId(employeeMst.getEmployeeDepartmentId());
 		employeeMstImpl.setEmployeeSubDepartmentId(employeeMst.getEmployeeSubDepartmentId());
+		employeeMstImpl.setEmployeeRecruitedBy(employeeMst.getEmployeeRecruitedBy());
 		employeeMstImpl.setEmployeeType(employeeMst.getEmployeeType());
 		employeeMstImpl.setCreateBy(employeeMst.getCreateBy());
 		employeeMstImpl.setModifiedBy(employeeMst.getModifiedBy());

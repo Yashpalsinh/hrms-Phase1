@@ -87,6 +87,7 @@ public class EmployeeMstClp extends BaseModelImpl<EmployeeMst>
 		attributes.put("employeeDesignationId", getEmployeeDesignationId());
 		attributes.put("employeeDepartmentId", getEmployeeDepartmentId());
 		attributes.put("employeeSubDepartmentId", getEmployeeSubDepartmentId());
+		attributes.put("employeeRecruitedBy", getEmployeeRecruitedBy());
 		attributes.put("employeeType", getEmployeeType());
 		attributes.put("createBy", getCreateBy());
 		attributes.put("modifiedBy", getModifiedBy());
@@ -168,6 +169,12 @@ public class EmployeeMstClp extends BaseModelImpl<EmployeeMst>
 
 		if (employeeSubDepartmentId != null) {
 			setEmployeeSubDepartmentId(employeeSubDepartmentId);
+		}
+
+		Long employeeRecruitedBy = (Long)attributes.get("employeeRecruitedBy");
+
+		if (employeeRecruitedBy != null) {
+			setEmployeeRecruitedBy(employeeRecruitedBy);
 		}
 
 		String employeeType = (String)attributes.get("employeeType");
@@ -484,6 +491,30 @@ public class EmployeeMstClp extends BaseModelImpl<EmployeeMst>
 	}
 
 	@Override
+	public long getEmployeeRecruitedBy() {
+		return _employeeRecruitedBy;
+	}
+
+	@Override
+	public void setEmployeeRecruitedBy(long employeeRecruitedBy) {
+		_employeeRecruitedBy = employeeRecruitedBy;
+
+		if (_employeeMstRemoteModel != null) {
+			try {
+				Class<?> clazz = _employeeMstRemoteModel.getClass();
+
+				Method method = clazz.getMethod("setEmployeeRecruitedBy",
+						long.class);
+
+				method.invoke(_employeeMstRemoteModel, employeeRecruitedBy);
+			}
+			catch (Exception e) {
+				throw new UnsupportedOperationException(e);
+			}
+		}
+	}
+
+	@Override
 	public String getEmployeeType() {
 		return _employeeType;
 	}
@@ -633,6 +664,7 @@ public class EmployeeMstClp extends BaseModelImpl<EmployeeMst>
 		clone.setEmployeeDesignationId(getEmployeeDesignationId());
 		clone.setEmployeeDepartmentId(getEmployeeDepartmentId());
 		clone.setEmployeeSubDepartmentId(getEmployeeSubDepartmentId());
+		clone.setEmployeeRecruitedBy(getEmployeeRecruitedBy());
 		clone.setEmployeeType(getEmployeeType());
 		clone.setCreateBy(getCreateBy());
 		clone.setModifiedBy(getModifiedBy());
@@ -684,7 +716,7 @@ public class EmployeeMstClp extends BaseModelImpl<EmployeeMst>
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(31);
+		StringBundler sb = new StringBundler(33);
 
 		sb.append("{employeeMstId=");
 		sb.append(getEmployeeMstId());
@@ -710,6 +742,8 @@ public class EmployeeMstClp extends BaseModelImpl<EmployeeMst>
 		sb.append(getEmployeeDepartmentId());
 		sb.append(", employeeSubDepartmentId=");
 		sb.append(getEmployeeSubDepartmentId());
+		sb.append(", employeeRecruitedBy=");
+		sb.append(getEmployeeRecruitedBy());
 		sb.append(", employeeType=");
 		sb.append(getEmployeeType());
 		sb.append(", createBy=");
@@ -723,7 +757,7 @@ public class EmployeeMstClp extends BaseModelImpl<EmployeeMst>
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(49);
+		StringBundler sb = new StringBundler(52);
 
 		sb.append("<model><model-name>");
 		sb.append("com.hrms.model.EmployeeMst");
@@ -778,6 +812,10 @@ public class EmployeeMstClp extends BaseModelImpl<EmployeeMst>
 		sb.append(getEmployeeSubDepartmentId());
 		sb.append("]]></column-value></column>");
 		sb.append(
+			"<column><column-name>employeeRecruitedBy</column-name><column-value><![CDATA[");
+		sb.append(getEmployeeRecruitedBy());
+		sb.append("]]></column-value></column>");
+		sb.append(
 			"<column><column-name>employeeType</column-name><column-value><![CDATA[");
 		sb.append(getEmployeeType());
 		sb.append("]]></column-value></column>");
@@ -808,6 +846,7 @@ public class EmployeeMstClp extends BaseModelImpl<EmployeeMst>
 	private long _employeeDesignationId;
 	private long _employeeDepartmentId;
 	private long _employeeSubDepartmentId;
+	private long _employeeRecruitedBy;
 	private String _employeeType;
 	private long _createBy;
 	private long _modifiedBy;

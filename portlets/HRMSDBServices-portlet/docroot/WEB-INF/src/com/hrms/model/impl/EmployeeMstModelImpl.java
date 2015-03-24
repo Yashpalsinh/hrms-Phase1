@@ -78,11 +78,12 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 			{ "employeeDesignationId", Types.BIGINT },
 			{ "employeeDepartmentId", Types.BIGINT },
 			{ "employeeSubDepartmentId", Types.BIGINT },
+			{ "employeeRecruitedBy", Types.BIGINT },
 			{ "employeeType", Types.VARCHAR },
 			{ "createBy", Types.BIGINT },
 			{ "modifiedBy", Types.BIGINT }
 		};
-	public static final String TABLE_SQL_CREATE = "create table HRMS_EmployeeMst (employeeMstId LONG not null primary key,employeeId VARCHAR(75) null,userId LONG,gender BOOLEAN,dateOfBirth DATE null,joiningDate DATE null,leavingDate DATE null,maritualStatus INTEGER,nationality VARCHAR(75) null,employeeDesignationId LONG,employeeDepartmentId LONG,employeeSubDepartmentId LONG,employeeType VARCHAR(75) null,createBy LONG,modifiedBy LONG)";
+	public static final String TABLE_SQL_CREATE = "create table HRMS_EmployeeMst (employeeMstId LONG not null primary key,employeeId VARCHAR(75) null,userId LONG,gender BOOLEAN,dateOfBirth DATE null,joiningDate DATE null,leavingDate DATE null,maritualStatus INTEGER,nationality VARCHAR(75) null,employeeDesignationId LONG,employeeDepartmentId LONG,employeeSubDepartmentId LONG,employeeRecruitedBy LONG,employeeType VARCHAR(75) null,createBy LONG,modifiedBy LONG)";
 	public static final String TABLE_SQL_DROP = "drop table HRMS_EmployeeMst";
 	public static final String ORDER_BY_JPQL = " ORDER BY employeeMst.employeeMstId ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY HRMS_EmployeeMst.employeeMstId ASC";
@@ -128,6 +129,7 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 		model.setEmployeeDesignationId(soapModel.getEmployeeDesignationId());
 		model.setEmployeeDepartmentId(soapModel.getEmployeeDepartmentId());
 		model.setEmployeeSubDepartmentId(soapModel.getEmployeeSubDepartmentId());
+		model.setEmployeeRecruitedBy(soapModel.getEmployeeRecruitedBy());
 		model.setEmployeeType(soapModel.getEmployeeType());
 		model.setCreateBy(soapModel.getCreateBy());
 		model.setModifiedBy(soapModel.getModifiedBy());
@@ -207,6 +209,7 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 		attributes.put("employeeDesignationId", getEmployeeDesignationId());
 		attributes.put("employeeDepartmentId", getEmployeeDepartmentId());
 		attributes.put("employeeSubDepartmentId", getEmployeeSubDepartmentId());
+		attributes.put("employeeRecruitedBy", getEmployeeRecruitedBy());
 		attributes.put("employeeType", getEmployeeType());
 		attributes.put("createBy", getCreateBy());
 		attributes.put("modifiedBy", getModifiedBy());
@@ -288,6 +291,12 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 
 		if (employeeSubDepartmentId != null) {
 			setEmployeeSubDepartmentId(employeeSubDepartmentId);
+		}
+
+		Long employeeRecruitedBy = (Long)attributes.get("employeeRecruitedBy");
+
+		if (employeeRecruitedBy != null) {
+			setEmployeeRecruitedBy(employeeRecruitedBy);
 		}
 
 		String employeeType = (String)attributes.get("employeeType");
@@ -480,6 +489,17 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 
 	@JSON
 	@Override
+	public long getEmployeeRecruitedBy() {
+		return _employeeRecruitedBy;
+	}
+
+	@Override
+	public void setEmployeeRecruitedBy(long employeeRecruitedBy) {
+		_employeeRecruitedBy = employeeRecruitedBy;
+	}
+
+	@JSON
+	@Override
 	public String getEmployeeType() {
 		if (_employeeType == null) {
 			return StringPool.BLANK;
@@ -583,6 +603,7 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 		employeeMstImpl.setEmployeeDesignationId(getEmployeeDesignationId());
 		employeeMstImpl.setEmployeeDepartmentId(getEmployeeDepartmentId());
 		employeeMstImpl.setEmployeeSubDepartmentId(getEmployeeSubDepartmentId());
+		employeeMstImpl.setEmployeeRecruitedBy(getEmployeeRecruitedBy());
 		employeeMstImpl.setEmployeeType(getEmployeeType());
 		employeeMstImpl.setCreateBy(getCreateBy());
 		employeeMstImpl.setModifiedBy(getModifiedBy());
@@ -714,6 +735,8 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 
 		employeeMstCacheModel.employeeSubDepartmentId = getEmployeeSubDepartmentId();
 
+		employeeMstCacheModel.employeeRecruitedBy = getEmployeeRecruitedBy();
+
 		employeeMstCacheModel.employeeType = getEmployeeType();
 
 		String employeeType = employeeMstCacheModel.employeeType;
@@ -731,7 +754,7 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(31);
+		StringBundler sb = new StringBundler(33);
 
 		sb.append("{employeeMstId=");
 		sb.append(getEmployeeMstId());
@@ -757,6 +780,8 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 		sb.append(getEmployeeDepartmentId());
 		sb.append(", employeeSubDepartmentId=");
 		sb.append(getEmployeeSubDepartmentId());
+		sb.append(", employeeRecruitedBy=");
+		sb.append(getEmployeeRecruitedBy());
 		sb.append(", employeeType=");
 		sb.append(getEmployeeType());
 		sb.append(", createBy=");
@@ -770,7 +795,7 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(49);
+		StringBundler sb = new StringBundler(52);
 
 		sb.append("<model><model-name>");
 		sb.append("com.hrms.model.EmployeeMst");
@@ -825,6 +850,10 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 		sb.append(getEmployeeSubDepartmentId());
 		sb.append("]]></column-value></column>");
 		sb.append(
+			"<column><column-name>employeeRecruitedBy</column-name><column-value><![CDATA[");
+		sb.append(getEmployeeRecruitedBy());
+		sb.append("]]></column-value></column>");
+		sb.append(
 			"<column><column-name>employeeType</column-name><column-value><![CDATA[");
 		sb.append(getEmployeeType());
 		sb.append("]]></column-value></column>");
@@ -861,6 +890,7 @@ public class EmployeeMstModelImpl extends BaseModelImpl<EmployeeMst>
 	private long _employeeDesignationId;
 	private long _employeeDepartmentId;
 	private long _employeeSubDepartmentId;
+	private long _employeeRecruitedBy;
 	private String _employeeType;
 	private long _createBy;
 	private long _originalCreateBy;
