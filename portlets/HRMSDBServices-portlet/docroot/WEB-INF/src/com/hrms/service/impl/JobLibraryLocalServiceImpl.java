@@ -14,7 +14,26 @@
 
 package com.hrms.service.impl;
 
+
+
+import java.util.List;
+
+import com.hrms.model.JobLibrary;
 import com.hrms.service.base.JobLibraryLocalServiceBaseImpl;
+import com.hrms.service.persistence.JobLibraryPersistence;
+import com.hrms.service.JobLibraryLocalServiceUtil;
+import com.liferay.portal.kernel.dao.orm.DynamicQuery;
+import com.liferay.portal.kernel.dao.orm.DynamicQueryFactoryUtil;
+import com.liferay.portal.kernel.dao.orm.Junction;
+import com.liferay.portal.kernel.dao.orm.Property;
+import com.liferay.portal.kernel.dao.orm.PropertyFactoryUtil;
+import com.liferay.portal.kernel.dao.orm.RestrictionsFactoryUtil;
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.util.Validator;
+import com.liferay.portal.service.ServiceContext;
+import com.liferay.portlet.asset.model.AssetEntry;
+import com.liferay.portlet.asset.service.AssetEntryLocalService;
 
 /**
  * The implementation of the job library local service.
@@ -36,4 +55,42 @@ public class JobLibraryLocalServiceImpl extends JobLibraryLocalServiceBaseImpl {
 	 *
 	 * Never reference this interface directly. Always use {@link com.hrms.service.JobLibraryLocalServiceUtil} to access the job library local service.
 	 */
+	
+	
+
+	public List getSearchJoblibrary(String jobTitle,
+			 boolean andSearch, int start, int end)
+			throws SystemException {
+		DynamicQuery dynamicQuery = buildjobLibraryDynamicQuery(jobTitle, andSearch);
+		return JobLibraryLocalServiceUtil
+				.dynamicQuery(dynamicQuery,start,end);
+	}
+
+	public int getSearchJobLibraryCount(String jobTitle,
+			 boolean andSearch) throws SystemException {
+		DynamicQuery dynamicQuery = buildjobLibraryDynamicQuery(jobTitle, andSearch);
+		return (int)JobLibraryLocalServiceUtil.dynamicQueryCount(dynamicQuery);
+	}
+
+	protected DynamicQuery buildjobLibraryDynamicQuery(String jobTitle,boolean andSearch) {
+		Junction junction = null;
+		if (andSearch)
+			junction = RestrictionsFactoryUtil.conjunction();
+		else
+			junction = RestrictionsFactoryUtil.disjunction();
+
+		
+		 if(Validator.isNotNull(jobTitle))
+		 {
+		 Property property = PropertyFactoryUtil.forName("jobTitle");
+		 String value = (new StringBuilder("%")).append(jobTitle).append("%").toString();
+		 junction.add(property.like(value));
+		 }
+		
+		DynamicQuery dynamicQuery = DynamicQueryFactoryUtil.forClass(
+				JobLibrary.class, getClassLoader());
+		return dynamicQuery.add(junction);
+	}
+	
+	
 }

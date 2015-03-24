@@ -162,19 +162,19 @@ create table HRMS_EmployeeMst (
 	employeeMstId LONG not null primary key,
 	employeeId VARCHAR(75) null,
 	userId LONG,
-	gender LONG,
+	gender BOOLEAN,
 	dateOfBirth DATE null,
 	joiningDate DATE null,
 	leavingDate DATE null,
 	maritualStatus INTEGER,
 	nationality VARCHAR(75) null,
-	employeeDesignationId INTEGER,
-	employeeDepartmentId INTEGER,
-	employeeSubDepartmentId INTEGER,
-	employeeTypeId INTEGER,
-	employeeProofId INTEGER,
-	createBy INTEGER,
-	modifiedBy INTEGER
+	employeeDesignationId LONG,
+	employeeDepartmentId LONG,
+	employeeSubDepartmentId LONG,
+	employeeRecruitedBy LONG,
+	employeeType VARCHAR(75) null,
+	createBy LONG,
+	modifiedBy LONG
 );
 
 create table HRMS_EmployeePreviousCompany (

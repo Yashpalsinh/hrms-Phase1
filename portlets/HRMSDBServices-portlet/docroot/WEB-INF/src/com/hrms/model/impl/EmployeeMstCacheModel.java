@@ -64,10 +64,10 @@ public class EmployeeMstCacheModel implements CacheModel<EmployeeMst>,
 		sb.append(employeeDepartmentId);
 		sb.append(", employeeSubDepartmentId=");
 		sb.append(employeeSubDepartmentId);
-		sb.append(", employeeTypeId=");
-		sb.append(employeeTypeId);
-		sb.append(", employeeProofId=");
-		sb.append(employeeProofId);
+		sb.append(", employeeRecruitedBy=");
+		sb.append(employeeRecruitedBy);
+		sb.append(", employeeType=");
+		sb.append(employeeType);
 		sb.append(", createBy=");
 		sb.append(createBy);
 		sb.append(", modifiedBy=");
@@ -126,8 +126,15 @@ public class EmployeeMstCacheModel implements CacheModel<EmployeeMst>,
 		employeeMstImpl.setEmployeeDesignationId(employeeDesignationId);
 		employeeMstImpl.setEmployeeDepartmentId(employeeDepartmentId);
 		employeeMstImpl.setEmployeeSubDepartmentId(employeeSubDepartmentId);
-		employeeMstImpl.setEmployeeTypeId(employeeTypeId);
-		employeeMstImpl.setEmployeeProofId(employeeProofId);
+		employeeMstImpl.setEmployeeRecruitedBy(employeeRecruitedBy);
+
+		if (employeeType == null) {
+			employeeMstImpl.setEmployeeType(StringPool.BLANK);
+		}
+		else {
+			employeeMstImpl.setEmployeeType(employeeType);
+		}
+
 		employeeMstImpl.setCreateBy(createBy);
 		employeeMstImpl.setModifiedBy(modifiedBy);
 
@@ -141,19 +148,19 @@ public class EmployeeMstCacheModel implements CacheModel<EmployeeMst>,
 		employeeMstId = objectInput.readLong();
 		employeeId = objectInput.readUTF();
 		userId = objectInput.readLong();
-		gender = objectInput.readLong();
+		gender = objectInput.readBoolean();
 		dateOfBirth = objectInput.readLong();
 		joiningDate = objectInput.readLong();
 		leavingDate = objectInput.readLong();
 		maritualStatus = objectInput.readInt();
 		nationality = objectInput.readUTF();
-		employeeDesignationId = objectInput.readInt();
-		employeeDepartmentId = objectInput.readInt();
-		employeeSubDepartmentId = objectInput.readInt();
-		employeeTypeId = objectInput.readInt();
-		employeeProofId = objectInput.readInt();
-		createBy = objectInput.readInt();
-		modifiedBy = objectInput.readInt();
+		employeeDesignationId = objectInput.readLong();
+		employeeDepartmentId = objectInput.readLong();
+		employeeSubDepartmentId = objectInput.readLong();
+		employeeRecruitedBy = objectInput.readLong();
+		employeeType = objectInput.readUTF();
+		createBy = objectInput.readLong();
+		modifiedBy = objectInput.readLong();
 	}
 
 	@Override
@@ -169,7 +176,7 @@ public class EmployeeMstCacheModel implements CacheModel<EmployeeMst>,
 		}
 
 		objectOutput.writeLong(userId);
-		objectOutput.writeLong(gender);
+		objectOutput.writeBoolean(gender);
 		objectOutput.writeLong(dateOfBirth);
 		objectOutput.writeLong(joiningDate);
 		objectOutput.writeLong(leavingDate);
@@ -182,29 +189,36 @@ public class EmployeeMstCacheModel implements CacheModel<EmployeeMst>,
 			objectOutput.writeUTF(nationality);
 		}
 
-		objectOutput.writeInt(employeeDesignationId);
-		objectOutput.writeInt(employeeDepartmentId);
-		objectOutput.writeInt(employeeSubDepartmentId);
-		objectOutput.writeInt(employeeTypeId);
-		objectOutput.writeInt(employeeProofId);
-		objectOutput.writeInt(createBy);
-		objectOutput.writeInt(modifiedBy);
+		objectOutput.writeLong(employeeDesignationId);
+		objectOutput.writeLong(employeeDepartmentId);
+		objectOutput.writeLong(employeeSubDepartmentId);
+		objectOutput.writeLong(employeeRecruitedBy);
+
+		if (employeeType == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(employeeType);
+		}
+
+		objectOutput.writeLong(createBy);
+		objectOutput.writeLong(modifiedBy);
 	}
 
 	public long employeeMstId;
 	public String employeeId;
 	public long userId;
-	public long gender;
+	public boolean gender;
 	public long dateOfBirth;
 	public long joiningDate;
 	public long leavingDate;
 	public int maritualStatus;
 	public String nationality;
-	public int employeeDesignationId;
-	public int employeeDepartmentId;
-	public int employeeSubDepartmentId;
-	public int employeeTypeId;
-	public int employeeProofId;
-	public int createBy;
-	public int modifiedBy;
+	public long employeeDesignationId;
+	public long employeeDepartmentId;
+	public long employeeSubDepartmentId;
+	public long employeeRecruitedBy;
+	public String employeeType;
+	public long createBy;
+	public long modifiedBy;
 }

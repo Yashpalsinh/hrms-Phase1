@@ -46,9 +46,6 @@
 	<bean id="com.hrms.service.EmployeeTimesheetLocalService" class="com.hrms.service.impl.EmployeeTimesheetLocalServiceImpl" />
 	<bean id="com.hrms.service.EmployeeTimesheetService" class="com.hrms.service.impl.EmployeeTimesheetServiceImpl" />
 	<bean id="com.hrms.service.persistence.EmployeeTimesheetPersistence" class="com.hrms.service.persistence.EmployeeTimesheetPersistenceImpl" parent="basePersistence" />
-	<bean id="com.hrms.service.EmployeeTypeLocalService" class="com.hrms.service.impl.EmployeeTypeLocalServiceImpl" />
-	<bean id="com.hrms.service.EmployeeTypeService" class="com.hrms.service.impl.EmployeeTypeServiceImpl" />
-	<bean id="com.hrms.service.persistence.EmployeeTypePersistence" class="com.hrms.service.persistence.EmployeeTypePersistenceImpl" parent="basePersistence" />
 	<bean id="com.hrms.service.EmployeeWarningLocalService" class="com.hrms.service.impl.EmployeeWarningLocalServiceImpl" />
 	<bean id="com.hrms.service.EmployeeWarningService" class="com.hrms.service.impl.EmployeeWarningServiceImpl" />
 	<bean id="com.hrms.service.persistence.EmployeeWarningPersistence" class="com.hrms.service.persistence.EmployeeWarningPersistenceImpl" parent="basePersistence" />

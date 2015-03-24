@@ -253,8 +253,8 @@
 			<basic name="employeeDesignationId" />
 			<basic name="employeeDepartmentId" />
 			<basic name="employeeSubDepartmentId" />
-			<basic name="employeeTypeId" />
-			<basic name="employeeProofId" />
+			<basic name="employeeRecruitedBy" />
+			<basic name="employeeType" />
 			<basic name="createBy" />
 			<basic name="modifiedBy" />
 			<transient name="modelAttributes" />
@@ -380,16 +380,6 @@
 			<transient name="primaryKey" />
 			<transient name="primaryKeyObj" />
 			<transient name="userUuid" />
-		</attributes>
-	</mapped-superclass>
-	<mapped-superclass class="com.hrms.model.impl.EmployeeTypeModelImpl">
-		<attributes>
-			<id name="employeeTypeId" />
-			<basic name="employeeTypeName" />
-			<basic name="status" />
-			<transient name="modelAttributes" />
-			<transient name="primaryKey" />
-			<transient name="primaryKeyObj" />
 		</attributes>
 	</mapped-superclass>
 	<mapped-superclass class="com.hrms.model.impl.EmployeeWarningModelImpl">
@@ -635,10 +625,6 @@
 	</entity>
 	<entity class="com.hrms.model.impl.EmployeeTimesheetImpl" name="EmployeeTimesheet">
 		<table name="HRMS_EmployeeTimesheet" />
-		<attributes />
-	</entity>
-	<entity class="com.hrms.model.impl.EmployeeTypeImpl" name="EmployeeType">
-		<table name="HRMS_EmployeeType" />
 		<attributes />
 	</entity>
 	<entity class="com.hrms.model.impl.EmployeeWarningImpl" name="EmployeeWarning">

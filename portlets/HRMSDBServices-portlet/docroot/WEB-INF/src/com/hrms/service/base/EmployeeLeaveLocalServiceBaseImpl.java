@@ -32,7 +32,6 @@ import com.hrms.service.persistence.EmployeeProofPersistence;
 import com.hrms.service.persistence.EmployeeQualificationPersistence;
 import com.hrms.service.persistence.EmployeeSubDepartmentPersistence;
 import com.hrms.service.persistence.EmployeeTimesheetPersistence;
-import com.hrms.service.persistence.EmployeeTypePersistence;
 import com.hrms.service.persistence.EmployeeWarningPersistence;
 import com.hrms.service.persistence.InterviewPersistence;
 import com.hrms.service.persistence.JobLibraryPersistence;
@@ -1160,63 +1159,6 @@ public abstract class EmployeeLeaveLocalServiceBaseImpl
 	}
 
 	/**
-	 * Returns the employee type local service.
-	 *
-	 * @return the employee type local service
-	 */
-	public com.hrms.service.EmployeeTypeLocalService getEmployeeTypeLocalService() {
-		return employeeTypeLocalService;
-	}
-
-	/**
-	 * Sets the employee type local service.
-	 *
-	 * @param employeeTypeLocalService the employee type local service
-	 */
-	public void setEmployeeTypeLocalService(
-		com.hrms.service.EmployeeTypeLocalService employeeTypeLocalService) {
-		this.employeeTypeLocalService = employeeTypeLocalService;
-	}
-
-	/**
-	 * Returns the employee type remote service.
-	 *
-	 * @return the employee type remote service
-	 */
-	public com.hrms.service.EmployeeTypeService getEmployeeTypeService() {
-		return employeeTypeService;
-	}
-
-	/**
-	 * Sets the employee type remote service.
-	 *
-	 * @param employeeTypeService the employee type remote service
-	 */
-	public void setEmployeeTypeService(
-		com.hrms.service.EmployeeTypeService employeeTypeService) {
-		this.employeeTypeService = employeeTypeService;
-	}
-
-	/**
-	 * Returns the employee type persistence.
-	 *
-	 * @return the employee type persistence
-	 */
-	public EmployeeTypePersistence getEmployeeTypePersistence() {
-		return employeeTypePersistence;
-	}
-
-	/**
-	 * Sets the employee type persistence.
-	 *
-	 * @param employeeTypePersistence the employee type persistence
-	 */
-	public void setEmployeeTypePersistence(
-		EmployeeTypePersistence employeeTypePersistence) {
-		this.employeeTypePersistence = employeeTypePersistence;
-	}
-
-	/**
 	 * Returns the employee warning local service.
 	 *
 	 * @return the employee warning local service
@@ -1930,12 +1872,6 @@ public abstract class EmployeeLeaveLocalServiceBaseImpl
 	protected com.hrms.service.EmployeeTimesheetService employeeTimesheetService;
 	@BeanReference(type = EmployeeTimesheetPersistence.class)
 	protected EmployeeTimesheetPersistence employeeTimesheetPersistence;
-	@BeanReference(type = com.hrms.service.EmployeeTypeLocalService.class)
-	protected com.hrms.service.EmployeeTypeLocalService employeeTypeLocalService;
-	@BeanReference(type = com.hrms.service.EmployeeTypeService.class)
-	protected com.hrms.service.EmployeeTypeService employeeTypeService;
-	@BeanReference(type = EmployeeTypePersistence.class)
-	protected EmployeeTypePersistence employeeTypePersistence;
 	@BeanReference(type = com.hrms.service.EmployeeWarningLocalService.class)
 	protected com.hrms.service.EmployeeWarningLocalService employeeWarningLocalService;
 	@BeanReference(type = com.hrms.service.EmployeeWarningService.class)

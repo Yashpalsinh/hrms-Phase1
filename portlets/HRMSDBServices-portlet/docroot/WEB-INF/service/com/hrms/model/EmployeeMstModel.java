@@ -123,14 +123,21 @@ public interface EmployeeMstModel extends BaseModel<EmployeeMst> {
 	 *
 	 * @return the gender of this employee mst
 	 */
-	public long getGender();
+	public boolean getGender();
 
 	/**
-	 * Sets the gender of this employee mst.
+	 * Returns <code>true</code> if this employee mst is gender.
+	 *
+	 * @return <code>true</code> if this employee mst is gender; <code>false</code> otherwise
+	 */
+	public boolean isGender();
+
+	/**
+	 * Sets whether this employee mst is gender.
 	 *
 	 * @param gender the gender of this employee mst
 	 */
-	public void setGender(long gender);
+	public void setGender(boolean gender);
 
 	/**
 	 * Returns the date of birth of this employee mst.
@@ -208,98 +215,99 @@ public interface EmployeeMstModel extends BaseModel<EmployeeMst> {
 	 *
 	 * @return the employee designation ID of this employee mst
 	 */
-	public int getEmployeeDesignationId();
+	public long getEmployeeDesignationId();
 
 	/**
 	 * Sets the employee designation ID of this employee mst.
 	 *
 	 * @param employeeDesignationId the employee designation ID of this employee mst
 	 */
-	public void setEmployeeDesignationId(int employeeDesignationId);
+	public void setEmployeeDesignationId(long employeeDesignationId);
 
 	/**
 	 * Returns the employee department ID of this employee mst.
 	 *
 	 * @return the employee department ID of this employee mst
 	 */
-	public int getEmployeeDepartmentId();
+	public long getEmployeeDepartmentId();
 
 	/**
 	 * Sets the employee department ID of this employee mst.
 	 *
 	 * @param employeeDepartmentId the employee department ID of this employee mst
 	 */
-	public void setEmployeeDepartmentId(int employeeDepartmentId);
+	public void setEmployeeDepartmentId(long employeeDepartmentId);
 
 	/**
 	 * Returns the employee sub department ID of this employee mst.
 	 *
 	 * @return the employee sub department ID of this employee mst
 	 */
-	public int getEmployeeSubDepartmentId();
+	public long getEmployeeSubDepartmentId();
 
 	/**
 	 * Sets the employee sub department ID of this employee mst.
 	 *
 	 * @param employeeSubDepartmentId the employee sub department ID of this employee mst
 	 */
-	public void setEmployeeSubDepartmentId(int employeeSubDepartmentId);
+	public void setEmployeeSubDepartmentId(long employeeSubDepartmentId);
 
 	/**
-	 * Returns the employee type ID of this employee mst.
+	 * Returns the employee recruited by of this employee mst.
 	 *
-	 * @return the employee type ID of this employee mst
+	 * @return the employee recruited by of this employee mst
 	 */
-	public int getEmployeeTypeId();
+	public long getEmployeeRecruitedBy();
 
 	/**
-	 * Sets the employee type ID of this employee mst.
+	 * Sets the employee recruited by of this employee mst.
 	 *
-	 * @param employeeTypeId the employee type ID of this employee mst
+	 * @param employeeRecruitedBy the employee recruited by of this employee mst
 	 */
-	public void setEmployeeTypeId(int employeeTypeId);
+	public void setEmployeeRecruitedBy(long employeeRecruitedBy);
 
 	/**
-	 * Returns the employee proof ID of this employee mst.
+	 * Returns the employee type of this employee mst.
 	 *
-	 * @return the employee proof ID of this employee mst
+	 * @return the employee type of this employee mst
 	 */
-	public int getEmployeeProofId();
+	@AutoEscape
+	public String getEmployeeType();
 
 	/**
-	 * Sets the employee proof ID of this employee mst.
+	 * Sets the employee type of this employee mst.
 	 *
-	 * @param employeeProofId the employee proof ID of this employee mst
+	 * @param employeeType the employee type of this employee mst
 	 */
-	public void setEmployeeProofId(int employeeProofId);
+	public void setEmployeeType(String employeeType);
 
 	/**
 	 * Returns the create by of this employee mst.
 	 *
 	 * @return the create by of this employee mst
 	 */
-	public int getCreateBy();
+	public long getCreateBy();
 
 	/**
 	 * Sets the create by of this employee mst.
 	 *
 	 * @param createBy the create by of this employee mst
 	 */
-	public void setCreateBy(int createBy);
+	public void setCreateBy(long createBy);
 
 	/**
 	 * Returns the modified by of this employee mst.
 	 *
 	 * @return the modified by of this employee mst
 	 */
-	public int getModifiedBy();
+	public long getModifiedBy();
 
 	/**
 	 * Sets the modified by of this employee mst.
 	 *
 	 * @param modifiedBy the modified by of this employee mst
 	 */
-	public void setModifiedBy(int modifiedBy);
+	public void setModifiedBy(long modifiedBy);
 
 	@Override
 	public boolean isNew();
