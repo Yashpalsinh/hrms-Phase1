@@ -1,3 +1,4 @@
+
 package com.hrms.tasklist;
 
 import java.util.List;
@@ -28,7 +29,8 @@ public class TaskList {
 	{
 		ThemeDisplay themeDisplay = (ThemeDisplay)renderRequest.getAttribute(WebKeys.THEME_DISPLAY);
 		long userId=themeDisplay.getUserId();
-		List<Todo> taskList = TodoLocalServiceUtil.findByUser(userId);
+		List<Todo> taskList = TodoLocalServiceUtil.findUserById(userId);
+		
 		System.out.println("here is the list");
 		System.out.println(taskList);
 		ModelAndView md = new ModelAndView("view");

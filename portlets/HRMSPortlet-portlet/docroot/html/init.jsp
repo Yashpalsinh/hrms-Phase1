@@ -8,9 +8,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="java.util.List" %>
 <%@page import="com.liferay.portal.theme.ThemeDisplay"%>
-<%@page import="com.hrms.model.impl.EmployeeMasterImpl"%>
-<%@page import="com.hrms.model.EmployeeMaster"%>
+<%@page import="com.hrms.model.EmployeeMst"%>
 <%@ page import="java.util.Iterator" %>
 <%@page import="com.liferay.portal.kernel.dao.search.DisplayTerms"%>
 <%@taglib uri="http://liferay.com/tld/portlet" prefix="liferay-portlet" %>
-    <portlet:defineObjects />
+<portlet:defineObjects />

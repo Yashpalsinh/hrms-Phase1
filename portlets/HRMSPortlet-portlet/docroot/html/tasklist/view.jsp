@@ -6,6 +6,8 @@
 List<Todo> td=(List<Todo>)request.getAttribute("taskList");
 
 %>
+<span id="myData">
+
 <table id="tasktable">
   <c:forEach var="task" items="<%=td%>">
   <tr>
@@ -13,6 +15,9 @@ List<Todo> td=(List<Todo>)request.getAttribute("taskList");
   </tr>
   </c:forEach>
 </table>
+</span>
+
+
 
 <style>
 	#tasktable tr:nth-child(odd) {
